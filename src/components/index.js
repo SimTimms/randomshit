@@ -31,6 +31,7 @@ import StyledNavBar from './navBar';
 import ErrorBox from './pageElements';
 import { SelectTagsWidget, TagsWidget } from './tags';
 import Uploader from './uploader';
+import ModelUploader from './modelUploader';
 import CardActionArea from './wrappers';
 import NoticeBoard from './noticeBoard';
 import NoticeBoardSecondary from './noticeBoardSecondary';
@@ -193,6 +194,7 @@ export {
   Header,
   HeaderTwo,
   SubHeader,
+  ModelUploader,
   FeatureCardHorizontal,
   InviteComponentFull,
   CheckListItem,

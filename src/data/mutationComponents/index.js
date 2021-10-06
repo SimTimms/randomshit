@@ -68,7 +68,7 @@ export const MutationLogin = ({ parameters }) => {
               }}
               replaceMode={null}
               placeholder="something@email.com"
-              info="The email address you used to register with RandomShit"
+              info="The email address you used to register with MiniPainter3d"
               warning=""
               size="s"
               multiline={false}
@@ -83,7 +83,7 @@ export const MutationLogin = ({ parameters }) => {
               }}
               replaceMode={null}
               placeholder=""
-              info="The password you used to register with RandomShit"
+              info="The password you used to register with MiniPainter3d"
               warning=""
               size="s"
               multiline={false}

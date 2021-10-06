@@ -18,7 +18,7 @@ export default function Badges({ creative }) {
         ) {
           badgeArr.push(
             <a
-              href={'https://www.patreon.com/randomshit'}
+              href={'https://www.patreon.com/minipainter3d'}
               target="_blank"
               rel="noopener noreferrer"
               style={{ maxHeight: 16, maxWidth: 16, margin: 2 }}

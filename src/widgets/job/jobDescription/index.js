@@ -147,7 +147,7 @@ export default function JobDescription({ job }) {
             >
               <DividerWithBorder />
               <IconButton
-                title="Apply on RandomShit"
+                title="Apply on MiniPainter3d"
                 icon="chevron_right"
                 iconPos="right"
                 onClickEvent={() => {}}

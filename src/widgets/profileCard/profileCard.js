@@ -227,7 +227,7 @@ export default function ProfileCard({ creative, setLarge }) {
             </Column>
             {history && (
               <IconButton
-                title="Hire on RandomShit"
+                title="Hire on MiniPainter3d"
                 color="text-dark"
                 icon=""
                 iconPos="right"

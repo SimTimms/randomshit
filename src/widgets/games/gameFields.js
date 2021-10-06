@@ -1,36 +1,61 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { FieldBox, Column, Uploader } from '../../components';
+import { FieldBox, Column, ModelUploader, InputLabel } from '../../components';
 
 export default function GameFields({ game, setGame }) {
-  const classes = useStyles();
-
   return (
     <Column a="center" j="center">
-      <div
-        className={classes.image}
-        style={{
-          backgroundImage: `url(${game.featuredImage})`,
+      <InputLabel
+        title=".gltf File"
+        icon={null}
+        value={null}
+        maxLength={null}
+        info={'Include an image with this post.....if you want.'}
+        warning={''}
+      />
+
+      <ModelUploader
+        cbImage={(url) => {
+          setGame({
+            ...game,
+            gltf: url,
+          });
         }}
-      >
-        <Uploader
-          cbImage={(url) => {
-            setGame({
-              ...game,
-              featuredImage: url,
-            });
-          }}
-          styleOverride={null}
-          className={null}
-          cbDelete={null}
-          hasFile={false}
-          size="2MB PNG JPG GIF"
-          imageCategory="game"
-        />
-      </div>
+        styleOverride={null}
+        className={null}
+        cbDelete={null}
+        hasFile={false}
+        size="2MB PNG JPG GIF"
+        imageCategory="game"
+        modelFolder={game.name}
+      />
+      <InputLabel
+        title=".bin File"
+        icon={null}
+        value={null}
+        maxLength={null}
+        info={'Include an image with this post.....if you want.'}
+        warning={''}
+      />
+
+      <ModelUploader
+        cbImage={(url) => {
+          setGame({
+            ...game,
+            bin: url,
+          });
+        }}
+        styleOverride={null}
+        className={null}
+        cbDelete={null}
+        hasFile={false}
+        size="2MB PNG JPG GIF"
+        imageCategory="game"
+        modelFolder={game.name}
+      />
       <FieldBox
         value={game.name}
-        title="Project Name"
+        title="Model Name"
         maxLength={86}
         minLength={1}
         onChangeEvent={(e) => {
@@ -40,12 +65,13 @@ export default function GameFields({ game, setGame }) {
           });
         }}
         replaceMode="loose"
-        placeholder="Example: Mouse Stompa"
-        info="What's this project or game called?"
+        placeholder="Examples: Firstborn | Dreadnought | Fighter Jet"
+        info="What's this model called?"
         warning=""
         size="s"
         multiline={false}
       />
+      {/*
       <FieldBox
         value={game.summary}
         title="Summary"
@@ -57,12 +83,12 @@ export default function GameFields({ game, setGame }) {
           });
         }}
         replaceMode="loose"
-        placeholder="Example: Mouse Stompa"
+        placeholder="Example: I made this"
         info="What's this project or game called?"
         warning=""
         size="s"
         multiline={true}
-      />
+      />*/}
       <FieldBox
         value={game.url}
         title="URL"
@@ -74,26 +100,8 @@ export default function GameFields({ game, setGame }) {
           });
         }}
         replaceMode="loose"
-        placeholder="Example: Mouse Stompa"
-        info="What's this project or game called?"
-        warning=""
-        size="s"
-        multiline={false}
-      />
-
-      <FieldBox
-        value={game.showreel}
-        title="showreel"
-        maxLength={512}
-        onChangeEvent={(e) => {
-          setGame({
-            ...game,
-            showreel: e,
-          });
-        }}
-        replaceMode="loose"
-        placeholder="Example: Mouse Stompa"
-        info="What's this project or game called?"
+        placeholder="Example: sketchfab/mymodel"
+        info="Where can this model be downloaded"
         warning=""
         size="s"
         multiline={false}

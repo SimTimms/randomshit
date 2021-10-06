@@ -59,7 +59,7 @@ function RouterComponent(props) {
     },
   });
   return (
-    <div style={{ background: '#222', width: '100vh', height: '100vh' }}>
+    <div style={{ background: '#222', width: '100vw', height: '100vh' }}>
       <ThemeProvider theme={theme}>
         <ApolloProvider client={client}>
           <MenuContext.Provider

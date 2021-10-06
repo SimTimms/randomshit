@@ -37,7 +37,7 @@ export default function PrimaryMenu({ mainMenu, publicPage }) {
                             <img
                               src={randomshitlogo}
                               className={classes.device}
-                              alt="RandomShit Device"
+                              alt="MiniPainter3d Device"
                             />
                           </div>
                           {mainMenu(history, counts, menuContext, profile).map(

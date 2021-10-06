@@ -120,7 +120,7 @@ export default function FullProfileCard({ creativeId }) {
                         <MainTitle title="Options" />
                         <DividerMini />
                         <MenuButtonStandard
-                          title="Hire on RandomShit"
+                          title="Hire on MiniPainter3d"
                           icon=""
                           onClickEvent={() =>
                             history.push(`/app/new-job-post/${creative._id}`)

@@ -16,7 +16,7 @@ export default function SubmitJob({ jobId, history }) {
         return (
           <NoticeBoardSecondary
             title="Submit this job to the job board?"
-            subTitle="Click continue to submit this job, it will appear on the job board after approval by RandomShit admin"
+            subTitle="Click continue to submit this job, it will appear on the job board after approval by MiniPainter3d admin"
             onClickEvent={() => mutation()}
             buttonLocked={false}
             lockedMsg={''}
