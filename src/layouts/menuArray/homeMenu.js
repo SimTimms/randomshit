@@ -36,7 +36,7 @@ export default function homeMenu(menu) {
       count: null,
     },
     {
-      name: 'Games',
+      name: 'Paint',
       icon: 'casino',
       machineName: 'games',
       link: () =>

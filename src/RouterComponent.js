@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 import Cookies from 'js-cookie';
@@ -58,6 +58,7 @@ function RouterComponent(props) {
       contractId: null,
     },
   });
+
   return (
     <div style={{ background: '#222', width: '100vw', height: '100vh' }}>
       <ThemeProvider theme={theme}>

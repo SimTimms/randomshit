@@ -24,6 +24,9 @@ export default function GameForm() {
     webshop: [],
     url: '',
     showreel: '',
+    js: '',
+    gltf: '',
+    bin: '',
   });
 
   return (

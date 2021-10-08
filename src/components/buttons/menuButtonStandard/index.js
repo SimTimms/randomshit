@@ -41,10 +41,10 @@ export default function MenuButtonStandard({
             <Icon className={classes.title}>{disabled ? 'lock' : icon}</Icon>
           ) : icon && title ? (
             <div className={classes.titleWithIcon}>
+              <Typography className={classes.title}>{title}</Typography>
               <Icon className={classes.titleIcon}>
                 {disabled ? 'lock' : icon}
               </Icon>
-              <Typography className={classes.title}>{title}</Typography>
             </div>
           ) : (
             title && <Typography className={classes.title}>{title}</Typography>

@@ -8,6 +8,7 @@ export const FEATURED_GAME_WIDGET = gql`
       summary
       gltf
       bin
+      js
       url
     }
   }
@@ -26,8 +27,10 @@ export const POSTS_BY_GAME = gql`
     postsByGame(_id: $_id) {
       name
       logo
+      featureImage
       gltf
       bin
+      js
       summary
       url
       showreel
@@ -48,8 +51,10 @@ export const GAME_BY_ID = gql`
       _id
       name
       summary
+      featureImage
       gltf
       bin
+      js
       url
       price
       user {
@@ -80,8 +85,10 @@ export const GAME_WIDGET = gql`
       _id
       name
       summary
+      featureImage
       gltf
       bin
+      js
       url
       price
       user {
@@ -110,7 +117,9 @@ export const MY_GAMES = gql`
       _id
       name
       summary
+      featureImage
       gltf
+      js
       bin
       url
       showreel
@@ -125,6 +134,8 @@ export const CREATE_GAME = gql`
     $url: String
     $gltf: String
     $bin: String
+    $js: String
+    $featureImage: String
     $showreel: String
     $webshop: [GameWebshopInput]
     $gamePost: [GameGamePostInput]
@@ -136,9 +147,11 @@ export const CREATE_GAME = gql`
         url: $url
         gltf: $gltf
         bin: $bin
+        js: $js
         showreel: $showreel
         webshop: $webshop
         gamePost: $gamePost
+        featureImage: $featureImage
       }
     ) {
       recordId
@@ -154,8 +167,10 @@ export const UPDATE_GAME = gql`
     $url: String
     $gltf: String
     $bin: String
+    $js: String
     $showreel: String
     $price: String
+    $featureImage: String
     $webshop: [GameWebshopInput]
     $gamePost: [GameGamePostInput]
   ) {
@@ -167,10 +182,12 @@ export const UPDATE_GAME = gql`
         url: $url
         gltf: $gltf
         bin: $bin
+        js: $js
         showreel: $showreel
         price: $price
         webshop: $webshop
         gamePost: $gamePost
+        featureImage: $featureImage
       }
     ) {
       recordId

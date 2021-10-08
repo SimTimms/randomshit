@@ -17,7 +17,7 @@ import Parts from './Parts';
 import Models from './Models';
 import PaintPot from './PaintPot';
 
-function RouterComponent(props) {
+function ModelRouter({ gltf, js }) {
   const theme = themeDesigner();
   //needs to re-render model
   const modelColorsRef = useRef({});
@@ -44,7 +44,7 @@ function RouterComponent(props) {
   useEffect(() => {
     !color && setColor(colorMap);
     setModelColors(modelColorsRef.current);
-  }, [colorMap, color, modelColorsRef]);
+  }, [colorMap, color, modelColorsRef, js]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,19 +66,12 @@ function RouterComponent(props) {
               setColorFunction={setColorFunction}
               setPaintMode={setPaintMode}
             />
-
             <Lighting
               setLightOne={setLightOne}
               lightOne={lightOne}
               setLightTwo={setLightTwo}
               lightTwo={lightTwo}
             />
-
-            {/*<Tools
-            spray={spray}
-            setSpray={setSpray}
-            setPaintMode={setPaintMode}
-          />*/}
             {model === 'spacemarine' && <Decals setDecals={setDecals} />}
             {model === 'spacemarine' && <Parts setPart={setPart} />}
             <Models setModel={setModel} />
@@ -100,6 +93,8 @@ function RouterComponent(props) {
               decalSet={decals}
               part={part}
               model={model}
+              gltf={gltf}
+              js={js}
             />
             <Typography
               align="center"
@@ -158,4 +153,4 @@ function RouterComponent(props) {
   );
 }
 
-export default withRouter(RouterComponent);
+export default withRouter(ModelRouter);

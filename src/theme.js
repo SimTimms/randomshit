@@ -21,13 +21,13 @@ export default function themeDesigner() {
   });
   theme.palette.primary = {
     ...theme.palette.primary,
-    main: '#ff8c86',
+    main: '#e47838',
     light: '#45adfb',
     dark: '#a85a57',
   };
   theme.palette.secondary = {
     ...theme.palette.secondary,
-    main: '#ffcc86',
+    main: '#ed9a5c',
     light: process.env.REACT_APP_PALETTE_SL,
     dark: '#a67839',
   };
@@ -85,9 +85,9 @@ export default function themeDesigner() {
     fontFamily: [process.env.REACT_APP_THEME_FONT].join(','),
     fontSize: '1rem',
     margin: 0,
-    fontWeight: 400,
+    fontWeight: 600,
     color: '#fff',
-    fontFamily: `'Special Elite', cursive`,
+    fontFamily: `'Roboto'`,
   };
   theme.typography.button = {
     fontFamily: [process.env.REACT_APP_THEME_FONT].join(','),

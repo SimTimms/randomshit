@@ -1,10 +1,7 @@
 import React, { Suspense } from 'react';
 import { Canvas } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
-import SpaceMarine from './SpaceMarine';
-import BladeGuard from './BladeGuard';
-import { parse } from '@react-three/gltfjsx';
-import { GLTFLoader, DRACOLoader } from 'three-stdlib';
+import BG from './BladeGuard';
 
 export default function ThreeJS({
   color,
@@ -22,24 +19,16 @@ export default function ThreeJS({
   model,
   part,
   intensity,
+  gltf,
+  js,
 }) {
-  const gltfLoader = new GLTFLoader();
-  const dracoloader = new DRACOLoader();
-  dracoloader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
-  gltfLoader.setDRACOLoader(dracoloader);
-
-  gltfLoader.load(
-    'https://random-shit-store.s3.eu-west-2.amazonaws.com/614b73c98a97c40c65957b89/Test3/scene.gltf',
-    (gltf) => {
-      const jsx = parse('temp.js', gltf);
-    }
-  );
   return (
     <div
       style={{
         position: 'relative',
         width: '100%',
         height: 'calc(100vh - 164px)',
+        background: 'white',
       }}
     >
       <Canvas
@@ -80,7 +69,7 @@ export default function ThreeJS({
           </group>
 
           <group position={[0, 0, 0]}>
-            <SpaceMarine
+            <BG
               color={color}
               selectedMat={selectedMat}
               thisJSON={thisJSON}
@@ -94,23 +83,9 @@ export default function ThreeJS({
               lightOne={intensity}
               part={part}
               model={model}
+              gltfIn={gltf}
+              js={gltf}
             />
-            {/* <BladeGuard
-              color={color}
-              selectedMat={selectedMat}
-              thisJSON={thisJSON}
-              partClick={partClick}
-              activeColor={activeColor}
-              paintMode={paintMode}
-              setPaintMode={setPaintMode}
-              decalSet={decalSet}
-              modelColorsRef={modelColorsRef}
-              modelColors={modelColors}
-              spray={spray}
-              lightOne={intensity}
-              part={part}
-              model={model}
-           />*/}
           </group>
         </Suspense>
         <OrbitControls enabled={!paintMode} target={[0, 1, 0]} />

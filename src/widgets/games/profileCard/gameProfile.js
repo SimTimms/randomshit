@@ -26,26 +26,15 @@ export default function GameProfile({ game }) {
         {(menu) => (
           <Column j="space-between" h="100%">
             <Column j="flex-start">
-              <BgImg previewImage={game.featuredImage} onClick={() => {}} />
-              <Row j="space-between" w="100%" pl={5} pr={5}>
-                <Typography
-                  className={classes.gameName}
-                  onClick={() =>
-                    menu.updateMenuContext({
-                      ...menu,
-                      homePage: {
-                        ...menu.homePage,
-                        secondaryPage: 'game_profile',
-                        gameId: game._id,
-                      },
-                    })
-                  }
-                >
+              <Column bg="#222">
+                <Typography className={classes.gameName} variant="h4">
                   {game.name}
                 </Typography>
-
+                <BgImg previewImage={game.featureImage} />
+              </Column>
+              <Row j="center" w="100%" pl={5} pr={5} pt={5} pb={5} bg="#222">
                 <HrefLink
-                  title={game.user.name}
+                  title={`Posted By ${game.user.name}`}
                   url={`/user-profile/${game.user._id}`}
                 ></HrefLink>
               </Row>
@@ -57,27 +46,20 @@ export default function GameProfile({ game }) {
               </Typography>
             )}
 
-            {game.webshop.length > 0 && (
-              <OnlineStores webshops={game.webshop} />
-            )}
-
-            <Column w="100%">
-              <DividerWithBorder />
-              {game.url ? (
-                <a
-                  href={`${game.url}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: 'none' }}
-                >
-                  <MenuButtonStandard title="Website" onClickEvent={() => {}} />
-                </a>
-              ) : (
-                <div></div>
-              )}
-
-              <DividerMini />
-            </Column>
+            <MenuButtonStandard
+              title="Open"
+              icon="play_arrow"
+              onClickEvent={() => {
+                menu.updateMenuContext({
+                  ...menu,
+                  homePage: {
+                    ...menu.homePage,
+                    secondaryPage: 'game_profile',
+                    gameId: game._id,
+                  },
+                });
+              }}
+            />
           </Column>
         )}
       </MenuContext.Consumer>

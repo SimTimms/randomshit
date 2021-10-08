@@ -1,10 +1,38 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { FieldBox, Column, ModelUploader, InputLabel } from '../../components';
+import {
+  FieldBox,
+  Column,
+  ModelUploader,
+  Uploader,
+  InputLabel,
+} from '../../components';
 
 export default function GameFields({ game, setGame }) {
   return (
     <Column a="center" j="center">
+      <InputLabel
+        title="Feature Image"
+        icon={null}
+        value={null}
+        maxLength={null}
+        info={'Include an image with this post.....if you want.'}
+        warning={''}
+      />
+      <Uploader
+        cbImage={(url) => {
+          setGame({
+            ...game,
+            featureImage: url,
+          });
+        }}
+        styleOverride={null}
+        className={null}
+        cbDelete={null}
+        hasFile={false}
+        size="2MB PNG JPG GIF"
+        imageCategory="game"
+      />
       <InputLabel
         title=".gltf File"
         icon={null}
@@ -13,7 +41,6 @@ export default function GameFields({ game, setGame }) {
         info={'Include an image with this post.....if you want.'}
         warning={''}
       />
-
       <ModelUploader
         cbImage={(url) => {
           setGame({
@@ -37,7 +64,6 @@ export default function GameFields({ game, setGame }) {
         info={'Include an image with this post.....if you want.'}
         warning={''}
       />
-
       <ModelUploader
         cbImage={(url) => {
           setGame({
@@ -52,6 +78,25 @@ export default function GameFields({ game, setGame }) {
         size="2MB PNG JPG GIF"
         imageCategory="game"
         modelFolder={game.name}
+      />
+
+      <FieldBox
+        value={game.js}
+        title="JS File Nam"
+        maxLength={186}
+        minLength={1}
+        onChangeEvent={(e) => {
+          setGame({
+            ...game,
+            js: e,
+          });
+        }}
+        replaceMode="loose"
+        placeholder="Examples: Firstborn | Dreadnought | Fighter Jet"
+        info="What's this model called?"
+        warning=""
+        size="s"
+        multiline={false}
       />
       <FieldBox
         value={game.name}

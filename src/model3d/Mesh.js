@@ -39,17 +39,19 @@ export default function Mesh({
     '#00708a',
   ];
   useEffect(() => {
+    if (!modelColors) {
+      return null;
+    }
     const modelIsStored = modelColors[name];
     const modelHasMaterial = material;
-
     if (!modelIsStored) {
       const materialNew = new THREE.MeshStandardMaterial({
-        color: activeColor,
+        color: activeColor.color,
         transparent: true,
       });
       const modelColorCopy = { ...modelColorsRef.current };
       modelColorCopy[name] = {
-        color: activeColor,
+        color: activeColor.color,
       };
       modelColorsRef.current = modelColorCopy;
       // materialNew.color = activeColor;
@@ -90,10 +92,11 @@ export default function Mesh({
         onClick={(e) => {
           if (paintMode) {
             e.stopPropagation();
+
             const modelColorCopy = modelColorsRef.current;
-            modelColorCopy[name].color = activeColor;
+            modelColorCopy[name].color = activeColor.color;
             modelColorsRef.current = modelColorCopy;
-            paintMode && setMeshColor(activeColor);
+            paintMode && setMeshColor(activeColor.color);
           }
         }}
         castShadow

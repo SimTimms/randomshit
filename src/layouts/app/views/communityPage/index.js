@@ -26,7 +26,6 @@ import {
 import { ProfileCardMacro } from '../../../../widgets/profileCard';
 import { Query } from 'react-apollo';
 import { CHOSEN_CREATIVE } from './data';
-import ModelRouter from '../../../../model3d/ModelRouter';
 
 export default function CommunityPage() {
   const classes = useStyles();
@@ -108,7 +107,6 @@ export default function CommunityPage() {
                     )}
 
                     <Column a="flex-start" w="100%">
-                      <ModelRouter />
                       <SubTitle
                         title="Jobs"
                         menuStr="View All"
