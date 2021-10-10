@@ -21,7 +21,13 @@ export default function GameProfileFull() {
             if (data) {
               const game = data.gameById;
 
-              return <ModelRouter gltf={game.gltf} js={game.js} />;
+              return (
+                <ModelRouter
+                  gltf={game.gltf}
+                  js={game.js}
+                  parts={game.gamePart}
+                />
+              );
             }
           }}
         </Query>

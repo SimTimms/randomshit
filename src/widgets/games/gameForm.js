@@ -10,7 +10,7 @@ import { Mutation, Query } from 'react-apollo';
 import { CREATE_GAME, UPDATE_GAME, REMOVE_GAME, GAME_BY_ID } from './data';
 import { toaster } from '../../utils/toaster';
 import { MenuContext } from '../../context';
-import WebshopParent from './webshopParent';
+import GamePartParent from './gamePartParent';
 import GameFields from './gameFields';
 import GamePostParent from './gamePostParent';
 
@@ -21,7 +21,7 @@ export default function GameForm() {
     name: '',
     summary: '',
     featureImage: '',
-    webshop: [],
+    gamePart: [],
     url: '',
     showreel: '',
     js: '',
@@ -37,7 +37,7 @@ export default function GameForm() {
             <Column a="center" j="center">
               <GameFields game={game} setGame={setGame} />
               <Divider />
-              <WebshopParent game={game} setGame={setGame} />
+              <GamePartParent game={game} setGame={setGame} />
               <Divider />
               <GamePostParent game={game} setGame={setGame} />
               <Divider />

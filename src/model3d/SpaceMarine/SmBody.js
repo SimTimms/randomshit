@@ -13,15 +13,16 @@ import { useGLTF } from '@react-three/drei';
 import Mesh from '../Mesh';
 export default function Model({ props }) {
   const group = useRef();
-  const { nodes } = useGLTF(
-    'https://random-shit-store.s3.eu-west-2.amazonaws.com/614b73c98a97c40c65957b89/Test3/scene.gltf'
-  );
+  const { nodes } = useGLTF(`${props.gltfIn}`);
+  if (!nodes) {
+    return 'Loading';
+  }
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -30,7 +31,7 @@ export default function Model({ props }) {
             geometry={nodes.default1_bodyparts_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -39,7 +40,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_pants_mesh_bodyparts_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -49,7 +50,7 @@ export default function Model({ props }) {
             decalNormal={props.decalSet}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -58,7 +59,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_bodyWire_mesh1_tubes_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -67,7 +68,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_bodyWire_mesh_tubes_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -76,7 +77,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_bodyWire_mesh2_tubes_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -85,7 +86,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_body_mesh_flex_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -94,7 +95,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_chestInner_mesh_chest1_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -103,7 +104,7 @@ export default function Model({ props }) {
             geometry={nodes.chest_mesh_chest1_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -112,7 +113,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_wingLeft_mesh1_details_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -121,7 +122,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_skull_mesh_details_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -130,7 +131,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_wingLeft_mesh_details_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -139,7 +140,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_leftHipFlex_mesh_flex_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -148,7 +149,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_leftKnee01_mesh_knees_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -157,7 +158,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_leftKneeFlex_mesh_flex_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -166,7 +167,7 @@ export default function Model({ props }) {
             geometry={nodes.Legs_legs_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -175,7 +176,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_leftShoe01_mesh_shoes_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -184,7 +185,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_leftThighPlate_mesh2_legs_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -193,7 +194,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_leftThighPlate_mesh1_legs_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -202,7 +203,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_leftHipFlex_mesh1_flex_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -211,7 +212,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_leftShinPlate_mesh1_legs_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -220,7 +221,7 @@ export default function Model({ props }) {
             geometry={nodes.SM_rightShoe01_mesh_shoes_0.geometry}
           />
           <Mesh
-            activeColor={props.activeColor.color}
+            activeColor={props.activeColor}
             paintMode={props.paintMode}
             modelColors={props.modelColors}
             modelColorsRef={props.modelColorsRef}
@@ -230,7 +231,7 @@ export default function Model({ props }) {
           />
           <group position={[0, 0.15, -0.69]} rotation={[0.32, 0, 0]}>
             <Mesh
-              activeColor={props.activeColor.color}
+              activeColor={props.activeColor}
               paintMode={props.paintMode}
               modelColors={props.modelColors}
               modelColorsRef={props.modelColorsRef}
@@ -240,7 +241,7 @@ export default function Model({ props }) {
             />
             <group position={[0.02, 0.22, 1.02]} rotation={[-0.58, 0, 0]}>
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -251,7 +252,7 @@ export default function Model({ props }) {
             </group>
             <group position={[0, -0.01, -0.03]}>
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -265,7 +266,7 @@ export default function Model({ props }) {
               rotation={[-0.71, 0.97, -0.94]}
             >
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -274,7 +275,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder36_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -283,7 +284,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder56_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -292,7 +293,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder74_flex_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -301,7 +302,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder73_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -310,7 +311,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder72_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -319,7 +320,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder79_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -328,7 +329,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder78_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -337,7 +338,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder77_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -346,7 +347,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder76_flex_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -355,7 +356,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder75_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -364,7 +365,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder58_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -373,7 +374,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder80_flex_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -382,7 +383,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder59_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -391,7 +392,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder57_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -400,7 +401,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder71_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -409,7 +410,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCube97_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -418,7 +419,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder60_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -427,7 +428,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder61_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -436,7 +437,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder70_flex_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -445,7 +446,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCube96_hands_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -454,7 +455,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCylinder55_flex_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -463,7 +464,7 @@ export default function Model({ props }) {
                 geometry={nodes.pCube95_flex_0.geometry}
               />
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -475,7 +476,7 @@ export default function Model({ props }) {
           </group>
           <group position={[0, 0.01, -0.21]} rotation={[0.09, 0, 0]}>
             <Mesh
-              activeColor={props.activeColor.color}
+              activeColor={props.activeColor}
               paintMode={props.paintMode}
               modelColors={props.modelColors}
               modelColorsRef={props.modelColorsRef}
@@ -484,7 +485,7 @@ export default function Model({ props }) {
               geometry={nodes.SM_shoulder_mesh_arms_0.geometry}
             />
             <Mesh
-              activeColor={props.activeColor.color}
+              activeColor={props.activeColor}
               paintMode={props.paintMode}
               modelColors={props.modelColors}
               modelColorsRef={props.modelColorsRef}
@@ -496,7 +497,7 @@ export default function Model({ props }) {
             />
             <group position={[0, 0.1, 0.91]} rotation={[-0.48, 0, 0]}>
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -511,7 +512,7 @@ export default function Model({ props }) {
                 rotation={[-0.08, -0.05, 0.63]}
               >
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -520,7 +521,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder36_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -529,7 +530,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder56_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -538,7 +539,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder74_flex_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -547,7 +548,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder73_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -556,7 +557,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder72_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -565,7 +566,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder79_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -574,7 +575,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder78_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -583,7 +584,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder77_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -592,7 +593,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder76_flex_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -601,7 +602,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder75_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -610,7 +611,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder58_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -619,7 +620,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder80_flex_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -628,7 +629,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder59_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -637,7 +638,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder57_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -646,7 +647,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder71_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -655,7 +656,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCube97_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -664,7 +665,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder60_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -673,7 +674,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder61_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -682,7 +683,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder70_flex_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -691,7 +692,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCube96_hands_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -700,7 +701,7 @@ export default function Model({ props }) {
                   geometry={nodes.pCylinder55_flex_0_1.geometry}
                 />
                 <Mesh
-                  activeColor={props.activeColor.color}
+                  activeColor={props.activeColor}
                   paintMode={props.paintMode}
                   modelColors={props.modelColors}
                   modelColorsRef={props.modelColorsRef}
@@ -710,7 +711,7 @@ export default function Model({ props }) {
                 />
               </group>
               <Mesh
-                activeColor={props.activeColor.color}
+                activeColor={props.activeColor}
                 paintMode={props.paintMode}
                 modelColors={props.modelColors}
                 modelColorsRef={props.modelColorsRef}
@@ -725,7 +726,3 @@ export default function Model({ props }) {
     </group>
   );
 }
-
-useGLTF.preload(
-  'https://random-shit-store.s3.eu-west-2.amazonaws.com/614b73c98a97c40c65957b89/Test3/scene.gltf'
-);

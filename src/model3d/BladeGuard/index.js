@@ -1,13 +1,12 @@
 import React from 'react';
 import BgBodyLoader from './BgBodyLoader';
-import SmBase from './SmBase';
 export default function ThreeJS({ model, ...props }) {
+  if (props.props.js !== 'Bladeguard') {
+    return null;
+  }
   return (
     <group position={[0, 0.3, 0]} scale={[1, 1, 1]}>
-      <BgBodyLoader props={props} />
-      {/* <group position={[0, -0.25, 0]} scale={[1, 1, 1]}>
-        <SmBase props={props} />
-  </group>*/}
+      <BgBodyLoader props={props.props} />
     </group>
   );
 }

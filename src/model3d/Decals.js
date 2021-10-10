@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import { Row, Column, WidgetTitle, DividerMini } from './components';
 import { Icon } from '@material-ui/core';
-import umSergeant from './assets/um_sergeant.png';
-import imperial from './assets/imperial.png';
-import * as THREE from 'three';
 
 export default function Decals({ setDecals }) {
   return (
@@ -53,9 +50,7 @@ export default function Decals({ setDecals }) {
               },
             });
           }}
-        >
-          <img src={umSergeant} style={{ width: 40 }} />
-        </div>
+        ></div>
         <div
           style={{
             border: '1px solid #555',
@@ -99,9 +94,7 @@ export default function Decals({ setDecals }) {
               },
             });
           }}
-        >
-          <img src={imperial} style={{ width: 40 }} />
-        </div>
+        ></div>
         <div
           style={{
             border: '1px solid #555',

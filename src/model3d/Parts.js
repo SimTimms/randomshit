@@ -1,48 +1,46 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Row, Column, WidgetTitle, DividerMini } from './components';
-import { Icon } from '@material-ui/core';
-import bgOne from './assets/bg_one.jpg';
-import bgTwo from './assets/bg_two.png';
-import * as THREE from 'three';
+import { Query } from 'react-apollo';
+import { PART_BY_ID } from './data';
 
-export default function parts({ setPart }) {
+export default function Parts({ setAttachedPart, attachedPart, parts }) {
   return (
     <Column w={200} a="flex-start" bb="1px solid #444">
       <WidgetTitle str="Parts" />
       <DividerMini />
       <Row wrap="wrap">
-        <div
-          style={{
-            border: '1px solid #555',
-            height: 60,
-            width: 60,
-            margin: 3,
-            cursor: 'pointer',
-          }}
-          onClick={() => {
-            setPart({
-              primaryWeapon: 'bolter',
-            });
-          }}
-        >
-          <img src={bgTwo} style={{ width: 60 }} />
-        </div>
-        <div
-          style={{
-            border: '1px solid #555',
-            height: 60,
-            width: 60,
-            margin: 3,
-            cursor: 'pointer',
-          }}
-          onClick={() => {
-            setPart({
-              primaryWeapon: 'boltgun',
-            });
-          }}
-        >
-          <img src={bgOne} style={{ width: 60 }} />
-        </div>
+        {parts.map((part) => (
+          <Query
+            query={PART_BY_ID}
+            variables={{ gameId: part._id }}
+            onCompleted={(data) => {}}
+            fetchPolicy="network-only"
+          >
+            {({ data }) => {
+              console.log(data);
+              return (
+                <div
+                  onClick={() => {
+                    if (
+                      attachedPart.indexOf({
+                        _id: part._id,
+                        gltf: part.gltf,
+                        js: part.js,
+                      }) === -1
+                    ) {
+                      setAttachedPart([
+                        ...attachedPart,
+                        { _id: part._id, gltf: part.gltf, js: part.js },
+                      ]);
+                    }
+                  }}
+                >
+                  {part.name}
+                </div>
+              );
+            }}
+          </Query>
+        ))}
       </Row>
     </Column>
   );

@@ -15,7 +15,6 @@ export const useStyles = makeStyles((theme) => ({
     borderTop: '1px solid rgba(255,255,255,0.2)',
     borderLeft: '1px solid rgba(255,255,255,0.2)',
     borderRadius: 2,
-    width: '100%',
   },
   delete: { background: theme.palette.error.main },
   disabled: { background: '#aaa', boxShadow: 'none' },

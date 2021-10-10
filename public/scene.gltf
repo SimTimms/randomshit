@@ -1,0 +1,313 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                2
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Helmet_BASE",
+            "scale" : [
+                0.33697187900543213,
+                0.33697187900543213,
+                0.33697187900543213
+            ],
+            "translation" : [
+                0,
+                4.424316883087158,
+                -0.3103649914264679
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "0_Face_VENT_3_FULL",
+            "scale" : [
+                0.33697187900543213,
+                0.33697187900543213,
+                0.33697187900543213
+            ],
+            "translation" : [
+                0,
+                4.424316883087158,
+                -0.3103649914264679
+            ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "0_Tubes_Intercessor_FULL",
+            "scale" : [
+                0.33697187900543213,
+                0.33697187900543213,
+                0.33697187900543213
+            ],
+            "translation" : [
+                0,
+                4.424316883087158,
+                -0.3103649914264679
+            ]
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Primaris-Librarian-Helmet.010",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "COLOR_0" : 3
+                    },
+                    "indices" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Primaris-Librarian-Helmet.005",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 5,
+                        "NORMAL" : 6,
+                        "TEXCOORD_0" : 7,
+                        "COLOR_0" : 8
+                    },
+                    "indices" : 9
+                }
+            ]
+        },
+        {
+            "name" : "Primaris-Librarian-Helmet.024",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 10,
+                        "NORMAL" : 11,
+                        "TEXCOORD_0" : 12,
+                        "COLOR_0" : 13
+                    },
+                    "indices" : 14
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 21774,
+            "max" : [
+                9.904864311218262,
+                11.149239540100098,
+                13.824951171875
+            ],
+            "min" : [
+                -9.904864311218262,
+                -13.087159156799316,
+                -10.318658828735352
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 21774,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 21774,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 21774,
+            "normalized" : true,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 22656,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 3070,
+            "max" : [
+                6.473747730255127,
+                3.1909472942352295,
+                13.824951171875
+            ],
+            "min" : [
+                -6.473747730255127,
+                -7.481125831604004,
+                4.252579689025879
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 3070,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5126,
+            "count" : 3070,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5123,
+            "count" : 3070,
+            "normalized" : true,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5123,
+            "count" : 3552,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 2755,
+            "max" : [
+                8.699761390686035,
+                -0.3634072244167328,
+                12.68100357055664
+            ],
+            "min" : [
+                -8.699761390686035,
+                -7.654545783996582,
+                0.23776911199092865
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5126,
+            "count" : 2755,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 12,
+            "componentType" : 5126,
+            "count" : 2755,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 13,
+            "componentType" : 5123,
+            "count" : 2755,
+            "normalized" : true,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 14,
+            "componentType" : 5123,
+            "count" : 2841,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 261288,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 261288,
+            "byteOffset" : 261288
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 174192,
+            "byteOffset" : 522576
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 174192,
+            "byteOffset" : 696768
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 45312,
+            "byteOffset" : 870960
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 36840,
+            "byteOffset" : 916272
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 36840,
+            "byteOffset" : 953112
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 24560,
+            "byteOffset" : 989952
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 24560,
+            "byteOffset" : 1014512
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 7104,
+            "byteOffset" : 1039072
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 33060,
+            "byteOffset" : 1046176
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 33060,
+            "byteOffset" : 1079236
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 22040,
+            "byteOffset" : 1112296
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 22040,
+            "byteOffset" : 1134336
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5682,
+            "byteOffset" : 1156376
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1162060,
+            "uri" : "scene.bin"
+        }
+    ]
+}

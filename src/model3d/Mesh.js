@@ -92,7 +92,7 @@ export default function Mesh({
         onClick={(e) => {
           if (paintMode) {
             e.stopPropagation();
-
+            console.log(activeColor);
             const modelColorCopy = modelColorsRef.current;
             modelColorCopy[name].color = activeColor.color;
             modelColorsRef.current = modelColorCopy;

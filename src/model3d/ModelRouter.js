@@ -7,23 +7,21 @@ import ThreeJS from './threeJS';
 import { Row, Column, DividerMini } from './components';
 import 'rc-slider/assets/index.css';
 import RecentColors from './recentColors';
-import TitleBar from './TitleBar';
 import PaintRack from './PaintRack';
 import Lighting from './lighting';
 import ModeBar from './ModeBar';
 import Tools from './Tools';
 import Decals from './Decals';
 import Parts from './Parts';
-import Models from './Models';
 import PaintPot from './PaintPot';
 
-function ModelRouter({ gltf, js }) {
+function ModelRouter({ gltf, js, parts }) {
   const theme = themeDesigner();
   //needs to re-render model
   const modelColorsRef = useRef({});
   const [lightOne, setLightOne] = React.useState(30);
   const [decals, setDecals] = React.useState(null);
-  const [part, setPart] = React.useState({ primaryWeapon: 'boltgun' });
+  const [attachedPart, setAttachedPart] = React.useState([]);
   const [model, setModel] = React.useState('spacemarine');
   const [lightTwo, setLightTwo] = React.useState(70);
   const [paintMode, setPaintMode] = React.useState(false);
@@ -49,7 +47,6 @@ function ModelRouter({ gltf, js }) {
   return (
     <ThemeProvider theme={theme}>
       <Column>
-        <TitleBar model={model} setModel={setModel} />
         <Row h="100%" w="100%" j="flex-start" a="flex-start" bg="#222">
           <PaintRack setColorFunction={setColorFunction} />
         </Row>
@@ -73,8 +70,13 @@ function ModelRouter({ gltf, js }) {
               lightTwo={lightTwo}
             />
             {model === 'spacemarine' && <Decals setDecals={setDecals} />}
-            {model === 'spacemarine' && <Parts setPart={setPart} />}
-            <Models setModel={setModel} />
+            {model === 'spacemarine' && (
+              <Parts
+                setAttachedPart={setAttachedPart}
+                attachedPart={attachedPart}
+                parts={parts}
+              />
+            )}
           </Column>
 
           <Column>
@@ -91,10 +93,11 @@ function ModelRouter({ gltf, js }) {
               modelColors={modelColors}
               model={model}
               decalSet={decals}
-              part={part}
+              attachedPart={attachedPart}
               model={model}
               gltf={gltf}
               js={js}
+              parts={parts}
             />
             <Typography
               align="center"
@@ -144,7 +147,7 @@ function ModelRouter({ gltf, js }) {
                 >
                   Get This Paint
                 </a>
-              )}{' '}
+              )}
             </Typography>
           </Column>
         </Row>

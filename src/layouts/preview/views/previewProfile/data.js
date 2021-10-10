@@ -62,11 +62,12 @@ export const GAME_WIDGET_BY_USER = gql`
         name
         profileImg
       }
-      webshop {
+      gamePart {
         _id
         name
-        url
-        price
+        gltf
+        bin
+        js
       }
       gamePost {
         name

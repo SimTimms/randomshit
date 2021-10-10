@@ -33,6 +33,7 @@ export default function GameFields({ game, setGame }) {
         size="2MB PNG JPG GIF"
         imageCategory="game"
       />
+
       <InputLabel
         title=".gltf File"
         icon={null}
@@ -55,6 +56,25 @@ export default function GameFields({ game, setGame }) {
         size="2MB PNG JPG GIF"
         imageCategory="game"
         modelFolder={game.name}
+      />
+
+      <FieldBox
+        value={game.gltf}
+        title="GLTF File Name"
+        maxLength={186}
+        minLength={1}
+        onChangeEvent={(e) => {
+          setGame({
+            ...game,
+            gltf: e,
+          });
+        }}
+        replaceMode="loose"
+        placeholder="Examples: Firstborn | Dreadnought | Fighter Jet"
+        info="What's this model called?"
+        warning=""
+        size="s"
+        multiline={false}
       />
       <InputLabel
         title=".bin File"
@@ -79,7 +99,24 @@ export default function GameFields({ game, setGame }) {
         imageCategory="game"
         modelFolder={game.name}
       />
-
+      <FieldBox
+        value={game.bin}
+        title="BIN File Name"
+        maxLength={186}
+        minLength={1}
+        onChangeEvent={(e) => {
+          setGame({
+            ...game,
+            bin: e,
+          });
+        }}
+        replaceMode="loose"
+        placeholder="Examples: Firstborn | Dreadnought | Fighter Jet"
+        info="What's this model called?"
+        warning=""
+        size="s"
+        multiline={false}
+      />
       <FieldBox
         value={game.js}
         title="JS File Nam"

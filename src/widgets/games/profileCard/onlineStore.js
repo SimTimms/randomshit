@@ -6,17 +6,17 @@ export default function OnlineStores({ webshops }) {
   return (
     <Column w="100%">
       <Column w={300}>
-        {webshops.map((webshop, index) => (
+        {webshops.map((gamePart, index) => (
           <a
-            href={`${webshop.url}`}
+            href={`${gamePart.url}`}
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: 'none', width: '100%' }}
             key={randomKey()}
           >
             <MenuButtonStandard
-              title={`${webshop.name} ${webshop.price ? 'from' : ''} ${
-                webshop.price ? webshop.price : ''
+              title={`${gamePart.name} ${gamePart.price ? 'from' : ''} ${
+                gamePart.price ? gamePart.price : ''
               }`}
               icon="shopping_cart"
               onClickEvent={() => {}}

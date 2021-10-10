@@ -38,7 +38,9 @@ export default function MenuButtonStandard({
       <div className={classes.title}>
         {type === 'delete' && !confirm ? (
           icon && !title ? (
-            <Icon className={classes.title}>{disabled ? 'lock' : icon}</Icon>
+            <Icon className={classes.titleIcon}>
+              {disabled ? 'lock' : icon}
+            </Icon>
           ) : icon && title ? (
             <div className={classes.titleWithIcon}>
               <Typography className={classes.title}>{title}</Typography>
@@ -55,7 +57,7 @@ export default function MenuButtonStandard({
             <Typography className={classes.title}>Confirm Delete</Typography>
           </div>
         ) : icon && !title ? (
-          <Icon className={classes.title}>{disabled ? 'lock' : icon}</Icon>
+          <Icon className={classes.titleIcon}>{disabled ? 'lock' : icon}</Icon>
         ) : icon && title ? (
           <div className={classes.titleWithIcon}>
             <Icon className={classes.titleIcon}>

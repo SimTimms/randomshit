@@ -1,7 +1,8 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Canvas } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
 import BG from './BladeGuard';
+import SM from './SpaceMarine';
 
 export default function ThreeJS({
   color,
@@ -17,11 +18,33 @@ export default function ThreeJS({
   modelColorsRef,
   modelColors,
   model,
-  part,
+  attachedPart,
+  parts,
   intensity,
   gltf,
   js,
 }) {
+  const propExport = {
+    color,
+    selectedMat,
+    lightOne,
+    lightTwo,
+    thisJSON,
+    partClick,
+    activeColor,
+    paintMode,
+    setPaintMode,
+    decalSet,
+    modelColorsRef,
+    modelColors,
+    model,
+    attachedPart,
+    intensity,
+    gltfIn: gltf,
+    parts,
+    js,
+  };
+  // const BG = React.lazy(() => import('./BladeGuard'));
   return (
     <div
       style={{
@@ -67,25 +90,9 @@ export default function ThreeJS({
               shadow-focus={1}
             />
           </group>
-
           <group position={[0, 0, 0]}>
-            <BG
-              color={color}
-              selectedMat={selectedMat}
-              thisJSON={thisJSON}
-              partClick={partClick}
-              activeColor={activeColor}
-              paintMode={paintMode}
-              setPaintMode={setPaintMode}
-              decalSet={decalSet}
-              modelColorsRef={modelColorsRef}
-              modelColors={modelColors}
-              lightOne={intensity}
-              part={part}
-              model={model}
-              gltfIn={gltf}
-              js={gltf}
-            />
+            <BG props={propExport} />
+            <SM props={propExport} attachedPart={attachedPart} parts={parts} />
           </group>
         </Suspense>
         <OrbitControls enabled={!paintMode} target={[0, 1, 0]} />

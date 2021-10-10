@@ -2,8 +2,10 @@ import React from 'react';
 import { Row, Column, DividerMini } from './components';
 import { Typography } from '@material-ui/core';
 import { paints } from './paints';
+import { useStyles } from './styles';
 
 export default function PaintRack({ setColorFunction }) {
+  const classes = useStyles();
   const [hoverColor, setHoverColor] = React.useState({
     color: '#aaa',
     name: 'Plastic Grey',
@@ -17,25 +19,13 @@ export default function PaintRack({ setColorFunction }) {
               key={`paint_${index}`}
               onClick={() => setColorFunction(item)}
               onMouseOver={() => setHoverColor(item)}
+              className={item.metal ? classes.metallic : classes.standard}
               style={{
                 minHeight: 30,
                 minWidth: 30,
                 backgroundColor: item.color,
                 borderRadius: '50%',
                 margin: 2,
-                boxShadow: '2px 2px 3px rgba(0,0,0,0.2)',
-                borderTop: item.metal
-                  ? '1px solid rgba(255,255,255,1)'
-                  : '1px solid #444',
-                borderLeft: item.metal
-                  ? '1px solid rgba(255,255,255,1)'
-                  : '1px solid #444',
-                borderBottom: item.metal
-                  ? '1px solid rgba(255,255,255,0.2)'
-                  : '1px solid #444',
-                borderRight: item.metal
-                  ? '2px solid rgba(255,255,255,0.2)'
-                  : '2px solid #444',
               }}
               title={item.name}
             ></div>
