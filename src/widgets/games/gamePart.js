@@ -80,57 +80,6 @@ export default function GamePart({
           size="s"
           multiline={false}
         />
-        <FieldBox
-          value={gamePart.gltf}
-          title="GLTF"
-          maxLength={512}
-          onChangeEvent={(e) => {
-            setGamePart({
-              ...gamePart,
-              gltf: e,
-            });
-          }}
-          replaceMode="loose"
-          placeholder="Example: https://amazon.co.uk/my_game"
-          info="Provide a link to your game on the online shop."
-          warning=""
-          size="s"
-          multiline={false}
-        />
-        <FieldBox
-          value={gamePart.bin}
-          title="BIN"
-          maxLength={512}
-          onChangeEvent={(e) => {
-            setGamePart({
-              ...gamePart,
-              bin: e,
-            });
-          }}
-          replaceMode="loose"
-          placeholder="Example: £59.99, 50.00 USD"
-          info="How much can someone expect to pay for your game at this online store."
-          warning=""
-          size="s"
-          multiline={false}
-        />
-        <FieldBox
-          value={gamePart.js}
-          title="JS"
-          maxLength={512}
-          onChangeEvent={(e) => {
-            setGamePart({
-              ...gamePart,
-              js: e,
-            });
-          }}
-          replaceMode="loose"
-          placeholder="Example: £59.99, 50.00 USD"
-          info="How much can someone expect to pay for your game at this online store."
-          warning=""
-          size="s"
-          multiline={false}
-        />
         <DividerMini />
         {gamePart.index === null ? (
           <MenuButtonStandard
@@ -141,10 +90,7 @@ export default function GamePart({
                 gamePart: [
                   ...game.gamePart,
                   {
-                    name: gamePart.name,
-                    gltf: gamePart.gltf,
-                    bin: gamePart.bin,
-                    js: gamePart.js,
+                    _id: gamePart._id,
                   },
                 ],
               });
@@ -157,10 +103,7 @@ export default function GamePart({
             onClickEvent={() => {
               let newArr = [...game.gamePart];
               newArr.splice(gamePart.index, 1, {
-                name: gamePart.name,
-                gltf: gamePart.gltf,
-                bin: gamePart.bin,
-                js: gamePart.js,
+                _id: gamePart._id,
               });
               setGame({
                 ...game,

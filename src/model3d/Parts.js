@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Column, WidgetTitle, DividerMini } from './components';
 import { Query } from 'react-apollo';
 import { PART_BY_ID } from './data';
+import { Typography } from '@material-ui/core';
 
 export default function Parts({ setAttachedPart, attachedPart, parts }) {
   return (
@@ -17,26 +18,51 @@ export default function Parts({ setAttachedPart, attachedPart, parts }) {
             fetchPolicy="network-only"
           >
             {({ data }) => {
-              console.log(data);
+              const partData = data ? data.gameById : null;
               return (
-                <div
-                  onClick={() => {
-                    if (
-                      attachedPart.indexOf({
-                        _id: part._id,
-                        gltf: part.gltf,
-                        js: part.js,
-                      }) === -1
-                    ) {
-                      setAttachedPart([
-                        ...attachedPart,
-                        { _id: part._id, gltf: part.gltf, js: part.js },
-                      ]);
-                    }
-                  }}
-                >
-                  {part.name}
-                </div>
+                partData && (
+                  <div
+                    onClick={() => {
+                      if (
+                        attachedPart.indexOf({
+                          _id: partData._id,
+                          gltf: partData.gltf,
+                          js: partData.js,
+                        }) === -1
+                      ) {
+                        setAttachedPart([
+                          ...attachedPart,
+                          {
+                            _id: partData._id,
+                            gltf: partData.gltf,
+                            js: partData.js,
+                          },
+                        ]);
+                      }
+                    }}
+                    style={{
+                      border: '1px solid #444',
+                      width: '100%',
+                      marginBottom: 3,
+                    }}
+                  >
+                    <Row a="center" j="space-between">
+                      <img
+                        src={partData.featureImage}
+                        style={{ width: 50, borderRight: '1px solid #444' }}
+                      />
+                      <Typography
+                        style={{
+                          color: '#fff',
+                          fontSize: '0.6rem',
+                          padding: 5,
+                        }}
+                      >
+                        {partData.name}
+                      </Typography>
+                    </Row>
+                  </div>
+                )
               );
             }}
           </Query>

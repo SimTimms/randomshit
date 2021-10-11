@@ -51,7 +51,7 @@ export default function ThreeJS({
         position: 'relative',
         width: '100%',
         height: 'calc(100vh - 164px)',
-        background: 'white',
+        background: '#222',
       }}
     >
       <Canvas

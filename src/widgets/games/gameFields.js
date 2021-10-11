@@ -69,7 +69,7 @@ export default function GameFields({ game, setGame }) {
             gltf: e,
           });
         }}
-        replaceMode="loose"
+        replaceMode=""
         placeholder="Examples: Firstborn | Dreadnought | Fighter Jet"
         info="What's this model called?"
         warning=""
@@ -110,7 +110,7 @@ export default function GameFields({ game, setGame }) {
             bin: e,
           });
         }}
-        replaceMode="loose"
+        replaceMode=""
         placeholder="Examples: Firstborn | Dreadnought | Fighter Jet"
         info="What's this model called?"
         warning=""

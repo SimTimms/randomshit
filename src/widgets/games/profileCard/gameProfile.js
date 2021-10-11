@@ -30,6 +30,9 @@ export default function GameProfile({ game }) {
                 <Typography className={classes.gameName} variant="h4">
                   {game.name}
                 </Typography>
+                <Typography style={{ fontSize: '0.8rem' }}>
+                  {game._id}
+                </Typography>
                 <BgImg previewImage={game.featureImage} />
               </Column>
               <Row j="center" w="100%" pl={5} pr={5} pt={5} pb={5} bg="#222">

@@ -24,9 +24,7 @@ export default function GamePartParent({ game, setGame }) {
       {!store ? (
         <Typography
           className={classes.newStore}
-          onClick={() =>
-            setStore({ index: null, name: '', gltf: '', js: '', bin: '' })
-          }
+          onClick={() => setStore({ index: null })}
         >
           + Add an online store listing
         </Typography>
