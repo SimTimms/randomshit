@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import * as THREE from 'three';
+import { ColorContext } from '../context';
+
 export default function Mesh({
   geometry,
-  activeColor,
   paintMode,
   modelColorsRef,
   name,
@@ -14,11 +15,13 @@ export default function Mesh({
   position,
   rotation,
   scale,
+  activeColor,
 }) {
   const [material, setMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#aaa');
   const [decalItem, setDecalItem] = React.useState(null);
   const [decalNormalItem, setDecalNormalItem] = React.useState(null);
+
   const metals = [
     '#9e573c',
     '#f5b13d',
@@ -39,36 +42,20 @@ export default function Mesh({
     '#00708a',
   ];
   useEffect(() => {
-    if (!modelColors) {
-      return null;
-    }
-    const modelIsStored = modelColors[name];
+    // const modelIsStored = modelColors[name];
     const modelHasMaterial = material;
-    if (!modelIsStored) {
+    const savedColors = JSON.parse(localStorage.getItem('modelColorSave'));
+
+    if (!material) {
       const materialNew = new THREE.MeshStandardMaterial({
-        color: activeColor.color,
         transparent: true,
       });
-      const modelColorCopy = { ...modelColorsRef.current };
-      modelColorCopy[name] = {
-        color: activeColor.color,
-      };
-      modelColorsRef.current = modelColorCopy;
-      // materialNew.color = activeColor;
       setMaterial(materialNew);
     }
 
-    if (modelIsStored && !modelHasMaterial) {
-      const materialNew = new THREE.MeshStandardMaterial({
-        color: modelColors[name].color,
-        emissiveMap: modelColorsRef.current[name].decals,
-        emissive: modelColorsRef.current[name].intCol,
-        map: modelColorsRef.current[name].decalNormal,
-        emissiveIntensity: modelColorsRef.current[name].int,
-      });
-      setMaterial(materialNew);
+    if (savedColors[name] && savedColors[name].color !== meshColor) {
+      setMeshColor(savedColors[name].color);
     }
-
     if (decals !== null && decals !== undefined) {
       var texLoader = new THREE.TextureLoader();
       if (decals[name].tex) {
@@ -81,7 +68,7 @@ export default function Mesh({
         });
       }
     }
-  }, [activeColor, modelColors, modelColorsRef, decalNormal, decals]);
+  }, [modelColorsRef, decalNormal, decals, meshColor]);
   return !material ? null : (
     <group
       position={position && position}
@@ -92,10 +79,18 @@ export default function Mesh({
         onClick={(e) => {
           if (paintMode) {
             e.stopPropagation();
-            console.log(activeColor);
-            const modelColorCopy = modelColorsRef.current;
-            modelColorCopy[name].color = activeColor.color;
-            modelColorsRef.current = modelColorCopy;
+            // const modelColorCopy = modelColorsRef.current;
+            //  modelColorCopy[name].color = activeColor.color;
+            // modelColorsRef.current = modelColorCopy;
+            if (!localStorage.getItem('modelColorSave')) {
+              localStorage.setItem('modelColorSave', {});
+            }
+            const savedColors = JSON.parse(
+              localStorage.getItem('modelColorSave')
+            );
+            savedColors[name] = { color: activeColor.color };
+            localStorage.setItem('modelColorSave', JSON.stringify(savedColors));
+
             paintMode && setMeshColor(activeColor.color);
           }
         }}

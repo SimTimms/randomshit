@@ -14,6 +14,7 @@ import Tools from './Tools';
 import Decals from './Decals';
 import Parts from './Parts';
 import PaintPot from './PaintPot';
+import { ColorContext } from '../context';
 
 function ModelRouter({ gltf, js, parts }) {
   const theme = themeDesigner();
@@ -22,7 +23,6 @@ function ModelRouter({ gltf, js, parts }) {
   const [lightOne, setLightOne] = React.useState(30);
   const [decals, setDecals] = React.useState(null);
   const [attachedPart, setAttachedPart] = React.useState([]);
-  const [model, setModel] = React.useState('spacemarine');
   const [lightTwo, setLightTwo] = React.useState(70);
   const [paintMode, setPaintMode] = React.useState(false);
   const [color, setColor] = React.useState(null);
@@ -32,7 +32,6 @@ function ModelRouter({ gltf, js, parts }) {
     color: '#aaa',
     name: 'Plastic Grey',
   });
-
   const colorMap = {};
   function setColorFunction(activeColorIn) {
     setActiveColor(activeColorIn);
@@ -41,11 +40,16 @@ function ModelRouter({ gltf, js, parts }) {
 
   useEffect(() => {
     !color && setColor(colorMap);
-    setModelColors(modelColorsRef.current);
+    if (localStorage.getItem('modelColorSave')) {
+      //setModelColors(JSON.parse(localStorage.getItem('modelColorSave')));
+    }
   }, [colorMap, color, modelColorsRef, js]);
-
   return (
-    <ThemeProvider theme={theme}>
+    <ColorContext.Provider
+      value={{
+        activeColor: { color: activeColor.color, name: activeColor.name },
+      }}
+    >
       <Column>
         <Row h="100%" w="100%" j="flex-start" a="flex-start" bg="#222">
           <PaintRack setColorFunction={setColorFunction} />
@@ -69,14 +73,12 @@ function ModelRouter({ gltf, js, parts }) {
               setLightTwo={setLightTwo}
               lightTwo={lightTwo}
             />
-            {model === 'spacemarine' && <Decals setDecals={setDecals} />}
-            {model === 'spacemarine' && (
-              <Parts
-                setAttachedPart={setAttachedPart}
-                attachedPart={attachedPart}
-                parts={parts}
-              />
-            )}
+
+            <Parts
+              setAttachedPart={setAttachedPart}
+              attachedPart={attachedPart}
+              parts={parts}
+            />
           </Column>
 
           <Column>
@@ -91,10 +93,8 @@ function ModelRouter({ gltf, js, parts }) {
               setPaintMode={setPaintMode}
               modelColorsRef={modelColorsRef}
               modelColors={modelColors}
-              model={model}
               decalSet={decals}
               attachedPart={attachedPart}
-              model={model}
               gltf={gltf}
               js={js}
               parts={parts}
@@ -152,7 +152,7 @@ function ModelRouter({ gltf, js, parts }) {
           </Column>
         </Row>
       </Column>
-    </ThemeProvider>
+    </ColorContext.Provider>
   );
 }
 

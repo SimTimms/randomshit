@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect, useRef } from 'react';
 import { Canvas } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
 import BG from './BladeGuard';
@@ -45,6 +45,15 @@ export default function ThreeJS({
     js,
   };
   // const BG = React.lazy(() => import('./BladeGuard'));
+  const canvas = useRef(null);
+  const [dataURL, setDataURL] = React.useState(null);
+  console.log(dataURL);
+  useEffect(() => {
+    //const ctx = canvas.getContext('2d');
+
+    console.log(dataURL);
+    // const img = refs.image;
+  }, [canvas]);
   return (
     <div
       style={{
@@ -53,10 +62,14 @@ export default function ThreeJS({
         height: 'calc(100vh - 164px)',
         background: '#222',
       }}
+      onClick={() => setDataURL(canvas.current.toDataURL())}
     >
+      <img src={dataURL} />
       <Canvas
         pixelRatio={[1, 2]}
         camera={{ position: [10, 10, 10], fov: 10, far: 700 }}
+        ref={canvas}
+        gl={{ preserveDrawingBuffer: true }}
       >
         <Suspense fallback={null}>
           <group
