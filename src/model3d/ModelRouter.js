@@ -16,7 +16,7 @@ import Parts from './Parts';
 import PaintPot from './PaintPot';
 import { ColorContext } from '../context';
 
-function ModelRouter({ gltf, js, parts }) {
+function ModelRouter({ gltf, js, parts, gameId }) {
   const theme = themeDesigner();
   //needs to re-render model
   const modelColorsRef = useRef({});
@@ -98,6 +98,7 @@ function ModelRouter({ gltf, js, parts }) {
               gltf={gltf}
               js={js}
               parts={parts}
+              gameId={gameId}
             />
             <Typography
               align="center"

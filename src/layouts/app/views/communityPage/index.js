@@ -13,6 +13,7 @@ import {
 import { FeaturedArticle } from './components/getPosts';
 import {
   LatestCreativesWidget,
+  LatestMinis,
   JobBoardMiniWidget,
   FeaturedKickstarters,
   FeaturedCreativeHomeWidget,
@@ -153,6 +154,21 @@ export default function CommunityPage() {
                       </Typography>
                       <Row w="100%" wrap="flex-wrap">
                         <FeaturedCreativeHomeWidget />
+                      </Row>
+                    </Column>
+                    <Column a="flex-start" w="100%">
+                      <SubTitle
+                        title="Latest Minis"
+                        menuStr="View All"
+                        onClickEvent={() => {}}
+                        primaryButton={{
+                          title: 'Add',
+                          icon: 'add',
+                          onClickEvent: () => {},
+                        }}
+                      />
+                      <Row w="100%" wrap="flex-wrap">
+                        <LatestMinis />
                       </Row>
                     </Column>
                     <Column a="flex-start" w="100%">

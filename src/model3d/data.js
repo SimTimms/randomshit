@@ -11,3 +11,11 @@ export const PART_BY_ID = gql`
     }
   }
 `;
+
+export const SAVE_GAME_IMAGE = gql`
+  mutation savedGameCreateOne($url: String) {
+    savedGameCreateOne(record: { url: $url }) {
+      recordId
+    }
+  }
+`;

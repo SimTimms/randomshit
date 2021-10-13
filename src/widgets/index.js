@@ -4,6 +4,7 @@ import FeaturedCreativeHomeWidget from './featuredCreativesHome';
 import LatestCreativesWidget from './latestCreatives';
 import CreativeRosterWidget from './creativeRoster';
 import KickstarterForm from './kickstarter/kickstarterForm';
+import LatestMinis from './latestMinis';
 import MyPostForm from './myPosts/myPostForm';
 import { MyPosts, PublicPostsWidget } from './myPosts';
 import { FeaturedKickstarters, Kickstarters } from './kickstarter';
@@ -45,6 +46,7 @@ export {
   CreativeRosterWidget,
   KickstarterForm,
   FeaturedKickstarters,
+  LatestMinis,
   Kickstarters,
   FeaturedCreativeMiniWidget,
   FeaturedCreativeHomeWidget,

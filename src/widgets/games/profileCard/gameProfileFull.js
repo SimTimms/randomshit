@@ -26,6 +26,7 @@ export default function GameProfileFull() {
                   gltf={game.gltf}
                   js={game.js}
                   parts={game.gamePart}
+                  gameId={game._id}
                 />
               );
             }
