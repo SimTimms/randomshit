@@ -89,7 +89,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   active: {
     background: theme.palette.primary.main,
-    color: '#fff',
+    color: '#222',
     '&:hover': {
       background: theme.palette.primary.main,
     },

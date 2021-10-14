@@ -16,7 +16,7 @@ export default function gameProfileMenu(menu) {
       count: null,
     },
     {
-      name: 'Game Profile',
+      name: 'Painting',
       icon: 'casino',
       machineName: 'game_profile',
       link: () =>

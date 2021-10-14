@@ -6,6 +6,7 @@ import { ProfileCardMacro } from '../profileCard/';
 import BigImage from '../bigImage';
 import { Grid } from '../../components';
 import clsx from 'clsx';
+import LikeButton from './LikeButton';
 
 export default function LatestMinis({ ...props }) {
   const classes = useStyles();
@@ -19,7 +20,6 @@ export default function LatestMinis({ ...props }) {
         [classes.dashboard]: dashboard,
       })}
     >
-      {large !== null && <BigImage large={large} setLarge={setLarge} />}
       <Grid cols={3}>
         <Query
           query={LATEST_MINIS_WIDGET}
@@ -31,16 +31,18 @@ export default function LatestMinis({ ...props }) {
           {() => {
             return creativeArray.map((creative, index) => {
               return (
-                <img
-                  src={creative.url}
-                  style={{
-                    background: '#444',
-                    height: 200,
-                    padding: 20,
-                    borderRadius: 2,
-                    boxShadow: '3px 3px 10px rgba(0,0,0,0.2)',
-                  }}
-                />
+                <div className={classes.miniWrapper}>
+                  <img
+                    src={creative.url}
+                    style={{
+                      width: '100%',
+                    }}
+                  />
+                  <LikeButton
+                    url={creative.url}
+                    likes={creative.likes.length}
+                  />
+                </div>
               );
             });
           }}

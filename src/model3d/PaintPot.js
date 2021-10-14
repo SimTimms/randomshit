@@ -1,20 +1,22 @@
 import React from 'react';
+import { useStyles } from './styles';
 
-export default function PaintPot({ color, setColorFunction }) {
+export default function PaintPot({ item, setColorFunction, setHoverColor }) {
+  const classes = useStyles();
+  if (!item) return null;
   return (
     <div
-      onClick={() => setColorFunction(color)}
+      onClick={() => setColorFunction(item)}
+      onMouseOver={() => setHoverColor(item)}
+      className={item.metal ? classes.metallic : classes.standard}
       style={{
         minHeight: 30,
-        maxHeight: 30,
         minWidth: 30,
-        maxWidth: 30,
-        backgroundColor: color.color,
+        backgroundColor: item.color,
         borderRadius: '50%',
-        margin: 4,
-        boxShadow: '2px 2px 3px rgba(0,0,0,0.2)',
-        cursor: 'pointer',
+        margin: 2,
       }}
+      title={item.name}
     ></div>
   );
 }

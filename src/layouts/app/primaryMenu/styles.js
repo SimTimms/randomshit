@@ -7,6 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     width: 150,
     height: '100vh',
     zIndex: 2,
+    borderRight: '1px solid #444',
   },
   row: { flexDirection: 'row', width: '100%' },
   columnActive: {

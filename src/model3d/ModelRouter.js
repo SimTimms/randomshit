@@ -6,10 +6,8 @@ import themeDesigner from './theme';
 import ThreeJS from './threeJS';
 import { Row, Column, DividerMini } from './components';
 import 'rc-slider/assets/index.css';
-import RecentColors from './recentColors';
 import PaintRack from './PaintRack';
 import Lighting from './lighting';
-import ModeBar from './ModeBar';
 import Tools from './Tools';
 import Decals from './Decals';
 import Parts from './Parts';
@@ -24,7 +22,7 @@ function ModelRouter({ gltf, js, parts, gameId }) {
   const [decals, setDecals] = React.useState(null);
   const [attachedPart, setAttachedPart] = React.useState([]);
   const [lightTwo, setLightTwo] = React.useState(70);
-  const [paintMode, setPaintMode] = React.useState(false);
+  const [paintMode, setPaintMode] = React.useState(0);
   const [color, setColor] = React.useState(null);
   const [modelColors, setModelColors] = React.useState(null);
 
@@ -35,7 +33,7 @@ function ModelRouter({ gltf, js, parts, gameId }) {
   const colorMap = {};
   function setColorFunction(activeColorIn) {
     setActiveColor(activeColorIn);
-    setPaintMode(true);
+    setPaintMode(1);
   }
 
   useEffect(() => {
@@ -51,38 +49,38 @@ function ModelRouter({ gltf, js, parts, gameId }) {
       }}
     >
       <Column>
-        <Row h="100%" w="100%" j="flex-start" a="flex-start" bg="#222">
-          <PaintRack setColorFunction={setColorFunction} />
-        </Row>
         <Row h="100%" w="100%" j="flex-start" a="flex-start">
           <Column
             bg="#222"
             a="flex-start"
             j="flex-start"
             w={200}
-            h={`calc(100vh - 100px)`}
+            h={`calc(100vh - 128px)`}
           >
-            <RecentColors
-              activeColor={activeColor}
-              setColorFunction={setColorFunction}
-              setPaintMode={setPaintMode}
-            />
-            <Lighting
-              setLightOne={setLightOne}
-              lightOne={lightOne}
-              setLightTwo={setLightTwo}
-              lightTwo={lightTwo}
-            />
-
-            <Parts
-              setAttachedPart={setAttachedPart}
-              attachedPart={attachedPart}
-              parts={parts}
-            />
+            {(paintMode === 1 || paintMode == 0) && (
+              <PaintRack
+                setColorFunction={setColorFunction}
+                activeColor={activeColor}
+              />
+            )}
+            {paintMode === 2 && (
+              <Lighting
+                setLightOne={setLightOne}
+                lightOne={lightOne}
+                setLightTwo={setLightTwo}
+                lightTwo={lightTwo}
+              />
+            )}
+            {paintMode === 2 && (
+              <Parts
+                setAttachedPart={setAttachedPart}
+                attachedPart={attachedPart}
+                parts={parts}
+              />
+            )}
           </Column>
 
-          <Column>
-            <ModeBar paintMode={paintMode} setPaintMode={setPaintMode} />
+          <Column w={`calc(100vw - 360px)`}>
             <ThreeJS
               color={color}
               lightOne={lightOne / 100}
@@ -113,42 +111,6 @@ function ModelRouter({ gltf, js, parts, gameId }) {
               Model by Kurilovich Aleksey
               https://creativecommons.org/licenses/by/4.0/ Profile:
               https://sketchfab.com/brcasius Model: https://skfb.ly/6B6Nz
-            </Typography>
-          </Column>
-          <Column
-            bg="#222"
-            a="flex-start"
-            j="flex-start"
-            w={180}
-            h={`calc(100vh - 100px)`}
-          >
-            <DividerMini />
-            <Row j="flex-start">
-              <PaintPot color={activeColor} setColorFunction={() => null} />
-              <Typography align="left" style={{ color: '#fff' }}>
-                {activeColor.name}
-              </Typography>
-            </Row>
-            <Typography
-              align="left"
-              style={{ color: '#aaa', width: 180, marginLeft: 4 }}
-            >
-              {activeColor.company}
-            </Typography>
-            <Typography
-              align="left"
-              style={{ color: '#aaa', width: 180, marginLeft: 4 }}
-            >
-              {activeColor.link && (
-                <a
-                  href={activeColor.link}
-                  style={{ color: 'rgba(255,255,255,0.6)' }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get This Paint
-                </a>
-              )}
             </Typography>
           </Column>
         </Row>

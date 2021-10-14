@@ -13,7 +13,7 @@ export default function Button({ menuItem, isActive }) {
       className={clsx({
         [classes.row]: true,
         [classes.cursor]: true,
-        [classes.cursorActive]: isActive,
+
         [classes.column]: mobile,
       })}
       onClick={() => link()}
@@ -25,9 +25,18 @@ export default function Button({ menuItem, isActive }) {
           alt=""
         />
       ) : (
-        <Icon className={classes.icon}>{icon}</Icon>
+        <Icon
+          className={clsx({
+            [classes.icon]: true,
+            [classes.iconActive]: isActive,
+          })}
+        >
+          {icon}
+        </Icon>
       )}
-      <Typography className={classes.title}>{name}</Typography>
+      <Typography className={classes.title} variant="h5">
+        {name}
+      </Typography>
       {count && count.count > 0 && (
         <div className={classes.countIcon}>
           <Typography>{count && count.count}</Typography>

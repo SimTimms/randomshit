@@ -161,11 +161,6 @@ export default function CommunityPage() {
                         title="Latest Minis"
                         menuStr="View All"
                         onClickEvent={() => {}}
-                        primaryButton={{
-                          title: 'Add',
-                          icon: 'add',
-                          onClickEvent: () => {},
-                        }}
                       />
                       <Row w="100%" wrap="flex-wrap">
                         <LatestMinis />

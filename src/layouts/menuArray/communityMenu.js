@@ -18,7 +18,7 @@ export default function communityMenu(menu) {
       count: null,
     },
     {
-      name: 'Profiles',
+      name: 'Hire a Pro',
       icon: 'face',
       machineName: 'profiles',
       link: () =>

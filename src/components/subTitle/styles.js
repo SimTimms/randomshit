@@ -2,11 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
   subTitle: {
-    background: theme.palette.primary.dark,
-    marginLeft: -5,
-    borderRadius: '0 3px 3px 0',
-    padding: 5,
-    paddingLeft: 15,
     width: '300px !important',
   },
   subTitleShort: {

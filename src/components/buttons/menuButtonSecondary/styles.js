@@ -17,24 +17,14 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     whiteSpace: 'nowrap',
   },
-  icon: { fontSize: '1rem' },
-  circle: {
-    borderRadius: '50%',
-    height: 26,
-    width: 26,
-    background: 'rgba(255,255,255,0.3)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: '#fff',
-  },
-  circleOn: {
-    minHeight: 26,
-    minWidth: 26,
-    color: '#fff',
+  icon: { fontSize: '1rem', borderRadius: '50%', color: '#fff', padding: 5 },
+  iconOn: {
+    fontSize: '1rem',
     background: theme.palette.primary.main,
+    color: '#222',
   },
-  disabled: { opacity: 0.4 },
+
+  iconDisabled: { opacity: 0.4 },
   count: {
     background: theme.palette.secondary.main,
     borderRadius: 2,

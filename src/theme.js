@@ -21,24 +21,23 @@ export default function themeDesigner() {
   });
   theme.palette.primary = {
     ...theme.palette.primary,
-    main: '#e47838',
-    light: '#45adfb',
-    dark: '#a85a57',
+    main: '#A8FF75',
+    light: '#A8FF75',
+    dark: '#65a540',
   };
   theme.palette.secondary = {
     ...theme.palette.secondary,
-    main: '#ed9a5c',
-    light: process.env.REACT_APP_PALETTE_SL,
-    dark: '#a67839',
+    main: '#3cc6ff',
+    light: '#3cc6ff',
+    dark: '#3cc6ff',
   };
   theme.palette.error = {
     ...theme.palette.error,
-    main: process.env.REACT_APP_PALETTE_EM,
-    dark: process.env.REACT_APP_PALETTE_EL,
-    light: process.env.REACT_APP_PALETTE_ED,
+    main: '#ffe154',
+    dark: '#ff3c3c',
+    light: '#ffe154',
   };
   theme.typography.h1 = {
-    fontFamily: ['American Typewriter Bold'],
     fontSize: '3rem',
 
     margin: 0,
@@ -46,21 +45,18 @@ export default function themeDesigner() {
     fontFamily: `'Special Elite', cursive`,
   };
   theme.typography.h2 = {
-    fontFamily: [process.env.REACT_APP_THEME_FONT].join(','),
     fontSize: '2.4rem',
     margin: 0,
     fontWeight: 200,
     fontFamily: `'Special Elite', cursive`,
   };
   theme.typography.h3 = {
-    fontFamily: [process.env.REACT_APP_THEME_FONT].join(','),
     fontSize: '2rem',
     margin: 0,
     fontWeight: 200,
     fontFamily: `'Special Elite', cursive`,
   };
   theme.typography.h4 = {
-    fontFamily: [process.env.REACT_APP_THEME_FONT].join(','),
     fontSize: '1.8rem',
     margin: 0,
     fontWeight: 600,
@@ -71,18 +67,14 @@ export default function themeDesigner() {
     fontSize: '1.6rem',
     margin: 0,
     fontWeight: 200,
-    color: '#ff8c86',
   };
   theme.typography.h6 = {
-    fontFamily: [process.env.REACT_APP_THEME_FONT].join(','),
     fontSize: '1.4rem',
     margin: 0,
     fontWeight: 200,
-    color: '#ff8c86',
     fontFamily: `'Special Elite', cursive`,
   };
   theme.typography.body1 = {
-    fontFamily: [process.env.REACT_APP_THEME_FONT].join(','),
     fontSize: '1rem',
     margin: 0,
     fontWeight: 600,
@@ -90,11 +82,11 @@ export default function themeDesigner() {
     fontFamily: `'Roboto'`,
   };
   theme.typography.button = {
-    fontFamily: [process.env.REACT_APP_THEME_FONT].join(','),
     fontSize: 14,
     fontWeight: 900,
     color: theme.palette.primary.main,
     borderRadius: 4,
+    fontFamily: `'Special Elite', cursive`,
   };
   return theme;
 }

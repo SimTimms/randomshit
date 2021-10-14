@@ -48,6 +48,7 @@ export function Column(props) {
     classAdd,
     onClickEvent,
     bb,
+    of,
   } = props;
   const align = a ? a : 'center';
   const width = w ? w : '100%';
@@ -60,6 +61,7 @@ export function Column(props) {
   const borderRadius = br ? br : 0;
   const borderBottom = bb ? bb : 0;
   const margin = m ? m : 0;
+  const overflow = of ? of : '';
   const classes = useStyles();
   const mobile = useMediaQuery('(max-width:600px)');
 
@@ -78,6 +80,7 @@ export function Column(props) {
         margin,
         maxWidth,
         borderBottom,
+        overflow,
       }}
       className={clsx({
         [classes.desktop]: true,

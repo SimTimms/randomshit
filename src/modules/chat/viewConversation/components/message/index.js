@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { useStyles } from './styles';
 import { timeDifferenceForDate } from '../../../../../utils/dates';
 import Cookies from 'js-cookie';
-import logo from '../../../../../assets/branding/randomshitlogo.png';
+import logo from '../../../../../assets/branding/mp3d.png';
 
 export function Message({ message }) {
   const classes = useStyles();

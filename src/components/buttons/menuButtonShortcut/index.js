@@ -67,6 +67,8 @@ export default function MenuButtonShortcut({ text, ...props }) {
               [classes.buttonText]: true,
               [classes.buttonColumn]: column,
             })}
+            component="h5"
+            variant="h5"
           >
             {text.name}
           </Typography>

@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     width: '100%',
     overflow: 'auto',
-
+    background: '#fff',
     boxSizing: 'border-box',
   },
   dashboard: {
@@ -16,4 +16,5 @@ export const useStyles = makeStyles((theme) => ({
 
     boxSizing: 'border-box',
   },
+  miniWrapper: { margin: 10, boxShadow: '3px 3px 10px rgba(0,0,0,0.2)' },
 }));

@@ -3,7 +3,7 @@ import { Typography, Button, Icon } from '@material-ui/core';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import { useStyles } from './styles';
-import logo from '../../assets/branding/randomshitlogo.png';
+import logo from '../../assets/branding/mp3d.png';
 export default function MessageComponent({
   history,
   backgroundImg,

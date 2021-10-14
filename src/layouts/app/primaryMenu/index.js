@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './button';
 import { useStyles } from './styles';
-import randomshitlogo from '../../../assets/branding/randomshitlogo.png';
+import mp3d from '../../../assets/branding/mp3d.png';
 import {
   HistoryContext,
   CountContext,
@@ -35,7 +35,7 @@ export default function PrimaryMenu({ mainMenu, publicPage }) {
                         >
                           <div className={classes.deviceWrapper}>
                             <img
-                              src={randomshitlogo}
+                              src={mp3d}
                               className={classes.device}
                               alt="MiniPainter3d Device"
                             />

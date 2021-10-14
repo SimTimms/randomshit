@@ -3,9 +3,8 @@ import { Canvas } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
 import BG from './BladeGuard';
 import SM from './SpaceMarine';
-import { Mutation } from 'react-apollo';
-import { SAVE_GAME_IMAGE } from './data';
-import uploaderScreenshot from '../components/uploaderScreenshot';
+
+import ModeBar from './ModeBar';
 
 export default function ThreeJS({
   color,
@@ -51,21 +50,7 @@ export default function ThreeJS({
   // const BG = React.lazy(() => import('./BladeGuard'));
   const canvas = useRef(null);
   const [dataURL, setDataURL] = React.useState(null);
-  useEffect(() => {
-    //const ctx = canvas.getContext('2d');
 
-    console.log(dataURL);
-    // const img = refs.image;
-  }, [canvas]);
-
-  function dataURItoBlob(dataURI) {
-    var binary = atob(dataURI.split(',')[1]);
-    var array = [];
-    for (var i = 0; i < binary.length; i++) {
-      array.push(binary.charCodeAt(i));
-    }
-    return new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
-  }
   return (
     <div
       style={{
@@ -74,24 +59,12 @@ export default function ThreeJS({
         height: 'calc(100vh - 164px)',
         background: '#222',
       }}
-      onClick={() => setDataURL(canvas.current.toDataURL())}
     >
-      <Mutation
-        mutation={SAVE_GAME_IMAGE}
-        onCompleted={() => console.log('saved')}
-      >
-        {(mutation) => {
-          return (
-            <button
-              onClick={() =>
-                uploaderScreenshot(dataURItoBlob(dataURL), mutation)
-              }
-              title="Save"
-            />
-          );
-        }}
-      </Mutation>
-
+      <ModeBar
+        paintMode={paintMode}
+        setPaintMode={setPaintMode}
+        canvas={canvas}
+      />
       <Canvas
         pixelRatio={[1, 2]}
         camera={{ position: [10, 10, 10], fov: 10, far: 700 }}

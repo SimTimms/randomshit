@@ -18,8 +18,8 @@ export default function SubTitle({
       <Divider />
       <Row j="space-between" a="center" w="100%">
         <Row
-          j="space-between"
-          a="center"
+          j="flex-start"
+          a="flex-end"
           className={clsx({
             [classes.subTitle]: true,
             [classes.subTitleShort]: short,
@@ -30,6 +30,7 @@ export default function SubTitle({
               [classes.subTitleText]: true,
               [classes.subTitleTextShort]: short,
             })}
+            variant="h3"
           >
             {title}
           </Typography>

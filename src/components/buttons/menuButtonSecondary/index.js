@@ -17,15 +17,15 @@ export default function MenuButtonSecondary({
   return (
     <div className={classes.buttonWrapper} onClick={() => onClickEvent()}>
       <Row>
-        <div
+        <Icon
           className={clsx({
-            [classes.circle]: true,
-            [classes.circleOn]: active,
-            [classes.disabled]: disabled,
+            [classes.icon]: true,
+            [classes.iconOn]: active,
+            [classes.iconDisabled]: disabled,
           })}
         >
-          <Icon className={classes.icon}>{icon}</Icon>
-        </div>
+          {icon}
+        </Icon>
         {count && count > 0 ? (
           <Icon className={classes.count}>star</Icon>
         ) : null}
