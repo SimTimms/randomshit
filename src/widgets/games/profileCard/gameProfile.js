@@ -52,6 +52,7 @@ export default function GameProfile({ game }) {
             <MenuButtonStandard
               title="Open"
               icon="play_arrow"
+              fullWidth={true}
               onClickEvent={() => {
                 menu.updateMenuContext({
                   ...menu,

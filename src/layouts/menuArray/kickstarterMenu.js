@@ -18,7 +18,7 @@ export default function kickstarterMenu(menu) {
       count: null,
     },
     {
-      name: 'My Kickstarters',
+      name: 'My Photos',
       icon: 'dynamic_feed',
       machineName: 'my_kickstarters',
       link: () =>

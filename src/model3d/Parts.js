@@ -23,21 +23,31 @@ export default function Parts({ setAttachedPart, attachedPart, parts }) {
                 partData && (
                   <div
                     onClick={() => {
-                      if (
-                        attachedPart.indexOf({
+                      if (!attachedPart[partData._id]) {
+                        let savedParts = {};
+
+                        if (localStorage.getItem('modelPartsSave')) {
+                          const jsonParsed = JSON.parse(
+                            localStorage.getItem('modelPartsSave')
+                          );
+                          if (jsonParsed !== null) {
+                            savedParts = JSON.parse(
+                              localStorage.getItem('modelPartsSave')
+                            );
+                          }
+                        }
+
+                        savedParts[partData._id] = {
                           _id: partData._id,
                           gltf: partData.gltf,
                           js: partData.js,
-                        }) === -1
-                      ) {
-                        setAttachedPart([
-                          ...attachedPart,
-                          {
-                            _id: partData._id,
-                            gltf: partData.gltf,
-                            js: partData.js,
-                          },
-                        ]);
+                        };
+                        console.log(savedParts);
+                        localStorage.setItem(
+                          'modelPartsSave',
+                          JSON.stringify(savedParts)
+                        );
+                        setAttachedPart(savedParts);
                       }
                     }}
                     style={{

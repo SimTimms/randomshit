@@ -49,7 +49,6 @@ export default function ThreeJS({
   };
   // const BG = React.lazy(() => import('./BladeGuard'));
   const canvas = useRef(null);
-  const [dataURL, setDataURL] = React.useState(null);
 
   return (
     <div

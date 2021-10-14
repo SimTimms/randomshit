@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 export const LATEST_MINIS_WIDGET = gql`
   {
-    savedGameMany {
+    savedGameMany(sort: CREATEDAT__UPDATEDAT_DESC, limit: 12) {
       url
       likes
     }

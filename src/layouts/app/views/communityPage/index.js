@@ -106,7 +106,7 @@ export default function CommunityPage() {
                         </Column>
                       </Column>
                     )}
-
+                    {/*
                     <Column a="flex-start" w="100%">
                       <SubTitle
                         title="Jobs"
@@ -155,7 +155,7 @@ export default function CommunityPage() {
                       <Row w="100%" wrap="flex-wrap">
                         <FeaturedCreativeHomeWidget />
                       </Row>
-                    </Column>
+                      </Column>*/}
                     <Column a="flex-start" w="100%">
                       <SubTitle
                         title="Latest Minis"
@@ -199,6 +199,7 @@ export default function CommunityPage() {
                         <PublicPostsWidget />
                       </Row>
                     </Column>
+                    {/*
                     <Column a="flex-start" w="100%">
                       <SubTitle
                         title="Articles"
@@ -260,6 +261,7 @@ export default function CommunityPage() {
                         dashboard={true}
                       />
                     </Column>
+                      */}
                   </Column>
                 </Row>
               )}

@@ -13,7 +13,7 @@ export default function mainMenu(history, counts, mainMenuContext, profile) {
         }),
       count: null,
     },
-    {
+    /* {
       name: 'Job Ads',
       icon: 'post_add',
       machineName: 'jobs',
@@ -57,7 +57,7 @@ export default function mainMenu(history, counts, mainMenuContext, profile) {
         }),
       color: '',
       count: { icon: 'local_post_office', count: counts.messages },
-    },
+    },*/
     {
       name: 'Account',
       icon: 'account_circle',

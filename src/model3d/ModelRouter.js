@@ -38,9 +38,10 @@ function ModelRouter({ gltf, js, parts, gameId }) {
 
   useEffect(() => {
     !color && setColor(colorMap);
-    if (localStorage.getItem('modelColorSave')) {
-      //setModelColors(JSON.parse(localStorage.getItem('modelColorSave')));
-    }
+
+    const savedParts = JSON.parse(localStorage.getItem('modelPartsSave'));
+    JSON.stringify(savedParts) !== JSON.stringify(attachedPart) &&
+      setAttachedPart(savedParts);
   }, [colorMap, color, modelColorsRef, js]);
   return (
     <ColorContext.Provider

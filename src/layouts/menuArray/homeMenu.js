@@ -17,7 +17,7 @@ export default function homeMenu(menu) {
         }),
       count: null,
     },
-    {
+    /*  {
       name: 'Posts',
       icon: 'post_add',
       machineName: 'my_posts',
@@ -34,10 +34,10 @@ export default function homeMenu(menu) {
         }),
 
       count: null,
-    },
+    },*/
     {
       name: 'Paint',
-      icon: 'casino',
+      icon: 'brush',
       machineName: 'games',
       link: () =>
         menu.updateMenuContext({
@@ -49,8 +49,8 @@ export default function homeMenu(menu) {
         }),
       count: null,
     },
-    {
-      name: 'Kickstarters',
+    /* {
+      name: 'Photos',
       icon: 'view_in_ar',
       machineName: 'kickstarters',
       link: () =>
@@ -62,6 +62,6 @@ export default function homeMenu(menu) {
           },
         }),
       count: null,
-    },
+    },*/
   ];
 }

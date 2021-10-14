@@ -17,7 +17,7 @@ export default function communityMenu(menu) {
         }),
       count: null,
     },
-    {
+    /* {
       name: 'Hire a Pro',
       icon: 'face',
       machineName: 'profiles',
@@ -32,7 +32,7 @@ export default function communityMenu(menu) {
           },
         }),
       count: null,
-    },
+    },*/
     /*{
       name: 'Blog',
       icon: 'blog',
