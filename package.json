@@ -52,11 +52,11 @@
     "three.interaction": "^0.2.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "devstart": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
