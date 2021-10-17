@@ -100,9 +100,10 @@ export default function MiniGallery({ ...props }) {
                     url={creative.url
                       .replace(
                         'https://random-shit-store.s3.amazonaws.com/',
-                        ''
+                        'https://minipainter3d.herokuapp.com/photo?photo='
                       )
-                      .replace('.jpg', '')}
+                      .replace('.jpg', '')
+                      .trim()}
                     title={`Made with MiniPainter3d`}
                     className="shareBtn col-md-1 col-sm-1 col-xs-1"
                   >
