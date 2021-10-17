@@ -11,10 +11,19 @@ import {
   JobDescriptionWidget,
   PublicJobWidget,
 } from '../widgets';
+import MyCharEmbed from '../MyCharEmbed';
 
 export default function PublicRoutes({ theme, props: { ...props } }) {
   return (
     <Switch>
+      <Route
+        path="/photo/:pathParam/:image"
+        render={(props) => (
+          <MyCharEmbed
+            imageIn={`${props.match.params.pathParam}/${props.match.params.image}`}
+          />
+        )}
+      />
       <Route
         path="/user-profile/:pathParam"
         render={(props) => (

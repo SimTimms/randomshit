@@ -63,6 +63,7 @@ export default function ThreeJS({
         paintMode={paintMode}
         setPaintMode={setPaintMode}
         canvas={canvas}
+        modelId={gameId}
       />
       <Canvas
         pixelRatio={[1, 2]}

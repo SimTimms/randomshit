@@ -49,8 +49,22 @@ export default function homeMenu(menu) {
         }),
       count: null,
     },
-    /* {
-      name: 'Photos',
+    {
+      name: 'Gallery',
+      icon: 'save',
+      machineName: 'gallery',
+      link: () =>
+        menu.updateMenuContext({
+          ...menu,
+          homePage: {
+            primaryPage: 'gallery',
+            secondaryPage: 'browse_gallery',
+          },
+        }),
+      count: null,
+    },
+    {
+      name: 'Factions',
       icon: 'view_in_ar',
       machineName: 'kickstarters',
       link: () =>
@@ -62,6 +76,6 @@ export default function homeMenu(menu) {
           },
         }),
       count: null,
-    },*/
+    },
   ];
 }

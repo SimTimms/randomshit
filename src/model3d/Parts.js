@@ -42,7 +42,6 @@ export default function Parts({ setAttachedPart, attachedPart, parts }) {
                           gltf: partData.gltf,
                           js: partData.js,
                         };
-                        console.log(savedParts);
                         localStorage.setItem(
                           'modelPartsSave',
                           JSON.stringify(savedParts)

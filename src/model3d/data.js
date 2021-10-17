@@ -13,8 +13,20 @@ export const PART_BY_ID = gql`
 `;
 
 export const SAVE_GAME_IMAGE = gql`
-  mutation savedGameCreateOne($url: String) {
-    savedGameCreateOne(record: { url: $url }) {
+  mutation savedGameCreateOne(
+    $url: String
+    $model: MongoID
+    $saveDataColors: String
+    $saveDataParts: String
+  ) {
+    savedGameCreateOne(
+      record: {
+        url: $url
+        model: $model
+        saveDataColors: $saveDataColors
+        saveDataParts: $saveDataParts
+      }
+    ) {
       recordId
     }
   }

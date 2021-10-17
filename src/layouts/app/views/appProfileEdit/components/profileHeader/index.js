@@ -8,6 +8,7 @@ import {
   FieldBox,
   Row,
   Column,
+  DividerMini,
 } from '../../../../../../components';
 import autosave from '../../../../../../utils/autosave';
 
@@ -116,6 +117,7 @@ export function ProfileHeader({
             multiline={false}
           />
           <ErrorBox errorMsg={errors.name} />
+          <DividerMini />
           <FieldBox
             value={profile.summary}
             title="Summary"

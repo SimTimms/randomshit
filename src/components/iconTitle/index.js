@@ -13,7 +13,9 @@ export default function IconTitle({ title, icon }) {
       >
         {icon}
       </Icon>
-      <Typography variant="body1">{title}</Typography>
+      <Typography variant="h6" className={classes.text}>
+        {title}
+      </Typography>
     </div>
   );
 }

@@ -2,7 +2,11 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import moment from 'moment';
 
-async function uploader(imageData, cbFunction) {
+export default async function uploaderScreenshot(
+  imageData,
+  cbFunction,
+  modelId
+) {
   const headers = {
     'Content-Type': 'image/jpeg',
   };
@@ -37,6 +41,9 @@ async function uploader(imageData, cbFunction) {
             cbFunction({
               variables: {
                 url: url,
+                model: modelId,
+                saveDataColors: localStorage.getItem('modelColorSave'),
+                saveDataParts: localStorage.getItem('modelPartsSave'),
               },
             });
           })
@@ -46,5 +53,3 @@ async function uploader(imageData, cbFunction) {
     })
     .catch((error) => {});
 }
-
-export default uploader;

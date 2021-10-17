@@ -10,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
     paddingLeft: 20,
     paddingRight: 20,
     boxSizing: 'border-box',
-    background: theme.palette.secondary.main,
+    background: theme.palette.primary.main,
     border: '1px solid rgba(0,0,0,0.1)',
     borderTop: '1px solid rgba(255,255,255,0.2)',
     borderLeft: '1px solid rgba(255,255,255,0.2)',

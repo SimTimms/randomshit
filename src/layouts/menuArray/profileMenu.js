@@ -16,13 +16,13 @@ export default function profileMenu(onClickEvent, history) {
       link: () => onClickEvent('preview'),
       count: null,
     },
-    {
+    /*  {
       name: 'Preferences',
       icon: 'settings',
       machineName: 'preferences',
       link: () => onClickEvent('preferences'),
       count: null,
-    },
+    },*/
     {
       name: 'Account',
       icon: 'account_box',

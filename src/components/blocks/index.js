@@ -29,7 +29,11 @@ export function Title({ title }) {
 
 export function MainTitle({ title }) {
   const classes = useStyles();
-  return <Typography className={classes.mainTitle}>{title}</Typography>;
+  return (
+    <Typography variant="h5" className={classes.mainTitle}>
+      {title}
+    </Typography>
+  );
 }
 
 export function Column(props) {

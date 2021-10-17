@@ -4,6 +4,7 @@ import gameMenu from './gameMenu';
 import gameProfileMenu from './gameProfileMenu';
 import communityMenu from './communityMenu';
 import kickstarterMenu from './kickstarterMenu';
+import photoMenu from './photoMenu';
 import workMenu from './workMenu';
 import jobMenu from './jobMenu';
 import homeMenu from './homeMenu';
@@ -21,6 +22,7 @@ import myPostsMenu from './myPostsMenu';
 import editingJobMenu from './editingJobMenu';
 
 export {
+  photoMenu,
   editingJobMenu,
   myPostsMenu,
   jobBoardMenu,

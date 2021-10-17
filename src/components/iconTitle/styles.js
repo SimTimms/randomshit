@@ -14,4 +14,5 @@ export const useStyles = makeStyles((theme) => ({
     paddingRight: 5,
     boxSizing: 'border-box',
   },
+  text: { fontSize: '1rem', marginBottom: -5 },
 }));

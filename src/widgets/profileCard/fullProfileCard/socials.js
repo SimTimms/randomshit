@@ -9,14 +9,6 @@ export default function Socials({ creative }) {
 
   return (
     <Row j="flex-start" w={160}>
-      <a
-        href={`${process.env.REACT_APP_URL}/user-profile/${creative._id}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={classes.social}
-      >
-        <img src={dmDevice} className={classes.socialImg} alt="Doodle Meeple" />
-      </a>
       <Social socialStr={creative.linkedIn} socialSite="linkedIn" />
       <Social socialStr={creative.facebook} socialSite="facebook" />
       <Social socialStr={creative.instagram} socialSite="instagram" />

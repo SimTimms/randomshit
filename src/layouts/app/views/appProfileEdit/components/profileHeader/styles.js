@@ -15,7 +15,7 @@ export const useStyles = makeStyles((theme) => ({
     position: 'relative',
     marginTop: 10,
     marginBottom: 10,
-    backgroundColor: '#eee',
+    backgroundColor: '#555',
   },
   rootImage: {
     maxHeight: 107,
@@ -77,13 +77,13 @@ export const useStyles = makeStyles((theme) => ({
   },
   avatarWrapper: {
     borderRadius: '50%',
-    border: '10px solid #fff',
-    backgroundColor: '#eee',
+    border: '1px solid #555',
     width: 140,
     minWidth: 140,
     maxWidth: 140,
     height: 140,
     position: 'relative',
+    marginRight: 10,
   },
   deleteBGButton: { display: 'none' },
   deleteBGButtonShow: {

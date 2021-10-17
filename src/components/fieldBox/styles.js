@@ -7,7 +7,6 @@ export const useStyles = makeStyles((theme) => ({
     fontFamily: theme.typography.fontFamily,
     resize: 'vertical',
     padding: '10px 0 10px 0',
-    marginTop: 3,
     boxShadow: 'inset 3px 3px 10px rgba(0,0,0,0.05)',
     border: 'none',
     borderBottom: `1px dashed ${theme.palette.primary.dark}`,
@@ -38,7 +37,7 @@ export const useStyles = makeStyles((theme) => ({
   inputLabel: {
     fontSize: '0.8rem',
     marginTop: 5,
-    color: theme.palette.primary.main,
+    color: '#fff',
   },
   inputLabelRed: { color: theme.palette.error.main },
   small: {

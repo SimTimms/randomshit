@@ -77,6 +77,7 @@ export const useStyles = makeStyles((theme) => ({
   summary: {
     paddingBottom: 6,
     marginBottom: 10,
+    width: '100%',
   },
   types: { fontStyle: 'italic', fontSize: 12 },
   catTitle: { color: '#fff', marginLeft: 5, marginRight: 5 },

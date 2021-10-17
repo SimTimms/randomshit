@@ -5,6 +5,8 @@ import LatestCreativesWidget from './latestCreatives';
 import CreativeRosterWidget from './creativeRoster';
 import KickstarterForm from './kickstarter/kickstarterForm';
 import LatestMinis from './latestMinis';
+import MiniGallery from './miniGallery';
+import MyModelsWidget from './myModelsWidget';
 import MyPostForm from './myPosts/myPostForm';
 import { MyPosts, PublicPostsWidget } from './myPosts';
 import { FeaturedKickstarters, Kickstarters } from './kickstarter';
@@ -30,6 +32,8 @@ import {
 } from './job';
 
 export {
+  MyModelsWidget,
+  MiniGallery,
   FullContractViewWidget,
   PublicPostsWidget,
   MyPostForm,

@@ -39,9 +39,16 @@ function ModelRouter({ gltf, js, parts, gameId }) {
   useEffect(() => {
     !color && setColor(colorMap);
 
-    const savedParts = JSON.parse(localStorage.getItem('modelPartsSave'));
-    JSON.stringify(savedParts) !== JSON.stringify(attachedPart) &&
-      setAttachedPart(savedParts);
+    let savedParts = localStorage.getItem('modelPartsSave');
+    if (savedParts !== null && savedParts !== 'null') {
+      savedParts = JSON.parse(savedParts);
+      if (attachedPart.length === 0) {
+        setAttachedPart(savedParts);
+      }
+    }
+
+    //JSON.stringify(savedParts) !== JSON.stringify(attachedPart) &&
+    // setAttachedPart(savedParts);
   }, [colorMap, color, modelColorsRef, js]);
   return (
     <ColorContext.Provider
@@ -72,7 +79,7 @@ function ModelRouter({ gltf, js, parts, gameId }) {
                 lightTwo={lightTwo}
               />
             )}
-            {paintMode === 2 && (
+            {paintMode === 3 && (
               <Parts
                 setAttachedPart={setAttachedPart}
                 attachedPart={attachedPart}

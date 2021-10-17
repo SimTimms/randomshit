@@ -63,12 +63,12 @@ export default function FullProfileCard({ creativeId }) {
                     }}
                     skill={creative.sections}
                   />
-                  <ImageThumbs
+                  {/* <ImageThumbs
                     creativeId={creative._id}
                     profileBG={creative.profileBG}
                     setPreviewImage={setPreviewImage}
                     setLarge={setLarge}
-                  />
+                 />*/}
 
                   <Row a="flex-start" j="space-between">
                     <Column j="flex-start" w="100%" mw={700}>
@@ -81,6 +81,7 @@ export default function FullProfileCard({ creativeId }) {
                       <Typography align="left" className={classes.summary}>
                         {creative.summary}
                       </Typography>
+                      {/*
                       <Column w="100%" a="flex-start">
                         <DividerWithBorder />
                         <SubTitle title="Skills" />
@@ -112,13 +113,14 @@ export default function FullProfileCard({ creativeId }) {
                               )
                             );
                           })}
-                      </Column>
+                        </Column>*/}
                     </Column>
                     <Column a="flex-start" j="flex-start" mw={300} w="50%">
                       <Column w="100%" a="flex-start">
                         <DividerWithBorder />
                         <MainTitle title="Options" />
                         <DividerMini />
+                        {/*
                         <MenuButtonStandard
                           title="Hire on MiniPainter3d"
                           icon=""
@@ -126,7 +128,7 @@ export default function FullProfileCard({ creativeId }) {
                             history.push(`/app/new-job-post/${creative._id}`)
                           }
                           fullWidth={true}
-                        />
+                        />*/}
                         <DividerMini />
                         {shareLink ? (
                           <Typography

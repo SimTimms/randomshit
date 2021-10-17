@@ -4,11 +4,14 @@ import {
   homeMenu,
   gameMenu,
   kickstarterMenu,
+  photoMenu,
   communityMenu,
   myPostsMenu,
   gameProfileMenu,
 } from '../../../menuArray';
 import CommunityPage from '../communityPage';
+import MiniGalleryPage from '../miniGalleryPage';
+import MyModelsPage from '../myModelsPage';
 import {
   Games,
   CreativeRosterWidget,
@@ -37,6 +40,8 @@ export default function HomePage() {
                 ? communityMenu(menu)
                 : menu.homePage.primaryPage === 'kickstarters'
                 ? kickstarterMenu(menu)
+                : menu.homePage.primaryPage === 'gallery'
+                ? photoMenu(menu)
                 : menu.homePage.primaryPage === 'my_posts' && myPostsMenu(menu)
             }
             menu={null}
@@ -46,6 +51,12 @@ export default function HomePage() {
             {menu.homePage.primaryPage === 'community' &&
             menu.homePage.secondaryPage === 'dashboard' ? (
               <CommunityPage />
+            ) : menu.homePage.primaryPage === 'gallery' &&
+              menu.homePage.secondaryPage === 'browse_gallery' ? (
+              <MiniGalleryPage />
+            ) : menu.homePage.primaryPage === 'gallery' &&
+              menu.homePage.secondaryPage === 'my_models' ? (
+              <MyModelsPage />
             ) : (
               menu.homePage.secondaryPage === 'profiles' && (
                 <CreativeRosterWidget />

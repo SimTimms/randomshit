@@ -85,7 +85,9 @@ export default function RegisterCard({ setPage, ...props }) {
         }}
       >
         <Column>
-          <Typography variant="h5">Register</Typography>
+          <Typography variant="h5" style={{ color: '#fff' }}>
+            Register
+          </Typography>
           <Typography> Enter a few details to create your account</Typography>
           <DividerWithBorder />
         </Column>

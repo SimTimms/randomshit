@@ -219,14 +219,9 @@ export default function TabProfile({
                     <IconTitle icon="link" title="Social" />
                   </InlineHeader>
                   <div style={{ padding: 10 }}>
-                    <SocialHeader
-                      profile={profile}
-                      visible={visible}
-                      setVisible={setVisible}
-                    />
                     <Divider />
 
-                    <Row v={!visible.facebook && 'none'} mb={10}>
+                    <Row mb={10}>
                       <FieldBox
                         value={profile.facebook}
                         title="Facebook"
@@ -243,7 +238,7 @@ export default function TabProfile({
                         icon={social.socialFacebook}
                       />
                     </Row>
-                    <Row v={!visible.twitter && 'none'} mb={10}>
+                    <Row mb={10}>
                       <FieldBox
                         value={profile.twitter}
                         title="Twitter"
@@ -260,7 +255,7 @@ export default function TabProfile({
                         icon={social.socialTwitter}
                       />
                     </Row>
-                    <Row v={!visible.instagram && 'none'} mb={10}>
+                    <Row mb={10}>
                       <FieldBox
                         value={profile.instagram}
                         title="Instagram"
@@ -277,7 +272,7 @@ export default function TabProfile({
                         icon={social.socialInstagram}
                       />
                     </Row>
-                    <Row v={!visible.linkedIn && 'none'} mb={10}>
+                    <Row mb={10}>
                       <FieldBox
                         value={profile.linkedIn}
                         title="LinkedIn"
@@ -296,7 +291,7 @@ export default function TabProfile({
                     </Row>
                   </div>
                 </DMCard>
-                {sections &&
+                {/*  {sections &&
                   sections.map((section, index) => (
                     <DMCard key={randomKey()}>
                       <GallerySection
@@ -328,7 +323,7 @@ export default function TabProfile({
                       badges={profile.badges}
                     />
                   )}
-                </DMCard>
+                    </DMCard>*/}
               </div>
             )}
           </div>

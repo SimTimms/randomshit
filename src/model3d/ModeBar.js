@@ -8,7 +8,7 @@ import { SAVE_GAME_IMAGE } from './data';
 import uploaderScreenshot from '../components/uploaderScreenshot';
 import { toaster } from '../utils/toaster';
 
-export default function ModeBar({ paintMode, setPaintMode, canvas }) {
+export default function ModeBar({ paintMode, setPaintMode, canvas, modelId }) {
   const classes = useStyles();
   const [photo, setPhoto] = React.useState(false);
 
@@ -71,6 +71,16 @@ export default function ModeBar({ paintMode, setPaintMode, canvas }) {
                   >
                     lightbulb
                   </Icon>
+                  <Icon
+                    className={clsx({
+                      [classes.circleIcon]: true,
+                      [classes.circleIconGreen]: true,
+                      [classes.circleIconGreenOn]: paintMode === 3,
+                    })}
+                    onClick={() => setPaintMode(3)}
+                  >
+                    military_tech
+                  </Icon>
                 </Row>
 
                 <Icon
@@ -82,7 +92,8 @@ export default function ModeBar({ paintMode, setPaintMode, canvas }) {
                   onClick={() => {
                     uploaderScreenshot(
                       dataURItoBlob(canvas.current.toDataURL()),
-                      mutation
+                      mutation,
+                      modelId
                     );
                     setPhoto(true);
                   }}

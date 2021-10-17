@@ -19,6 +19,7 @@ export default function Mesh({
 }) {
   const [material, setMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#aaa');
+  const [importedColors, setImportedColors] = React.useState(null);
   const [decalItem, setDecalItem] = React.useState(null);
   const [decalNormalItem, setDecalNormalItem] = React.useState(null);
 
@@ -42,9 +43,13 @@ export default function Mesh({
     '#00708a',
   ];
   useEffect(() => {
-    // const modelIsStored = modelColors[name];
-    const modelHasMaterial = material;
-    const savedColors = JSON.parse(localStorage.getItem('modelColorSave'));
+    let savedColors = localStorage.getItem('modelColorSave');
+    if (savedColors !== 'null' && savedColors !== null) {
+      savedColors = JSON.parse(savedColors);
+      if (savedColors[name] && savedColors[name].color !== meshColor) {
+        setMeshColor(savedColors[name].color);
+      }
+    }
 
     if (!material) {
       const materialNew = new THREE.MeshStandardMaterial({
@@ -53,9 +58,6 @@ export default function Mesh({
       setMaterial(materialNew);
     }
 
-    if (savedColors[name] && savedColors[name].color !== meshColor) {
-      setMeshColor(savedColors[name].color);
-    }
     if (decals !== null && decals !== undefined) {
       var texLoader = new THREE.TextureLoader();
       if (decals[name].tex) {
@@ -69,6 +71,7 @@ export default function Mesh({
       }
     }
   }, [modelColorsRef, decalNormal, decals, meshColor]);
+
   return !material ? null : (
     <group
       position={position && position}
@@ -79,15 +82,14 @@ export default function Mesh({
         onClick={(e) => {
           if (paintMode) {
             e.stopPropagation();
-            // const modelColorCopy = modelColorsRef.current;
-            //  modelColorCopy[name].color = activeColor.color;
-            // modelColorsRef.current = modelColorCopy;
-            if (!localStorage.getItem('modelColorSave')) {
-              localStorage.setItem('modelColorSave', {});
+
+            let savedColors = localStorage.getItem('modelColorSave');
+            if (savedColors === 'null' || savedColors === null) {
+              savedColors = {};
+            } else {
+              savedColors = JSON.parse(savedColors);
             }
-            const savedColors = JSON.parse(
-              localStorage.getItem('modelColorSave')
-            );
+
             savedColors[name] = { color: activeColor.color };
             localStorage.setItem('modelColorSave', JSON.stringify(savedColors));
 
