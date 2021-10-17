@@ -6,7 +6,19 @@ const port = process.env.PORT || 3000; // Heroku will need the PORT environment 
 
 app.get('/photo', function (req, res) {
   res.send(
-    `<img src="https://random-shit-store.s3.amazonaws.com/614b73c98a97c40c65957b89/10152161254.jpg">`
+    `<html><head><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@timsimmsdev">
+    <meta name="twitter:title" content="Paint Miniatures in 3d">
+    <meta name="twitter:description" content="Try colour schemes on 3d miniatures">
+    <meta name="twitter:creator" content="@timsimmsdev">
+    <meta property="og:title" content="Paint Miniatures in 3d" />
+<meta property="og:description" content="Try colour schemes on 3d miniatures" />
+<meta property="og:image" content="https://random-shit-store.s3.amazonaws.com/${req.query.photo}.jpg" />
+    <meta name="twitter:image" content="https://random-shit-store.s3.amazonaws.com/${req.query.photo}.jpg">
+    <meta name="twitter:domain" content="minipainter3d.com">
+    </head>
+    <body>
+    <img src="https://random-shit-store.s3.amazonaws.com/${req.query.photo}.jpg"></body></html>`
   );
 });
 app.use(express.static(path.join(__dirname, 'build')));

@@ -88,12 +88,22 @@ export default function MiniGallery({ ...props }) {
                     )}
                   </MenuContext.Consumer>
                   <LikeButton
-                    url={creative.url}
+                    url={creative.url
+                      .replace(
+                        'https://random-shit-store.s3.amazonaws.com/',
+                        ''
+                      )
+                      .replace('.jpg', '')}
                     likes={creative.likes.length}
                   />
                   <TwitterShareButton
-                    url={creative.url}
-                    title={`Checking out the share button`}
+                    url={creative.url
+                      .replace(
+                        'https://random-shit-store.s3.amazonaws.com/',
+                        ''
+                      )
+                      .replace('.jpg', '')}
+                    title={`Made with MiniPainter3d`}
                     className="shareBtn col-md-1 col-sm-1 col-xs-1"
                   >
                     <TwitterIcon size={32} round={true} />
