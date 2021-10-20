@@ -39,7 +39,6 @@ export default function themeDesigner() {
   };
   theme.typography.h1 = {
     fontSize: '3rem',
-
     margin: 0,
     fontWeight: 600,
     fontFamily: `'Special Elite', cursive`,

@@ -7,6 +7,7 @@ import { Mutation } from 'react-apollo';
 import { SAVE_GAME_IMAGE } from './data';
 import uploaderScreenshot from '../components/uploaderScreenshot';
 import { toaster } from '../utils/toaster';
+import mp3dBack from '../assets/mp3dback.jpg';
 
 export default function ModeBar({ paintMode, setPaintMode, canvas, modelId }) {
   const classes = useStyles();
@@ -90,6 +91,8 @@ export default function ModeBar({ paintMode, setPaintMode, canvas, modelId }) {
                     [classes.circleIconGreyOn]: photo,
                   })}
                   onClick={() => {
+                    console.log(canvas.current);
+                    canvas.current.style.backgroundImage = `url(${mp3dBack})`;
                     uploaderScreenshot(
                       dataURItoBlob(canvas.current.toDataURL()),
                       mutation,
