@@ -23,11 +23,7 @@ export default function Parts({ setAttachedPart, attachedPart, parts }) {
                 partData && (
                   <div
                     onClick={() => {
-                      if (
-                        !attachedPart.filter(
-                          (item) => item._id === partData._id
-                        ).length === 0
-                      ) {
+                      if (!attachedPart[partData._id]) {
                         let savedParts = {};
 
                         if (localStorage.getItem('modelPartsSave')) {

@@ -31,18 +31,30 @@ function Loader() {
 }
 
 const scaler = {
-  '617073a63fd379821b018c12': {
-    position: [0, 1.4, 0],
-    scale: [0.05, 0.05, 0.05],
+  BladeguardLowRes: {
+    position: [0, 1.13, 0],
+    scale: [0.04, 0.04, 0.04],
   },
-  '6160a02349be93983b68c69f': {
-    position: [0, 0, 0],
-    scale: [0.6, 0.6, 0.6],
+  SpaceMarine: {
+    position: [0, 0.26, 0],
+    scale: [0.7, 0.7, 0.7],
     rotation: [-Math.PI, 0, 0],
   },
-  '615f62eb52772185da37071e': {
-    position: [0, 1.4, 0],
+  Bladeguard: {
+    position: [0, 1.13, 0],
+    scale: [0.04, 0.04, 0.04],
+  },
+  SMHelmetAdvanced: {
+    position: [0, 1.8, 0],
     scale: [0.05, 0.05, 0.05],
+  },
+  StandardBase: { position: [0, 0, 0], scale: [0.2, 0.2, 0.2] },
+  FoliagePackRocks: { position: [0, 0, 0], scale: [0.2, 0.2, 0.2] },
+  CrackedEarth: { position: [0, 0, 0], scale: [0.2, 0.2, 0.2] },
+  Bolter: {
+    position: [0.14, 1.33, 0.29],
+    rotation: [0.4, 0, 0.1],
+    scale: [1.1, 1.1, 1.1],
   },
 };
 export default function ThreeJS({
@@ -220,14 +232,35 @@ export default function ThreeJS({
           </group>
           <group
             name="sun"
-            scale={scaler[gameId].scale}
-            position={scaler[gameId].position}
-            rotation={scaler[gameId].rotation}
+            scale={scaler[js].scale}
+            position={scaler[js].position}
+            rotation={scaler[js].rotation}
           >
-            {attachedPart.map((item) => (
-              <ModelLoader props={{ ...propExport, gltf: item.gltf }} />
-            ))}
+            <ModelLoader props={propExport} />
           </group>
+          {Object.values(attachedPart).map((item) => {
+            console.log(attachedPart);
+            return (
+              <group
+                name="sun"
+                scale={
+                  scaler[item.js] ? scaler[item.js].scale : scaler[js].scale
+                }
+                position={
+                  scaler[item.js]
+                    ? scaler[item.js].position
+                    : scaler[js].position
+                }
+                rotation={
+                  scaler[item.js]
+                    ? scaler[item.js].rotation
+                    : scaler[js].rotation
+                }
+              >
+                <ModelLoader props={{ ...propExport, gltfIn: item.gltf }} />
+              </group>
+            );
+          })}
         </Suspense>
         <OrbitControls
           enabled={!paintMode}

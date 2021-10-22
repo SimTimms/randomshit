@@ -57,7 +57,6 @@ export default function ModelLoader({ props }) {
         const exists = existsArray.indexOf(item.name);
         if (exists === -1) {
           existsArray.push(item.name);
-          console.log(item.name);
           if (item.geometry && item.visible) {
             nodeMap.push(
               <Mesh
