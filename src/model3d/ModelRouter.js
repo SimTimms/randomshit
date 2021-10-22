@@ -22,6 +22,9 @@ function ModelRouter({ gltf, js, parts, gameId }) {
   const [decals, setDecals] = React.useState(null);
   const [attachedPart, setAttachedPart] = React.useState([]);
   const [lightTwo, setLightTwo] = React.useState(70);
+  const [lightThree, setLightThree] = React.useState(20);
+  const [lightFour, setLightFour] = React.useState(20);
+  const [lightFive, setLightFive] = React.useState(20);
   const [paintMode, setPaintMode] = React.useState(0);
   const [color, setColor] = React.useState(null);
   const [modelColors, setModelColors] = React.useState(null);
@@ -77,6 +80,12 @@ function ModelRouter({ gltf, js, parts, gameId }) {
                 lightOne={lightOne}
                 setLightTwo={setLightTwo}
                 lightTwo={lightTwo}
+                setLightThree={setLightThree}
+                lightThree={lightThree}
+                setLightFour={setLightFour}
+                lightFour={lightFour}
+                setLightFive={setLightFive}
+                lightFive={lightFive}
               />
             )}
             {paintMode === 3 && (
@@ -93,6 +102,9 @@ function ModelRouter({ gltf, js, parts, gameId }) {
               color={color}
               lightOne={lightOne / 100}
               lightTwo={lightTwo / 100}
+              lightThree={lightThree / 100}
+              lightFour={lightFour / 100}
+              lightFive={lightFive / 100}
               intensity={(lightOne + lightTwo) / 200}
               activeColor={activeColor}
               paintMode={paintMode}

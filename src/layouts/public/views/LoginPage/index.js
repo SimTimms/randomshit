@@ -42,7 +42,9 @@ export default function LoginPage({ history, forwardTo }) {
         }}
       >
         <Column>
-          <Typography variant="h5">Welcome</Typography>
+          <Typography variant="h5" style={{ color: '#fff' }}>
+            Welcome
+          </Typography>
           <Typography>Please login</Typography>
           <Divider />
         </Column>
@@ -65,7 +67,7 @@ export default function LoginPage({ history, forwardTo }) {
           <Column w={200}>
             <DividerMini />
             <MenuButtonStandardText
-              title="Forgot your password?"
+              title="Forgotten your password?"
               onClickEvent={() => history.push('/password-forgot')}
             />
 

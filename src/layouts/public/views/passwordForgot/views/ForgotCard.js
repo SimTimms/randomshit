@@ -14,7 +14,14 @@ import { sharedStyles } from '../../styles';
 import { Mutation } from 'react-apollo';
 import { PASSWORD_FORGOT_MUTATION } from '../../../../../data/authorisation';
 import { PROFILE_EMAIL } from '../../../../../utils/dataLengths';
-import { ErrorBox, Form, FormInput } from '../../../../../components';
+import {
+  ErrorBox,
+  Form,
+  FieldBox,
+  Column,
+  MenuButtonStandard,
+  MenuButtonStandardText,
+} from '../../../../../components';
 import { validate } from 'email-validator';
 import clsx from 'clsx';
 
@@ -40,105 +47,80 @@ export default function ForgotCard({ history, setPage }) {
   }
 
   return (
-    <Slide direction="left" in={true} mountOnEnter unmountOnExit>
-      <div className={classes.cardWrapper}>
-        <Card
-          className={clsx({
-            [classes.card]: true,
-            [classes.cardMobile]: mobile,
-          })}
+    <Column>
+      <CardContent style={{ padding: 5 }}>
+        <Typography
+          variant="h5"
+          color="textPrimary"
+          style={{ textAlign: 'center', color: '#fff' }}
         >
-          <CardContent style={{ padding: 5 }}>
-            <Typography
-              variant="h1"
-              color="textPrimary"
-              style={{ textAlign: 'center' }}
-            >
-              Forgot your password?
-            </Typography>
-            <Typography
-              variant="body1"
-              component="p"
-              style={{ textAlign: 'center' }}
-              className={classes.description}
-            >
-              Enter your email address and we'll send you a reset link
-            </Typography>
-          </CardContent>
-          <Divider />
-          <CardContent className={classes.cardContentCenter}>
-            <Form width={200}>
-              <FormInput
-                fieldName="emailAddress"
-                fieldValue={email}
-                setFieldValue={setEmail}
-                fieldTitle={`Email ${
-                  email ? `(${PROFILE_EMAIL - email.length})` : ''
-                }`}
-                inputProps={{ maxLength: PROFILE_EMAIL }}
-              />
-              <ErrorBox errorMsg={errors.email} />
-            </Form>
-          </CardContent>
-          <CardContent className={classes.cardContentCenter}>
-            <Mutation
-              mutation={PASSWORD_FORGOT_MUTATION}
-              variables={{ email }}
-              onCompleted={async (data) => {
-                setPage(1);
-              }}
-              onError={(error) => {
-                setPage(1);
-              }}
-            >
-              {(passwordForgotMutation) => {
-                return (
-                  <Button
-                    onClick={() => {
-                      submitChecks(passwordForgotMutation);
-                    }}
-                    variant="contained"
-                    color="primary"
-                  >
-                    Reset Password
-                  </Button>
-                );
-              }}
-            </Mutation>
-          </CardContent>
-          <Divider />
-          <CardContent
-            style={{
-              paddingBottom: 70,
-              display: 'flex',
-              flexDirection: 'column',
+          Forgot your password?
+        </Typography>
+        <Typography
+          variant="body1"
+          component="p"
+          style={{ textAlign: 'center' }}
+          className={classes.description}
+        >
+          Enter your email address and we'll send you a reset link
+        </Typography>
+      </CardContent>
+      <Divider />
+      <CardContent className={classes.cardContentCenter}>
+        <Form width={200}>
+          <FieldBox
+            value={email}
+            title="Email Address"
+            maxLength={226}
+            onChangeEvent={(e) => {
+              setEmail(e);
             }}
-            className={classes.cardContentCenter}
-          >
-            <Typography
-              component="p"
-              style={{ textAlign: 'center', fontSize: 12 }}
-              color="primary"
-            >
-              Remembered your password?
-            </Typography>
-            <Link to="/login">
-              <Button
-                color="primary"
-                style={{
-                  width: 80,
-                  textTransform: 'none',
-                  fontWeight: 600,
-                  fontSize: 16,
-                  padding: 0,
+            replaceMode={null}
+            placeholder="something@email.com"
+            info="The email address you used to register with MiniPainter3d"
+            warning=""
+            size="s"
+            multiline={false}
+          />
+          <ErrorBox errorMsg={errors.email} />
+        </Form>
+      </CardContent>
+      <CardContent className={classes.cardContentCenter}>
+        <Mutation
+          mutation={PASSWORD_FORGOT_MUTATION}
+          variables={{ email }}
+          onCompleted={async (data) => {
+            setPage(1);
+          }}
+          onError={(error) => {
+            setPage(1);
+          }}
+        >
+          {(passwordForgotMutation) => {
+            return (
+              <MenuButtonStandard
+                title="Reset Password"
+                onClickEvent={() => {
+                  submitChecks(passwordForgotMutation);
                 }}
-              >
-                Login
-              </Button>
-            </Link>
-          </CardContent>
-        </Card>
-      </div>
-    </Slide>
+              />
+            );
+          }}
+        </Mutation>
+      </CardContent>
+      <Divider />
+      <CardContent
+        style={{
+          paddingBottom: 70,
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+        className={classes.cardContentCenter}
+      >
+        <Link to="/login">
+          <MenuButtonStandardText title="Login " onClickEvent={() => null} />
+        </Link>
+      </CardContent>
+    </Column>
   );
 }

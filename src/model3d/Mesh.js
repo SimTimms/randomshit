@@ -16,6 +16,7 @@ export default function Mesh({
   rotation,
   scale,
   activeColor,
+  texture,
 }) {
   const [material, setMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#aaa');
@@ -51,13 +52,25 @@ export default function Mesh({
       }
     }
 
-    if (!material) {
+    if (texture && !material) {
+      var texLoader = new THREE.TextureLoader();
+      const texLoaded = texLoader.load(texture);
+      const materialNew = new THREE.MeshStandardMaterial({
+        transparent: true,
+        map: texLoaded ? texLoaded : null,
+        flipY: true,
+      });
+      setMaterial(materialNew);
+    }
+    if (!material && !texture) {
       const materialNew = new THREE.MeshStandardMaterial({
         transparent: true,
       });
       setMaterial(materialNew);
     }
-
+    if (material) {
+      console.log(material.map && material.map);
+    }
     if (decals !== null && decals !== undefined) {
       var texLoader = new THREE.TextureLoader();
       if (decals[name].tex) {
@@ -101,7 +114,6 @@ export default function Mesh({
         geometry={geometry}
         material={material}
         material-color={meshColor}
-        material-map={decalNormalItem ? decalNormalItem : null}
         material-emissiveIntensity={
           decalItem ? (decals[name].int ? decals[name].int : lightOne) : null
         }

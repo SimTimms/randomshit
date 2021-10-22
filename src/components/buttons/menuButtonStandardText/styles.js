@@ -11,8 +11,7 @@ export const useStyles = makeStyles((theme) => ({
     paddingLeft: 10,
     paddingRight: 10,
     boxSizing: 'border-box',
-    borderLeft: `5px solid ${theme.palette.secondary.dark}`,
-    borderRight: `5px solid ${theme.palette.secondary.dark}`,
+
     width: '100%',
   },
   delete: { background: theme.palette.error.main },
@@ -23,8 +22,8 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    color: theme.palette.secondary.dark,
+    justifyContent: 'center',
+    color: theme.palette.primary.dark,
   },
   titleWithIcon: {
     display: 'flex',

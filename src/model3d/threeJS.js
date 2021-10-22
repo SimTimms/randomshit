@@ -2,12 +2,14 @@ import React, { Suspense, useEffect, useRef } from 'react';
 import { Canvas, useLoader } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
 import BG from './BladeGuard';
+import BGLowRes from './BladeGuardLowRes';
 import SM from './SpaceMarine';
 import mp3dBack from '../assets/mp3dback.jpg';
 import ModeBar from './ModeBar';
 import * as THREE from 'three';
 import { Html, useProgress } from '@react-three/drei';
-
+import ModelLoader from './modelLoader';
+import PartsLoader from './partsLoader';
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -28,11 +30,29 @@ function Loader() {
   );
 }
 
+const scaler = {
+  '617073a63fd379821b018c12': {
+    position: [0, 1.4, 0],
+    scale: [0.05, 0.05, 0.05],
+  },
+  '6160a02349be93983b68c69f': {
+    position: [0, 0, 0],
+    scale: [0.6, 0.6, 0.6],
+    rotation: [-Math.PI, 0, 0],
+  },
+  '615f62eb52772185da37071e': {
+    position: [0, 1.4, 0],
+    scale: [0.05, 0.05, 0.05],
+  },
+};
 export default function ThreeJS({
   color,
   selectedMat,
   lightOne,
   lightTwo,
+  lightThree,
+  lightFour,
+  lightFive,
   thisJSON,
   partClick,
   activeColor,
@@ -54,6 +74,9 @@ export default function ThreeJS({
     selectedMat,
     lightOne,
     lightTwo,
+    lightThree,
+    lightFour,
+    lightFive,
     thisJSON,
     partClick,
     activeColor,
@@ -144,7 +167,41 @@ export default function ThreeJS({
               shadow-camera-far={500}
               shadow-focus={1}
             />
+
             <ambientLight intensity={lightOne} />
+          </group>
+          <group name="sun" position={[-10, 10, 0]}>
+            <spotLight
+              castShadow={true}
+              intensity={lightThree}
+              shadow-mapSize-width={512}
+              shadow-mapSize-height={512}
+              shadow-camera-near={0.5}
+              shadow-camera-far={200}
+              shadow-focus={1}
+            />
+          </group>
+          <group name="sun" position={[0, 10, 0]}>
+            <spotLight
+              castShadow={true}
+              intensity={lightFour}
+              shadow-mapSize-width={512}
+              shadow-mapSize-height={512}
+              shadow-camera-near={0.5}
+              shadow-camera-far={200}
+              shadow-focus={1}
+            />
+          </group>
+          <group name="sun" position={[0, -10, 0]}>
+            <spotLight
+              castShadow={true}
+              intensity={lightFive}
+              shadow-mapSize-width={512}
+              shadow-mapSize-height={512}
+              shadow-camera-near={0.5}
+              shadow-camera-far={200}
+              shadow-focus={1}
+            />
           </group>
           <group
             name="sun"
@@ -161,9 +218,15 @@ export default function ThreeJS({
               shadow-focus={1}
             />
           </group>
-          <group position={[0, 0, 0]}>
-            <BG props={propExport} />
-            <SM props={propExport} attachedPart={attachedPart} parts={parts} />
+          <group
+            name="sun"
+            scale={scaler[gameId].scale}
+            position={scaler[gameId].position}
+            rotation={scaler[gameId].rotation}
+          >
+            {attachedPart.map((item) => (
+              <ModelLoader props={{ ...propExport, gltf: item.gltf }} />
+            ))}
           </group>
         </Suspense>
         <OrbitControls

@@ -77,143 +77,143 @@ export default function RegisterCard({ setPage, ...props }) {
   }
 
   return (
-    <div className={`${classes.pageWrapper}`}>
-      <CardComponent
-        styleOverride={{
-          width: 400,
-          boxShadow: '5px 5px 20px rgba(0,0,0,0.2)',
-        }}
-      >
-        <Column>
-          <Typography variant="h5" style={{ color: '#fff' }}>
-            Register
-          </Typography>
-          <Typography> Enter a few details to create your account</Typography>
-          <DividerWithBorder />
-        </Column>
-        <Divider />
-        <Column>
-          <FieldBox
-            value={name}
-            title="Name"
-            maxLength={26}
-            onChangeEvent={(e) => {
-              setName(e);
-            }}
-            replaceMode="tight"
-            placeholder="Example: David Jones"
-            info="Your name, this will be visible to all users"
-            warning=""
-            size="s"
-            multiline={false}
-          />
-          <ErrorBox errorMsg={errors.name} />
-          <DividerMini />
-          <FieldBox
-            value={email}
-            title="Email"
-            maxLength={226}
-            onChangeEvent={(e) => {
-              setEmail(e);
-            }}
-            replaceMode=""
-            placeholder={`Example: ${process.env.REACT_APP_INFO_EMAIL}`}
-            info="Your email address, used for logging into your account. This will not be displayed to other users"
-            warning=""
-            size="s"
-            multiline={false}
-          />
-          <ErrorBox errorMsg={errors.email} />
-          <DividerMini />
-          <FieldBox
-            value={password}
-            title="Password"
-            maxLength={20}
-            onChangeEvent={(e) => {
-              setPassword(e);
-            }}
-            replaceMode=""
-            placeholder="Example: *********"
-            info="The password you will use for logging into your account"
-            warning=""
-            size="s"
-            type="password"
-            multiline={false}
-          />
-          <ErrorBox errorMsg={errors.password} />
-        </Column>
+    <Column w={300}>
+      <Column>
+        <Typography variant="h5" style={{ color: '#fff' }}>
+          Register
+        </Typography>
+        <Typography> Enter a few details to create your account</Typography>
+        <DividerWithBorder />
+      </Column>
+      <Divider />
+      <Column>
+        <FieldBox
+          value={name}
+          title="Name"
+          maxLength={26}
+          onChangeEvent={(e) => {
+            setName(e);
+          }}
+          replaceMode="tight"
+          placeholder="Example: David Jones"
+          info="Your name, this will be visible to all users"
+          warning=""
+          size="s"
+          multiline={false}
+        />
+        <ErrorBox errorMsg={errors.name} />
+        <DividerMini />
+        <FieldBox
+          value={email}
+          title="Email"
+          maxLength={226}
+          onChangeEvent={(e) => {
+            setEmail(e);
+          }}
+          replaceMode=""
+          placeholder={`Example: ${process.env.REACT_APP_INFO_EMAIL}`}
+          info="Your email address, used for logging into your account. This will not be displayed to other users"
+          warning=""
+          size="s"
+          multiline={false}
+        />
+        <ErrorBox errorMsg={errors.email} />
+        <DividerMini />
+        <FieldBox
+          value={password}
+          title="Password"
+          maxLength={20}
+          onChangeEvent={(e) => {
+            setPassword(e);
+          }}
+          replaceMode=""
+          placeholder="Example: *********"
+          info="The password you will use for logging into your account"
+          warning=""
+          size="s"
+          type="password"
+          multiline={false}
+        />
+        <ErrorBox errorMsg={errors.password} />
+      </Column>
 
-        <Column>
-          <Mutation
-            mutation={SIGNUP_MUTATION}
-            variables={{ name, email, password, campaignId, available: true }}
-            onError={(error) => {
-              setButtonStatus(error);
-              setError(readableErrors(error, errors));
-            }}
-            onCompleted={(a, b) => {
-              setButtonStatus('Done');
-              setPage();
-            }}
-          >
-            {(SignupMutation) => {
-              return (
-                <div>
-                  <Divider />
-                  <MenuButtonStandard
-                    onClickEvent={() => {
-                      setButtonStatus('Checking...');
-                      submitChecks(SignupMutation);
-                    }}
-                    title={buttonStatus}
-                  />
-                </div>
-              );
-            }}
-          </Mutation>
-          <DividerWithBorder />
-          <Meta
-            str={`By registering you agree to the ${process.env.REACT_APP_COMPANY_PUBLIC_NAME}`}
-          />
-          <Meta
-            str={
-              <a
-                href={process.env.REACT_APP_TERMS_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Terms of Service
-              </a>
-            }
-          />
-          <Meta
-            str={
-              <a
-                href={process.env.REACT_APP_PRIVACY_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Privacy Policy
-              </a>
-            }
-          />
-        </Column>
-
-        <Divider />
-        <Column
-          style={{ paddingBottom: 70 }}
-          className={classes.cardContentCenter}
+      <Column>
+        <Mutation
+          mutation={SIGNUP_MUTATION}
+          variables={{ name, email, password, campaignId, available: true }}
+          onError={(error) => {
+            setButtonStatus(error);
+            setError(readableErrors(error, errors));
+          }}
+          onCompleted={(a, b) => {
+            setButtonStatus('Done');
+            setPage();
+          }}
         >
-          <Typography
-            component="p"
-            style={{ textAlign: 'center', fontSize: 12, cursor: 'pointer' }}
-            color="primary"
-            onClick={() => history.push('/')}
-          >
-            Back to Login
-          </Typography>
-        </Column>
-      </CardComponent>
-    </div>
+          {(SignupMutation) => {
+            return (
+              <div>
+                <Divider />
+                <MenuButtonStandard
+                  onClickEvent={() => {
+                    setButtonStatus('Checking...');
+                    submitChecks(SignupMutation);
+                  }}
+                  title={buttonStatus}
+                />
+              </div>
+            );
+          }}
+        </Mutation>
+        <DividerWithBorder />
+        <Meta
+          str={`By registering you agree to the ${process.env.REACT_APP_COMPANY_PUBLIC_NAME}`}
+        />
+        <Meta
+          str={
+            <a
+              href={process.env.REACT_APP_TERMS_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#fff' }}
+            >
+              Terms of Service
+            </a>
+          }
+        />
+        <Meta
+          str={
+            <a
+              href={process.env.REACT_APP_PRIVACY_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#fff' }}
+            >
+              Privacy Policy
+            </a>
+          }
+        />
+      </Column>
+
+      <Divider />
+      <Column
+        style={{ paddingBottom: 70 }}
+        className={classes.cardContentCenter}
+      >
+        <Typography
+          component="p"
+          style={{
+            textAlign: 'center',
+            fontSize: 12,
+            cursor: 'pointer',
+            marginBottom: 20,
+          }}
+          color="primary"
+          onClick={() => history.push('/')}
+        >
+          Back to Login
+        </Typography>
+      </Column>
+    </Column>
   );
 }

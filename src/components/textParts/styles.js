@@ -65,6 +65,7 @@ export const useStyles = makeStyles((theme) => ({
     boxSizing: 'border-box',
     width: '100%',
     textAlign: 'center',
+    color: '#ddd',
   },
   descriptionLink: {
     fontSize: 14,

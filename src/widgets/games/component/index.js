@@ -29,6 +29,9 @@ export default function GameComponent({ game }) {
                   ></div>
                   <Column a="flex-start">
                     <Typography>{game.name}</Typography>
+                    <Typography style={{ fontSize: '0.7rem' }}>
+                      {game._id}
+                    </Typography>
                     <Typography className={classes.dull}>
                       {pending ? 'Live' : 'Draft'}
                     </Typography>

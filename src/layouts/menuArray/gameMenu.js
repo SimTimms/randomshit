@@ -17,7 +17,7 @@ export default function gameMenu(menu) {
         }),
       count: null,
     },
-    /*  {
+    {
       name: 'My Games',
       icon: 'dynamic_feed',
       machineName: 'my_games',
@@ -50,6 +50,6 @@ export default function gameMenu(menu) {
           },
         }),
       count: null,
-    },*/
+    },
   ];
 }

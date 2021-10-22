@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/static/js/main.dd7957f7.chunk.js",
-    "main.js.map": "/static/js/main.dd7957f7.chunk.js.map",
+    "main.js": "/static/js/main.8f2c0cb6.chunk.js",
+    "main.js.map": "/static/js/main.8f2c0cb6.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d8be0fd0.js",
     "runtime-main.js.map": "/static/js/runtime-main.d8be0fd0.js.map",
     "static/css/2.9afd9385.chunk.css": "/static/css/2.9afd9385.chunk.css",
-    "static/js/2.525ce4d2.chunk.js": "/static/js/2.525ce4d2.chunk.js",
-    "static/js/2.525ce4d2.chunk.js.map": "/static/js/2.525ce4d2.chunk.js.map",
+    "static/js/2.8bdf6d41.chunk.js": "/static/js/2.8bdf6d41.chunk.js",
+    "static/js/2.8bdf6d41.chunk.js.map": "/static/js/2.8bdf6d41.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.50ced8f7abd31c30bb1ae6a82274235e.js": "/precache-manifest.50ced8f7abd31c30bb1ae6a82274235e.js",
+    "precache-manifest.9347d66b865590b6ee676cc92f6e021b.js": "/precache-manifest.9347d66b865590b6ee676cc92f6e021b.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.9afd9385.chunk.css.map": "/static/css/2.9afd9385.chunk.css.map",
-    "static/js/2.525ce4d2.chunk.js.LICENSE.txt": "/static/js/2.525ce4d2.chunk.js.LICENSE.txt",
+    "static/js/2.8bdf6d41.chunk.js.LICENSE.txt": "/static/js/2.8bdf6d41.chunk.js.LICENSE.txt",
     "static/media/dmDevice.png": "/static/media/dmDevice.aa66bfb6.png",
     "static/media/earlyBird.png": "/static/media/earlyBird.4a400f0d.png",
     "static/media/extraordinary.png": "/static/media/extraordinary.036f8c2e.png",
@@ -20,6 +20,7 @@
     "static/media/iconWebsite.png": "/static/media/iconWebsite.7bf93738.png",
     "static/media/kick.png": "/static/media/kick.8a56a46e.png",
     "static/media/mp3d.png": "/static/media/mp3d.f2d36a8f.png",
+    "static/media/mp3dback.jpg": "/static/media/mp3dback.26deffa2.jpg",
     "static/media/socialInstagram.png": "/static/media/socialInstagram.5dfed668.png",
     "static/media/socialLinkedIn.png": "/static/media/socialLinkedIn.9b60bf1b.png",
     "static/media/socialSkype.svg": "/static/media/socialSkype.cc3dee71.svg",
@@ -29,7 +30,7 @@
   "entrypoints": [
     "static/js/runtime-main.d8be0fd0.js",
     "static/css/2.9afd9385.chunk.css",
-    "static/js/2.525ce4d2.chunk.js",
-    "static/js/main.dd7957f7.chunk.js"
+    "static/js/2.8bdf6d41.chunk.js",
+    "static/js/main.8f2c0cb6.chunk.js"
   ]
 }
