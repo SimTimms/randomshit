@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './button';
+import SidebarMenuButton from './menuComponents';
 import { useStyles } from './styles';
 import mp3d from '../../../assets/branding/mp3d.png';
 import {
@@ -43,7 +43,7 @@ export default function PrimaryMenu({ mainMenu, publicPage }) {
                           {mainMenu(history, counts, menuContext, profile).map(
                             (menuItem) => {
                               return (
-                                <Button
+                                <SidebarMenuButton
                                   key={randomKey()}
                                   menuItem={menuItem}
                                   isActive={

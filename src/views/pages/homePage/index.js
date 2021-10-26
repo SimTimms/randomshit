@@ -3,21 +3,15 @@ import { TabPage } from '../../../../components';
 import {
   homeMenu,
   gameMenu,
-  kickstarterMenu,
   photoMenu,
   communityMenu,
   myPostsMenu,
   gameProfileMenu,
-} from '../../../menuArray';
+} from '../../../menu/menuArray';
 import CommunityPage from '../communityPage';
-import MiniGalleryPage from '../miniGalleryPage';
 import MyModelsPage from '../myModelsPage';
-import {
-  Games,
-  CreativeRosterWidget,
-  Kickstarters,
-  MyPosts,
-} from '../../../../widgets';
+import { Games } from '../../../../widgets';
+import MiniGalleryWidget from '../../widgets/miniGalleryWidget';
 import GameProfileFull from '../../../../widgets/games/profileCard/gameProfileFull';
 import { PreviewProfile } from '../../../../layouts/preview/views/previewProfile';
 import GamesPage from '../../../../layouts/preview/views/previewProfile/gamesPage';
@@ -38,8 +32,6 @@ export default function HomePage() {
                   : gameMenu(menu)
                 : menu.homePage.primaryPage === 'community'
                 ? communityMenu(menu)
-                : menu.homePage.primaryPage === 'kickstarters'
-                ? kickstarterMenu(menu)
                 : menu.homePage.primaryPage === 'gallery'
                 ? photoMenu(menu)
                 : menu.homePage.primaryPage === 'my_posts' && myPostsMenu(menu)
@@ -53,15 +45,11 @@ export default function HomePage() {
               <CommunityPage />
             ) : menu.homePage.primaryPage === 'gallery' &&
               menu.homePage.secondaryPage === 'browse_gallery' ? (
-              <MiniGalleryPage />
+              <MiniGalleryWidget />
             ) : menu.homePage.primaryPage === 'gallery' &&
               menu.homePage.secondaryPage === 'my_models' ? (
               <MyModelsPage />
-            ) : (
-              menu.homePage.secondaryPage === 'profiles' && (
-                <CreativeRosterWidget />
-              )
-            )}
+            ) : null}
             {(menu.homePage.primaryPage === 'games' &&
               menu.homePage.secondaryPage === 'games') ||
             menu.homePage.secondaryPage === 'my_games' ||
@@ -76,8 +64,6 @@ export default function HomePage() {
                 <GamesPage userId={menu.homePage.userId} />
               )
             )}
-            {menu.homePage.primaryPage === 'kickstarters' && <Kickstarters />}
-            {menu.homePage.primaryPage === 'my_posts' && <MyPosts />}
           </TabPage>
         );
       }}
