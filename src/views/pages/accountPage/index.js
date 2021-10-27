@@ -1,12 +1,13 @@
 import React from 'react';
 import { useStyles } from './styles';
 import { TabPage } from '../../../../components';
-import { profileMenu } from '../../../menu/menuArray';
+import { profileMenu } from '../../../menuArray';
 import AccountPageContent from './accountPageContent';
-import UpdateProfilePage from '../updateProfilePage';
-import PreferencesPage from '../preferencesPage';
+import AppProfileEdit from '../appProfileEdit';
+import TabPreferences from '../appProfileEdit/tabPreferences';
 import Cookies from 'js-cookie';
 import { HistoryContext } from '../../../../context';
+import { PreviewProfile } from '../../../preview/views/previewProfile';
 
 export default function AccountPage() {
   const classes = useStyles();
@@ -25,9 +26,12 @@ export default function AccountPage() {
           activeSecondary={''}
         >
           <div className={classes.root}>
-            {primaryPage === 'profile' && <UpdateProfilePage />}
-            {primaryPage === 'preferences' && <PreferencesPage />}
+            {primaryPage === 'profile' && <AppProfileEdit />}
+            {primaryPage === 'preferences' && <TabPreferences />}
             {primaryPage === 'account' && <AccountPageContent />}
+            {primaryPage === 'preview' && (
+              <PreviewProfile profileId={userId} publicView={true} />
+            )}
           </div>
         </TabPage>
       )}

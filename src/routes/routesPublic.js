@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PublicLayout from '../views/layouts/publicLayout';
+import { PublicLayout } from '../views/layouts/Publiclayout';
 import Photo from '../Photo';
 
 export default function PublicRoutes({ theme, props: { ...props } }) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import AppLayout from '../views/layouts/appLayout';
+import AppLayout from '../views/layouts/AppLayout';
 import { Route, Switch } from 'react-router-dom';
 
 export default function AuthRoutes({ theme, props: { ...props } }) {
