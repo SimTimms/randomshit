@@ -4,8 +4,6 @@ export default function themeDesigner() {
   const theme = createMuiTheme({
     typography: {
       fontFamily: ['Quicksand'].join(','),
-      fontSize: 12,
-      fontWeight: 600,
     },
     palette: {
       wrap: {
@@ -40,52 +38,42 @@ export default function themeDesigner() {
   theme.typography.h1 = {
     fontSize: '3rem',
     margin: 0,
-    fontWeight: 600,
-    fontFamily: `'Special Elite', cursive`,
+    fontFamily: 'Roboto',
   };
   theme.typography.h2 = {
     fontSize: '2.4rem',
     margin: 0,
-    fontWeight: 200,
-    fontFamily: `'Special Elite', cursive`,
+    fontFamily: 'Roboto',
   };
   theme.typography.h3 = {
     fontSize: '2rem',
     margin: 0,
-    fontWeight: 200,
-    fontFamily: `'Special Elite', cursive`,
+    fontFamily: 'Roboto',
   };
   theme.typography.h4 = {
     fontSize: '1.8rem',
     margin: 0,
-    fontWeight: 600,
-    fontFamily: `'Special Elite', cursive`,
+    fontFamily: 'Roboto',
   };
   theme.typography.h5 = {
-    fontFamily: `'Special Elite', cursive`,
+    fontFamily: 'Roboto',
     fontSize: '1.6rem',
     margin: 0,
-    fontWeight: 200,
   };
   theme.typography.h6 = {
     fontSize: '1.4rem',
     margin: 0,
-    fontWeight: 200,
-    fontFamily: `'Special Elite', cursive`,
+    fontFamily: 'Roboto',
   };
   theme.typography.body1 = {
     fontSize: '1rem',
     margin: 0,
-    fontWeight: 600,
-    color: '#fff',
     fontFamily: `'Roboto'`,
   };
   theme.typography.button = {
-    fontSize: 14,
-    fontWeight: 900,
     color: theme.palette.primary.main,
     borderRadius: 4,
-    fontFamily: `'Special Elite', cursive`,
+    fontFamily: 'Roboto',
   };
   return theme;
 }

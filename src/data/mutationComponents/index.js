@@ -62,13 +62,12 @@ export const MutationLogin = ({ parameters }) => {
             <FieldBox
               value={email}
               title="Email Address"
-              maxLength={226}
               onChangeEvent={(e) => {
                 setEmail(e);
               }}
               replaceMode={null}
               placeholder="something@email.com"
-              info="The email address you used to register with MiniPainter3d"
+              info=""
               warning=""
               size="s"
               multiline={false}
@@ -77,13 +76,12 @@ export const MutationLogin = ({ parameters }) => {
             <FieldBox
               value={password}
               title="Password"
-              maxLength={226}
               onChangeEvent={(e) => {
                 setPassword(e);
               }}
               replaceMode={null}
               placeholder=""
-              info="The password you used to register with MiniPainter3d"
+              info=""
               warning=""
               size="s"
               multiline={false}

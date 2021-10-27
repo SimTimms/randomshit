@@ -11,7 +11,6 @@ import { MenuContext } from '../../context';
 export default function LatestMinis({ ...props }) {
   const classes = useStyles();
   const [creativeArray, setCreativeArray] = React.useState([]);
-  const [large, setLarge] = React.useState(null);
   const { dashboard } = props;
   return (
     <div

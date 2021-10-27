@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     flexAlign: 'center',
     justifyContent: 'center',
     width: '100%',
-    background: '#111',
+    background: '#fff',
   },
   contentMobile: {
     marginTop: 0,

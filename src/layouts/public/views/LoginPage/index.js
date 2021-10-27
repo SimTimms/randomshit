@@ -42,10 +42,7 @@ export default function LoginPage({ history, forwardTo }) {
         }}
       >
         <Column>
-          <Typography variant="h5" style={{ color: '#fff' }}>
-            Welcome
-          </Typography>
-          <Typography>Please login</Typography>
+          <Typography variant="h5">MiniPainter 3d</Typography>
           <Divider />
         </Column>
         <Column>

@@ -22,7 +22,7 @@ export const sharedStyles = makeStyles((theme) => ({
     alignItems: 'center',
     overflow: 'auto',
   },
-  pageWrapperSecondary: { background: theme.palette.secondary.main },
+  pageWrapperSecondary: { background: '#fff' },
   cardWrapper: {
     width: '100%',
     display: 'flex',

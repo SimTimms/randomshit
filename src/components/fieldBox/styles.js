@@ -7,15 +7,11 @@ export const useStyles = makeStyles((theme) => ({
     fontFamily: theme.typography.fontFamily,
     resize: 'vertical',
     padding: '10px 0 10px 0',
-    boxShadow: 'inset 3px 3px 10px rgba(0,0,0,0.05)',
     border: 'none',
-    borderBottom: `1px dashed ${theme.palette.primary.dark}`,
-    background: 'none',
     boxSizing: 'border-box',
     outline: 'none',
     fontSize: 14,
     width: '100%',
-    color: theme.palette.primary.main,
   },
   one: {
     display: 'flex',
@@ -26,7 +22,6 @@ export const useStyles = makeStyles((theme) => ({
   two: { width: '100%', display: 'flex', whiteSpace: 'nowrap' },
   descriptionBox: {
     background: theme.palette.primary.dark,
-    color: '#fff',
     padding: 10,
     lineHeight: 1,
     textAlign: 'center',
@@ -37,7 +32,6 @@ export const useStyles = makeStyles((theme) => ({
   inputLabel: {
     fontSize: '0.8rem',
     marginTop: 5,
-    color: '#fff',
   },
   inputLabelRed: { color: theme.palette.error.main },
   small: {
@@ -63,7 +57,6 @@ export const useStyles = makeStyles((theme) => ({
   infoBox: {
     marginTop: 10,
     background: theme.palette.primary.main,
-    color: '#fff',
     padding: 10,
     borderRadius: 5,
   },

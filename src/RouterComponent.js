@@ -11,7 +11,7 @@ import themeDesigner from './theme';
 import AuthRoutes from './routes/routesAuth';
 import PublicRoutes from './routes/routesPublic';
 import { MenuContext } from './context';
-import MyCharEmbed from './MyCharEmbed';
+
 function RouterComponent(props) {
   const authToken = Cookies.get('token');
   const theme = themeDesigner();
@@ -60,7 +60,7 @@ function RouterComponent(props) {
   });
 
   return (
-    <div style={{ background: '#222', width: '100vw', height: '100vh' }}>
+    <div style={{ width: '100vw', height: '100vh' }}>
       <ThemeProvider theme={theme}>
         <ApolloProvider client={client}>
           <MenuContext.Provider
