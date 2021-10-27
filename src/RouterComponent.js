@@ -11,6 +11,7 @@ import themeDesigner from './theme';
 import AuthRoutes from './routes/routesAuth';
 import PublicRoutes from './routes/routesPublic';
 import { MenuContext } from './context';
+import MyCharEmbed from './MyCharEmbed';
 function RouterComponent(props) {
   const authToken = Cookies.get('token');
   const theme = themeDesigner();

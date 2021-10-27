@@ -1,28 +1,5 @@
 import React from 'react';
 
-export const MenuContext = React.createContext({
-  primaryPage: null,
-  publicPage: null,
-  paintPage: {
-    primaryPage: null,
-    secondaryPage: null,
-    modelId: null,
-  },
-  homePage: {
-    primaryPage: null,
-    secondaryPage: null,
-    kickstarterId: null,
-    myPostId: null,
-    gameId: null,
-    userId: null,
-  },
-  updateMenuContext: { secondary: () => {}, primary: () => {} },
-});
-export const HistoryContext = React.createContext({
-  history: null,
-});
-{
-  /*
 export const ProfileContext = React.createContext({
   profile: { name: 'john' },
   updateProfileContext: () => {},
@@ -77,7 +54,9 @@ export const MenuContext = React.createContext({
   updateMenuContext: { secondary: () => {}, primary: () => {} },
 });
 
-
+export const HistoryContext = React.createContext({
+  history: null,
+});
 
 export const FavouritesContext = React.createContext({
   favourites: null,
@@ -96,5 +75,3 @@ export const CountContext = React.createContext({
 export const GameContext = React.createContext({
   gameId: null,
 });
-*/
-}

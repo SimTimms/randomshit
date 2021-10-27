@@ -9,6 +9,7 @@ import ModeBar from './ModeBar';
 import * as THREE from 'three';
 import { Html, useProgress } from '@react-three/drei';
 import ModelLoader from './modelLoader';
+import PartsLoader from './partsLoader';
 function Loader() {
   const { progress } = useProgress();
   return (
