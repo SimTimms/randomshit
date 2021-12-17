@@ -13,7 +13,7 @@ import Decals from './Decals';
 import Parts from './Parts';
 import PaintPot from './PaintPot';
 import { ColorContext } from '../context';
-import ModelLoader from './ModelLoader';
+import ModelLoader from './modelLoader';
 import ModeBar from './ModeBar';
 
 function ModelRouter({ gltf, js, parts, gameId }) {

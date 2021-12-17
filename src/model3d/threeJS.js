@@ -8,7 +8,7 @@ import mp3dBack from '../assets/mp3dback.jpg';
 import ModeBar from './ModeBar';
 import * as THREE from 'three';
 import { Html, useProgress } from '@react-three/drei';
-import ModelLoader from './ModelLoader';
+import ModelLoader from './modelLoader';
 function Loader() {
   const { progress } = useProgress();
   return (
