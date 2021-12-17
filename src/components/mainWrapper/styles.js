@@ -8,6 +8,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
     height: '100vh',
     overflow: 'hidden ',
+    background: '#111',
   },
   row: { flexDirection: 'column' },
 }));

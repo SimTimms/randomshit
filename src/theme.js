@@ -59,6 +59,7 @@ export default function themeDesigner() {
     fontFamily: 'Roboto',
     fontSize: '1.6rem',
     margin: 0,
+    color: '#fff',
   };
   theme.typography.h6 = {
     fontSize: '1.4rem',
@@ -69,6 +70,7 @@ export default function themeDesigner() {
     fontSize: '1rem',
     margin: 0,
     fontFamily: `'Roboto'`,
+    color: '#fff',
   };
   theme.typography.button = {
     color: theme.palette.primary.main,

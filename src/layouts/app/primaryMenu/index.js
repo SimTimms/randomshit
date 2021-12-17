@@ -15,7 +15,6 @@ import { randomKey } from '../../../utils';
 export default function PrimaryMenu({ mainMenu, publicPage }) {
   const classes = useStyles();
   const mobile = useMediaQuery('(max-width:600px)');
-
   return (
     <HistoryContext.Consumer>
       {(history) => (
