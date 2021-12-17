@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    width: 'calc(100vw - 150px)',
+    width: 'calc(100vw - 200px)',
     height: '100vh',
   },
   row: { width: '100%' },

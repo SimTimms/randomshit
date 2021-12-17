@@ -38,8 +38,8 @@ export default function ModelLoader({
     <div
       style={{
         position: 'relative',
-        width: 'calc(100vw - 140px)',
-        height: 'calc(100vh )',
+        width: 'calc(100vw - 340px)',
+        height: 'calc(100vh - 112px)',
       }}
     >
       <ModeBar

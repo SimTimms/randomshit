@@ -17,7 +17,6 @@ import ModelLoader from './modelLoader';
 import ModeBar from './ModeBar';
 
 function ModelRouter({ gltf, js, parts, gameId }) {
-  console.log(gltf);
   const theme = themeDesigner();
   //needs to re-render model
   const modelColorsRef = useRef({});
@@ -68,8 +67,8 @@ function ModelRouter({ gltf, js, parts, gameId }) {
             bg="#222"
             a="flex-start"
             j="flex-start"
-            w={200}
-            h={`calc(100vh - 128px)`}
+            w={180}
+            h={`calc(100vh - 68px)`}
           >
             {(paintMode === 1 || paintMode == 0) && (
               <PaintRack
@@ -93,7 +92,7 @@ function ModelRouter({ gltf, js, parts, gameId }) {
             )}
           </Column>
 
-          <Column w={`calc(100vw - 360px)`}>
+          <Column>
             <ModelLoader
               activeColor={activeColor}
               sprayMode={false}
