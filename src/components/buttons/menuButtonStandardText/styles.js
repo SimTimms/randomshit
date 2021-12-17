@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     cursor: 'pointer',
-    borderRadius: 2,
+    borderRadius: 5,
     padding: 5,
     paddingLeft: 10,
     paddingRight: 10,

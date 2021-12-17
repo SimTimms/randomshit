@@ -4,7 +4,6 @@ import { ColorContext } from '../context';
 
 export default function Mesh({
   geometry,
-  paintMode,
   modelColorsRef,
   name,
   modelColors,
@@ -17,12 +16,14 @@ export default function Mesh({
   scale,
   activeColor,
   texture,
+  materialIn,
 }) {
   const [material, setMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#aaa');
   const [importedColors, setImportedColors] = React.useState(null);
   const [decalItem, setDecalItem] = React.useState(null);
   const [decalNormalItem, setDecalNormalItem] = React.useState(null);
+  const [paintMode, setPaintMode] = React.useState(0);
 
   const metals = [
     '#9e573c',
@@ -51,11 +52,11 @@ export default function Mesh({
         setMeshColor(savedColors[name].color);
       }
     }
-
     if (texture && !material) {
       var texLoader = new THREE.TextureLoader();
       const texLoaded = texLoader.load(texture);
       const materialNew = new THREE.MeshStandardMaterial({
+        ...materialIn,
         transparent: true,
         map: texLoaded ? texLoaded : null,
         flipY: true,
@@ -64,24 +65,10 @@ export default function Mesh({
     }
     if (!material && !texture) {
       const materialNew = new THREE.MeshStandardMaterial({
+        ...materialIn,
         transparent: true,
       });
       setMaterial(materialNew);
-    }
-    if (material) {
-      console.log(material.map && material.map);
-    }
-    if (decals !== null && decals !== undefined) {
-      var texLoader = new THREE.TextureLoader();
-      if (decals[name].tex) {
-        texLoader.load(decals[name].tex, function (texture) {
-          setDecalItem(texture);
-        });
-      } else if (decals[name].texNormal) {
-        texLoader.load(decals[name].texNormal, function (texture) {
-          setDecalNormalItem(texture);
-        });
-      }
     }
   }, [modelColorsRef, decalNormal, decals, meshColor]);
 
@@ -92,10 +79,11 @@ export default function Mesh({
       scale={scale && scale}
     >
       <mesh
-        onClick={(e) => {
-          if (paintMode) {
+        onClick={(e) => {}}
+        onPointerDown={(e) => paintMode !== 1 && setPaintMode(1)}
+        onPointerUp={(e) => {
+          if (paintMode === 1) {
             e.stopPropagation();
-
             let savedColors = localStorage.getItem('modelColorSave');
             if (savedColors === 'null' || savedColors === null) {
               savedColors = {};
@@ -106,9 +94,10 @@ export default function Mesh({
             savedColors[name] = { color: activeColor.color };
             localStorage.setItem('modelColorSave', JSON.stringify(savedColors));
 
-            paintMode && setMeshColor(activeColor.color);
+            setMeshColor(activeColor.color);
           }
         }}
+        onPointerMove={(e) => paintMode !== 0 && setPaintMode(0)}
         castShadow
         receiveShadow
         geometry={geometry}
@@ -117,11 +106,6 @@ export default function Mesh({
         material-emissiveIntensity={
           decalItem ? (decals[name].int ? decals[name].int : lightOne) : null
         }
-        material-emissiveMap={decalItem ? decalItem : null}
-        material-emissive={decalItem ? '#fff' : null}
-        material-metalness={metals.indexOf(meshColor) > -1 ? 0.7 : 0}
-        material-roughness={metals.indexOf(meshColor) > -1 ? 0.5 : 1}
-        transparent={true}
       />
     </group>
   );

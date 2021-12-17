@@ -26,6 +26,7 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'space-between',
     width: 200,
+    padding: 10,
   },
   bgWrapper: {
     width: '100%',

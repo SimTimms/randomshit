@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
   root: {
-    background: '#111',
+    background: '#fafafa',
     zIndex: 9,
     color: theme.palette.primary.main,
   },
@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
     height: 64,
     position: 'relative',
     boxSizing: 'border-box',
-    boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
   },
   appBarShift: {
     width: '100%',

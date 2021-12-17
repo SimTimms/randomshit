@@ -19,19 +19,19 @@ export default function themeDesigner() {
   });
   theme.palette.primary = {
     ...theme.palette.primary,
-    main: '#A8FF75',
+    main: '#2090ff',
     light: '#A8FF75',
-    dark: '#65a540',
+    dark: '#1a75cd',
   };
   theme.palette.secondary = {
     ...theme.palette.secondary,
-    main: '#3cc6ff',
-    light: '#3cc6ff',
-    dark: '#3cc6ff',
+    main: '#2090ff',
+    light: '#1a75cd',
+    dark: '#1a75cd',
   };
   theme.palette.error = {
     ...theme.palette.error,
-    main: '#ffe154',
+    main: '#ff5129',
     dark: '#ff3c3c',
     light: '#ffe154',
   };
@@ -59,7 +59,6 @@ export default function themeDesigner() {
     fontFamily: 'Roboto',
     fontSize: '1.6rem',
     margin: 0,
-    color: '#fff',
   };
   theme.typography.h6 = {
     fontSize: '1.4rem',
@@ -70,7 +69,6 @@ export default function themeDesigner() {
     fontSize: '1rem',
     margin: 0,
     fontFamily: `'Roboto'`,
-    color: '#fff',
   };
   theme.typography.button = {
     color: theme.palette.primary.main,

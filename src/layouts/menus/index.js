@@ -117,12 +117,6 @@ export function PublicFooterMenu() {
       >
         <StyledButtonFooter>Privacy Policy</StyledButtonFooter>
       </a>
-      <a
-        href={`mailto:${process.env.REACT_APP_INFO_EMAIL}`}
-        style={{ textDecoration: 'none' }}
-      >
-        <StyledButtonFooter>Contact</StyledButtonFooter>
-      </a>
     </div>
   );
 }

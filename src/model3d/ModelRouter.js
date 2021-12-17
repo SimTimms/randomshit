@@ -13,8 +13,11 @@ import Decals from './Decals';
 import Parts from './Parts';
 import PaintPot from './PaintPot';
 import { ColorContext } from '../context';
+import ModelLoader from './ModelLoader';
+import ModeBar from './ModeBar';
 
 function ModelRouter({ gltf, js, parts, gameId }) {
+  console.log(gltf);
   const theme = themeDesigner();
   //needs to re-render model
   const modelColorsRef = useRef({});
@@ -88,17 +91,18 @@ function ModelRouter({ gltf, js, parts, gameId }) {
                 lightFive={lightFive}
               />
             )}
-            {paintMode === 3 && (
-              <Parts
-                setAttachedPart={setAttachedPart}
-                attachedPart={attachedPart}
-                parts={parts}
-              />
-            )}
           </Column>
 
           <Column w={`calc(100vw - 360px)`}>
-            <ThreeJS
+            <ModelLoader
+              activeColor={activeColor}
+              sprayMode={false}
+              gltfIn={gltf}
+              gameId={gameId}
+              paintMode={paintMode}
+              setPaintMode={setPaintMode}
+            />
+            {/*    <ThreeJS
               color={color}
               lightOne={lightOne / 100}
               lightTwo={lightTwo / 100}
@@ -118,6 +122,7 @@ function ModelRouter({ gltf, js, parts, gameId }) {
               parts={parts}
               gameId={gameId}
             />
+        */}
             <Typography
               align="center"
               style={{

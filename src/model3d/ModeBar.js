@@ -91,7 +91,6 @@ export default function ModeBar({ paintMode, setPaintMode, canvas, modelId }) {
                     [classes.circleIconGreyOn]: photo,
                   })}
                   onClick={() => {
-                    console.log(canvas.current);
                     canvas.current.style.backgroundImage = `url(${mp3dBack})`;
                     uploaderScreenshot(
                       dataURItoBlob(canvas.current.toDataURL()),

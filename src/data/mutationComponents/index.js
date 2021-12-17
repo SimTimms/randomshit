@@ -80,7 +80,7 @@ export const MutationLogin = ({ parameters }) => {
                 setPassword(e);
               }}
               replaceMode={null}
-              placeholder=""
+              placeholder="*****"
               info=""
               warning=""
               size="s"

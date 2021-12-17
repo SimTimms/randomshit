@@ -42,7 +42,7 @@ export default function LoginPage({ history, forwardTo }) {
         }}
       >
         <Column>
-          <Typography variant="h5">Mini Painter 3D</Typography>
+          <Typography variant="h5">Login</Typography>
           <Divider />
         </Column>
         <Column>

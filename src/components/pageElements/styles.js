@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles(theme => {
+export const useStyles = makeStyles((theme) => {
   return {
     root: {
       width: '100%',
@@ -10,7 +10,6 @@ export const useStyles = makeStyles(theme => {
       justifyContent: 'center',
       paddingBottom: 10,
       paddingTop: 0,
-
       marginTop: 0,
     },
     errorMsg: {

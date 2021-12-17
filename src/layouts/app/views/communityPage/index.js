@@ -100,7 +100,6 @@ export default function CommunityPage() {
                     )}
 
                     <Column a="flex-start" w="100%">
-                      <SubTitle title="Latest Minis" onClickEvent={() => {}} />
                       <Row w="100%" wrap="flex-wrap">
                         <LatestMinis />
                       </Row>

@@ -63,7 +63,7 @@ export default function homeMenu(menu) {
         }),
       count: null,
     },
-    {
+    /*  {
       name: 'Factions',
       icon: 'view_in_ar',
       machineName: 'kickstarters',
@@ -76,6 +76,6 @@ export default function homeMenu(menu) {
           },
         }),
       count: null,
-    },
+    },*/
   ];
 }

@@ -32,6 +32,7 @@ export const useStyles = makeStyles((theme) => ({
   inputLabel: {
     fontSize: '0.8rem',
     marginTop: 5,
+    fontWeight: 'bold',
   },
   inputLabelRed: { color: theme.palette.error.main },
   small: {

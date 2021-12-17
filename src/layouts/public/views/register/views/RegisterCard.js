@@ -175,7 +175,6 @@ export default function RegisterCard({ setPage, ...props }) {
               href={process.env.REACT_APP_TERMS_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#fff' }}
             >
               Terms of Service
             </a>
@@ -187,7 +186,6 @@ export default function RegisterCard({ setPage, ...props }) {
               href={process.env.REACT_APP_PRIVACY_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#fff' }}
             >
               Privacy Policy
             </a>
@@ -204,11 +202,9 @@ export default function RegisterCard({ setPage, ...props }) {
           component="p"
           style={{
             textAlign: 'center',
-            fontSize: 12,
             cursor: 'pointer',
             marginBottom: 20,
           }}
-          color="primary"
           onClick={() => history.push('/')}
         >
           Back to Login

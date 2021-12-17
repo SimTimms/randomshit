@@ -21,7 +21,7 @@ export const sharedStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'auto',
-    background: '#111',
+    background: '#fafafa',
   },
   pageWrapperSecondary: { background: '#fff' },
   cardWrapper: {

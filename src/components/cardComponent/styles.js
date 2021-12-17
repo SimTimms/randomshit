@@ -5,7 +5,8 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
     marginBottom: 5,
     marginTop: 5,
-
+    background: '#fff',
+    boxShadow: '3px 3px 10px rgba(0,0,0,0.05)',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',

@@ -135,6 +135,7 @@ export default function GameFields({ game, setGame }) {
         size="s"
         multiline={false}
       />
+
       <FieldBox
         value={game.name}
         title="Model Name"
