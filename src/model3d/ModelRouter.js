@@ -21,12 +21,13 @@ function ModelRouter({ gltf, js, parts, gameId }) {
   //needs to re-render model
   const modelColorsRef = useRef({});
   const [lightOne, setLightOne] = React.useState(30);
-  const [decals, setDecals] = React.useState(null);
   const [attachedPart, setAttachedPart] = React.useState([]);
   const [lightTwo, setLightTwo] = React.useState(70);
   const [lightThree, setLightThree] = React.useState(20);
   const [lightFour, setLightFour] = React.useState(20);
   const [lightFive, setLightFive] = React.useState(20);
+  const [lightSix, setLightSix] = React.useState(20);
+  const [lightSeven, setLightSeven] = React.useState(20);
   const [paintMode, setPaintMode] = React.useState(0);
   const [color, setColor] = React.useState(null);
   const [modelColors, setModelColors] = React.useState(null);
@@ -88,6 +89,10 @@ function ModelRouter({ gltf, js, parts, gameId }) {
                 lightFour={lightFour}
                 setLightFive={setLightFive}
                 lightFive={lightFive}
+                setLightSix={setLightSix}
+                lightSix={lightSix}
+                setLightSeven={setLightSeven}
+                lightSeven={lightSeven}
               />
             )}
           </Column>
@@ -100,6 +105,13 @@ function ModelRouter({ gltf, js, parts, gameId }) {
               gameId={gameId}
               paintMode={paintMode}
               setPaintMode={setPaintMode}
+              lightOne={lightOne}
+              lightTwo={lightTwo}
+              lightThree={lightThree}
+              lightFour={lightFour}
+              lightFive={lightFive}
+              lightSix={lightSix}
+              lightSeven={lightSeven}
             />
             {/*    <ThreeJS
               color={color}

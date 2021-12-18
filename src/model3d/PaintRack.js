@@ -64,13 +64,18 @@ export default function PaintRack({ setColorFunction, activeColor }) {
             className={item.metal ? classes.metallic : classes.standard}
             style={{
               minHeight: 30,
-              minWidth: 30,
+              width: '100%',
               backgroundColor: item.color,
-              borderRadius: '50%',
               margin: 2,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-start',
             }}
             title={item.name}
-          ></div>
+          >
+            <Typography>{item.name}</Typography>
+          </div>
         ))}
       </Row>
     </Column>

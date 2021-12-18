@@ -32,8 +32,16 @@ export default function ModelLoader({
   paintMode,
   setPaintMode,
   gameId,
+  lightOne,
+  lightTwo,
+  lightThree,
+  lightFour,
+  lightFive,
+  lightSix,
+  lightSeven,
 }) {
   const canvas = useRef(null);
+  const modelAdjust = { '61bcde4856537174216adeda': [Math.PI / 2, 0, 3] };
   return (
     <div
       style={{
@@ -53,14 +61,31 @@ export default function ModelLoader({
         camera={{ position: [0, 70, 150], fov: 10, far: 700 }}
         ref={canvas}
         gl={{ preserveDrawingBuffer: true }}
-        style={{ background: '#111' }}
+        style={{ background: '#fff' }}
       >
         <Suspense fallback={<Loader />}>
           <group name="sun" position={[500, 900, 0]}>
-            <ambientLight intensity={0.1} />
-            <spotLight intensity={0.8} />
+            <ambientLight intensity={lightOne / 50} />
           </group>
-          <group rotation={[Math.PI / 2, 0, 3]}>
+          <group name="sun" position={[50, 0, 0]}>
+            <spotLight intensity={lightTwo / 50} />
+          </group>
+          <group name="sun" position={[-50, 0, 0]}>
+            <spotLight intensity={lightThree / 50} />
+          </group>
+          <group name="sun" position={[0, 50, 0]}>
+            <spotLight intensity={lightFour / 50} />
+          </group>
+          <group name="sun" position={[0, -50, 0]}>
+            <spotLight intensity={lightFive / 50} />
+          </group>
+          <group name="sun" position={[0, 0, 50]}>
+            <spotLight intensity={lightSix / 50} />
+          </group>
+          <group name="sun" position={[0, 0, -50]}>
+            <spotLight intensity={lightSeven / 50} />
+          </group>
+          <group rotation={modelAdjust[gameId]}>
             <ModelScript
               activeColor={activeColor}
               sprayMode={sprayMode}

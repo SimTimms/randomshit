@@ -57,6 +57,7 @@ export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
                 geometry={item.geometry}
                 scale={item.scale}
                 materialIn={nodeArr[i].material}
+                name={item.name}
                 position={[
                   rNbr(item.position.x),
                   rNbr(item.position.y),

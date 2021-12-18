@@ -46,6 +46,7 @@ export default function Mesh({
   ];
   useEffect(() => {
     let savedColors = localStorage.getItem('modelColorSave');
+
     if (savedColors !== 'null' && savedColors !== null) {
       savedColors = JSON.parse(savedColors);
       if (savedColors[name] && savedColors[name].color !== meshColor) {
@@ -90,7 +91,6 @@ export default function Mesh({
             } else {
               savedColors = JSON.parse(savedColors);
             }
-
             savedColors[name] = { color: activeColor.color };
             localStorage.setItem('modelColorSave', JSON.stringify(savedColors));
 
@@ -98,11 +98,11 @@ export default function Mesh({
           }
         }}
         onPointerMove={(e) => paintMode !== 0 && setPaintMode(0)}
-        castShadow
-        receiveShadow
         geometry={geometry}
         material={material}
         material-color={meshColor}
+        material-metalness={metals.indexOf(meshColor) > -1 ? 0.7 : 0}
+        material-roughness={metals.indexOf(meshColor) > -1 ? 0.5 : 1}
         material-emissiveIntensity={
           decalItem ? (decals[name].int ? decals[name].int : lightOne) : null
         }

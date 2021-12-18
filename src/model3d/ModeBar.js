@@ -38,6 +38,7 @@ export default function ModeBar({ paintMode, setPaintMode, canvas, modelId }) {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'flex-start',
+                background: '#fff ',
               }}
             >
               <Row j="space-between">
@@ -46,22 +47,13 @@ export default function ModeBar({ paintMode, setPaintMode, canvas, modelId }) {
                     className={clsx({
                       [classes.circleIcon]: true,
                       [classes.circleIconYellow]: true,
-                      [classes.circleIconYellowOn]: paintMode === 1,
-                    })}
-                    onClick={() => setPaintMode(1)}
-                  >
-                    format_paint
-                  </Icon>
-                  <Icon
-                    className={clsx({
-                      [classes.circleIcon]: true,
-                      [classes.circleIconBlue]: true,
-                      [classes.circleIconBlueOn]: paintMode === 0,
+                      [classes.circleIconYellowOn]: paintMode === 0,
                     })}
                     onClick={() => setPaintMode(0)}
                   >
-                    3d_rotation
+                    format_paint
                   </Icon>
+
                   <Icon
                     className={clsx({
                       [classes.circleIcon]: true,
@@ -71,16 +63,6 @@ export default function ModeBar({ paintMode, setPaintMode, canvas, modelId }) {
                     onClick={() => setPaintMode(2)}
                   >
                     lightbulb
-                  </Icon>
-                  <Icon
-                    className={clsx({
-                      [classes.circleIcon]: true,
-                      [classes.circleIconGreen]: true,
-                      [classes.circleIconGreenOn]: paintMode === 3,
-                    })}
-                    onClick={() => setPaintMode(3)}
-                  >
-                    military_tech
                   </Icon>
                 </Row>
 

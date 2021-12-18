@@ -16,6 +16,10 @@ export default function Lighting({
   lightFour,
   setLightFive,
   lightFive,
+  setLightSix,
+  lightSix,
+  setLightSeven,
+  lightSeven,
 }) {
   return (
     <Column w={200} a="flex-start" bb="1px solid #444">
@@ -42,7 +46,7 @@ export default function Lighting({
               max={100}
               value={lightTwo}
             />
-            <Title str="Spot R" />
+            <Title str="Right" />
           </Row>
           <Row>
             <Icon icon="light_mode" />
@@ -53,7 +57,7 @@ export default function Lighting({
               max={100}
               value={lightThree}
             />
-            <Title str="Spot L" />
+            <Title str="Left" />
           </Row>
           <Row>
             <Icon icon="light_mode" />
@@ -64,7 +68,7 @@ export default function Lighting({
               max={100}
               value={lightFour}
             />
-            <Title str="Spot T" />
+            <Title str="Top" />
           </Row>
           <Row>
             <Icon icon="light_mode" />
@@ -75,7 +79,29 @@ export default function Lighting({
               max={100}
               value={lightFive}
             />
-            <Title str="Spot B" />
+            <Title str="Bottom" />
+          </Row>
+          <Row>
+            <Icon icon="light_mode" />
+            <Slider
+              onChange={(value) => setLightSix(value)}
+              startPoint={0}
+              min={0}
+              max={100}
+              value={lightSix}
+            />
+            <Title str="Front" />
+          </Row>
+          <Row>
+            <Icon icon="light_mode" />
+            <Slider
+              onChange={(value) => setLightSeven(value)}
+              startPoint={0}
+              min={0}
+              max={100}
+              value={lightSeven}
+            />
+            <Title str="Back" />
           </Row>
         </Column>
       </Column>
