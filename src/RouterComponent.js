@@ -37,8 +37,8 @@ function RouterComponent(props) {
     primaryPage: 'home',
     publicPage: 'profile',
     homePage: {
-      primaryPage: 'community',
-      secondaryPage: 'dashboard',
+      primaryPage: 'games',
+      secondaryPage: 'games',
       kickstarterId: null,
       myPostId: null,
       gameId: null,
@@ -70,24 +70,10 @@ function RouterComponent(props) {
               homePage: {
                 primaryPage: pageValues.homePage.primaryPage,
                 secondaryPage: pageValues.homePage.secondaryPage,
-                kickstarterId: pageValues.homePage.kickstarterId,
-                myPostId: pageValues.homePage.myPostId,
                 gameId: pageValues.homePage.gameId,
                 userId: pageValues.homePage.userId,
               },
-              jobPage: {
-                primaryPage: pageValues.jobPage.primaryPage,
-                secondaryPage: pageValues.jobPage.secondaryPage,
-                jobId: pageValues.jobPage.jobId,
-                contractId: pageValues.jobPage.contractId,
-              },
-              workPage: {
-                primaryPage: pageValues.workPage.primaryPage,
-                secondaryPage: pageValues.workPage.secondaryPage,
-                jobId: pageValues.workPage.jobId,
-                inviteId: pageValues.workPage.inviteId,
-                contractId: pageValues.workPage.contractId,
-              },
+
               updateMenuContext: setPageValues,
             }}
           >

@@ -14,10 +14,7 @@ export default function PaintRack({ setColorFunction, activeColor }) {
   return (
     <Column h="100% " a="center" j="flex-start" width="100%" of="auto">
       <Column>
-        <Typography
-          align="center"
-          style={{ color: '#fff', width: 180, height: 20 }}
-        >
+        <Typography align="center" style={{ width: 180, height: 20 }}>
           {hoverColor.name}
         </Typography>
         {hoverColor.link ? (
@@ -57,25 +54,37 @@ export default function PaintRack({ setColorFunction, activeColor }) {
         />
         <DividerMini />
         {paints.map((item, index) => (
-          <div
-            key={`paint_${index}`}
-            onClick={() => setColorFunction(item)}
-            onMouseOver={() => setHoverColor(item)}
-            className={item.metal ? classes.metallic : classes.standard}
-            style={{
-              minHeight: 30,
-              width: '100%',
-              backgroundColor: item.color,
-              margin: 2,
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-            }}
-            title={item.name}
+          <Row
+            a="center"
+            j="flex-start"
+            wrap="wrap"
+            width="100%"
+            onClickEvent={() => setColorFunction(item)}
           >
-            <Typography>{item.name}</Typography>
-          </div>
+            <div
+              key={`paint_${index}`}
+              onMouseOver={() => setHoverColor(item)}
+              className={item.metal ? classes.metallic : classes.standard}
+              style={{
+                minHeight: 30,
+                width: 30,
+                backgroundColor: item.color,
+                margin: 2,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                marginRight: 5,
+              }}
+              title={item.name}
+            ></div>
+            <Typography
+              onMouseOver={() => setHoverColor(item)}
+              style={{ fontWeight: 'bold', fontSize: '0.8rem' }}
+            >
+              {item.name}
+            </Typography>
+          </Row>
         ))}
       </Row>
     </Column>

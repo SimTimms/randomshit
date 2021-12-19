@@ -9,7 +9,7 @@ export default function mainMenu(history, counts, mainMenuContext, profile) {
           primaryPage: 'home',
           jobPage: { ...mainMenuContext.jobPage },
           workPage: { ...mainMenuContext.workPage },
-          homePage: { primaryPage: 'community', secondaryPage: 'dashboard' },
+          homePage: { primaryPage: 'games', secondaryPage: 'games' },
         }),
       count: null,
     },

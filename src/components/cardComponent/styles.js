@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: 5,
     marginTop: 5,
     background: '#fff',
-    boxShadow: '3px 3px 10px rgba(0,0,0,0.05)',
+    boxShadow: '3px 3px 10px rgba(0,0,0,0.1)',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -14,6 +14,7 @@ export const useStyles = makeStyles((theme) => ({
     padding: 10,
     boxSizing: 'border-box',
     color: theme.palette.wrap.text,
+    borderRadius: 10,
   },
   cardLocked: {
     padding: 0,

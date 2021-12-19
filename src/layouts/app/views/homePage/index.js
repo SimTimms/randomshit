@@ -27,6 +27,9 @@ export default function HomePage() {
   return (
     <ProfileContext.Consumer>
       {(profile) => {
+        if (!profile) {
+          return null;
+        }
         return (
           <MenuContext.Consumer>
             {(menu) => {

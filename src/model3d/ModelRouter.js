@@ -20,12 +20,12 @@ function ModelRouter({ gltf, js, parts, gameId }) {
   const theme = themeDesigner();
   //needs to re-render model
   const modelColorsRef = useRef({});
-  const [lightOne, setLightOne] = React.useState(30);
+  const [lightOne, setLightOne] = React.useState(10);
   const [attachedPart, setAttachedPart] = React.useState([]);
   const [lightTwo, setLightTwo] = React.useState(70);
-  const [lightThree, setLightThree] = React.useState(20);
-  const [lightFour, setLightFour] = React.useState(20);
-  const [lightFive, setLightFive] = React.useState(20);
+  const [lightThree, setLightThree] = React.useState(5);
+  const [lightFour, setLightFour] = React.useState(5);
+  const [lightFive, setLightFive] = React.useState(5);
   const [lightSix, setLightSix] = React.useState(20);
   const [lightSeven, setLightSeven] = React.useState(20);
   const [paintMode, setPaintMode] = React.useState(0);
@@ -65,7 +65,6 @@ function ModelRouter({ gltf, js, parts, gameId }) {
       <Column>
         <Row h="100%" w="100%" j="flex-start" a="flex-start">
           <Column
-            bg="#222"
             a="flex-start"
             j="flex-start"
             w={180}

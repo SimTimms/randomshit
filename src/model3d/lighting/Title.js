@@ -4,13 +4,12 @@ import { Typography } from '@material-ui/core';
 export default function Title({ str }) {
   return (
     <Typography
-      align="center"
+      align="left"
       style={{
-        width: 70,
+        width: 100,
         marginLeft: 10,
         borderRadius: 3,
-        color: '#dcf1fa',
-        fontFamily: 'roboto',
+        color: '#444',
       }}
     >
       {str}

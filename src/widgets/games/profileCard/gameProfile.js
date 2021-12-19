@@ -26,32 +26,13 @@ export default function GameProfile({ game }) {
         {(menu) => (
           <Column j="space-between" h="100%">
             <Column j="flex-start">
-              <Column bg="#222">
-                <Typography className={classes.gameName} variant="h4">
-                  {game.name}
-                </Typography>
-                <Typography style={{ fontSize: '0.8rem' }}>
-                  {game._id}
-                </Typography>
+              <Column>
                 <BgImg previewImage={game.featureImage} />
               </Column>
-              <Row j="center" w="100%" pl={5} pr={5} pt={5} pb={5} bg="#222">
-                <HrefLink
-                  title={`Posted By ${game.user.name}`}
-                  url={`/user-profile/${game.user._id}`}
-                ></HrefLink>
-              </Row>
             </Column>
 
-            {game.summary && (
-              <Typography align="center" className={classes.summary}>
-                {game.summary}
-              </Typography>
-            )}
-
             <MenuButtonStandard
-              title="Open"
-              icon="play_arrow"
+              title={game.name}
               fullWidth={true}
               onClickEvent={() => {
                 menu.updateMenuContext({

@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
   },
-  primaryBack: {},
+  primaryBack: { background: theme.palette.primary.main },
   secondaryBack: { background: theme.palette.secondary.main },
   primaryMenuWrapper: {
     display: 'flex',

@@ -32,15 +32,16 @@ export const useStyles = makeStyles((theme) => ({
   circleIconGreen: {
     background: theme.palette.primary.main,
   },
+  circleIconGrey: {
+    opacity: 1,
+    background: '#aaa',
+  },
   circleIconGreenOn: {
     background: theme.palette.primary.main,
     opacity: 1,
     boxShadow: 'inset 3px 3px 5px rgba(0,0,0,0.3)',
   },
-  circleIconGrey: {
-    opacity: 1,
-    background: '#aaa',
-  },
+
   circleIconGreyOn: {
     background: '#aaa',
     opacity: 1,

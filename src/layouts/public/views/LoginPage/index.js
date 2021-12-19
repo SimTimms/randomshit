@@ -6,11 +6,11 @@ import {
   Divider,
   DividerMini,
   MenuButtonStandardText,
+  Row,
 } from '../../../../components';
 import { sharedStyles } from '../styles';
 import { MutationLogin } from '../../../../data/mutationComponents';
-
-const CHECKING = 'Checking...';
+import RegisterCard from '../register/views/RegisterCard';
 
 export default function LoginPage({ history, forwardTo }) {
   const classes = sharedStyles();
@@ -20,62 +20,47 @@ export default function LoginPage({ history, forwardTo }) {
     passwordError: null,
     noUserError: null,
   });
-  const [loginStatus, setStatus] = React.useState('Login');
-
-  function loginSubmit(LoginMutation) {
-    if (password === '' || email === '') {
-      setStatus('Try Again');
-      return;
-    }
-
-    if (loginStatus !== CHECKING) {
-      setStatus('Checking...');
-      LoginMutation();
-    }
-  }
 
   return (
     <div className={classes.pageWrapper}>
       <CardComponent
         styleOverride={{
-          width: 400,
+          width: 500,
+          marginTop: 30,
         }}
       >
         <Column>
-          <Typography variant="h5">Login</Typography>
-          <Divider />
-        </Column>
-        <Column>
-          <MutationLogin
-            parameters={{
-              email,
-              password,
-              forwardTo,
-              history,
-              setStatus,
-              setError,
-              errors,
-              setEmail,
-              loginSubmit,
-              setPassword,
-              loginStatus,
-            }}
-          />
-          <Column w={200}>
-            <DividerMini />
-            <MenuButtonStandardText
-              title="Forgotten your password?"
-              onClickEvent={() => history.push('/password-forgot')}
+          <Column bg="primary">
+            <Typography variant="h5" style={{ color: '#fff', marginTop: 5 }}>
+              Login
+            </Typography>
+            <Divider />
+            <MutationLogin
+              parameters={{
+                email,
+                password,
+                forwardTo,
+                history,
+                setError,
+                errors,
+                setEmail,
+                setPassword,
+              }}
             />
-
-            <DividerMini />
-            <MenuButtonStandardText
-              title="Register"
-              onClickEvent={() => history.push('/register')}
-            />
+            <Column w={200}>
+              <DividerMini />
+              <MenuButtonStandardText
+                title="Password Reset"
+                onClickEvent={() => history.push('/password-forgot')}
+                white={true}
+              />
+              <DividerMini />
+            </Column>
+          </Column>
+          <Column>
+            <RegisterCard />
           </Column>
         </Column>
-        <Divider />
       </CardComponent>
     </div>
   );

@@ -22,22 +22,6 @@ export default function FieldBox({ title, value, onChangeEvent, ...props }) {
   return (
     <Column w={width ? '' : '100%'}>
       <Column a="flex-start">
-        <div
-          className={clsx({
-            [classes.small]: true,
-            [classes.hide]: title === '',
-          })}
-        >
-          <InputLabel
-            title={title}
-            value={value}
-            maxLength={maxLength}
-            minLength={minLength}
-            info={info}
-            warning={warning}
-            icon={icon}
-          />
-        </div>
         {multiline ? (
           <Row>
             {icon && <img src={icon} className={classes.socialIcon} alt="" />}
@@ -75,7 +59,7 @@ export default function FieldBox({ title, value, onChangeEvent, ...props }) {
                 [classes.tiny]: size === 'xs',
               })}
               style={{ width: width ? width : '100%' }}
-              placeholder={placeholder}
+              placeholder={title}
               value={value.substring(0, maxLength)}
               type={type ? type : 'text'}
               onChange={(e) => {

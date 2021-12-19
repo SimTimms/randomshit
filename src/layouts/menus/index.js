@@ -100,23 +100,5 @@ export function PublicMenu({ history }) {
 
 export function PublicFooterMenu() {
   const classes = useStyles();
-  return (
-    <div className={classes.menuWrapperMobile}>
-      <Link to="/register" style={{ textDecoration: 'none' }}>
-        <StyledButtonFooter>Register</StyledButtonFooter>
-      </Link>
-      <a
-        href={process.env.REACT_APP_TERMS_LINK}
-        style={{ textDecoration: 'none' }}
-      >
-        <StyledButtonFooter>Terms of Service</StyledButtonFooter>
-      </a>
-      <a
-        href={process.env.REACT_APP_PRIVACY_LINK}
-        style={{ textDecoration: 'none' }}
-      >
-        <StyledButtonFooter>Privacy Policy</StyledButtonFooter>
-      </a>
-    </div>
-  );
+  return <div className={classes.menuWrapperMobile}></div>;
 }

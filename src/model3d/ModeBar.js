@@ -46,8 +46,8 @@ export default function ModeBar({ paintMode, setPaintMode, canvas, modelId }) {
                   <Icon
                     className={clsx({
                       [classes.circleIcon]: true,
-                      [classes.circleIconYellow]: true,
-                      [classes.circleIconYellowOn]: paintMode === 0,
+                      [classes.circleIconGrey]: true,
+                      [classes.circleIconGreenOn]: paintMode === 0,
                     })}
                     onClick={() => setPaintMode(0)}
                   >
@@ -57,7 +57,7 @@ export default function ModeBar({ paintMode, setPaintMode, canvas, modelId }) {
                   <Icon
                     className={clsx({
                       [classes.circleIcon]: true,
-                      [classes.circleIconGreen]: true,
+                      [classes.circleIconGrey]: true,
                       [classes.circleIconGreenOn]: paintMode === 2,
                     })}
                     onClick={() => setPaintMode(2)}

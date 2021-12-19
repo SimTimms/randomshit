@@ -13,7 +13,7 @@ export default function MenuButtonStandardText({
 }) {
   const classes = useStyles();
   const [confirm, setConfirm] = React.useState(false);
-  const { ml, mr, mt, mb, fullWidth, fl, fr } = props;
+  const { ml, mr, mt, mb, fullWidth, fl, fr, white } = props;
 
   return (
     <div
@@ -26,6 +26,7 @@ export default function MenuButtonStandardText({
         [classes.mb]: mb,
         [classes.fl]: fl,
         [classes.fr]: fr,
+        [classes.white]: white,
         [classes.fullWidth]: fullWidth,
         [classes.disabled]: disabled,
       })}
@@ -37,7 +38,7 @@ export default function MenuButtonStandardText({
           : onClickEvent()
       }
     >
-      <div className={classes.title}>
+      <div>
         {type === 'delete' && !confirm ? (
           icon && !title ? (
             <Icon className={classes.title}>{disabled ? 'lock' : icon}</Icon>
@@ -46,10 +47,26 @@ export default function MenuButtonStandardText({
               <Icon className={classes.titleIcon}>
                 {disabled ? 'lock' : icon}
               </Icon>
-              <Typography className={classes.title}>{title}</Typography>
+              <Typography
+                className={clsx({
+                  [classes.title]: true,
+                  [classes.white]: white,
+                })}
+              >
+                {title}
+              </Typography>
             </div>
           ) : (
-            title && <Typography className={classes.title}>{title}</Typography>
+            title && (
+              <Typography
+                className={clsx({
+                  [classes.title]: true,
+                  [classes.white]: white,
+                })}
+              >
+                {title}
+              </Typography>
+            )
           )
         ) : type === 'delete' && confirm ? (
           <div className={classes.titleWithIcon}>
@@ -66,7 +83,14 @@ export default function MenuButtonStandardText({
             <Typography className={classes.title}>{title}</Typography>
           </div>
         ) : (
-          <Typography className={classes.title}>{title}</Typography>
+          <Typography
+            className={clsx({
+              [classes.title]: true,
+              [classes.white]: white,
+            })}
+          >
+            {title}
+          </Typography>
         )}
       </div>
     </div>

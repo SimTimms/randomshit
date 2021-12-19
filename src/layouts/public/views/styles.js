@@ -19,7 +19,7 @@ export const sharedStyles = makeStyles((theme) => ({
     height: 'calc(100vh - 122px)',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     overflow: 'auto',
     background: '#fafafa',
   },

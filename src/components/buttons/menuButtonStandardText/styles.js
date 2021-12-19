@@ -14,6 +14,7 @@ export const useStyles = makeStyles((theme) => ({
 
     width: '100%',
   },
+
   delete: { background: theme.palette.error.main },
   disabled: { background: '#aaa', boxShadow: 'none' },
   title: {
@@ -24,7 +25,9 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     color: theme.palette.primary.dark,
+    textDecoration: 'underline',
   },
+  white: { color: '#fff' },
   titleWithIcon: {
     display: 'flex',
     alignItems: 'center',

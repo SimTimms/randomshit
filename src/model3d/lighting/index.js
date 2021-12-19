@@ -27,7 +27,6 @@ export default function Lighting({
       <Column p={10} pt={0}>
         <Column>
           <Row>
-            <Icon icon="light_mode" />
             <Slider
               onChange={(value) => setLightOne(value)}
               startPoint={0}
@@ -38,7 +37,6 @@ export default function Lighting({
             <Title str="Ambient" />
           </Row>
           <Row>
-            <Icon icon="light_mode" />
             <Slider
               onChange={(value) => setLightTwo(value)}
               startPoint={0}
@@ -49,7 +47,6 @@ export default function Lighting({
             <Title str="Right" />
           </Row>
           <Row>
-            <Icon icon="light_mode" />
             <Slider
               onChange={(value) => setLightThree(value)}
               startPoint={0}
@@ -60,7 +57,6 @@ export default function Lighting({
             <Title str="Left" />
           </Row>
           <Row>
-            <Icon icon="light_mode" />
             <Slider
               onChange={(value) => setLightFour(value)}
               startPoint={0}
@@ -71,7 +67,6 @@ export default function Lighting({
             <Title str="Top" />
           </Row>
           <Row>
-            <Icon icon="light_mode" />
             <Slider
               onChange={(value) => setLightFive(value)}
               startPoint={0}
@@ -82,7 +77,6 @@ export default function Lighting({
             <Title str="Bottom" />
           </Row>
           <Row>
-            <Icon icon="light_mode" />
             <Slider
               onChange={(value) => setLightSix(value)}
               startPoint={0}
@@ -93,7 +87,6 @@ export default function Lighting({
             <Title str="Front" />
           </Row>
           <Row>
-            <Icon icon="light_mode" />
             <Slider
               onChange={(value) => setLightSeven(value)}
               startPoint={0}

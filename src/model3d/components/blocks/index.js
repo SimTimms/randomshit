@@ -167,6 +167,7 @@ export function Row(props) {
         boxSizing: 'border-box',
         cursor: pointer,
         borderBottom,
+        cursor: onClickEvent ? 'pointer' : 'default',
       }}
       className={className ? className : null}
       onClick={() => (onClickEvent ? onClickEvent() : null)}

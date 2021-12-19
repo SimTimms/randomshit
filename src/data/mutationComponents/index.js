@@ -1,38 +1,42 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import {
-  Form,
-  ErrorBox,
   MenuButtonStandard,
-  Divider,
+  Column,
+  DividerMini,
   FieldBox,
 } from '../../components';
 import * as AUTH from '../authorisation';
 import Cookies from 'js-cookie';
 import { readableErrors } from '../../utils/readableErrors';
 import jwtDecode from 'jwt-decode';
+import { useStyles } from './styles';
 
 export const MutationLogin = ({ parameters }) => {
-  const {
-    email,
-    password,
-    forwardTo,
-    history,
-    setStatus,
-    setError,
-    errors,
-    setEmail,
-    loginSubmit,
-    setPassword,
-    loginStatus,
-  } = parameters;
+  const classes = useStyles();
+  const [loginStatus, setStatus] = React.useState('Login');
+  const CHECKING = 'Checking...';
+
+  function loginSubmit(LoginMutation) {
+    if (password === '' || email === '') {
+      setStatus('Try Again');
+      return;
+    }
+
+    if (loginStatus !== CHECKING) {
+      setStatus('Checking...');
+      LoginMutation();
+    }
+  }
+
+  const { email, password, history, setError, errors, setEmail, setPassword } =
+    parameters;
   return (
     <Mutation
       mutation={AUTH.LOGIN_MUTATION}
       variables={{ email, password }}
       onCompleted={async (data) => {
         const { token } = data.userLogin;
-
         if (token) {
           const tokenDecode = jwtDecode(token);
           await Cookies.set('token', token, { expires: 7 });
@@ -40,15 +44,7 @@ export const MutationLogin = ({ parameters }) => {
             expires: 7,
           });
 
-          if (
-            forwardTo !== null &&
-            forwardTo.pathname !== undefined &&
-            forwardTo.pathname !== '/'
-          ) {
-            history.replace(forwardTo.pathname);
-          } else {
-            history.replace('/app/home');
-          }
+          history.replace('/app/home');
         }
       }}
       onError={(error) => {
@@ -58,7 +54,7 @@ export const MutationLogin = ({ parameters }) => {
     >
       {(LoginMutation) => {
         return (
-          <Form width={200} onSubmit={(item) => alert}>
+          <Column w={200}>
             <FieldBox
               value={email}
               title="Email Address"
@@ -72,7 +68,7 @@ export const MutationLogin = ({ parameters }) => {
               size="s"
               multiline={false}
             />
-            <Divider />
+            <DividerMini />
             <FieldBox
               value={password}
               title="Password"
@@ -87,17 +83,14 @@ export const MutationLogin = ({ parameters }) => {
               multiline={false}
               type="password"
             />
-
-            <ErrorBox errorMsg={errors.passwordError} />
-            <ErrorBox errorMsg={errors.noUserError} />
-            <Divider />
+            <DividerMini />
             <MenuButtonStandard
               title={loginStatus}
               onClickEvent={() => {
                 loginSubmit(LoginMutation);
               }}
             />
-          </Form>
+          </Column>
         );
       }}
     </Mutation>

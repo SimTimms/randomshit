@@ -15,7 +15,7 @@ export default function RecentColors({
   }, [activeColor, recentColors]);
 
   return (
-    <Column w={200} a="flex-start" bb="1px solid #444">
+    <Column w={200} a="flex-start" bb="1px solid #fafafa">
       <DividerMini />
       <Row wrap="wrap" a="flex-start" j="flex-start">
         {recentColors.map((color, index) => (

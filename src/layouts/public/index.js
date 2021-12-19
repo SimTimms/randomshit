@@ -63,10 +63,6 @@ export function PublicLayout(props) {
           <LoginPage history={props.history} forwardTo={props.location} />
         )}
       </Content>
-
-      <Footer>
-        <PublicFooterMenu />
-      </Footer>
     </div>
   );
 }

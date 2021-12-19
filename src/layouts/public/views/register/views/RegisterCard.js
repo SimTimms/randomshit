@@ -30,6 +30,7 @@ export default function RegisterCard({ setPage, ...props }) {
     password: null,
   });
   const [password, setPassword] = React.useState('');
+  const [loginNow, setLoginNow] = React.useState(false);
   const [buttonStatus, setButtonStatus] = React.useState('Register');
 
   const { campaignId, history } = props;
@@ -75,17 +76,22 @@ export default function RegisterCard({ setPage, ...props }) {
     !passed && setButtonStatus('Try Again');
     passed && SignupMutation();
   }
-
+  if (loginNow) {
+    return (
+      <Typography style={{ marginTop: 5 }}>
+        Thanks, you can now login
+      </Typography>
+    );
+  }
   return (
     <Column w={300}>
       <Column>
-        <Typography variant="h5" style={{ color: '#fff' }}>
+        <Typography variant="h5" style={{ marginTop: 10, marginBottom: 5 }}>
           Register
         </Typography>
         <Typography> Enter a few details to create your account</Typography>
         <DividerWithBorder />
       </Column>
-      <Divider />
       <Column>
         <FieldBox
           value={name}
@@ -146,8 +152,9 @@ export default function RegisterCard({ setPage, ...props }) {
             setError(readableErrors(error, errors));
           }}
           onCompleted={(a, b) => {
-            setButtonStatus('Done');
-            setPage();
+            setLoginNow(true);
+            //   setButtonStatus('Done');
+            //   setPage();
           }}
         >
           {(SignupMutation) => {
@@ -166,49 +173,6 @@ export default function RegisterCard({ setPage, ...props }) {
           }}
         </Mutation>
         <DividerWithBorder />
-        <Meta
-          str={`By registering you agree to the ${process.env.REACT_APP_COMPANY_PUBLIC_NAME}`}
-        />
-        <Meta
-          str={
-            <a
-              href={process.env.REACT_APP_TERMS_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Terms of Service
-            </a>
-          }
-        />
-        <Meta
-          str={
-            <a
-              href={process.env.REACT_APP_PRIVACY_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Privacy Policy
-            </a>
-          }
-        />
-      </Column>
-
-      <Divider />
-      <Column
-        style={{ paddingBottom: 70 }}
-        className={classes.cardContentCenter}
-      >
-        <Typography
-          component="p"
-          style={{
-            textAlign: 'center',
-            cursor: 'pointer',
-            marginBottom: 20,
-          }}
-          onClick={() => history.push('/')}
-        >
-          Back to Login
-        </Typography>
       </Column>
     </Column>
   );

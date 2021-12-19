@@ -38,6 +38,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-start',
     padding: 5,
     boxSizing: 'border-box',
+    background: '#fafafa',
   },
   tabPageContentSingle: {
     height: 'calc(100vh - 68px)',
