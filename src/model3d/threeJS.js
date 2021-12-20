@@ -238,7 +238,6 @@ export default function ThreeJS({
             <ModelLoader props={propExport} />
           </group>
           {Object.values(attachedPart).map((item) => {
-            console.log(attachedPart);
             return (
               <group
                 name="sun"

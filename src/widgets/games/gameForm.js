@@ -33,7 +33,14 @@ export default function GameForm() {
     <MenuContext.Consumer>
       {(menu) => (
         <div className={classes.menuRoot}>
-          <div style={{ padding: 10, maxWidth: 400, margin: 'auto' }}>
+          <div
+            style={{
+              padding: 10,
+              paddingBottom: 100,
+              maxWidth: 400,
+              margin: 'auto',
+            }}
+          >
             <Column a="center" j="center">
               <GameFields game={game} setGame={setGame} />
               <Divider />
@@ -41,6 +48,7 @@ export default function GameForm() {
               <Divider />
               <GamePostParent game={game} setGame={setGame} />
               <Divider />
+
               {game._id === 'new' ? (
                 <Mutation
                   mutation={CREATE_GAME}

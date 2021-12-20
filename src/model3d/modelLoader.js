@@ -41,7 +41,10 @@ export default function ModelLoader({
   lightSeven,
 }) {
   const canvas = useRef(null);
-  const modelAdjust = { '61bcde4856537174216adeda': [Math.PI / 2, 0, 3] };
+  const modelAdjust = {
+    '61bcde4856537174216adeda': [Math.PI / 2, 0, 3],
+    '61c0d836fc54e3e7e5f6afdc': [-Math.PI / 2, 0, 0],
+  };
   return (
     <div
       style={{
