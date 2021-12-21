@@ -101,6 +101,8 @@ export default function Mesh({
         geometry={geometry}
         material={material}
         material-color={meshColor}
+        castShadow={true}
+        receiveShadow={true}
         material-metalness={metals.indexOf(meshColor) > -1 ? 0.7 : 0}
         material-roughness={metals.indexOf(meshColor) > -1 ? 0.5 : 1}
         material-emissiveIntensity={

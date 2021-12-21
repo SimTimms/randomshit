@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import Mesh from './Mesh';
+import * as THREE from 'three';
 
 export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
   const group = useRef();
@@ -50,27 +51,50 @@ export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
         if (exists === -1) {
           existsArray.push(item.name);
           if (item.geometry && item.visible) {
+            //     const edges = new THREE.EdgesGeometry(item.geometry, 35);
+
             nodeMap.push(
-              <Mesh
-                sprayMode={sprayMode}
-                activeColor={activeColor}
-                geometry={item.geometry}
-                scale={item.scale}
-                materialIn={nodeArr[i].material}
-                name={item.name}
-                position={[
-                  rNbr(item.position.x),
-                  rNbr(item.position.y),
-                  rNbr(item.position.z),
-                ]}
-                rotation={[
-                  rDeg(item.rotation.x),
-                  rDeg(item.rotation.y),
-                  rDeg(item.rotation.z),
-                ]}
-              >
-                {node(nodeChildArr, nodes)}
-              </Mesh>
+              <group dispose={null}>
+                <Mesh
+                  sprayMode={sprayMode}
+                  activeColor={activeColor}
+                  geometry={item.geometry}
+                  scale={item.scale}
+                  materialIn={nodeArr[i].material}
+                  name={item.name}
+                  position={[
+                    rNbr(item.position.x),
+                    rNbr(item.position.y),
+                    rNbr(item.position.z),
+                  ]}
+                  rotation={[
+                    rDeg(item.rotation.x),
+                    rDeg(item.rotation.y),
+                    rDeg(item.rotation.z),
+                  ]}
+                >
+                  {node(nodeChildArr, nodes)}
+                </Mesh>
+                {/*
+                <lineSegments
+                  geometry={edges}
+                  renderOrder={100}
+                  scale={item.scale}
+                  position={[
+                    rNbr(item.position.x),
+                    rNbr(item.position.y),
+                    rNbr(item.position.z),
+                  ]}
+                  rotation={[
+                    rDeg(item.rotation.x),
+                    rDeg(item.rotation.y),
+                    rDeg(item.rotation.z),
+                  ]}
+                >
+                  <lineBasicMaterial />
+                </lineSegments>
+                */}
+              </group>
             );
           }
           if (item.type === 'Object3D') {
