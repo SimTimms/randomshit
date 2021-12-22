@@ -1,5 +1,12 @@
 export const paints = [
   {
+    name: 'Corvus Black',
+    color: '#171314',
+    link: 'https://www.games-workshop.com/en-GB/Base-Corvus-Black-2019',
+    company: 'Games Workshop',
+    type: 'Base',
+  },
+  {
     name: 'White Scar',
     color: '#fff',
     link: 'https://www.games-workshop.com/en-GB/Layer-White-Scar-2019',
