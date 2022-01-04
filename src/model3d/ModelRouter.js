@@ -96,7 +96,7 @@ function ModelRouter({ gltf, js, parts, gameId }) {
             )}
           </Column>
 
-          <Column>
+          <Column bg="#cecbbf">
             <ModelLoader
               activeColor={activeColor}
               sprayMode={false}

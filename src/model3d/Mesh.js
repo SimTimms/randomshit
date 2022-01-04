@@ -53,6 +53,7 @@ export default function Mesh({
         setMeshColor(savedColors[name].color);
       }
     }
+
     if (texture && !material) {
       var texLoader = new THREE.TextureLoader();
       const texLoaded = texLoader.load(texture);
@@ -70,6 +71,18 @@ export default function Mesh({
         transparent: true,
       });
       setMaterial(materialNew);
+    }
+
+    if (!decalItem) {
+      var texLoader = new THREE.TextureLoader();
+      const texLoaded = texLoader.load(decals);
+      const materialNew = new THREE.MeshStandardMaterial({
+        ...materialIn,
+        transparent: true,
+        map: texLoaded ? texLoaded : null,
+        flipY: true,
+      });
+      setDecalItem(materialNew);
     }
   }, [modelColorsRef, decalNormal, decals, meshColor]);
 
@@ -105,10 +118,8 @@ export default function Mesh({
         receiveShadow={true}
         material-metalness={metals.indexOf(meshColor) > -1 ? 0.7 : 0}
         material-roughness={metals.indexOf(meshColor) > -1 ? 0.5 : 1}
-        material-emissiveIntensity={
-          decalItem ? (decals[name].int ? decals[name].int : lightOne) : null
-        }
       />
+      <mesh geometry={geometry} material={decalItem} />
     </group>
   );
 }

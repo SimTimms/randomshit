@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import Mesh from './Mesh';
+import DecalMesh from './DecalMesh';
 import * as THREE from 'three';
 
 export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
@@ -72,9 +73,11 @@ export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
                     rDeg(item.rotation.y),
                     rDeg(item.rotation.z),
                   ]}
+                  decals={'/textures/transfer.png'}
                 >
                   {node(nodeChildArr, nodes)}
                 </Mesh>
+
                 {/*
                 <lineSegments
                   geometry={edges}

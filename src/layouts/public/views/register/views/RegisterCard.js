@@ -172,7 +172,6 @@ export default function RegisterCard({ setPage, ...props }) {
             );
           }}
         </Mutation>
-        <DividerWithBorder />
       </Column>
     </Column>
   );
