@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import PreviewLayout from '../layouts/preview';
 import { PublicLayout } from '../layouts/public';
 import MyCharEmbed from '../MyCharEmbed';
+import ModelApp from '../layouts/app/modelApp';
 
 export default function PublicRoutes({ theme, props: { ...props } }) {
   return (
@@ -20,6 +21,10 @@ export default function PublicRoutes({ theme, props: { ...props } }) {
         render={(props) => (
           <PreviewLayout {...props} theme={theme} publicView={true} />
         )}
+      />
+      <Route
+        path="/partner/:partnerId/:boxArtId"
+        render={(props) => <ModelApp {...props} theme={theme} />}
       />
       <Route
         path="/:page/:token"

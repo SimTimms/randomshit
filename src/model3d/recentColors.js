@@ -1,23 +1,22 @@
 import React, { useEffect } from 'react';
-import { Row, Column, WidgetTitle, DividerMini } from './components';
+import { Row, Column, DividerMini } from './components';
 import PaintPot from './PaintPot';
 
 export default function RecentColors({
   activeColor,
   setColorFunction,
   setHoverColor,
+  recentColors,
+  setRecentColors,
 }) {
-  const [recentColors, setRecentColors] = React.useState([]);
-
   useEffect(() => {
     recentColors.indexOf(activeColor) === -1 &&
       setRecentColors([...recentColors, activeColor]);
   }, [activeColor, recentColors]);
 
   return (
-    <Column w={200} a="flex-start" bb="1px solid #fafafa">
-      <DividerMini />
-      <Row wrap="wrap" a="flex-start" j="flex-start">
+    <Column a="center">
+      <Row wrap="wrap" mw={400} a="center" j="center">
         {recentColors.map((color, index) => (
           <PaintPot
             key={`recent_${index}`}
@@ -27,7 +26,6 @@ export default function RecentColors({
           />
         ))}
       </Row>
-      <DividerMini />
     </Column>
   );
 }

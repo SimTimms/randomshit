@@ -73,7 +73,6 @@ export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
                     rDeg(item.rotation.y),
                     rDeg(item.rotation.z),
                   ]}
-                  decals={'/textures/transfer.png'}
                 >
                   {node(nodeChildArr, nodes)}
                 </Mesh>

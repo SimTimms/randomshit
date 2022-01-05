@@ -28,6 +28,9 @@ export const SAVE_GAME_IMAGE = gql`
       }
     ) {
       recordId
+      record {
+        url
+      }
     }
   }
 `;

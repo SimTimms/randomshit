@@ -104,10 +104,16 @@ export default function Mesh({
             } else {
               savedColors = JSON.parse(savedColors);
             }
-            savedColors[name] = { color: activeColor.color };
-            localStorage.setItem('modelColorSave', JSON.stringify(savedColors));
 
-            setMeshColor(activeColor.color);
+            if (activeColor) {
+              savedColors[name] = { color: activeColor.color };
+              localStorage.setItem(
+                'modelColorSave',
+                JSON.stringify(savedColors)
+              );
+
+              setMeshColor(activeColor.color);
+            }
           }
         }}
         onPointerMove={(e) => paintMode !== 0 && setPaintMode(0)}

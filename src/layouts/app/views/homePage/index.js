@@ -33,10 +33,17 @@ export default function HomePage() {
         return (
           <MenuContext.Consumer>
             {(menu) => {
+              if (menu.homePage.secondaryPage === 'game_profile') {
+                return <GameProfileFull />;
+              }
               return (
                 <TabPage
                   title={null}
-                  primaryMenu={homeMenu(menu)}
+                  primaryMenu={
+                    menu.homePage.secondaryPage !== 'game_profile'
+                      ? homeMenu(menu)
+                      : null
+                  }
                   secondaryMenu={
                     menu.homePage.primaryPage === 'games'
                       ? menu.homePage.secondaryPage === 'game_profile'

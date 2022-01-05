@@ -1,20 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
 import themeDesigner from './theme';
-import ThreeJS from './threeJS';
-import { Row, Column, DividerMini } from './components';
+import { Row, Column } from './components';
 import 'rc-slider/assets/index.css';
 import PaintRack from './PaintRack';
 import Lighting from './lighting';
-import Tools from './Tools';
-import Decals from './Decals';
-import Parts from './Parts';
-import PaintPot from './PaintPot';
 import { ColorContext } from '../context';
 import ModelLoader from './modelLoader';
-import ModeBar from './ModeBar';
 
 function ModelRouter({ gltf, js, parts, gameId }) {
   const theme = themeDesigner();
@@ -112,27 +105,7 @@ function ModelRouter({ gltf, js, parts, gameId }) {
               lightSix={lightSix}
               lightSeven={lightSeven}
             />
-            {/*    <ThreeJS
-              color={color}
-              lightOne={lightOne / 100}
-              lightTwo={lightTwo / 100}
-              lightThree={lightThree / 100}
-              lightFour={lightFour / 100}
-              lightFive={lightFive / 100}
-              intensity={(lightOne + lightTwo) / 200}
-              activeColor={activeColor}
-              paintMode={paintMode}
-              setPaintMode={setPaintMode}
-              modelColorsRef={modelColorsRef}
-              modelColors={modelColors}
-              decalSet={decals}
-              attachedPart={attachedPart}
-              gltf={gltf}
-              js={js}
-              parts={parts}
-              gameId={gameId}
-            />
-        */}
+
             <Typography
               align="center"
               style={{
