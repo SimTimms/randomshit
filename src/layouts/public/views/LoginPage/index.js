@@ -33,17 +33,16 @@ export default function LoginPage({ history, forwardTo }) {
         >
           <Column>
             <Column w={200}>
-              <a
-                href={`${process.env.REACT_APP_URL}/partner/61c5018a32eaca0016363b6c/61d5a0327d31f80016bfa2be`}
-              >
-                <MenuButtonStandard
-                  onClickEvent={() => {
-                    setLoginType(1);
-                  }}
-                  title="Demo"
-                  fullWidth={true}
-                />
-              </a>
+              <MenuButtonStandard
+                onClickEvent={() => {
+                  setLoginType(1);
+                  history.push(
+                    `/partner/61c5018a32eaca0016363b6c/61d5a0327d31f80016bfa2be`
+                  );
+                }}
+                title="Demo"
+                fullWidth={true}
+              />
               <DividerMini />
               <MenuButtonStandard
                 onClickEvent={() => {
