@@ -143,7 +143,7 @@ export default function ThreeJS({
       style={{
         position: 'relative',
         width: '100%',
-        height: 'calc(100vh - 164px)',
+        height: 'calc(100% - 164px)',
       }}
     >
       <ModeBar

@@ -7,10 +7,9 @@ import Lighting from './lighting';
 import { ColorContext } from '../context';
 import ModelLoader from './modelLoader';
 import RecentColors from './recentColors';
-import CircleButton from './CircleButton';
 import { Typography } from '@material-ui/core';
 
-function ModelRouterApp({ gltf, js, gameId, box, back }) {
+function ModelRouterApp({ gltf, js, gameId, box, back, posOne, posTwo }) {
   const modelColorsRef = useRef({});
   const [panels, setPanels] = React.useState({
     lighting: false,
@@ -88,7 +87,7 @@ function ModelRouterApp({ gltf, js, gameId, box, back }) {
               boxSizing: 'border-box',
               left: 0,
               width: '100vw',
-              height: 'calc(100vh - 80px)',
+              height: 'calc(100% - 80px)',
               zIndex: 10,
               display: 'flex',
               alignItems: 'center',
@@ -131,7 +130,7 @@ function ModelRouterApp({ gltf, js, gameId, box, back }) {
         )}
 
         {!panels.lighting && (
-          <Column bg="#111">
+          <Column bg="#111" h="88px">
             <RecentColors
               activeColor={activeColor}
               setColorFunction={setColorFunction}

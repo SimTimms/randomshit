@@ -12,6 +12,8 @@ import { SAVE_GAME_IMAGE } from './data';
 import { toaster } from '../utils/toaster';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
 
+import { useGLTF } from '@react-three/drei';
+
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -70,10 +72,10 @@ export default function ModelLoader({
       style={{
         position: 'relative',
         width: '100vw',
-        height: 'calc(100vh - 80px)',
+        height: '100%',
       }}
     >
-      <Column h="calc(100vh - 80px)">
+      <Column h="100%">
         {!panels.lighting && (
           <div
             style={{
@@ -157,7 +159,7 @@ export default function ModelLoader({
           camera={{ position: [0, 70, 150], fov: 10, far: 700 }}
           ref={canvas}
           gl={{ preserveDrawingBuffer: true }}
-          style={{ background: '#222' }}
+          style={{ background: '#222', height: '100%' }}
         >
           <Suspense fallback={<Loader />}>
             <group name="sun" position={[500, 900, 0]}>
@@ -181,7 +183,7 @@ export default function ModelLoader({
             <group name="sun" position={[0, 0, -50]}>
               <spotLight intensity={lightSeven / 50} />
             </group>
-            <group rotation={modelAdjust[gameId]} position={[0, -8, 0]}>
+            <group position={[0, -8, 0]}>
               <ModelScript
                 activeColor={activeColor}
                 sprayMode={sprayMode}

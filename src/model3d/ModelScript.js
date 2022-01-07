@@ -1,13 +1,25 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { useGLTF } from '@react-three/drei';
 import Mesh from './Mesh';
 import DecalMesh from './DecalMesh';
 import * as THREE from 'three';
 
-export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
+export default function ModelScript({
+  gltfIn,
+  activeColor,
+  sprayMode,
+  posOne,
+}) {
   const group = useRef();
-  const { nodes, materials } = useGLTF(gltfIn);
 
+  const mod = useGLTF(gltfIn);
+  const modOne = useGLTF(
+    'https://random-shit-store.s3.amazonaws.com/614b73c98a97c40c65957b89/SkeletonTurn/scene.gltf'
+  );
+
+  const nodes = mod.nodes;
+  const nodesOne = modOne.nodes;
+  console.log(nodesOne);
   const rNbr = (number) => {
     return parseFloat(number.toFixed(Math.round(2)));
   };
@@ -19,6 +31,7 @@ export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
     }
     return rNbr(number);
   };
+
   const existsArray = [];
   function node(nodeArr) {
     let nodeMap = [];
@@ -63,16 +76,24 @@ export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
                   scale={item.scale}
                   materialIn={nodeArr[i].material}
                   name={item.name}
-                  position={[
-                    rNbr(item.position.x),
-                    rNbr(item.position.y),
-                    rNbr(item.position.z),
-                  ]}
-                  rotation={[
-                    rDeg(item.rotation.x),
-                    rDeg(item.rotation.y),
-                    rDeg(item.rotation.z),
-                  ]}
+                  position={
+                    item.name === 'wraithguard_torso_2001'
+                      ? nodesOne['wraithguard_torso_2001'].position
+                      : [
+                          rNbr(item.position.x),
+                          rNbr(item.position.y),
+                          rNbr(item.position.z),
+                        ]
+                  }
+                  rotation={
+                    item.name === 'wraithguard_torso_2001'
+                      ? nodesOne['wraithguard_torso_2001'].rotation
+                      : [
+                          rDeg(item.rotation.x),
+                          rDeg(item.rotation.y),
+                          rDeg(item.rotation.z),
+                        ]
+                  }
                 >
                   {node(nodeChildArr, nodes)}
                 </Mesh>

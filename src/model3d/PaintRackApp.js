@@ -7,11 +7,8 @@ import RecentColors from './recentColors';
 
 export default function PaintRackApp({
   setColorFunction,
-  activeColor,
   setColorGroup,
   colorGroup,
-  recentColors,
-  setRecentColors,
 }) {
   const classes = useStyles();
   const [hoverColor, setHoverColor] = React.useState({
@@ -49,18 +46,19 @@ export default function PaintRackApp({
   return (
     <div
       style={{
-        height: '100vh',
+        height: '100%',
         position: 'fixed',
         top: 0,
         left: 0,
+        paddingTop: '80px',
+        boxSizing: 'border-box',
         width: '100vw',
         background: 'rgba(0,0,0,0.7)',
         zIndex: 11,
-        paddingTop: 80,
       }}
       onClick={() => setColorGroup(null)}
     >
-      <Column h="100% " a="center" j="flex-start" width="100%" of="auto">
+      <Column h="100%" a="center" j="flex-start" width="100%" of="auto">
         <Column>
           <Typography
             align="center"

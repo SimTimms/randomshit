@@ -37,7 +37,7 @@ export default function LoginPage({ history, forwardTo }) {
                 onClickEvent={() => {
                   setLoginType(1);
                   history.push(
-                    `/partner/61c5018a32eaca0016363b6c/61d5a0327d31f80016bfa2be`
+                    `/partner/6160a02349be93983b68c69f/61d5a0327d31f80016bfa2be`
                   );
                 }}
                 title="Demo"

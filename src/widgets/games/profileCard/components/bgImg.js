@@ -15,7 +15,7 @@ export default function BgImg({ previewImage, onClick }) {
         [classes.background]: true,
         [classes.noBG]: !previewImage,
       })}
-      onClick={() => onClick()}
+      onClick={() => (onClick ? onClick() : null)}
     ></div>
   );
 }

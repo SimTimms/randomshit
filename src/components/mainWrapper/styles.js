@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     width: '100vw',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    height: '100vh',
+    height: '100%',
     overflow: 'hidden ',
     background: '#111',
   },

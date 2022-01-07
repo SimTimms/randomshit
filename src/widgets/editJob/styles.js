@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme) => ({
   noticeArea: {
     width: '100%',
     display: 'flex',
-    minHeight: 'calc(100vh - 104px)',
+    minHeight: 'calc(100% - 104px)',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

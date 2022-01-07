@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const drawerWidth = 160;
 
 export const useStyles = makeStyles((theme) => ({
-  root: { height: '100vh', background: '#efeff5', overflow: 'auto' },
+  root: { height: '100%', background: '#efeff5', overflow: 'auto' },
   menuButton: {
     marginRight: theme.spacing(2),
   },

@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   tabPageContent: {
     overflow: 'auto',
-    height: 'calc(100vh - 66px)',
+    height: 'calc(100% - 66px)',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
@@ -41,6 +41,6 @@ export const useStyles = makeStyles((theme) => ({
     background: '#fafafa',
   },
   tabPageContentSingle: {
-    height: 'calc(100vh - 68px)',
+    height: 'calc(100% - 68px)',
   },
 }));

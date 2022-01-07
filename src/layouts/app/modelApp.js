@@ -66,6 +66,7 @@ export default function GameProfileFull(props) {
           box={modelTwo}
         />
       )}
+
       {!modelTwo && (
         <Query
           query={GAME_BY_ID}

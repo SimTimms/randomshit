@@ -5,14 +5,14 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     width: 150,
-    height: '100vh',
+    height: '100%',
     zIndex: 2,
     borderRight: '1px solid #444',
   },
   row: { flexDirection: 'row', width: '100%' },
   columnActive: {
     background: theme.palette.primary.main,
-    height: '100vh',
+    height: '100%',
   },
   deviceWrapper: {
     height: 67,

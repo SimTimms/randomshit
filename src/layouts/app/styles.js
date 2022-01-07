@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
     width: '100vw',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    height: '100vh',
+    height: '100%',
     overflow: 'hidden ',
   },
   menuButton: {
@@ -45,6 +45,6 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
     background: '#efeff5',
     width: 'calc(100vw - 300px)',
-    height: '100vh',
+    height: '100%',
   },
 }));
