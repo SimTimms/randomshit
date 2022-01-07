@@ -4,12 +4,7 @@ import Mesh from './Mesh';
 import DecalMesh from './DecalMesh';
 import * as THREE from 'three';
 
-export default function ModelScript({
-  gltfIn,
-  activeColor,
-  sprayMode,
-  posOne,
-}) {
+export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
   const group = useRef();
 
   const mod = useGLTF(gltfIn);
