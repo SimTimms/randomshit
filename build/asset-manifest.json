@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.js": "/static/js/main.73dbcebd.chunk.js",
+    "main.js.map": "/static/js/main.73dbcebd.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d8be0fd0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d8be0fd0.js.map",
+    "static/css/2.9afd9385.chunk.css": "/static/css/2.9afd9385.chunk.css",
+    "static/js/2.96e7d2b3.chunk.js": "/static/js/2.96e7d2b3.chunk.js",
+    "static/js/2.96e7d2b3.chunk.js.map": "/static/js/2.96e7d2b3.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.1bb7fcc932ddf7f2a20071f7ad874f30.js": "/precache-manifest.1bb7fcc932ddf7f2a20071f7ad874f30.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.9afd9385.chunk.css.map": "/static/css/2.9afd9385.chunk.css.map",
+    "static/js/2.96e7d2b3.chunk.js.LICENSE.txt": "/static/js/2.96e7d2b3.chunk.js.LICENSE.txt",
+    "static/media/dmDevice.png": "/static/media/dmDevice.aa66bfb6.png",
+    "static/media/earlyBird.png": "/static/media/earlyBird.4a400f0d.png",
+    "static/media/extraordinary.png": "/static/media/extraordinary.036f8c2e.png",
+    "static/media/featured.png": "/static/media/featured.c13b736e.png",
+    "static/media/golden.png": "/static/media/golden.4a34e231.png",
+    "static/media/iconWebsite.png": "/static/media/iconWebsite.7bf93738.png",
+    "static/media/kick.png": "/static/media/kick.8a56a46e.png",
+    "static/media/mp3d.png": "/static/media/mp3d.aec4e4b6.png",
+    "static/media/mp3dback.jpg": "/static/media/mp3dback.26deffa2.jpg",
+    "static/media/socialInstagram.png": "/static/media/socialInstagram.5dfed668.png",
+    "static/media/socialLinkedIn.png": "/static/media/socialLinkedIn.9b60bf1b.png",
+    "static/media/socialSkype.svg": "/static/media/socialSkype.cc3dee71.svg",
+    "static/media/socialTwitter.svg": "/static/media/socialTwitter.a7a925c7.svg",
+    "static/media/supporter.png": "/static/media/supporter.7ed2dd5f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d8be0fd0.js",
+    "static/css/2.9afd9385.chunk.css",
+    "static/js/2.96e7d2b3.chunk.js",
+    "static/js/main.73dbcebd.chunk.js"
+  ]
+}
