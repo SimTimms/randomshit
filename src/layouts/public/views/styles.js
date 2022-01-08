@@ -16,7 +16,8 @@ export const sharedStyles = makeStyles((theme) => ({
   },
   pageWrapper: {
     width: '100%',
-    height: 'calc(100% - 122px)',
+    height: '100%',
+
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'flex-start',

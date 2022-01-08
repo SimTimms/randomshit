@@ -87,7 +87,8 @@ function ModelRouterApp({ gltf, js, gameId, box, back, posOne, posTwo }) {
               boxSizing: 'border-box',
               left: 0,
               width: '100vw',
-              height: 'calc(100% - 80px)',
+              height: '100%',
+
               zIndex: 10,
               display: 'flex',
               alignItems: 'center',

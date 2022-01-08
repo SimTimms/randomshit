@@ -23,7 +23,7 @@ export default function TabPage({
   const primaryMenu = props.primaryMenu;
   const secondaryMenu = props.secondaryMenu;
   return (
-    <Column>
+    <Column h="100%" a="flex-start" j="flex-start">
       <PrimaryMenuWrapper>
         <Typography className={classes.mainHeader}>{title && title}</Typography>
         {primaryMenu &&
@@ -45,7 +45,7 @@ export default function TabPage({
             );
           })}
       </PrimaryMenuWrapper>
-      <Column a="flex-start">
+      <Column a="flex-start" h="100%">
         {secondaryMenu && (
           <div className={classes.secondaryMenuWrapper}>
             {secondaryMenu.map((menuItem) => {

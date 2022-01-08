@@ -47,7 +47,7 @@ export default function ModelLoader({
       style={{
         position: 'relative',
         width: 'calc(100vw - 340px)',
-        height: 'calc(100% - 112px)',
+        height: '100%',
       }}
     >
       <ModeBar
