@@ -49,10 +49,12 @@ export function Column(props) {
     onClickEvent,
     bb,
     of,
+    mh,
   } = props;
   const align = a ? a : 'center';
   const width = w ? w : '100%';
   const maxWidth = mw ? mw : '100%';
+  const maxHeight = mh ? mh : '100%';
   const height = h ? h : '';
   const justify = j ? j : 'center';
   const padding = p ? p : 0;
@@ -81,6 +83,7 @@ export function Column(props) {
         maxWidth,
         borderBottom,
         overflow,
+        maxHeight,
       }}
       className={clsx({
         [classes.desktop]: true,

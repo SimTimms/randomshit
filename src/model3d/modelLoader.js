@@ -3,16 +3,13 @@ import { Canvas } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
 import ModelScript from './ModelScript';
 import { Html, useProgress } from '@react-three/drei';
-import ModeBar from './ModeBar';
-import { Column, Row } from '../components';
+import { Column } from '../components';
 import CircleButton from './CircleButton';
 import uploaderScreenshot from '../components/uploaderScreenshot';
 import { Mutation } from 'react-apollo';
 import { SAVE_GAME_IMAGE } from './data';
 import { toaster } from '../utils/toaster';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
-
-import { useGLTF } from '@react-three/drei';
 
 function Loader() {
   const { progress } = useProgress();
@@ -67,6 +64,8 @@ export default function ModelLoader({
     }
     return new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
   }
+  localStorage.getItem('modelColorSave');
+
   return (
     <div
       style={{
@@ -76,7 +75,7 @@ export default function ModelLoader({
       }}
     >
       <Column h="100%">
-        {!panels.lighting && (
+        {!panels && (
           <div
             style={{
               zIndex: 10,
@@ -103,7 +102,7 @@ export default function ModelLoader({
             <CircleButton
               title="Light"
               icon="lightbulb"
-              onClickEvent={() => setPanels({ palette: false, lighting: true })}
+              onClickEvent={() => setPanels('lighting')}
             />
 
             <Mutation
@@ -133,6 +132,11 @@ export default function ModelLoader({
                 );
               }}
             </Mutation>
+            <CircleButton
+              title="Info"
+              icon="palette"
+              onClickEvent={() => setPanels('details')}
+            />
             {screenshot && (
               <div style={{ marginTop: 3, marginLeft: 3 }}>
                 <TwitterShareButton

@@ -4,13 +4,9 @@ import { ColorContext } from '../context';
 
 export default function Mesh({
   geometry,
-  modelColorsRef,
   name,
-  modelColors,
-  spray,
   decalNormal,
   decals,
-  lightOne,
   position,
   rotation,
   scale,
@@ -20,9 +16,7 @@ export default function Mesh({
 }) {
   const [material, setMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#aaa');
-  const [importedColors, setImportedColors] = React.useState(null);
   const [decalItem, setDecalItem] = React.useState(null);
-  const [decalNormalItem, setDecalNormalItem] = React.useState(null);
   const [paintMode, setPaintMode] = React.useState(0);
 
   const metals = [
@@ -84,7 +78,7 @@ export default function Mesh({
       });
       setDecalItem(materialNew);
     }
-  }, [modelColorsRef, decalNormal, decals, meshColor]);
+  }, [decalNormal, decals, meshColor]);
 
   return !material ? null : (
     <group
@@ -106,7 +100,10 @@ export default function Mesh({
             }
 
             if (activeColor) {
-              savedColors[name] = { color: activeColor.color };
+              savedColors[name] = {
+                color: activeColor.color,
+                name: activeColor.name,
+              };
               localStorage.setItem(
                 'modelColorSave',
                 JSON.stringify(savedColors)

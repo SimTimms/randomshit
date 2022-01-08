@@ -24,7 +24,7 @@ export default function Lighting({
 }) {
   const lightIncrease = 30;
   return (
-    <Column j="space-between" h="100%" w={300}>
+    <Column j="space-between" h="100%" w={300} mh={300}>
       <CircleButton
         onClickEvent={() =>
           setLightFour(

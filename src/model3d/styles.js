@@ -31,6 +31,18 @@ export const useStyles = makeStyles((theme) => ({
     border: '1px solid rgba(0,0,0,0)',
     boxShadow: '3px 3px 5px rgba(0,0,0,8)',
   },
+  panelWrapper: {
+    position: 'fixed',
+    top: 46,
+    boxSizing: 'border-box',
+    left: 0,
+    width: '100vw',
+    height: 'calc(100% - 46px)',
+    zIndex: 10,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   paintCircle: {
     borderRadius: '50%',
     minHeight: 30,

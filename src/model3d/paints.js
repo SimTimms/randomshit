@@ -1,16 +1,58 @@
+export const gwPaints = {
+  'Blue Horror': {
+    name: `Blue Horror`,
+    color: '#9eb5ce',
+    company: 'Games Workshop',
+    link: 'https://www.games-workshop.com/en-GB/Base-Corvus-Black-2019',
+    type: 'Base',
+  },
+  'Hoeth Blue': {
+    name: `Hoeth Blue`,
+    color: '#4c78af',
+    company: 'Games Workshop',
+    link: 'https://www.games-workshop.com/en-GB/Layer-Hoeth-Blue-2019',
+  },
+  'Lothern Blue': {
+    name: `Lothern Blue`,
+    color: '#2c9bcc',
+    company: 'Games Workshop',
+    link: 'https://www.games-workshop.com/en-GB/Layer-Lothern-Blue-2019',
+  },
+  'Calgar Blue': {
+    name: `Calgar Blue`,
+    color: '#2a497f',
+    company: 'Games Workshop',
+    link: 'https://www.games-workshop.com/en-GB/Layer-Calgar-Blue-2019',
+  },
+  'Teclis Blue': {
+    name: `Teclis Blue`,
+    color: '#3877bf',
+    company: 'Games Workshop',
+    link: 'https://www.games-workshop.com/en-GB/Layer-Teclis-Blue-2019',
+  },
+  'Alaitoc Blue': {
+    name: `Alaitoc Blue`,
+    color: '#2f4f85',
+    company: 'Games Workshop',
+    link: 'https://www.games-workshop.com/en-GB/Layer-Alaitoc-Blue-2019',
+  },
+  'Altdorf Guard Blue': {
+    name: `Altdorf Guard Blue`,
+    color: '#2d4696',
+    company: 'Games Workshop',
+    link: 'https://www.games-workshop.com/en-GB/Layer-Altdorf-Guard-Blue-2019',
+  },
+};
+
 export const paints = {
   blue: [
-    { name: `Blue Horror`, color: '#9eb5ce', company: 'Games Workshop' },
-    { name: `Hoeth Blue`, color: '#4c78af', company: 'Games Workshop' },
-    { name: `Lothern Blue`, color: '#2c9bcc', company: 'Games Workshop' },
-    { name: `Calgar Blue`, color: '#2a497f', company: 'Games Workshop' },
-    { name: `Teclis Blue`, color: '#3877bf', company: 'Games Workshop' },
-    { name: `Alaitoc Blue`, color: '#2f4f85', company: 'Games Workshop' },
-    {
-      name: `Altdorf Guard Blue`,
-      color: '#2d4696',
-      company: 'Games Workshop',
-    },
+    gwPaints['Blue Horror'],
+    gwPaints['Hoeth Blue'],
+    gwPaints['Lothern Blue'],
+    gwPaints['Calgar Blue'],
+    gwPaints['Teclis Blue'],
+    gwPaints['Alaitoc Blue'],
+    gwPaints['Altdorf Guard Blue'],
   ],
   turquoise: [
     { name: 'The Fang', color: '#405b71', company: 'Games Workshop' },

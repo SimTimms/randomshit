@@ -4,17 +4,16 @@ import { Row, Column } from './components';
 import 'rc-slider/assets/index.css';
 import PaintRackApp from './PaintRackApp';
 import Lighting from './lighting';
+import Details from './details';
 import { ColorContext } from '../context';
 import ModelLoader from './modelLoader';
 import RecentColors from './recentColors';
 import { Typography } from '@material-ui/core';
+import { useStyles } from './styles';
 
 function ModelRouterApp({ gltf, js, gameId, box, back, posOne, posTwo }) {
   const modelColorsRef = useRef({});
-  const [panels, setPanels] = React.useState({
-    lighting: false,
-    palette: false,
-  });
+  const [panels, setPanels] = React.useState(null);
   const [lightOne, setLightOne] = React.useState(30);
   const [attachedPart, setAttachedPart] = React.useState([]);
   const [lightTwo, setLightTwo] = React.useState(30);
@@ -27,6 +26,7 @@ function ModelRouterApp({ gltf, js, gameId, box, back, posOne, posTwo }) {
   const [color, setColor] = React.useState(null);
   const [colorGroup, setColorGroup] = React.useState(null);
   const [recentColors, setRecentColors] = React.useState([]);
+  const classes = useStyles();
 
   const [activeColor, setActiveColor] = React.useState({
     color: '#aaa',
@@ -57,6 +57,25 @@ function ModelRouterApp({ gltf, js, gameId, box, back, posOne, posTwo }) {
       }}
     >
       <Column h="100%" bg="#222">
+        {(panels === 'lighting' || panels === 'details') && (
+          <div
+            style={{
+              minHeight: 46,
+              marginBottom: -46,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              background: '#111',
+              width: '100%',
+              zIndex: 11,
+            }}
+            onClick={() => setPanels(null)}
+          >
+            <Typography style={{ color: '#fff' }}>Close</Typography>
+          </div>
+        )}
+
         <Row h="100%" w="100%" j="flex-start" a="flex-start">
           <ModelLoader
             activeColor={activeColor}
@@ -78,23 +97,13 @@ function ModelRouterApp({ gltf, js, gameId, box, back, posOne, posTwo }) {
             back={back}
           />
         </Row>
-
-        {panels.lighting && (
-          <div
-            style={{
-              position: 'fixed',
-              top: 0,
-              boxSizing: 'border-box',
-              left: 0,
-              width: '100vw',
-              height: '100%',
-
-              zIndex: 10,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
+        {panels === 'details' && (
+          <div className={classes.panelWrapper}>
+            <Details />
+          </div>
+        )}
+        {panels === 'lighting' && (
+          <div className={classes.panelWrapper}>
             <Lighting
               setLightOne={setLightOne}
               lightOne={lightOne}
@@ -113,25 +122,9 @@ function ModelRouterApp({ gltf, js, gameId, box, back, posOne, posTwo }) {
             />
           </div>
         )}
-        {panels.lighting && (
-          <div
-            style={{
-              height: 88,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              background: '#111',
-              width: '100%',
-            }}
-            onClick={() => setPanels({ lighting: false, palette: false })}
-          >
-            <Typography style={{ color: '#fff' }}>Close</Typography>
-          </div>
-        )}
 
-        {!panels.lighting && (
-          <Column bg="#111" h="88px">
+        <Column bg="#111" h="88px">
+          {!panels && (
             <RecentColors
               activeColor={activeColor}
               setColorFunction={setColorFunction}
@@ -139,6 +132,8 @@ function ModelRouterApp({ gltf, js, gameId, box, back, posOne, posTwo }) {
               recentColors={recentColors}
               setRecentColors={setRecentColors}
             />
+          )}
+          {!panels && (
             <PaintRackApp
               setColorFunction={setColorFunction}
               activeColor={activeColor}
@@ -147,8 +142,8 @@ function ModelRouterApp({ gltf, js, gameId, box, back, posOne, posTwo }) {
               recentColors={recentColors}
               setRecentColors={setRecentColors}
             />
-          </Column>
-        )}
+          )}
+        </Column>
       </Column>
     </ColorContext.Provider>
   );
