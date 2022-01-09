@@ -33,9 +33,9 @@ export default function gameMenu(menu) {
       count: null,
     },
     {
-      name: 'Create',
+      name: 'Upload Model',
       icon: 'add_circle',
-      machineName: 'create_game',
+      machineName: PAGES.createModel,
       link: () =>
         menu.updateMenuContext({
           primaryPage: 'home',
@@ -43,7 +43,7 @@ export default function gameMenu(menu) {
           workPage: { ...menu.workPage },
           homePage: {
             ...menu.homePage,
-            secondaryPage: 'create_game',
+            secondaryPage: PAGES.createModel,
             gameId: 'new',
           },
         }),

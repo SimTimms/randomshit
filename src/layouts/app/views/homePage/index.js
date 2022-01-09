@@ -5,19 +5,11 @@ import {
   gameMenu,
   kickstarterMenu,
   photoMenu,
-  communityMenu,
   myPostsMenu,
-  gameProfileMenu,
 } from '../../../menuArray';
-import CommunityPage from '../communityPage';
 import MiniGalleryPage from '../miniGalleryPage';
-import MyModelsPage from '../myModelsPage';
-import {
-  GamesAdmin,
-  CreativeRosterWidget,
-  Kickstarters,
-  MyPosts,
-} from '../../../../widgets';
+import MyGalleryPage from '../myGalleryPage';
+import { ChooseModel } from '../../../../widgets';
 import GameProfileFull from '../../../../widgets/games/profileCard/gameProfileFull';
 import { PreviewProfile } from '../../../../layouts/preview/views/previewProfile';
 import GamesPage from '../../../../layouts/preview/views/previewProfile/gamesPage';
@@ -66,14 +58,16 @@ export default function HomePage() {
                 >
                   {menu.homePage.primaryPage === PAGES.pickModelsPrimary &&
                   menu.homePage.secondaryPage === PAGES.pickModelsSecondary ? (
-                    <GamesAdmin />
+                    <ChooseModel />
+                  ) : menu.homePage.secondaryPage === PAGES.createModel ? (
+                    <ChooseModel />
                   ) : menu.homePage.secondaryPage === 'game_profile' ? (
                     <GameProfileFull />
                   ) : menu.homePage.secondaryPage === 'user_profile' ? (
                     <PreviewProfile profileId={menu.homePage.userId} />
                   ) : (
                     menu.homePage.secondaryPage === PAGES.myModels && (
-                      <GamesPage userId={menu.homePage.userId} />
+                      <ChooseModel userId={menu.homePage.userId} />
                     )
                   )}
                   {menu.homePage.primaryPage === 'gallery' &&
@@ -82,7 +76,7 @@ export default function HomePage() {
                   ) : (
                     menu.homePage.primaryPage === 'gallery' &&
                     menu.homePage.secondaryPage === PAGES.myModelGallery && (
-                      <MyModelsPage />
+                      <MyGalleryPage />
                     )
                   )}
                 </TabPage>

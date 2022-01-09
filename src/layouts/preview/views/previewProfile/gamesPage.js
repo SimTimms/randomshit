@@ -4,6 +4,7 @@ import { GAME_WIDGET_BY_USER } from './data';
 import { GameProfile } from '../../../../widgets/games/profileCard';
 import { Grid } from '../../../../components';
 import { randomKey } from '../../../../utils';
+
 export default function GamesPage({ userId }) {
   return (
     <Grid>

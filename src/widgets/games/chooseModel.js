@@ -10,13 +10,13 @@ import { MenuContext } from '../../context';
 import { randomKey } from '../../utils';
 import { PAGES } from '../../const';
 
-export default function GamesAdmin() {
+export default function ChooseModel() {
   const [game, setGame] = React.useState(null);
   return (
     <MenuContext.Consumer>
       {(menu) => (
         <Row w="100%">
-          {menu.homePage.secondaryPage === 'create_game' ? (
+          {menu.homePage.secondaryPage === PAGES.createModel ? (
             <GameForm gameData={game} setGameData={setGame} />
           ) : menu.homePage.secondaryPage === PAGES.pickModelsSecondary ? (
             <Grid cols={3}>

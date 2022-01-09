@@ -4,4 +4,5 @@ export const PAGES = {
   pickModelsSeconday: 'pick_models',
   myModels: 'my_models',
   myModelGallery: 'my_model_gallery',
+  createModel: 'create_model',
 };

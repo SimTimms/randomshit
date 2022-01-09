@@ -28,6 +28,7 @@ export default function GameProfileFull({ back }) {
                   js={game.js}
                   parts={game.gamePart}
                   gameId={game._id}
+                  game={game}
                   back={back}
                 />
               );

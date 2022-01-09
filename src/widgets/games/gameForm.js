@@ -28,6 +28,11 @@ export default function GameForm() {
     js: '',
     gltf: '',
     bin: '',
+    artistName: '',
+    artistLink: '',
+    licenseLink: '',
+    copyrightDescription: '',
+    whereToBuyLink: '',
   });
 
   return (
