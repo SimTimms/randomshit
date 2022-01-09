@@ -13,7 +13,7 @@ import CommunityPage from '../communityPage';
 import MiniGalleryPage from '../miniGalleryPage';
 import MyModelsPage from '../myModelsPage';
 import {
-  Games,
+  GamesAdmin,
   CreativeRosterWidget,
   Kickstarters,
   MyPosts,
@@ -22,13 +22,13 @@ import GameProfileFull from '../../../../widgets/games/profileCard/gameProfileFu
 import { PreviewProfile } from '../../../../layouts/preview/views/previewProfile';
 import GamesPage from '../../../../layouts/preview/views/previewProfile/gamesPage';
 import { MenuContext, ProfileContext } from '../../../../context';
-
+import { PAGES } from '../../../../const';
 export default function HomePage() {
   return (
     <ProfileContext.Consumer>
       {(profile) => {
         if (!profile) {
-          return null;
+          return 'No Profile';
         }
         return (
           <MenuContext.Consumer>
@@ -45,7 +45,7 @@ export default function HomePage() {
                       : null
                   }
                   secondaryMenu={
-                    menu.homePage.primaryPage === 'games'
+                    menu.homePage.primaryPage === PAGES.pickModelsPrimary
                       ? menu.homePage.secondaryPage === 'game_profile'
                         ? null
                         : profile.email === 'tim-simms@hotmail.com'
@@ -64,38 +64,27 @@ export default function HomePage() {
                   activePrimary={menu.homePage.primaryPage}
                   activeSecondary={menu.homePage.secondaryPage}
                 >
-                  {menu.homePage.primaryPage === 'community' &&
-                  menu.homePage.secondaryPage === 'dashboard' ? (
-                    <CommunityPage />
-                  ) : menu.homePage.primaryPage === 'gallery' &&
-                    menu.homePage.secondaryPage === 'browse_gallery' ? (
-                    <MiniGalleryPage />
-                  ) : menu.homePage.primaryPage === 'gallery' &&
-                    menu.homePage.secondaryPage === 'my_models' ? (
-                    <MyModelsPage />
-                  ) : (
-                    menu.homePage.secondaryPage === 'profiles' && (
-                      <CreativeRosterWidget />
-                    )
-                  )}
-                  {(menu.homePage.primaryPage === 'games' &&
-                    menu.homePage.secondaryPage === 'games') ||
-                  menu.homePage.secondaryPage === 'my_games' ||
-                  menu.homePage.secondaryPage === 'create_game' ? (
-                    <Games />
+                  {menu.homePage.primaryPage === PAGES.pickModelsPrimary &&
+                  menu.homePage.secondaryPage === PAGES.pickModelsSecondary ? (
+                    <GamesAdmin />
                   ) : menu.homePage.secondaryPage === 'game_profile' ? (
                     <GameProfileFull />
                   ) : menu.homePage.secondaryPage === 'user_profile' ? (
                     <PreviewProfile profileId={menu.homePage.userId} />
                   ) : (
-                    menu.homePage.secondaryPage === 'user_games' && (
+                    menu.homePage.secondaryPage === PAGES.myModels && (
                       <GamesPage userId={menu.homePage.userId} />
                     )
                   )}
-                  {menu.homePage.primaryPage === 'kickstarters' && (
-                    <Kickstarters />
+                  {menu.homePage.primaryPage === 'gallery' &&
+                  menu.homePage.secondaryPage === 'browse_gallery' ? (
+                    <MiniGalleryPage />
+                  ) : (
+                    menu.homePage.primaryPage === 'gallery' &&
+                    menu.homePage.secondaryPage === PAGES.myModelGallery && (
+                      <MyModelsPage />
+                    )
                   )}
-                  {menu.homePage.primaryPage === 'my_posts' && <MyPosts />}
                 </TabPage>
               );
             }}

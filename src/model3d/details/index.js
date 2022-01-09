@@ -3,7 +3,11 @@ import { Row, Column } from '../components';
 import { Typography, Icon } from '@material-ui/core';
 import { gwPaints } from '../paints';
 export default function Details({}) {
-  const details = JSON.parse(localStorage.getItem('modelColorSave'));
+  if (!localStorage.getItem('modelColorSave')) {
+    return null;
+  }
+  const details = localStorage.getItem('modelColorSave');
+
   return (
     <Column
       j="flex-start"

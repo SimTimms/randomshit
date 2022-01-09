@@ -11,7 +11,7 @@ import themeDesigner from './theme';
 import AuthRoutes from './routes/routesAuth';
 import PublicRoutes from './routes/routesPublic';
 import { MenuContext } from './context';
-
+import { PAGES } from './const';
 function RouterComponent(props) {
   const authToken = Cookies.get('token');
   const theme = themeDesigner();
@@ -37,8 +37,8 @@ function RouterComponent(props) {
     primaryPage: 'home',
     publicPage: 'profile',
     homePage: {
-      primaryPage: 'games',
-      secondaryPage: 'games',
+      primaryPage: PAGES.pickModelsPrimary,
+      secondaryPage: PAGES.pickModelsSecondary,
       kickstarterId: null,
       myPostId: null,
       gameId: null,

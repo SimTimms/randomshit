@@ -10,7 +10,7 @@ import MyModelsWidget from './myModelsWidget';
 import MyPostForm from './myPosts/myPostForm';
 import { MyPosts, PublicPostsWidget } from './myPosts';
 import { FeaturedKickstarters, Kickstarters } from './kickstarter';
-import { FeaturedGames, Games } from './games';
+import { FeaturedGames, GamesAdmin } from './games';
 import {
   QuoteOutWidget,
   QuoteInWidget,
@@ -42,7 +42,7 @@ export {
   CreateJob,
   InviteDetails,
   FeaturedGames,
-  Games,
+  GamesAdmin,
   PublicJobWidget,
   FullContractWidget,
   ResponsesWidget,

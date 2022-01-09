@@ -41,6 +41,7 @@ import PrimaryMenu from './primaryMenu';
 import { mainMenu } from '../menuArray';
 import { MainWrapper, ContentScroll } from '../../components';
 import GameProfileFull from '../../widgets/games/profileCard/gameProfileFull';
+import { PAGES } from '../../const';
 
 import Stats from './stats';
 
@@ -115,8 +116,8 @@ export default function AppLayout(props) {
                             ...menuContext,
                             homePage: {
                               ...menuContext.homePage,
-                              primaryPage: 'games',
-                              secondaryPage: 'games',
+                              primaryPage: PAGES.pickModelsPrimary,
+                              secondaryPage: PAGES.pickModelsSecondary,
                               gameId: null,
                             },
                           })
@@ -216,7 +217,7 @@ export default function AppLayout(props) {
                             contractId={pathParam}
                             history={history}
                           />
-                        ) : menuContext.primaryPage === 'home' ? (
+                        ) : menuContext.primaryPage === PAGES.home ? (
                           <HomePage />
                         ) : menuContext.primaryPage === 'work' ? (
                           <WorkPage />

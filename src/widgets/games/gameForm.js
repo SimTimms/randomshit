@@ -13,6 +13,7 @@ import { MenuContext } from '../../context';
 import GamePartParent from './gamePartParent';
 import GameFields from './gameFields';
 import GamePostParent from './gamePostParent';
+import { PAGES } from '../../const';
 
 export default function GameForm() {
   const classes = useStyles();
@@ -62,8 +63,8 @@ export default function GameForm() {
                       ...menu,
                       homePage: {
                         ...menu.homePage,
-                        primaryPage: 'games',
-                        secondaryPage: 'my_games',
+                        primaryPage: PAGES.pickModelsPrimary,
+                        secondaryPage: PAGES.myModels,
                         gameId: null,
                       },
                     });
@@ -119,8 +120,8 @@ export default function GameForm() {
                         ...menu,
                         homePage: {
                           ...menu.homePage,
-                          primaryPage: 'games',
-                          secondaryPage: 'my_games',
+                          primaryPage: PAGES.pickModelsPrimary,
+                          secondaryPage: PAGES.myModels,
                           gameId: null,
                         },
                       });

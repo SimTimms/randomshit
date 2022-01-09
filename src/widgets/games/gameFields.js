@@ -119,7 +119,7 @@ export default function GameFields({ game, setGame }) {
       />
       <FieldBox
         value={game.js}
-        title="JS File Nam"
+        title="JS File Name"
         maxLength={186}
         minLength={1}
         onChangeEvent={(e) => {
@@ -148,6 +148,24 @@ export default function GameFields({ game, setGame }) {
           });
         }}
         replaceMode="loose"
+        placeholder="Examples: Firstborn | Dreadnought | Fighter Jet"
+        info="What's this model called?"
+        warning=""
+        size="s"
+        multiline={false}
+      />
+      <FieldBox
+        value={game.bin}
+        title="BIN File Name"
+        maxLength={186}
+        minLength={1}
+        onChangeEvent={(e) => {
+          setGame({
+            ...game,
+            bin: e,
+          });
+        }}
+        replaceMode=""
         placeholder="Examples: Firstborn | Dreadnought | Fighter Jet"
         info="What's this model called?"
         warning=""

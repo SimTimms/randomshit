@@ -1,3 +1,5 @@
+import { PAGES } from '../../const';
+
 export default function photoMenu(menu) {
   return [
     {
@@ -20,7 +22,7 @@ export default function photoMenu(menu) {
     {
       name: 'My Gallery',
       icon: 'dynamic_feed',
-      machineName: 'my_models',
+      machineName: PAGES.myModelGallery,
       link: () =>
         menu.updateMenuContext({
           primaryPage: 'home',
@@ -28,7 +30,7 @@ export default function photoMenu(menu) {
           workPage: { ...menu.workPage },
           homePage: {
             ...menu.homePage,
-            secondaryPage: 'my_models',
+            secondaryPage: PAGES.myModelGallery,
             kickstarterId: null,
           },
         }),

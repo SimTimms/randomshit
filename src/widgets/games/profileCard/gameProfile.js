@@ -24,27 +24,25 @@ export default function GameProfile({ game }) {
     >
       <MenuContext.Consumer>
         {(menu) => (
-          <Column j="space-between" h="100%">
+          <Column
+            j="space-between"
+            h="100%"
+            onClickEvent={() => {
+              menu.updateMenuContext({
+                ...menu,
+                homePage: {
+                  ...menu.homePage,
+                  secondaryPage: 'game_profile',
+                  gameId: game._id,
+                },
+              });
+            }}
+          >
             <Column j="flex-start">
               <Column>
                 <BgImg previewImage={game.featureImage} />
               </Column>
             </Column>
-
-            <MenuButtonStandard
-              title={game.name}
-              fullWidth={true}
-              onClickEvent={() => {
-                menu.updateMenuContext({
-                  ...menu,
-                  homePage: {
-                    ...menu.homePage,
-                    secondaryPage: 'game_profile',
-                    gameId: game._id,
-                  },
-                });
-              }}
-            />
           </Column>
         )}
       </MenuContext.Consumer>

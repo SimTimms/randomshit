@@ -8,8 +8,9 @@ import { Row, Column, Grid, CardComponent } from '../../components';
 import GameComponent from './component';
 import { MenuContext } from '../../context';
 import { randomKey } from '../../utils';
+import { PAGES } from '../../const';
 
-export default function Games() {
+export default function GamesAdmin() {
   const [game, setGame] = React.useState(null);
   return (
     <MenuContext.Consumer>
@@ -17,7 +18,7 @@ export default function Games() {
         <Row w="100%">
           {menu.homePage.secondaryPage === 'create_game' ? (
             <GameForm gameData={game} setGameData={setGame} />
-          ) : menu.homePage.secondaryPage === 'games' ? (
+          ) : menu.homePage.secondaryPage === PAGES.pickModelsSecondary ? (
             <Grid cols={3}>
               <Query query={GAME_WIDGET}>
                 {({ data }) => {
@@ -30,25 +31,14 @@ export default function Games() {
               </Query>
             </Grid>
           ) : (
-            menu.homePage.secondaryPage === 'my_games' && (
+            menu.homePage.secondaryPage === PAGES.myModels && (
               <Column w="100%">
                 <Query query={MY_GAMES} fetchPolicy="network-only">
                   {({ data }) => {
                     if (data)
-                      if (data.myGames.length === 0) {
-                        return (
-                          <CardComponent type="dark">
-                            <Typography>
-                              Use this space to post your games or your game
-                              concepts.
-                            </Typography>
-                          </CardComponent>
-                        );
-                      } else {
-                        return data.myGames.map((game) => (
-                          <GameComponent game={game} />
-                        ));
-                      }
+                      return data.myGames.map((game) => (
+                        <GameComponent game={game} />
+                      ));
 
                     return null;
                   }}

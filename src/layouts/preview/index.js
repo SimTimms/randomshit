@@ -54,7 +54,7 @@ function PreviewLayout(props) {
                             history={props.history}
                           />
                         )}
-                        {menu.publicPage === 'games' && (
+                        {menu.publicPage === 'pick_models' && (
                           <GamesPage userId={pathParam} />
                         )}
                         {menu.publicPage === 'jobs' && (
