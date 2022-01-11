@@ -21,6 +21,7 @@ app.get('/photo', function (req, res) {
     <img src="https://random-shit-store.s3.amazonaws.com/${req.query.photo}.jpg"></body></html>`
   );
 });
+
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.listen(port, () => console.log(`App is live on port ${port}!`));

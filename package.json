@@ -53,8 +53,7 @@
   },
   "scripts": {
     "devstart": "react-scripts start",
-    "build": "react-scripts build",
-    "start": "node server.js",
+    "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
