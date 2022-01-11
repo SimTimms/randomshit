@@ -52,8 +52,8 @@
     "three.interaction": "^0.2.3"
   },
   "scripts": {
-    "devstart": "react-scripts start",
     "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
