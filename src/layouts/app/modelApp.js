@@ -64,6 +64,7 @@ export default function GameProfileFull(props) {
           parts={modelOne.gamePart}
           gameId={modelOne._id}
           box={modelTwo}
+          game={modelOne}
         />
       )}
 

@@ -55,7 +55,6 @@ export default function Mesh({
         ...materialIn,
         transparent: true,
         map: texLoaded ? texLoaded : null,
-        flipY: true,
       });
       setMaterial(materialNew);
     }
@@ -74,7 +73,6 @@ export default function Mesh({
         ...materialIn,
         transparent: true,
         map: texLoaded ? texLoaded : null,
-        flipY: true,
       });
       setDecalItem(materialNew);
     }
