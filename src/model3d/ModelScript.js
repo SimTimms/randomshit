@@ -8,7 +8,6 @@ export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
   const group = useRef();
 
   const mod = useGLTF(gltfIn);
-
   const nodes = mod.nodes;
 
   const rNbr = (number) => {

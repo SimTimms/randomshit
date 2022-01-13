@@ -11,7 +11,7 @@ import RecentColors from './recentColors';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
-function ModelRouterApp({ gltf, js, gameId, box, back, game }) {
+function ModelRouterApp({ gltf, js, gameId, box, back, game, login, history }) {
   const modelColorsRef = useRef({});
   const [panels, setPanels] = React.useState(null);
   const [lightOne, setLightOne] = React.useState(30);
@@ -95,6 +95,8 @@ function ModelRouterApp({ gltf, js, gameId, box, back, game }) {
             setPanels={setPanels}
             panels={panels}
             back={back}
+            login={login}
+            history={history}
           />
         </Row>
         {panels === 'details' && (

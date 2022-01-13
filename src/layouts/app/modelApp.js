@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Query } from 'react-apollo';
 import ModelRouterApp from '../../model3d/ModelRouterApp';
 import gql from 'graphql-tag';
+import HeaderGallery from '../../widgets/headerGallery';
 
 const GAME_BY_ID = gql`
   query gameById($_id: MongoID!) {
@@ -20,26 +21,11 @@ const GAME_BY_ID = gql`
         name
         profileImg
       }
-      gamePart {
-        _id
-        name
-        gltf
-        js
-        bin
-        img
-      }
-      gamePost {
-        name
-        url
-        video
-        img
-        summary
-      }
     }
   }
 `;
 
-export default function GameProfileFull(props) {
+export default function ModelApp(props) {
   const [modelOne, setModelOne] = React.useState(null);
   const [modelTwo, setModelTwo] = React.useState(null);
 
@@ -55,18 +41,30 @@ export default function GameProfileFull(props) {
       : null
     : null;
 
+  function changeModel(newModel) {
+    setModelOne(null);
+    // setModelOne(newModel);
+  }
+
+  useEffect(() => {}, []);
+
   return (
     <div style={{ height: '100%' }}>
-      {modelOne && modelTwo && (
-        <ModelRouterApp
-          gltf={modelOne.gltf}
-          js={modelOne.js}
-          parts={modelOne.gamePart}
-          gameId={modelOne._id}
-          box={modelTwo}
-          game={modelOne}
-        />
-      )}
+      <HeaderGallery history={props.history} setModelOne={changeModel} />
+      <div style={{ height: 'calc(100% - 130px)' }}>
+        {modelOne && modelTwo && (
+          <ModelRouterApp
+            gltf={modelOne.gltf}
+            js={modelOne.js}
+            parts={modelOne.gamePart}
+            gameId={modelOne._id}
+            box={modelTwo}
+            game={modelOne}
+            login={true}
+            history={props.history}
+          />
+        )}
+      </div>
 
       {!modelTwo && (
         <Query

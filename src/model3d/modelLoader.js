@@ -47,6 +47,8 @@ export default function ModelLoader({
   panels,
   setPanels,
   back,
+  login,
+  history,
 }) {
   const [screenshot, setScreenshot] = React.useState(null);
   const [wait, setWait] = React.useState(false);
@@ -97,6 +99,13 @@ export default function ModelLoader({
                 title="Back"
                 icon="close"
                 onClickEvent={() => back()}
+              />
+            )}
+            {login && (
+              <CircleButton
+                title="Back"
+                icon="close"
+                onClickEvent={() => history.push('')}
               />
             )}
             <CircleButton

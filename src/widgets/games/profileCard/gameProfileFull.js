@@ -6,7 +6,7 @@ import { GAME_BY_ID } from '../data';
 import ModelRouter from '../../../model3d/ModelRouter';
 import ModelRouterApp from '../../../model3d/ModelRouterApp';
 
-export default function GameProfileFull({ back }) {
+export default function GameProfileFull({ back, ...props }) {
   const classes = useStyles();
 
   return (
@@ -30,6 +30,7 @@ export default function GameProfileFull({ back }) {
                   gameId={game._id}
                   game={game}
                   back={back}
+                  history={props.history}
                 />
               );
             }

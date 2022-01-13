@@ -12,7 +12,6 @@ import MyGalleryPage from '../myGalleryPage';
 import { ChooseModel } from '../../../../widgets';
 import GameProfileFull from '../../../../widgets/games/profileCard/gameProfileFull';
 import { PreviewProfile } from '../../../../layouts/preview/views/previewProfile';
-import GamesPage from '../../../../layouts/preview/views/previewProfile/gamesPage';
 import { MenuContext, ProfileContext } from '../../../../context';
 import { PAGES } from '../../../../const';
 export default function HomePage() {
