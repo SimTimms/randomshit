@@ -1,5 +1,5 @@
 import React, { Suspense, useRef } from 'react';
-import { Canvas } from 'react-three-fiber';
+import { Canvas, useFrame } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
 import ModelScript from './ModelScript';
 import { Html, useProgress } from '@react-three/drei';
@@ -10,6 +10,7 @@ import { Mutation } from 'react-apollo';
 import { SAVE_GAME_IMAGE } from './data';
 import { toaster } from '../utils/toaster';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
+import { Typography } from '@material-ui/core';
 
 function Loader() {
   const { progress } = useProgress();
@@ -54,10 +55,7 @@ export default function ModelLoader({
   const [wait, setWait] = React.useState(false);
 
   const canvas = useRef(null);
-  const modelAdjust = {
-    '61bcde4856537174216adeda': [Math.PI / 2, 0, 3],
-    '61c0d836fc54e3e7e5f6afdc': [-Math.PI / 2, 0, 0],
-  };
+
   function dataURItoBlob(dataURI) {
     var binary = atob(dataURI.split(',')[1]);
     var array = [];
@@ -77,7 +75,7 @@ export default function ModelLoader({
       }}
     >
       <Column h="100%">
-        {!panels && (
+        {(!panels || panels === 'unitDetails') && (
           <div
             style={{
               zIndex: 10,
@@ -146,6 +144,13 @@ export default function ModelLoader({
               icon="palette"
               onClickEvent={() => setPanels('details')}
             />
+            <CircleButton
+              title="Details"
+              icon="details"
+              onClickEvent={() =>
+                setPanels(panels === 'unitDetails' ? '' : 'unitDetails')
+              }
+            />
             {screenshot && (
               <div style={{ marginTop: 3, marginLeft: 3 }}>
                 <TwitterShareButton
@@ -172,8 +177,55 @@ export default function ModelLoader({
           camera={{ position: [0, 70, 150], fov: 10, far: 700 }}
           ref={canvas}
           gl={{ preserveDrawingBuffer: true }}
-          style={{ background: '#222', height: '100%' }}
+          style={{ background: '#222', height: '100%', width: '100%' }}
         >
+          {/* {panels === 'unitDetails' && (
+            <Html>
+              <div
+                style={{
+                  top: 0,
+                  color: '#fff',
+                  background: 'rgba(0,0,0,0.5)',
+                  whiteSpace: 'nowrap',
+                  padding: 15,
+                  borderRadius: 3,
+                  fontFamily: 'arial',
+                  marginLeft: 100,
+                  zIndex: -1,
+                  marginTop: '-60px',
+                  boxShadow: '5px 5px 10px rgba(0,0,0,0.4)',
+                }}
+              >
+                <Typography variant="body2">Chapter Name</Typography>
+                <input
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#fff',
+                    fontSize: '1.2rem',
+                  }}
+                ></input>
+                <Typography variant="body2">Unit Name</Typography>
+                <input
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#fff',
+                    fontSize: '1.2rem',
+                  }}
+                ></input>
+                <Typography variant="body2">Rank</Typography>
+                <input
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#fff',
+                    fontSize: '1.2rem',
+                  }}
+                ></input>
+              </div>
+            </Html>
+                )}*/}
           <Suspense fallback={<Loader />}>
             <group name="sun" position={[500, 900, 0]}>
               <ambientLight intensity={lightOne / 50} />
@@ -205,7 +257,7 @@ export default function ModelLoader({
             </group>
 
             {box && (
-              <group rotation={modelAdjust[gameId]} position={[0, -8, 0]}>
+              <group position={[0, -8, 0]}>
                 <ModelScript
                   activeColor={null}
                   sprayMode={sprayMode}

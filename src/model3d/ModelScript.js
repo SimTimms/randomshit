@@ -1,5 +1,5 @@
 import React, { useRef, useMemo } from 'react';
-import { useGLTF } from '@react-three/drei';
+import { useGLTF, Html } from '@react-three/drei';
 import Mesh from './Mesh';
 import DecalMesh from './DecalMesh';
 import * as THREE from 'three';

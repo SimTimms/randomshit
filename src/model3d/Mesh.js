@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import * as THREE from 'three';
 import { ColorContext } from '../context';
-
+import { Html } from '@react-three/drei';
 export default function Mesh({
   geometry,
   name,
@@ -18,7 +18,7 @@ export default function Mesh({
   const [meshColor, setMeshColor] = React.useState('#aaa');
   const [decalItem, setDecalItem] = React.useState(null);
   const [paintMode, setPaintMode] = React.useState(0);
-
+  let savedColors = JSON.parse(localStorage.getItem('modelColorSave'));
   const metals = [
     '#9e573c',
     '#f5b13d',
