@@ -6,6 +6,8 @@ import Title from './Title';
 import Icon from './Icon';
 import CircleButton from '../CircleButton';
 import ultra from '../../assets/ultra.png';
+import ba from '../../assets/ba.png';
+import ifist from '../../assets/if.png';
 
 export default function Markings({ setMarkings, setPanels }) {
   return (
@@ -24,6 +26,20 @@ export default function Markings({ setMarkings, setPanels }) {
             setMarkings('/textures/transfer.png');
           }}
           bg={`url(${ultra})`}
+        />
+        <CircleButton
+          onClickEvent={() => {
+            setPanels(null);
+            setMarkings('/textures/transferba.png');
+          }}
+          bg={`url(${ba})`}
+        />
+        <CircleButton
+          onClickEvent={() => {
+            setPanels(null);
+            setMarkings('/textures/transferif.png');
+          }}
+          bg={`url(${ifist})`}
         />
       </Row>
     </Column>
