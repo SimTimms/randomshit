@@ -1,0 +1,62 @@
+import { makeStyles } from '@material-ui/core/styles';
+
+export const useStyles = makeStyles((theme) => ({
+  profileWrapperFeatured: {
+    width: '100%',
+    height: 180,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    display: 'flex',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
+    flexDirection: 'column',
+    boxShadow: 'inset 0px -40px 20px -10px rgb(22, 38, 37,0.8)',
+  },
+  postHeader: {
+    bottom: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    borderBottom: 'none',
+    width: '100%',
+    boxSizing: 'border-box',
+    zIndex: 1,
+  },
+  meta: {
+    fontSize: 10,
+    color: '#fff',
+  },
+  content: {
+    width: '100%',
+    background: theme.palette.secondary.light,
+    padding: 10,
+    boxSizing: 'border-box',
+    display: 'flex',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
+    flexDirection: 'row',
+  },
+  postHeaderText: {
+    color: '#222',
+    height: '100%',
+    alignSelf: 'flex-start',
+    display: 'flex',
+    textAlign: 'left',
+  },
+  card: {
+    width: '100%',
+    borderRadius: 0,
+    position: 'relative',
+    borderBottom: '1px dotted #ccc',
+    padding: 20,
+    boxSizing: 'border-box',
+  },
+  profileWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+}));
