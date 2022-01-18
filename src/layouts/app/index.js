@@ -1,29 +1,12 @@
 import React, { useEffect } from 'react';
 import AppDashboard from './views/appDashboard';
-import TaskDashboard from './views/taskDashboard';
 import HomePage from './views/homePage';
-import WorkPage from './views/workPage';
-import JobPage from './views/jobPage';
-import NotificationDashboard from './views/notificationDashboard';
-import AppInvites from './views/inviteDashboard';
 import AppHelp from './views/appHelp';
 import AppProfileEdit from './views/appProfileEdit';
-import ConversationModule from './views/conversations';
-import SubmitJob from '../../widgets/editJob/components/submitJob';
 import { Account } from './views/account';
-import { ProjectSubmitted } from './views/submitted';
-import { AppViewJobPublic } from './views/job';
-import UpdateJobDashboard from './views/job/workDashboard/updateJobDashboard';
-import { EditQuote } from '../../modules/quotes';
-import { EditContract } from './views/contract';
 import { ToastContainer } from 'react-toastify';
 import { Query } from 'react-apollo';
-import {
-  FAVOURITES,
-  PROFILE,
-  PREVIEW_CONTRACT,
-  COUNTS,
-} from '../../data/queries';
+import { FAVOURITES, PROFILE, COUNTS } from '../../data/queries';
 import { PreviewProfile } from '../../layouts/preview/views/previewProfile';
 import logout from '../../utils/logout';
 import CreativeRosterWidget from '../../widgets/creativeRoster';
@@ -31,7 +14,6 @@ import {
   ProfileContext,
   HistoryContext,
   UserContext,
-  CreativeContext,
   CountContext,
   MenuContext,
   ParamsContext,
@@ -42,7 +24,6 @@ import { mainMenu } from '../menuArray';
 import { MainWrapper, ContentScroll } from '../../components';
 import GameProfileFull from '../../widgets/games/profileCard/gameProfileFull';
 import { PAGES } from '../../const';
-
 import Stats from './stats';
 
 export default function AppLayout(props) {
@@ -77,10 +58,6 @@ export default function AppLayout(props) {
     setPage(pageJump);
   }
 
-  function drawerButtonChange(url, page) {
-    history.push(url);
-  }
-
   const [pageValues, setPageValues] = React.useState({
     savedUserId: null,
     jumpPage: null,
@@ -111,6 +88,7 @@ export default function AppLayout(props) {
                   if (menuContext.homePage.secondaryPage === 'game_profile') {
                     return (
                       <GameProfileFull
+                        profile={profile}
                         back={() =>
                           menuContext.updateMenuContext({
                             ...menuContext,
@@ -145,22 +123,6 @@ export default function AppLayout(props) {
                             profile={profile}
                             setProfile={setProfile}
                           />
-                        ) : menuContext.primaryPage === 'messages' ? (
-                          <ConversationModule history={history} />
-                        ) : menuContext.primaryPage === 'tasks' && profile ? (
-                          <TaskDashboard
-                            history={history}
-                            profile={profile}
-                            setProfile={setProfile}
-                            drawerButtonChange={drawerButtonChange}
-                          />
-                        ) : menuContext.primaryPage === 'notifications' &&
-                          profile ? (
-                          <NotificationDashboard
-                            history={history}
-                            profile={profile}
-                            setProfile={setProfile}
-                          />
                         ) : menuContext.primaryPage === 'help' ? (
                           <AppHelp history={history} />
                         ) : menuContext.primaryPage === 'creative-roster' ? (
@@ -175,54 +137,14 @@ export default function AppLayout(props) {
                           </Query>
                         ) : menuContext.primaryPage === 'account' ? (
                           <Account history={history} />
-                        ) : menuContext.primaryPage === 'invites' ? (
-                          <AppInvites history={history} />
-                        ) : menuContext.primaryPage === 'submitted' ? (
-                          <ProjectSubmitted history={history} />
-                        ) : menuContext.primaryPage === 'update-job' ? (
-                          <CreativeContext.Provider>
-                            <UpdateJobDashboard jobId={pathParam} />
-                          </CreativeContext.Provider>
                         ) : menuContext.primaryPage === 'edit-profile' ? (
                           <AppProfileEdit
                             theme={props.theme}
                             history={history}
                             isolate={pathParam}
                           />
-                        ) : menuContext.primaryPage === 'edit-quote' ? (
-                          <Query
-                            query={PREVIEW_CONTRACT}
-                            variables={{ contractId: pathParam }}
-                            fetchPolicy="network-only"
-                          >
-                            {({ data, loading }) => {
-                              return loading
-                                ? null
-                                : data && (
-                                    <EditQuote
-                                      history={history}
-                                      jobId={pathParam}
-                                      contractData={data.contractById}
-                                    />
-                                  );
-                            }}
-                          </Query>
-                        ) : menuContext.primaryPage === 'view-public-job' ? (
-                          <AppViewJobPublic
-                            jobId={pathParam}
-                            history={history}
-                          />
-                        ) : menuContext.primaryPage === 'view-contract' ? (
-                          <EditContract
-                            contractId={pathParam}
-                            history={history}
-                          />
                         ) : menuContext.primaryPage === PAGES.home ? (
                           <HomePage />
-                        ) : menuContext.primaryPage === 'work' ? (
-                          <WorkPage />
-                        ) : menuContext.primaryPage === 'jobs' ? (
-                          <JobPage jumpTo={pathParam} />
                         ) : menuContext.primaryPage === 'user-profile' ? (
                           <PreviewProfile
                             profileId={pathParam}
@@ -230,8 +152,6 @@ export default function AppLayout(props) {
                             publicView={true}
                             history={history}
                           />
-                        ) : menuContext.primaryPage === 'submit-job' ? (
-                          <SubmitJob jobId={pathParam} history={history} />
                         ) : null}
                       </ContentScroll>
                       <Query

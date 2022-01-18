@@ -4,7 +4,12 @@ import Mesh from './Mesh';
 import DecalMesh from './DecalMesh';
 import * as THREE from 'three';
 
-export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
+export default function ModelScript({
+  gltfIn,
+  activeColor,
+  sprayMode,
+  markings,
+}) {
   const group = useRef();
 
   const mod = useGLTF(gltfIn);
@@ -65,6 +70,13 @@ export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
                   geometry={item.geometry}
                   scale={item.scale}
                   materialIn={nodeArr[i].material}
+                  decals={
+                    item.name ===
+                      'SM_leftShoulderShell_mesh23_Shoulder_shell_0' ||
+                    item.name === 'SM_leftShoulder_shell_Shoulder_shell_0'
+                      ? markings
+                      : null
+                  }
                   name={item.name}
                   position={[
                     rNbr(item.position.x),

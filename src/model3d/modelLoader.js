@@ -51,12 +51,13 @@ export default function ModelLoader({
   back,
   login,
   history,
+  markings,
+  profilePriority,
+  modelName,
 }) {
   const [screenshot, setScreenshot] = React.useState(null);
   const [wait, setWait] = React.useState(false);
-
   const canvas = useRef(null);
-
   function dataURItoBlob(dataURI) {
     var binary = atob(dataURI.split(',')[1]);
     var array = [];
@@ -65,8 +66,6 @@ export default function ModelLoader({
     }
     return new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
   }
-  localStorage.getItem('modelColorSave');
-
   return (
     <div
       style={{
@@ -175,6 +174,13 @@ export default function ModelLoader({
                 icon="palette"
                 onClickEvent={() => setPanels('details')}
               />
+              {profilePriority === 0 && modelName.name === 'Firstborn' && (
+                <CircleButton
+                  title="Markings"
+                  icon="stars"
+                  onClickEvent={() => setPanels('markings')}
+                />
+              )}
             </Row>
             {/*
             <CircleButton
@@ -314,6 +320,7 @@ export default function ModelLoader({
                 activeColor={activeColor}
                 sprayMode={sprayMode}
                 gltfIn={gltfIn}
+                markings={markings}
               />
             </group>
 

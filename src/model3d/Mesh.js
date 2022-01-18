@@ -18,7 +18,6 @@ export default function Mesh({
   const [meshColor, setMeshColor] = React.useState('#aaa');
   const [decalItem, setDecalItem] = React.useState(null);
   const [paintMode, setPaintMode] = React.useState(0);
-  let savedColors = JSON.parse(localStorage.getItem('modelColorSave'));
   const metals = [
     '#9e573c',
     '#f5b13d',
@@ -66,15 +65,19 @@ export default function Mesh({
       setMaterial(materialNew);
     }
 
-    if (!decalItem) {
-      var texLoader = new THREE.TextureLoader();
-      const texLoaded = texLoader.load(decals);
-      const materialNew = new THREE.MeshStandardMaterial({
-        ...materialIn,
-        transparent: true,
-        map: texLoaded ? texLoaded : null,
-      });
-      setDecalItem(materialNew);
+    if (!decalItem || (decalItem && decalItem !== decals)) {
+      if (decals) {
+        var texLoader = new THREE.TextureLoader();
+        const texLoaded = texLoader.load(decals);
+        const materialNew = new THREE.MeshStandardMaterial({
+          ...materialIn,
+          transparent: true,
+          map: texLoaded,
+        });
+        setDecalItem(materialNew);
+      } else {
+        setDecalItem(null);
+      }
     }
   }, [decalNormal, decals, meshColor]);
 
@@ -120,7 +123,7 @@ export default function Mesh({
         material-metalness={metals.indexOf(meshColor) > -1 ? 0.7 : 0}
         material-roughness={metals.indexOf(meshColor) > -1 ? 0.5 : 1}
       />
-      <mesh geometry={geometry} material={decalItem} />
+      {decalItem && <mesh geometry={geometry} material={decalItem} />}
     </group>
   );
 }

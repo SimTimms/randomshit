@@ -14,6 +14,7 @@ import GameProfileFull from '../../../../widgets/games/profileCard/gameProfileFu
 import { PreviewProfile } from '../../../../layouts/preview/views/previewProfile';
 import { MenuContext, ProfileContext } from '../../../../context';
 import { PAGES } from '../../../../const';
+
 export default function HomePage() {
   return (
     <ProfileContext.Consumer>

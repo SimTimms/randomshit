@@ -4,6 +4,7 @@ import { Row, Column } from './components';
 import 'rc-slider/assets/index.css';
 import PaintRackApp from './PaintRackApp';
 import Lighting from './lighting';
+import Markings from './markings';
 import Details from './details';
 import { ColorContext } from '../context';
 import ModelLoader from './modelLoader';
@@ -11,7 +12,17 @@ import RecentColors from './recentColors';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 
-function ModelRouterApp({ gltf, js, gameId, box, back, game, login, history }) {
+function ModelRouterApp({
+  gltf,
+  js,
+  gameId,
+  box,
+  back,
+  game,
+  login,
+  history,
+  profilePriority,
+}) {
   const modelColorsRef = useRef({});
   const [panels, setPanels] = React.useState(null);
   const [lightOne, setLightOne] = React.useState(30);
@@ -24,6 +35,7 @@ function ModelRouterApp({ gltf, js, gameId, box, back, game, login, history }) {
   const [lightSeven, setLightSeven] = React.useState(0);
   const [paintMode, setPaintMode] = React.useState(0);
   const [color, setColor] = React.useState(null);
+  const [markings, setMarkings] = React.useState(null);
   const [colorGroup, setColorGroup] = React.useState(null);
   const [recentColors, setRecentColors] = React.useState([]);
   const classes = useStyles();
@@ -57,7 +69,9 @@ function ModelRouterApp({ gltf, js, gameId, box, back, game, login, history }) {
       }}
     >
       <Column h="100%" bg="#222">
-        {(panels === 'lighting' || panels === 'details') && (
+        {(panels === 'lighting' ||
+          panels === 'details' ||
+          panels === 'markings') && (
           <div
             style={{
               minHeight: 46,
@@ -82,6 +96,7 @@ function ModelRouterApp({ gltf, js, gameId, box, back, game, login, history }) {
             sprayMode={false}
             gltfIn={gltf}
             gameId={gameId}
+            modelName={game}
             paintMode={paintMode}
             setPaintMode={setPaintMode}
             lightOne={lightOne}
@@ -97,6 +112,8 @@ function ModelRouterApp({ gltf, js, gameId, box, back, game, login, history }) {
             back={back}
             login={login}
             history={history}
+            markings={markings}
+            profilePriority={profilePriority}
           />
         </Row>
         {panels === 'details' && (
@@ -122,6 +139,11 @@ function ModelRouterApp({ gltf, js, gameId, box, back, game, login, history }) {
               setLightSeven={setLightSeven}
               lightSeven={lightSeven}
             />
+          </div>
+        )}
+        {panels === 'markings' && (
+          <div className={classes.panelWrapper}>
+            <Markings setMarkings={setMarkings} setPanels={setPanels} />
           </div>
         )}
 
