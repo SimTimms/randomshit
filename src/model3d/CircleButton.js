@@ -21,6 +21,7 @@ export default function CircleButton({
         background: bg ? bg : '',
         border: border ? border : '',
         color: color ? color : '',
+        backgroundSize: 'contain',
       }}
     >
       {!icon ? title : <Icon>{icon}</Icon>}

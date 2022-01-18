@@ -9,7 +9,7 @@ import clsx from 'clsx';
 import LikeButton from './LikeButton';
 import { MenuContext } from '../../context';
 import { TwitterShareButton } from 'react-share';
-
+import patreon from '../../assets/patreon.png';
 import { TwitterIcon } from 'react-share';
 
 export default function HeaderGallery({ history, setModelOne }) {

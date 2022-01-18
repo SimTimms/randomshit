@@ -23,6 +23,7 @@ app.get('/photo', function (req, res) {
 });
 
 app.use('/partner*', express.static(path.join(__dirname, 'build')));
+app.use('/app*', express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.listen(port, () => console.log(`App is live on port ${port}!`));

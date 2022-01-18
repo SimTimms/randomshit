@@ -3,7 +3,7 @@ import { Canvas, useFrame } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
 import ModelScript from './ModelScript';
 import { Html, useProgress } from '@react-three/drei';
-import { Column } from '../components';
+import { Column, Row } from '../components';
 import CircleButton from './CircleButton';
 import uploaderScreenshot from '../components/uploaderScreenshot';
 import { Mutation } from 'react-apollo';
@@ -11,6 +11,7 @@ import { SAVE_GAME_IMAGE } from './data';
 import { toaster } from '../utils/toaster';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
 import { Typography } from '@material-ui/core';
+import patreon from '../assets/patreon.png';
 
 function Loader() {
   const { progress } = useProgress();
@@ -75,6 +76,62 @@ export default function ModelLoader({
       }}
     >
       <Column h="100%">
+        <a
+          href={'https://www.patreon.com/3dminipainterhtml?fan_landing=true'}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            width: '100%',
+            background: '#fff',
+            height: 40,
+            marginTop: -40,
+            textDecoration: 'none',
+          }}
+        >
+          <Row h={'100%'} j="space-between" w="100%">
+            <Typography
+              style={{
+                fontWeight: 'bold',
+                color: '#ff424d',
+                width: 160,
+                textAlign: 'center',
+              }}
+            >
+              NEW MODELS
+            </Typography>
+            <Typography
+              style={{
+                fontWeight: 'bold',
+                color: '#ff424d',
+                width: 160,
+                textAlign: 'center',
+              }}
+            >
+              SPONSORED CONTENT
+            </Typography>
+            <img src={patreon} />
+            <Typography
+              style={{
+                fontWeight: 'bold',
+                color: '#ff424d',
+                width: 160,
+                textAlign: 'center',
+              }}
+            >
+              UPDATES
+            </Typography>
+            <Typography
+              style={{
+                fontWeight: 'bold',
+                color: '#ff424d',
+                width: 160,
+                textAlign: 'center',
+              }}
+            >
+              VOTES
+            </Typography>
+          </Row>
+        </a>
         {(!panels || panels === 'unitDetails') && (
           <div
             style={{
@@ -86,7 +143,7 @@ export default function ModelLoader({
               marginBottom: -46,
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
+              justifyContent: 'space-between',
               flexDirection: 'row',
               background: 'rgba(0,0,0,0.3)',
               borderBottom: `1px solid rgba(0,0,0,0.4)`,
@@ -95,23 +152,38 @@ export default function ModelLoader({
             {back && (
               <CircleButton
                 title="Back"
-                icon="close"
+                icon="chevron_left"
                 onClickEvent={() => back()}
               />
             )}
             {login && (
               <CircleButton
                 title="Back"
-                icon="close"
+                icon="chevron_left"
                 onClickEvent={() => history.push('')}
               />
             )}
-            <CircleButton
-              title="Light"
-              icon="lightbulb"
-              onClickEvent={() => setPanels('lighting')}
-            />
+            <Row>
+              <CircleButton
+                title="Light"
+                icon="lightbulb"
+                onClickEvent={() => setPanels('lighting')}
+              />
 
+              <CircleButton
+                title="Info"
+                icon="palette"
+                onClickEvent={() => setPanels('details')}
+              />
+            </Row>
+            {/*
+            <CircleButton
+              title="Details"
+              icon="details"
+              onClickEvent={() =>
+                setPanels(panels === 'unitDetails' ? '' : 'unitDetails')
+              }
+            />*/}
             <Mutation
               mutation={SAVE_GAME_IMAGE}
               onCompleted={(data) => {
@@ -139,18 +211,7 @@ export default function ModelLoader({
                 );
               }}
             </Mutation>
-            <CircleButton
-              title="Info"
-              icon="palette"
-              onClickEvent={() => setPanels('details')}
-            />
-            <CircleButton
-              title="Details"
-              icon="details"
-              onClickEvent={() =>
-                setPanels(panels === 'unitDetails' ? '' : 'unitDetails')
-              }
-            />
+            <div style={{ marginTop: 3, marginLeft: 3 }}></div>
             {screenshot && (
               <div style={{ marginTop: 3, marginLeft: 3 }}>
                 <TwitterShareButton
