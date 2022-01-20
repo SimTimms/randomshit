@@ -12,7 +12,7 @@ import { toaster } from '../utils/toaster';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
 import { Typography } from '@material-ui/core';
 import patreon from '../assets/patreon.png';
-
+import { paints } from './paints';
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -56,8 +56,10 @@ export default function ModelLoader({
   modelName,
 }) {
   const [screenshot, setScreenshot] = React.useState(null);
+  const [armourColor, setArmourColor] = React.useState(null);
   const [wait, setWait] = React.useState(false);
   const canvas = useRef(null);
+  let count = useRef(0);
   function dataURItoBlob(dataURI) {
     var binary = atob(dataURI.split(',')[1]);
     var array = [];
@@ -175,11 +177,35 @@ export default function ModelLoader({
                 onClickEvent={() => setPanels('details')}
               />
               {profilePriority === 0 && modelName.name === 'Firstborn' && (
-                <CircleButton
-                  title="Markings"
-                  icon="stars"
-                  onClickEvent={() => setPanels('markings')}
-                />
+                <Row>
+                  <CircleButton
+                    title="Markings"
+                    icon="stars"
+                    onClickEvent={() => setPanels('markings')}
+                  />
+                  <CircleButton
+                    title="Armour"
+                    icon="palette"
+                    onClickEvent={() => {
+                      const paintArr = [
+                        paints.green[3].color,
+                        paints.red[3].color,
+                        paints.blue[3].color,
+                        paints.orange[3].color,
+                        paints.grey[3].color,
+                        paints.black[0].color,
+                        paints.turquoise[0].color,
+                        paints.metallic[4].color,
+                        paints.grey[0].color,
+                      ];
+                      count.current = count.current + 1;
+                      if (count.current > paintArr.length - 1) {
+                        count.current = 0;
+                      }
+                      setArmourColor(paintArr[count.current]);
+                    }}
+                  />
+                </Row>
               )}
             </Row>
             {/*
@@ -321,6 +347,7 @@ export default function ModelLoader({
                 sprayMode={sprayMode}
                 gltfIn={gltfIn}
                 markings={markings}
+                armourColor={armourColor}
               />
             </group>
 
@@ -330,11 +357,17 @@ export default function ModelLoader({
                   activeColor={null}
                   sprayMode={sprayMode}
                   gltfIn={box.gltf}
+                  armourColor={null}
                 />
               </group>
             )}
           </Suspense>
-          <OrbitControls target={[0, 0, 0]} maxDistance={500} />
+          <OrbitControls
+            target={[0, 0, 0]}
+            maxDistance={500}
+            autoRotate={false}
+            autoRotateSpeed={5}
+          />
         </Canvas>
       </Column>
     </div>

@@ -13,6 +13,7 @@ export default function Mesh({
   activeColor,
   texture,
   materialIn,
+  armourColor,
 }) {
   const [material, setMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#aaa');
@@ -39,12 +40,17 @@ export default function Mesh({
   ];
   useEffect(() => {
     let savedColors = localStorage.getItem('modelColorSave');
-
-    if (savedColors !== 'null' && savedColors !== null) {
+    if (
+      armourColor === null &&
+      savedColors !== 'null' &&
+      savedColors !== null
+    ) {
       savedColors = JSON.parse(savedColors);
       if (savedColors[name] && savedColors[name].color !== meshColor) {
         setMeshColor(savedColors[name].color);
       }
+    } else if (armourColor !== null) {
+      setMeshColor(armourColor);
     }
 
     if (texture && !material) {
@@ -117,7 +123,7 @@ export default function Mesh({
         onPointerMove={(e) => paintMode !== 0 && setPaintMode(0)}
         geometry={geometry}
         material={material}
-        material-color={meshColor}
+        material-color={armourColor ? armourColor : meshColor}
         castShadow={true}
         receiveShadow={true}
         material-metalness={metals.indexOf(meshColor) > -1 ? 0.7 : 0}
