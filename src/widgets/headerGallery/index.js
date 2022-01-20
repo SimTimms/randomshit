@@ -2,9 +2,7 @@ import React from 'react';
 import { useStyles } from './styles';
 import { Query } from 'react-apollo';
 import { LATEST_MINIS_WIDGET } from './data';
-import { ProfileCardMacro } from '../profileCard/';
-import BigImage from '../bigImage';
-import { Row, MenuButtonStandard } from '../../components';
+import { Row, Grid } from '../../components';
 import clsx from 'clsx';
 import LikeButton from './LikeButton';
 import { MenuContext } from '../../context';
@@ -30,32 +28,36 @@ export default function HeaderGallery({ history, setModelOne }) {
           }}
         >
           {({ data }) => {
-            return creativeArray.map((creative, index) => {
-              return (
-                <MenuContext.Consumer>
-                  {(menu) => (
-                    <div
-                      className={classes.bgWrapper}
-                      style={{ backgroundImage: `url(${creative.url})` }}
-                      onClick={() => {
-                        localStorage.setItem(
-                          'modelColorSave',
-                          creative.saveDataColors
-                        );
-                        localStorage.setItem(
-                          'modelPartsSave',
-                          creative.saveDataParts
-                        );
-                        setModelOne(creative.model);
-                        history.push(
-                          `/partner/${creative.model._id}/61d5a0327d31f80016bfa2be`
-                        );
-                      }}
-                    ></div>
-                  )}
-                </MenuContext.Consumer>
-              );
-            });
+            return (
+              <Grid cols={5}>
+                {creativeArray.map((creative, index) => {
+                  return (
+                    <MenuContext.Consumer>
+                      {(menu) => (
+                        <div
+                          className={classes.bgWrapper}
+                          style={{ backgroundImage: `url(${creative.url})` }}
+                          onClick={() => {
+                            localStorage.setItem(
+                              'modelColorSave',
+                              creative.saveDataColors
+                            );
+                            localStorage.setItem(
+                              'modelPartsSave',
+                              creative.saveDataParts
+                            );
+                            setModelOne(creative.model);
+                            history.push(
+                              `/partner/${creative.model._id}/61d5a0327d31f80016bfa2be`
+                            );
+                          }}
+                        ></div>
+                      )}
+                    </MenuContext.Consumer>
+                  );
+                })}
+              </Grid>
+            );
           }}
         </Query>
       </Row>

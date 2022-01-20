@@ -10,9 +10,9 @@ import { Mutation } from 'react-apollo';
 import { SAVE_GAME_IMAGE } from './data';
 import { toaster } from '../utils/toaster';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
-import { Typography } from '@material-ui/core';
-import patreon from '../assets/patreon.png';
+
 import { paints } from './paints';
+
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -77,62 +77,6 @@ export default function ModelLoader({
       }}
     >
       <Column h="100%">
-        <a
-          href={'https://www.patreon.com/3dminipainterhtml?fan_landing=true'}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            width: '100%',
-            background: '#fff',
-            height: 40,
-            marginTop: -40,
-            textDecoration: 'none',
-          }}
-        >
-          <Row h={'100%'} j="space-between" w="100%">
-            <Typography
-              style={{
-                fontWeight: 'bold',
-                color: '#ff424d',
-                width: 160,
-                textAlign: 'center',
-              }}
-            >
-              NEW MODELS
-            </Typography>
-            <Typography
-              style={{
-                fontWeight: 'bold',
-                color: '#ff424d',
-                width: 160,
-                textAlign: 'center',
-              }}
-            >
-              SPONSORED CONTENT
-            </Typography>
-            <img src={patreon} />
-            <Typography
-              style={{
-                fontWeight: 'bold',
-                color: '#ff424d',
-                width: 160,
-                textAlign: 'center',
-              }}
-            >
-              UPDATES
-            </Typography>
-            <Typography
-              style={{
-                fontWeight: 'bold',
-                color: '#ff424d',
-                width: 160,
-                textAlign: 'center',
-              }}
-            >
-              VOTES
-            </Typography>
-          </Row>
-        </a>
         {(!panels || panels === 'unitDetails') && (
           <div
             style={{

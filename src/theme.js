@@ -19,9 +19,9 @@ export default function themeDesigner() {
   });
   theme.palette.primary = {
     ...theme.palette.primary,
-    main: '#2090ff',
-    light: '#A8FF75',
-    dark: '#1a75cd',
+    main: '#e62b58',
+    light: '#e62b58',
+    dark: '#e62b58',
   };
   theme.palette.secondary = {
     ...theme.palette.secondary,

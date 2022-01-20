@@ -10,12 +10,11 @@ export const useStyles = makeStyles((theme) => ({
     paddingLeft: 20,
     paddingRight: 20,
     boxSizing: 'border-box',
-    background: theme.palette.primary.main,
     border: '1px solid rgba(255,255,255,0.3)',
     borderTop: '1px solid rgba(255,255,255,0.6)',
     borderLeft: '1px solid rgba(255,255,255,0.6)',
-    borderRadius: 3,
-    boxShadow: '3px 3px 5px rgba(0,0,0,0.1)',
+    color: '#222',
+
     '&:hover': { background: theme.palette.primary.dark, color: '#fff' },
   },
   delete: { background: theme.palette.error.main },
@@ -28,7 +27,6 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     fontWeight: 'bold',
     paddingTop: 1,
-    color: '#fff',
   },
   titleWithIcon: {
     display: 'flex',
@@ -37,7 +35,6 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   titleIcon: {
-    color: '#222',
     fontSize: '1rem',
     textAlign: 'center',
     marginRight: 5,

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  FieldBox,
-  DMCard,
-  Row,
-  Column,
-  RoleObject,
-} from '../../../../../components';
+import { FieldBox, DMCard, Row, Column } from '../../../../../components';
 import GallerySection from '../components/section/gallerySection';
 import SectionList from '../../../../../components/buttons/addSection';
 import AvatarComponent from './avatar';
@@ -14,14 +8,7 @@ import FeatureComponent from './feature';
 export function preference(props) {
   const { profile, setProfile, SignupMutation } = props;
 
-  return (
-    <RoleObject
-      profile={profile}
-      setProfile={setProfile}
-      SignupMutation={SignupMutation}
-      onClickEvent={() => null}
-    />
-  );
+  return null;
 }
 
 export function summary(props) {
