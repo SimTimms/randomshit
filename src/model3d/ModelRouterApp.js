@@ -148,25 +148,21 @@ function ModelRouterApp({
         )}
 
         <Column bg="#111" h="88px">
-          {!panels && (
-            <RecentColors
-              activeColor={activeColor}
-              setColorFunction={setColorFunction}
-              setHoverColor={null}
-              recentColors={recentColors}
-              setRecentColors={setRecentColors}
-            />
-          )}
-          {!panels && (
-            <PaintRackApp
-              setColorFunction={setColorFunction}
-              activeColor={activeColor}
-              colorGroup={colorGroup}
-              setColorGroup={setColorGroup}
-              recentColors={recentColors}
-              setRecentColors={setRecentColors}
-            />
-          )}
+          <RecentColors
+            activeColor={activeColor}
+            setColorFunction={setColorFunction}
+            setHoverColor={null}
+            recentColors={recentColors}
+            setRecentColors={setRecentColors}
+          />
+          <PaintRackApp
+            setColorFunction={setColorFunction}
+            activeColor={activeColor}
+            colorGroup={colorGroup}
+            setColorGroup={setColorGroup}
+            recentColors={recentColors}
+            setRecentColors={setRecentColors}
+          />
         </Column>
       </Column>
     </ColorContext.Provider>

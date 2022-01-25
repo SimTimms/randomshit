@@ -4,6 +4,7 @@ import { Typography } from '@material-ui/core';
 import { paints } from './paints';
 import { useStyles } from './styles';
 import RecentColors from './recentColors';
+import clsx from 'clsx';
 
 export default function PaintRackApp({
   setColorFunction,
@@ -17,23 +18,35 @@ export default function PaintRackApp({
   });
   const paintGroups = [
     { name: 'red', color: '#880804' },
-    { name: 'purple', color: '#8869ae' },
-    { name: 'blue', color: '#4c78af' },
-    { name: 'turquoise', color: '#54bdca' },
-    { name: 'green', color: '#17a166' },
     { name: 'orange', color: '#f4874e' },
     { name: 'brown', color: '#eec483' },
-    { name: 'black', color: '#171314' },
+    { name: 'green', color: '#17a166' },
+    { name: 'turquoise', color: '#54bdca' },
+    { name: 'blue', color: '#4c78af' },
+    { name: 'purple', color: '#8869ae' },
     { name: 'grey', color: '#ffffff' },
     { name: 'metallic', color: '#a2a5a7' },
   ];
   if (!colorGroup) {
     return (
       <Row>
+        <Typography
+          style={{
+            color: '#aaa',
+            fontSize: '12px',
+            width: 50,
+            marginLeft: -50,
+          }}
+        >
+          Paints
+        </Typography>
         {paintGroups.map((item) => (
           <div
             onClick={() => setColorGroup(item.name)}
-            className={classes.paintCircle}
+            className={clsx({
+              [classes.paintCircle]: true,
+              [classes.metallic]: item.name === 'metallic',
+            })}
             style={{
               backgroundColor: item.color,
             }}
@@ -102,8 +115,10 @@ export default function PaintRackApp({
               key={`paint_${index}`}
               onMouseOver={() => setHoverColor(item)}
               onClick={() => setColorFunction(item)}
-              className={item.metal ? classes.metallic : classes.standard}
-              className={classes.paintCircle}
+              className={clsx({
+                [classes.paintCircle]: true,
+                [classes.metallic]: item.metal,
+              })}
               style={{
                 backgroundColor: item.color,
               }}

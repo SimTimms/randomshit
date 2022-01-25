@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Row, Column, DividerMini } from './components';
 import PaintPot from './PaintPot';
+import { Typography } from '@material-ui/core';
 
 export default function RecentColors({
   activeColor,
@@ -16,7 +17,17 @@ export default function RecentColors({
 
   return (
     <Column a="center">
-      <Row wrap="wrap" mw={400} a="center" j="center">
+      <Row wrap="wrap" a="center" j="center">
+        <Typography
+          style={{
+            color: '#aaa',
+            fontSize: '12px',
+            width: 50,
+            marginLeft: -50,
+          }}
+        >
+          Recent
+        </Typography>
         {recentColors.map((color, index) => (
           <PaintPot
             key={`recent_${index}`}

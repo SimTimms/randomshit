@@ -121,7 +121,7 @@ export const paints = {
     { name: 'Squig Orange', color: '#a74d42', company: 'Games Workshop' },
   ],
 
-  black: [
+  grey: [
     {
       name: 'Corvus Black',
       color: '#171314',
@@ -129,8 +129,6 @@ export const paints = {
       company: 'Games Workshop',
       type: 'Base',
     },
-  ],
-  grey: [
     {
       name: 'White Scar',
       color: '#fff',

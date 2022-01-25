@@ -39,6 +39,7 @@ export default function themeDesigner() {
     fontSize: '3rem',
     margin: 0,
     fontFamily: 'Roboto',
+    fontWeight: 'bold',
   };
   theme.typography.h2 = {
     fontSize: '2.4rem',
@@ -69,6 +70,7 @@ export default function themeDesigner() {
     fontSize: '1rem',
     margin: 0,
     fontFamily: `'Roboto'`,
+    fontWeight: 900,
   };
   theme.typography.button = {
     color: theme.palette.primary.main,

@@ -7,7 +7,9 @@ import ChooseModelPublic from '../../widgets/games/chooseModelPublic';
 import { Typography } from '@material-ui/core';
 import patreon from '../../assets/patreon.png';
 import { Row, MenuButtonStandard } from '../../components';
-
+import mp3dmini from '../../assets/branding/mp3dmini.png';
+import youtube from '../../assets/social/youtube.png';
+import twitter from '../../assets/social/socialTwitter.svg';
 const GAME_BY_ID = gql`
   query gameById($_id: MongoID!) {
     gameById(_id: $_id) {
@@ -54,60 +56,79 @@ export default function ModelApp(props) {
   useEffect(() => {}, []);
 
   return (
-    <div style={{ height: '100%' }}>
+    <div style={{ height: '100%', background: '#e62b58' }}>
       <Row a="space-between" w="100%" h={32}>
         <Row j="flex-start">
+          <img src={mp3dmini} />
           <MenuButtonStandard
             title="Paint"
             icon="star"
             onClickEvent={() => setPage('model')}
+            white={true}
           />
           <MenuButtonStandard
             title="Models"
             onClickEvent={() => setPage('models')}
+            white={true}
           />
           <MenuButtonStandard
             title="Gallery"
+            white={true}
             onClickEvent={() => setPage('gallery')}
           />
           <MenuButtonStandard
             title="Login"
             onClickEvent={() => props.history.push('/')}
+            white={true}
           />
         </Row>
+
         <Row j="flex-end">
           <a
             href={'https://www.patreon.com/3dminipainterhtml?fan_landing=true'}
             target="_blank"
             rel="noopener noreferrer"
+            style={{ textDecoration: 'none' }}
           >
-            <MenuButtonStandard title="Patreon" onClickEvent={() => null} />
+            <MenuButtonStandard
+              title="Patreon"
+              onClickEvent={() => null}
+              white={true}
+            />
           </a>
           <a
             href={'https://www.youtube.com/channel/UCtIdUJZQStkUJqwpUjMTtIA'}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <MenuButtonStandard title="YouTube" onClickEvent={() => null} />
+            <img
+              src={youtube}
+              style={{ width: 30, marginTop: 6 }}
+              title="YouTube"
+              alt="YouTube"
+            />
           </a>
+
           <a
             href={'https://twitter.com/timsimmsdev'}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <MenuButtonStandard title="Twitter" onClickEvent={() => null} />
+            <img
+              src={twitter}
+              style={{ width: 30, marginTop: 6, marginLeft: 6, marginRight: 6 }}
+              title="YouTube"
+              alt="YouTube"
+            />
           </a>
         </Row>
       </Row>
-
       {page === 'gallery' && (
         <HeaderGallery history={props.history} setModelOne={changeModel} />
       )}
-
       {page === 'models' && (
         <ChooseModelPublic history={props.history} setModelOne={changeModel} />
       )}
-
       <div style={{ height: 'calc(100% - 32px)' }}>
         {modelOne && modelTwo && page === 'model' && (
           <ModelRouterApp
@@ -122,7 +143,6 @@ export default function ModelApp(props) {
           />
         )}
       </div>
-
       {!modelTwo && (
         <Query
           query={GAME_BY_ID}

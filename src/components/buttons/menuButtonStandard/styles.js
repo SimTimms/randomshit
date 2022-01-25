@@ -10,11 +10,7 @@ export const useStyles = makeStyles((theme) => ({
     paddingLeft: 20,
     paddingRight: 20,
     boxSizing: 'border-box',
-    border: '1px solid rgba(255,255,255,0.3)',
-    borderTop: '1px solid rgba(255,255,255,0.6)',
-    borderLeft: '1px solid rgba(255,255,255,0.6)',
     color: '#222',
-
     '&:hover': { background: theme.palette.primary.dark, color: '#fff' },
   },
   delete: { background: theme.palette.error.main },
@@ -55,5 +51,9 @@ export const useStyles = makeStyles((theme) => ({
   mr: { marginRight: 10 },
   mb: { marginBottom: 10 },
   mt: { marginTop: 10 },
+  white: {
+    color: '#fff',
+    '&:hover': { background: '#fff', color: theme.palette.primary.main },
+  },
   fullWidth: { width: '100%' },
 }));

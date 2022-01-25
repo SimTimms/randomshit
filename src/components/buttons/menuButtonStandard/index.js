@@ -9,6 +9,7 @@ export default function MenuButtonStandard({
   disabled,
   type,
   icon,
+  white,
   ...props
 }) {
   const classes = useStyles();
@@ -24,6 +25,7 @@ export default function MenuButtonStandard({
         [classes.mr]: mr,
         [classes.mt]: mt,
         [classes.mb]: mb,
+        [classes.white]: white,
         [classes.fullWidth]: fullWidth,
         [classes.disabled]: disabled,
       })}

@@ -57,7 +57,7 @@ function ModelRouter({ gltf, js, parts, gameId }) {
     >
       <Column>
         <Row h="100%" w="100%" j="flex-start" a="flex-start">
-          <Column a="flex-start" j="flex-start" w={180} h={`calc(100% - 68px)`}>
+          <Column a="flex-start" j="flex-start" w={180}>
             {(paintMode === 1 || paintMode == 0) && (
               <PaintRack
                 setColorFunction={setColorFunction}

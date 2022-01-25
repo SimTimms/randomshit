@@ -16,7 +16,8 @@ export default function ChooseModelPublic({ setModelOne, history }) {
             width: '100%',
             overflow: 'auto',
             boxSizing: 'border-box',
-            height: 'calc(100% - 50px)',
+            height: 'calc(100% - 32px)',
+            background: '#fff',
           }}
         >
           <Grid cols={3}>
