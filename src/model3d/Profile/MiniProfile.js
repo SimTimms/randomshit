@@ -13,7 +13,7 @@ export default function MiniProfile({ profile }) {
       ></div>
       <div className={classes.avatarText}>
         <a
-          href={`${process.env.REACT_APP_DM_API}/user-profile/${profile._id}`}
+          href={`https://app.doodlemeeple.com/user-profile/${profile._id}`}
           target="_blank"
           rel="noopener noreferrer"
           className={classes.avatarTextInterior}

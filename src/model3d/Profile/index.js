@@ -15,7 +15,7 @@ export default function Profile() {
   }, [testAx]);
   function testAx() {
     axios
-      .get('http://localhost:4000/3d-artist')
+      .get(`${process.env.REACT_APP_DM_API}/3d-artist`)
       .then((result) => {
         setProfiles(result.data);
       })
