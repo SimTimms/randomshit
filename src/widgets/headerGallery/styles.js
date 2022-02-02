@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
     background: '#222',
     boxSizing: 'border-box',
-    height: 'calc(100% - 32px)',
+    height: 'calc(100% - 132px)',
   },
   dashboard: {
     display: 'flex',

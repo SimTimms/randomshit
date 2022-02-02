@@ -23,10 +23,6 @@ const mainParts = [
   'SM_frontHelmet01_mesh1_helmet1_0',
 ];
 
-const decalParts = [
-  'SM_leftShoulder_shell_Shoulder_shell_0',
-  'SM_leftShoulderShell_mesh23_Shoulder_shell_0',
-];
 export default function ModelScript({
   gltfIn,
   activeColor,
@@ -85,7 +81,7 @@ export default function ModelScript({
           existsArray.push(item.name);
           if (item.geometry && item.visible) {
             //     const edges = new THREE.EdgesGeometry(item.geometry, 35);
-
+            console.log(item.name);
             nodeMap.push(
               <group dispose={null}>
                 <Mesh
@@ -97,7 +93,9 @@ export default function ModelScript({
                   geometry={item.geometry}
                   scale={item.scale}
                   materialIn={nodeArr[i].material}
-                  decals={decalParts.indexOf(item.name) > -1 ? markings : null}
+                  decals={
+                    markings && markings[item.name] ? markings[item.name] : null
+                  }
                   name={item.name}
                   position={[
                     rNbr(item.position.x),

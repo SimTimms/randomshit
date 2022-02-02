@@ -63,6 +63,7 @@ export default function Mesh({
       });
       setMaterial(materialNew);
     }
+
     if (!material && !texture) {
       const materialNew = new THREE.MeshStandardMaterial({
         ...materialIn,
@@ -80,13 +81,13 @@ export default function Mesh({
           transparent: true,
           map: texLoaded,
         });
+
         setDecalItem(materialNew);
       } else {
         setDecalItem(null);
       }
     }
   }, [decalNormal, decals, meshColor]);
-
   return !material ? null : (
     <group
       position={position && position}

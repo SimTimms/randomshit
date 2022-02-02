@@ -74,8 +74,7 @@ function ModelRouterApp({
           panels === 'markings') && (
           <div
             style={{
-              minHeight: 46,
-              marginBottom: -46,
+              minHeight: 32,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -143,7 +142,11 @@ function ModelRouterApp({
         )}
         {panels === 'markings' && (
           <div className={classes.panelWrapper}>
-            <Markings setMarkings={setMarkings} setPanels={setPanels} />
+            <Markings
+              setMarkings={setMarkings}
+              markings={markings}
+              setPanels={setPanels}
+            />
           </div>
         )}
 

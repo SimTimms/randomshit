@@ -11,6 +11,7 @@ import { SAVE_GAME_IMAGE } from './data';
 import { toaster } from '../utils/toaster';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
 import Profile from './Profile';
+import Ads from './Ads';
 import { paints } from './paints';
 
 function Loader() {
@@ -204,7 +205,7 @@ export default function ModelLoader({
             )}
           </div>
         )}
-        <Row w="100%" h="calc(100% - 32px)">
+        <Row w="100%" h="100%">
           <Profile />
           <Canvas
             pixelRatio={[1, 2]}
@@ -267,6 +268,7 @@ export default function ModelLoader({
               autoRotateSpeed={5}
             />
           </Canvas>
+          <Ads />
         </Row>
       </Column>
     </div>

@@ -6,7 +6,7 @@ import MiniProfile from './MiniProfile';
 
 import axios from 'axios';
 
-export default function Ads() {
+export default function Profile() {
   const classes = useStyles();
   const [profiles, setProfiles] = React.useState(null);
 
@@ -25,11 +25,13 @@ export default function Ads() {
   }
   return (
     <div className={classes.wrapper}>
-      <Column a="flex-start">
+      <Column a="center" j="flex-end">
         <Typography align="center" style={{ fontSize: '12px', color: '#aaa' }}>
-          Pro Painters
+          Updates
         </Typography>
-        {profiles && profiles.map((item) => <MiniProfile profile={item} />)}
+        <Column a="flex-end" j="flex-end">
+          {profiles && profiles.map((item) => <MiniProfile profile={item} />)}
+        </Column>
       </Column>
     </div>
   );
