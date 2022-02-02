@@ -55,6 +55,7 @@ export default function ModelLoader({
   markings,
   profilePriority,
   modelName,
+  modelArtist,
 }) {
   const [screenshot, setScreenshot] = React.useState(null);
   const [armourColor, setArmourColor] = React.useState(null);
@@ -268,7 +269,7 @@ export default function ModelLoader({
               autoRotateSpeed={5}
             />
           </Canvas>
-          <Ads />
+          <Ads modelArtist={modelArtist} />
         </Row>
       </Column>
     </div>

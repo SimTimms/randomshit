@@ -6,7 +6,7 @@ import MiniProfile from './MiniProfile';
 
 import axios from 'axios';
 
-export default function Ads() {
+export default function Profile() {
   const classes = useStyles();
   const [profiles, setProfiles] = React.useState(null);
 

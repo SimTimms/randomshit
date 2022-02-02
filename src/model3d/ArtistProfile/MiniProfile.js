@@ -9,7 +9,7 @@ export default function MiniProfile({ profile }) {
     <div className={classes.avatar}>
       <div className={classes.avatarText}>
         <a
-          href={profile.link}
+          href={`https://app.doodlemeeple.com/user-profile/${profile._id}`}
           target="_blank"
           rel="noopener noreferrer"
           className={classes.avatarTextInterior}

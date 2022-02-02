@@ -22,6 +22,7 @@ function ModelRouterApp({
   login,
   history,
   profilePriority,
+  modelArtist,
 }) {
   const modelColorsRef = useRef({});
   const [panels, setPanels] = React.useState(null);
@@ -113,6 +114,7 @@ function ModelRouterApp({
             history={history}
             markings={markings}
             profilePriority={profilePriority}
+            modelArtist={modelArtist ? modelArtist : null}
           />
         </Row>
         {panels === 'details' && (

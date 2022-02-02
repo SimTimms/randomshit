@@ -3,34 +3,34 @@ import { useStyles } from './styles';
 import { Typography } from '@material-ui/core';
 import { Column } from '../../components';
 import MiniProfile from './MiniProfile';
-
+import ArtistProfile from '../ArtistProfile';
+import ork from '../../assets/ork.png';
 import axios from 'axios';
 
-export default function Profile() {
+export default function Ads({ modelArtist }) {
   const classes = useStyles();
-  const [profiles, setProfiles] = React.useState(null);
+  const [profiles, setProfiles] = React.useState([
+    {
+      name: 'New Model - Coming Soon!',
+      profileImg: ork,
+      link: 'https://www.patreon.com/posts/big-guy-coming-61546311',
+    },
+  ]);
 
-  useEffect(() => {
-    !profiles && testAx();
-  }, [testAx]);
-  function testAx() {
-    axios
-      .get(`${process.env.REACT_APP_DM_API}/3d-artist`)
-      .then((result) => {
-        setProfiles(result.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
   return (
     <div className={classes.wrapper}>
-      <Column a="center" j="flex-end">
-        <Typography align="center" style={{ fontSize: '12px', color: '#aaa' }}>
-          Updates
-        </Typography>
-        <Column a="flex-end" j="flex-end">
-          {profiles && profiles.map((item) => <MiniProfile profile={item} />)}
+      <Column a="center" j="space-between">
+        <ArtistProfile modelArtist={modelArtist} />
+        <Column a="center" j="space-between">
+          <Typography
+            align="center"
+            style={{ fontSize: '12px', color: '#aaa' }}
+          >
+            Updates
+          </Typography>
+          <Column a="flex-end" j="flex-end">
+            {profiles && profiles.map((item) => <MiniProfile profile={item} />)}
+          </Column>
         </Column>
       </Column>
     </div>

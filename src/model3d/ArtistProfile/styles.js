@@ -2,25 +2,15 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
   avatar: {
-    maxWidth: 52,
-    minWidth: 52,
-    height: 52,
     margin: 4,
-    borderRadius: '50%',
+    borderRadius: 10,
+    width: 180,
+    marginLeft: -140,
     overflow: 'display',
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: `${theme.palette.primary.main}`,
-    backgroundSize: 52,
     justifyContent: 'flex-end',
-    boxShadow: '2px 2px 5px rgba(0,0,0,0.5)',
     cursor: 'pointer',
-    '&:hover': {
-      maxWidth: 300,
-      paddingLeft: 20,
-      borderRadius: 26,
-      backgroundColor: `${theme.palette.primary.main}`,
-    },
   },
   avatarIcon: {
     width: 52,
@@ -47,6 +37,5 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
     overflow: 'display',
-    height: '100%',
   },
 }));

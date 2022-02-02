@@ -22,6 +22,9 @@ const GAME_BY_ID = gql`
       js
       url
       price
+      artistLink
+      artistName
+      whereToBuyLink
       user {
         _id
         name
@@ -140,6 +143,11 @@ export default function ModelApp(props) {
             game={modelOne}
             login={true}
             history={props.history}
+            modelArtist={{
+              name: modelOne.artistName,
+              link: modelOne.artistLink,
+              buyLink: modelOne.whereToBuyLink,
+            }}
           />
         )}
       </div>

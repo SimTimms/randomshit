@@ -32,6 +32,11 @@ export default function GameProfileFull({ back, profile, ...props }) {
                   back={back}
                   history={props.history}
                   profilePriority={profile.priority}
+                  modelArtist={{
+                    name: game.artistName,
+                    link: game.artistLink,
+                    buyLink: game.whereToBuyLink,
+                  }}
                 />
               );
             }
