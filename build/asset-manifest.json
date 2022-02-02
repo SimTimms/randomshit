@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/static/js/main.c8982278.chunk.js",
-    "main.js.map": "/static/js/main.c8982278.chunk.js.map",
+    "main.js": "/static/js/main.7bf37c6e.chunk.js",
+    "main.js.map": "/static/js/main.7bf37c6e.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d8be0fd0.js",
     "runtime-main.js.map": "/static/js/runtime-main.d8be0fd0.js.map",
     "static/css/2.9afd9385.chunk.css": "/static/css/2.9afd9385.chunk.css",
-    "static/js/2.731780b4.chunk.js": "/static/js/2.731780b4.chunk.js",
-    "static/js/2.731780b4.chunk.js.map": "/static/js/2.731780b4.chunk.js.map",
+    "static/js/2.65ba5063.chunk.js": "/static/js/2.65ba5063.chunk.js",
+    "static/js/2.65ba5063.chunk.js.map": "/static/js/2.65ba5063.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.4ae3268d3eded2fab876ea7913bbb63b.js": "/precache-manifest.4ae3268d3eded2fab876ea7913bbb63b.js",
+    "precache-manifest.c62429fd99b81e975a4e13e924d627e2.js": "/precache-manifest.c62429fd99b81e975a4e13e924d627e2.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.9afd9385.chunk.css.map": "/static/css/2.9afd9385.chunk.css.map",
-    "static/js/2.731780b4.chunk.js.LICENSE.txt": "/static/js/2.731780b4.chunk.js.LICENSE.txt",
+    "static/js/2.65ba5063.chunk.js.LICENSE.txt": "/static/js/2.65ba5063.chunk.js.LICENSE.txt",
     "static/media/dmDevice.png": "/static/media/dmDevice.aa66bfb6.png",
     "static/media/earlyBird.png": "/static/media/earlyBird.4a400f0d.png",
     "static/media/extraordinary.png": "/static/media/extraordinary.036f8c2e.png",
@@ -20,6 +20,7 @@
     "static/media/iconWebsite.png": "/static/media/iconWebsite.7bf93738.png",
     "static/media/kick.png": "/static/media/kick.8a56a46e.png",
     "static/media/mp3d.png": "/static/media/mp3d.607cf6e4.png",
+    "static/media/ork.png": "/static/media/ork.96d67e13.png",
     "static/media/socialInstagram.png": "/static/media/socialInstagram.5dfed668.png",
     "static/media/socialLinkedIn.png": "/static/media/socialLinkedIn.9b60bf1b.png",
     "static/media/socialSkype.svg": "/static/media/socialSkype.cc3dee71.svg",
@@ -29,7 +30,7 @@
   "entrypoints": [
     "static/js/runtime-main.d8be0fd0.js",
     "static/css/2.9afd9385.chunk.css",
-    "static/js/2.731780b4.chunk.js",
-    "static/js/main.c8982278.chunk.js"
+    "static/js/2.65ba5063.chunk.js",
+    "static/js/main.7bf37c6e.chunk.js"
   ]
 }
