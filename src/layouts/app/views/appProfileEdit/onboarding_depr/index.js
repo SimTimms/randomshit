@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useStyles } from './styles';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import {
   AddSection,
   Column,
@@ -13,7 +13,7 @@ import {
   UnlockInfo,
 } from '../../../../../components';
 import { UPDATE_USER_MUTATION } from '../../../../../data/mutations';
-import { useMutation } from 'react-apollo';
+import { useMutation } from '@apollo/client/react/components';
 import autosave from '../../../../../utils/autosave';
 import { toaster } from '../../../../../utils/toaster';
 

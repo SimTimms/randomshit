@@ -7,7 +7,7 @@ import {
   DividerMini,
   Divider,
 } from '../../components';
-import { Mutation, Query } from 'react-apollo';
+import { Mutation, Query } from '@apollo/client/react/components';
 import { CREATE_MY_POST, REMOVE_MY_POST, MY_POST_BY_ID } from './data';
 import { toaster } from '../../utils/toaster';
 import { MenuContext } from '../../context';

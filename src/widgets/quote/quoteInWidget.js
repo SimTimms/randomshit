@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-import { Query } from 'react-apollo';
+import { Typography } from '@mui/material';
+import { Query } from '@apollo/client/react/components';
 import { QUOTE_IN_WIDGET } from './data';
 import { Column, CardComponent } from '../../components';
 import { QuoteInCard } from './quoteCard';

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Row, Column, DividerMini } from './components';
 import PaintPot from './PaintPot';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export default function RecentColors({
   activeColor,

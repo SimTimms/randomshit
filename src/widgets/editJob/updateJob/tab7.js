@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { CreativeContext } from '../../../context';
 import {
   DividerMini,
@@ -8,7 +8,7 @@ import {
   Column,
 } from '../../../components';
 import SubmitBriefSingle from './submitBriefSingle';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { CHOSEN_CREATIVE } from './data';
 import { ProfileCardMacro } from '../../profileCard';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import Icon from '@material-ui/core/Icon';
-import Typography from '@material-ui/core/Typography';
+import Icon from '@mui/material/Icon';
+import Typography from '@mui/material/Typography';
 import { useStyles } from './styles';
 
 export function TagsWidget({ tags, setTags, edit }) {
@@ -18,7 +18,7 @@ export function TagsWidget({ tags, setTags, edit }) {
             <Icon
               className={classes.tagRemove}
               onClick={() => {
-                const newInviteArr = tags.filter(item => item !== tag);
+                const newInviteArr = tags.filter((item) => item !== tag);
                 setTags(newInviteArr);
               }}
             >
@@ -71,7 +71,7 @@ export function SelectTagsWidget({ tags, fieldTags, setTags, setFieldTags }) {
 
               newFieldTags.indexOf(tag.name) === -1
                 ? newFieldTags.push(tag.name)
-                : (newFieldTags = newFieldTags.filter(id => id !== tag.name));
+                : (newFieldTags = newFieldTags.filter((id) => id !== tag.name));
 
               setFieldTags(newFieldTags);
               setTags(newTags);

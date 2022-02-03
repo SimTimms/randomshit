@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Icon, Typography } from '@material-ui/core';
-import { Mutation } from 'react-apollo';
+import { Button, Icon, Typography } from '@mui/material';
+import { Mutation } from '@apollo/client/react/components';
 import { REMOVE_SECTION_MUTATION } from '../../../../../../../data/mutations';
 import { useStyles } from './styles';
 

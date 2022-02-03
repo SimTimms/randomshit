@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { LATEST_MINIS_WIDGET } from './data';
 import { ProfileCardMacro } from '../profileCard/';
 import BigImage from '../bigImage';

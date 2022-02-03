@@ -12,7 +12,7 @@ import {
   Row,
   Divider,
 } from '../../../../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import GallerySection from './components/section/gallerySection';
 import { UPDATE_USER_MUTATION } from '../../../../data/mutations';
 import { readableErrors } from '../../../../utils/readableErrors';

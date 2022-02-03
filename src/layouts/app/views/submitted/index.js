@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Card, CardContent, Typography, Slide } from '@material-ui/core';
+import { Card, CardContent, Typography, Slide } from '@mui/material';
 import { IconButton, Column } from '../../../../components';
 
 export function ProjectSubmitted({ history }) {

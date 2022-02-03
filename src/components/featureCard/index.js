@@ -1,7 +1,7 @@
 import React from 'react';
-import { Card, Icon } from '@material-ui/core';
+import { Card, Icon } from '@mui/material';
 import { useStyles } from './styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 
 export default function FeatureCard({
   background,

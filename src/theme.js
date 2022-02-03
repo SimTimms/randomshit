@@ -1,20 +1,9 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 
 export default function themeDesigner() {
-  const theme = createMuiTheme({
+  const theme = createTheme({
     typography: {
       fontFamily: ['Quicksand'].join(','),
-    },
-    palette: {
-      wrap: {
-        main: process.env.REACT_APP_PALETTE_WRAP_MAIN,
-        light: process.env.REACT_APP_PALETTE_WRAP_LIGHT,
-        dark: process.env.REACT_APP_PALETTE_WRAP_DARK,
-        text: process.env.REACT_APP_PALETTE_WRAP_TEXT,
-      },
-      input: {
-        background: process.env.REACT_APP_PALETTE_INPUT_BACKGROUND,
-      },
     },
   });
   theme.palette.primary = {

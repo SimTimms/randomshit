@@ -1,6 +1,6 @@
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
+import { withStyles } from '@mui/styles';
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 
 export const StyledButton = withStyles({
   root: {

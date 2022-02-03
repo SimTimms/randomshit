@@ -2,7 +2,7 @@ import React from 'react';
 import SummaryViewCreative from '../../../../layouts/app/views/job/jobDashboard/components/summaryViewCreative';
 import { MenuContext } from '../../../../context';
 import { JOB_CREATIVE } from '../../../../data/queries';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 
 export default function WorkDashboard() {
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { DeleteButtonSmall, Column, Row, FieldBox, Divider } from '../';
 import autosave from '../../utils/autosave';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { UPDATE_TERM, REMOVE_TERM } from '../../data/mutations';
 import { toaster } from '../../utils/toaster';
 

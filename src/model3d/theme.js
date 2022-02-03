@@ -1,7 +1,7 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 
 export default function themeDesigner() {
-  const theme = createMuiTheme({
+  const theme = createTheme({
     typography: {
       fontFamily: ['Quicksand'].join(','),
       fontSize: 12,

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Row, Column, WidgetTitle, DividerMini } from './components';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { PART_BY_ID } from './data';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export default function Parts({ setAttachedPart, attachedPart, parts }) {
   return (

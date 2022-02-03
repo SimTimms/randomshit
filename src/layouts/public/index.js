@@ -9,6 +9,7 @@ import { PasswordReset } from './views/passwordReset';
 import Deleted from './views/deleted';
 import { useStyles } from './styles';
 import mp3d from '../../assets/branding/mp3d.png';
+import { REACT_APP_COMPANY_PUBLIC_NAME } from '../../envVars';
 
 export function PublicLayout(props) {
   const [page, setPage] = React.useState('home');
@@ -39,7 +40,7 @@ export function PublicLayout(props) {
         <img
           src={mp3d}
           style={{ maxHeight: 40 }}
-          alt={`${process.env.REACT_APP_COMPANY_PUBLIC_NAME} Logo`}
+          alt={`${REACT_APP_COMPANY_PUBLIC_NAME} Logo`}
         />
       </StyledNavBar>
       <Content>

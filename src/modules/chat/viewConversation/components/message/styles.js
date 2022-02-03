@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles((theme) => ({
   messageCard: {
@@ -139,7 +139,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
     padding: 10,
     width: '100%',
-    boxSizing:'border-box'
+    boxSizing: 'border-box',
   },
   avatarWrapper: {
     display: 'flex',

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Query } from 'react-apollo';
-import { Typography } from '@material-ui/core';
+import { Query } from '@apollo/client/react/components';
+import { Typography } from '@mui/material';
 import { GAME_WIDGET, MY_GAMES } from './data';
 import { GameProfile } from './profileCard';
 import { GameForm } from './';

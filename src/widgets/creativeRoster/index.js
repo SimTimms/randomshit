@@ -1,7 +1,7 @@
 import React from 'react';
-import { Typography, Fade } from '@material-ui/core';
+import { Typography, Fade } from '@mui/material';
 import { useStyles } from './styles';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { CREATIVE_ROSTER_WIDGET } from './data';
 import { ProfileCard } from '../profileCard';
 import { Filters } from '../profileCard/components';

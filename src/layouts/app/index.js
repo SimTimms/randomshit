@@ -5,7 +5,7 @@ import AppHelp from './views/appHelp';
 import AppProfileEdit from './views/appProfileEdit';
 import { Account } from './views/account';
 import { ToastContainer } from 'react-toastify';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { FAVOURITES, PROFILE, COUNTS } from '../../data/queries';
 import { PreviewProfile } from '../../layouts/preview/views/previewProfile';
 import logout from '../../utils/logout';

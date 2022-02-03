@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from '@material-ui/core';
+import { Card } from '@mui/material';
 import { useStyles } from './styles';
 
 export default function DMCard({ children, ...props }) {

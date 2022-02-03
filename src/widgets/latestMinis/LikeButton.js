@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { UPDATE_LIKES } from './data';
 import { MenuButtonStandard } from '../../components';
 

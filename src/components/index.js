@@ -4,7 +4,6 @@ import Content from './content';
 import ContentTop from './contentTop';
 import ImagePos from './imagePos';
 import ActionButton from './buttons';
-import Availability from './buttons/availability';
 import Speculative from './buttons/speculative';
 import Funded from './buttons/funded';
 import Royalties from './buttons/royalties';
@@ -217,7 +216,6 @@ export {
   IconBox,
   FieldTitleDashboard,
   FavouriteButton,
-  Availability,
   Speculative,
   TaskComponent,
   InviteButton,

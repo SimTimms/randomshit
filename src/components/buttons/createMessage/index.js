@@ -1,6 +1,6 @@
 import React from 'react';
-import { TextField, Typography } from '@material-ui/core';
-import { Mutation } from 'react-apollo';
+import { TextField, Typography } from '@mui/material';
+import { Mutation } from '@apollo/client/react/components';
 import { CREATE_MESSAGE } from '../../../data/mutations';
 import { useStyles } from './styles';
 import { IconButton, Uploader, Row, Column } from '../../';

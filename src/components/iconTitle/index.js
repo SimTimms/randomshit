@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Typography } from '@material-ui/core';
+import { Icon, Typography } from '@mui/material';
 import { useStyles } from './styles';
 
 export default function IconTitle({ title, icon }) {

@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from '@material-ui/core/Icon';
+import Icon from '@mui/material/Icon';
 import { useStyles } from './styles';
-import CardMedia from '@material-ui/core/CardMedia';
+import CardMedia from '@mui/material/CardMedia';
 
 function InvitesWidget({ invites, setInvite, edit }) {
   const classes = useStyles();

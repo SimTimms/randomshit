@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import {
   ErrorBox,
   Meta,
@@ -13,7 +13,7 @@ import {
 } from '../../../../../components';
 import { styles } from './styles';
 import { sharedStyles } from '../../styles';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { SIGNUP_MUTATION } from '../../../../../data/authorisation';
 import { readableErrors } from '../../../../../utils/readableErrors';
 import { validate } from 'email-validator';
@@ -117,7 +117,7 @@ export default function RegisterCard({ setPage, ...props }) {
             setEmail(e);
           }}
           replaceMode=""
-          placeholder={`Example: ${process.env.REACT_APP_INFO_EMAIL}`}
+          placeholder={`Example: youremail@address.com`}
           info="Your email address, used for logging into your account. This will not be displayed to other users"
           warning=""
           size="s"

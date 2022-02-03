@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconButton, FeatureCardInvite } from '../../../../../../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { DECLINE_INVITE } from '../../../../../../data/mutations';
 
 export function InviteComponent({ invite, removeInvite, history }) {

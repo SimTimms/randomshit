@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Typography } from '@material-ui/core';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { Typography } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import clsx from 'clsx';
 
 export function Grid({ cols, ...props }) {

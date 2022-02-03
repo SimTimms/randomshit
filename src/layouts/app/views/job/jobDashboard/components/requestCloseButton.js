@@ -7,7 +7,7 @@ import {
   Meta,
   Divider,
 } from '../../../../../../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { toaster } from '../../../../../../utils/toaster';
 import { CLOSE_EARLY } from '../../../../../../data/mutations';
 
@@ -34,7 +34,7 @@ export default function RequestCloseButton({ job, setTabNbr }) {
       ) : (
         <BorderBox w={300}>
           <Meta
-            str={`This will notify ${process.env.REACT_APP_COMPANY_PUBLIC_NAME} that you wish to close this unfinished job`}
+            str={`This will notify ${REACT_APP_COMPANY_PUBLIC_NAME} that you wish to close this unfinished job`}
           />
           <Divider />
           <Meta

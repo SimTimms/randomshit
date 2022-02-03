@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { DeleteButtonSmall } from '../../../../../../../../components';
-import { TextField, Typography } from '@material-ui/core';
+import { TextField, Typography } from '@mui/material';
 import autosave from '../../../../../../../../utils/autosave';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { useStyles } from './styles';
 import {
   UPDATE_TERM,

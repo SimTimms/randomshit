@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useMediaQuery } from '@material-ui/core';
+import { useMediaQuery } from '@mui/material';
 import { Message } from '../message';
 import { CreateMessage } from '../../../../../components';
 import { useStyles } from './styles';

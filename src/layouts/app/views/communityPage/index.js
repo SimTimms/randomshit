@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import {
   Row,
   Column,
@@ -17,7 +17,7 @@ import {
   ParamsContext,
 } from '../../../../context';
 import { ProfileCardMacro } from '../../../../widgets/profileCard';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { CHOSEN_CREATIVE } from './data';
 
 export default function CommunityPage() {

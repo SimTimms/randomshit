@@ -1,9 +1,9 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export const WELCOME = (
   <Typography variant="h3" style={{ color: '#fff' }} align="center">
-    {`Welcome to ${process.env.REACT_APP_COMPANY_PUBLIC_NAME}`}
+    {`Welcome to ${REACT_APP_COMPANY_PUBLIC_NAME}`}
   </Typography>
 );
 

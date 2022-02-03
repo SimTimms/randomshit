@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 import clsx from 'clsx';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { BgImg, ProfileImg } from './components';
 import { Row, Column, IconButton } from '../../components';
 import * as socials from '../../assets/social';
@@ -12,6 +12,7 @@ import imageOptimiser from '../../utils/imageOptimiser';
 import { nameShortener } from '../../utils';
 import { HistoryContext } from '../../context';
 import { timeDifferenceForDate } from '../../utils/dates';
+import { REACT_APP_URL } from '../../envVars';
 export default function ProfileCard({ creative, setLarge }) {
   const classes = useStyles();
 
@@ -89,7 +90,7 @@ export default function ProfileCard({ creative, setLarge }) {
             <ProfileImg creative={creative} />
             <Column a="flex-start">
               <a
-                href={`${process.env.REACT_APP_URL}/user-profile/${creative._id}`}
+                href={`${REACT_APP_URL}/user-profile/${creative._id}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'none', color: '#222', width: '100%' }}
@@ -124,7 +125,7 @@ export default function ProfileCard({ creative, setLarge }) {
               <Row j="space-between" w="100%">
                 <Row j="flex-start" w={160}>
                   <a
-                    href={`${process.env.REACT_APP_URL}/user-profile/${creative._id}`}
+                    href={`${REACT_APP_URL}/user-profile/${creative._id}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={classes.social}

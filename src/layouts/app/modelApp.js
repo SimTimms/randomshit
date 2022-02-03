@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import ModelRouterApp from '../../model3d/ModelRouterApp';
 import gql from 'graphql-tag';
 import HeaderGallery from '../../widgets/headerGallery';
 import ChooseModelPublic from '../../widgets/games/chooseModelPublic';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import patreon from '../../assets/patreon.png';
 import { Row, MenuButtonStandard } from '../../components';
 import mp3dmini from '../../assets/branding/mp3dmini.png';
@@ -38,7 +38,7 @@ export default function ModelApp(props) {
   const [modelOne, setModelOne] = React.useState(null);
   const [modelTwo, setModelTwo] = React.useState(null);
   const [page, setPage] = React.useState('model');
-
+  console.log('Da');
   const partnerId = props
     ? props.match
       ? props.match.params.partnerId

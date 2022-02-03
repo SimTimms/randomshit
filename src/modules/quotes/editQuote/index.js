@@ -9,7 +9,7 @@ import {
 } from '../../../components';
 import { UPDATE_CONTRACT, SUBMIT_CONTRACT } from '../../../data/mutations';
 import { StartDate, Cost, Notes, QuoteSummary, EndDate } from './components';
-import { useMutation } from 'react-apollo';
+import { useMutation } from '@apollo/client/react/components';
 import charsRemaining from '../../../utils/charsRemaining';
 import replaceNulls from '../../../utils/replaceNulls';
 import { TITLES, SUB_TITLES } from './constants';

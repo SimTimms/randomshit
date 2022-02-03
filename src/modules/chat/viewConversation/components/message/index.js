@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Card, useMediaQuery } from '@material-ui/core';
+import { Typography, Card, useMediaQuery } from '@mui/material';
 import clsx from 'clsx';
 import { useStyles } from './styles';
 import { timeDifferenceForDate } from '../../../../../utils/dates';

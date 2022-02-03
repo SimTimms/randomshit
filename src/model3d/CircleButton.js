@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Icon } from '@material-ui/core';
+import { Icon } from '@mui/material';
 
 export default function CircleButton({
   title,

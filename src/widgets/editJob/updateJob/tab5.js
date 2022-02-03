@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { FAVOURITES } from '../../../data/queries';
 import { CreativeContext, MenuContext } from '../../../context';
 import { PickArtist } from '../../../layouts/app/views/pickArtist';

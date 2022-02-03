@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from './styles';
 import { Row } from '../';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export default function ContractSummaryForCreator({ contractData }) {
   const classes = useStyles();

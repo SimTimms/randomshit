@@ -1,6 +1,6 @@
 import React from 'react';
-import Icon from '@material-ui/core/Icon';
-import CardMedia from '@material-ui/core/CardMedia';
+import Icon from '@mui/material/Icon';
+import CardMedia from '@mui/material/CardMedia';
 import { useStyles } from './styles';
 import smithy from '../../../../../assets/smithy.jpg';
 import { FormInput } from '../../../../../components';

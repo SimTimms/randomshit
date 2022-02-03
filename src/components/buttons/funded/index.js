@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { UPDATE_FUNDED } from '../../../data/mutations';
 import { useStyles } from './styles';
 import { IconButton } from '../../';

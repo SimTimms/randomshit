@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Icon } from '@material-ui/core';
+import { Typography, Icon } from '@mui/material';
 import { useStyles } from './styles';
 import { Row, Column } from '../';
 import clsx from 'clsx';

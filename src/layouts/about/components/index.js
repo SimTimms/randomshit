@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '@material-ui/core/Login';
-import { withStyles } from '@material-ui/core/styles';
+import Button from '@mui/material/Login';
+import { withStyles } from '@mui/styles';
 
 const StyledButton = withStyles({
   root: {

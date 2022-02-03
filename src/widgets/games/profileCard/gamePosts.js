@@ -8,7 +8,7 @@ import {
   Avatar,
   Title,
 } from '../../../components';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export default function GamePosts({ gamePosts, profile }) {
   return (

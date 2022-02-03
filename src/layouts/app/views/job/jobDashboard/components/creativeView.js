@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slide, Typography } from '@material-ui/core';
+import { Slide, Typography } from '@mui/material';
 import { useStyles } from '../styles';
 import {
   IconButton,

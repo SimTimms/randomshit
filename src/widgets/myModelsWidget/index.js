@@ -1,10 +1,10 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { MY_MODELS, DELETE_MODEL } from './data';
 import { Column, MenuButtonStandard } from '../../components';
 import { MenuContext } from '../../context';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { randomKey } from '../../utils';
 
 export default function MyModelsWidget({ ...props }) {

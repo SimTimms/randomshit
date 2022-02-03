@@ -6,10 +6,12 @@
     "node": "17.x"
   },
   "dependencies": {
+    "@apollo/client": "^3.5.8",
     "@babel/helper-regex": "^7.10.5",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.4.0",
+    "@mui/styles": "^5.3.0",
     "@react-three/drei": "^7.12.6",
     "@react-three/gltfjsx": "^4.3.4",
     "@stripe/react-stripe-js": "^1.1.2",
@@ -32,9 +34,9 @@
     "jwt-decode": "^2.2.0",
     "moment": "^2.26.0",
     "password-validator": "^5.0.3",
+    "process": "^0.11.10",
     "rc-slider": "^9.7.2",
     "react": "^17.0.2",
-    "react-apollo": "^3.1.5",
     "react-dom": "^17.0.2",
     "react-ga": "^3.3.0",
     "react-html-parser": "^2.0.2",
@@ -76,5 +78,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0",
+    "react-error-overlay": "6.0.9"
+  },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { CREATIVES } from '../../data/queries';
 import {
   ProfileCard,

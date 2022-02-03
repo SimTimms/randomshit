@@ -1,38 +1,28 @@
 import React, { useRef } from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@mui/styles';
 import { withRouter } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import { ApolloProvider } from 'react-apollo';
-import { ApolloClient } from 'apollo-client';
-import { createHttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { setContext } from 'apollo-link-context';
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import themeDesigner from './theme';
 import AuthRoutes from './routes/routesAuth';
 import PublicRoutes from './routes/routesPublic';
 import { MenuContext } from './context';
 import { PAGES } from './const';
+import { REACT_APP_API } from './envVars';
 
 function RouterComponent(props) {
   const authToken = Cookies.get('token');
   const theme = themeDesigner();
-  const httpLink = createHttpLink({
-    uri: process.env.REACT_APP_API,
-  });
-
-  const authLink = setContext((_, { headers }) => {
-    return {
-      headers: {
-        ...headers,
-        authorization: authToken ? `Bearer ${authToken}` : '',
-      },
-    };
-  });
-
+  console.log('asd', REACT_APP_API);
   const client = new ApolloClient({
-    link: authLink.concat(httpLink),
+    uri: REACT_APP_API,
     cache: new InMemoryCache({ addTypename: false }),
+    headers: {
+      authorization: authToken ? `Bearer ${authToken}` : '',
+    },
   });
+
+  console.log(client);
 
   const [pageValues, setPageValues] = React.useState({
     primaryPage: 'home',

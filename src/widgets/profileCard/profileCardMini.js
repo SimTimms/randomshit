@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 import clsx from 'clsx';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { BgImg, ProfileImg } from './components';
 import { Row, Column } from '../../components';
 import { PROFILE_IMAGES } from './data';
 import imageOptimiser from '../../utils/imageOptimiser';
-
+import { REACT_APP_URL } from '../../envVars';
 export default function ProfileCardMini({ creative, setLarge, history }) {
   const classes = useStyles();
 
@@ -70,7 +70,7 @@ export default function ProfileCardMini({ creative, setLarge, history }) {
         <ProfileImg creative={creative} />
         <Column a="flex-start">
           <a
-            href={`${process.env.REACT_APP_URL}/user-profile/${creative._id}`}
+            href={`${REACT_APP_URL}/user-profile/${creative._id}`}
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: 'none', color: '#222', width: '100%' }}

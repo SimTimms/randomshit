@@ -6,7 +6,7 @@ import { Html, useProgress } from '@react-three/drei';
 import { Column, Row } from '../components';
 import uploaderScreenshot from '../components/uploaderScreenshot';
 import { MenuButtonStandard } from '../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { SAVE_GAME_IMAGE } from './data';
 import { toaster } from '../utils/toaster';
 import { TwitterShareButton, TwitterIcon } from 'react-share';

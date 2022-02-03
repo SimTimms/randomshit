@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from './styles';
 import { InviteButton } from '../../';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { CREATE_INVITE } from '../../../data/mutations';
 
 export default function Invite({ history, creative, favourite, ...props }) {

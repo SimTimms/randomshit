@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from './styles';
 import clsx from 'clsx';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export default function BgImg({ previewImage, onClick, locked, history }) {
   const classes = useStyles();

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Slide, Typography } from '@material-ui/core';
+import { Slide, Typography } from '@mui/material';
 import {
   LoadIcon,
   Column,
   ContractSummaryForCreative,
 } from '../../../../../components';
 import { PREVIEW_CONTRACT } from '../../../../../data/queries';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import QuoteSummaryCreator from './views/quoteSummaryForCreator';
 import Cookies from 'js-cookie';
 

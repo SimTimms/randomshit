@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMediaQuery } from '@material-ui/core';
+import { useMediaQuery } from '@mui/material';
 import clsx from 'clsx';
 import { useStyles } from './styles';
 import { HistoryContext } from '../../context';

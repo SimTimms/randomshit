@@ -8,10 +8,10 @@ import {
   useMediaQuery,
   Button,
   Slide,
-} from '@material-ui/core';
+} from '@mui/material';
 import { styles } from './styles';
 import { sharedStyles } from '../../styles';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { PASSWORD_FORGOT_MUTATION } from '../../../../../data/authorisation';
 import { PROFILE_EMAIL } from '../../../../../utils/dataLengths';
 import {

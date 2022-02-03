@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconButton, BorderBox, Meta, Paper, HeaderThree } from '../../';
 import { toaster } from '../../../utils/toaster';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { CREATE_CONTRACT } from '../../../data/mutations';
 
 export default function CreateQuoteButton({

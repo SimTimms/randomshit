@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Row, Column, WidgetTitle, DividerMini } from './components';
-import { Icon } from '@material-ui/core';
+import { Icon } from '@mui/material';
 
 export default function Tools({ spray, setSpray }) {
   return (

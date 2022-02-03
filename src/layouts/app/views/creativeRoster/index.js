@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Slide } from '@material-ui/core';
+import { Slide } from '@mui/material';
 import { useStyles } from './styles';
 import {
   LoadIcon,

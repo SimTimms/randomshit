@@ -9,7 +9,7 @@ import Details from './details';
 import { ColorContext } from '../context';
 import ModelLoader from './modelLoader';
 import RecentColors from './recentColors';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 
 function ModelRouterApp({

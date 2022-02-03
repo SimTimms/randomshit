@@ -1,6 +1,6 @@
 import React from 'react';
 import { BorderBox, IconButton } from '../';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { DECLINE_CONTRACT } from '../../data/mutations';
 
 export default function ActionSetOne({ contract, history, setTabNbrTwo }) {

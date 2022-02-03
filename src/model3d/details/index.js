@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Column } from '../components';
-import { Typography, Icon } from '@material-ui/core';
+import { Typography, Icon } from '@mui/material';
 import { gwPaints } from '../paints';
 
 export default function Details({ game }) {

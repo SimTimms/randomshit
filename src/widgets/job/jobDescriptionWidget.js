@@ -7,7 +7,7 @@ import {
   MenuButtonStandard,
   DividerMini,
 } from '../../components';
-import { Mutation, Query } from 'react-apollo';
+import { Mutation, Query } from '@apollo/client/react/components';
 import {
   DECLINE_INVITE,
   JOB_CONTRACT,

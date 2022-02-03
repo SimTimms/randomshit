@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 export const sharedStyles = makeStyles((theme) => ({
   card: {
     maxWidth: 512,

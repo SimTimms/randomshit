@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from './styles';
 import { MenuContext } from '../../../context';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { GAME_BY_ID } from '../data';
 import ModelRouter from '../../../model3d/ModelRouter';
 import ModelRouterApp from '../../../model3d/ModelRouterApp';

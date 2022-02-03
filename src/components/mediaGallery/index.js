@@ -1,10 +1,10 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Typography, Button, useMediaQuery, Icon } from '@material-ui/core';
+import { Typography, Button, useMediaQuery, Icon } from '@mui/material';
 import { Uploader } from '../../components';
 import clsx from 'clsx';
 import { UPLOAD_IMAGE, DELETE_IMAGE } from '../../data/mutations';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 
 function MediaGallery({ items, edit, setImages, galleryId, ...props }) {
   const seedID = Math.floor(Math.random());

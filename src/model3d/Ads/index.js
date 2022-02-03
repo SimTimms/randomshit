@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useStyles } from './styles';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { Column } from '../../components';
 import MiniProfile from './MiniProfile';
 import ArtistProfile from '../ArtistProfile';

@@ -1,7 +1,7 @@
 import React from 'react';
 import JobDashboard from '../job/jobDashboard';
 import { MenuContext } from '../../../../context';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { JOB } from '../../../../data/queries';
 import {
   UpdateJob,

@@ -1,11 +1,11 @@
 import React from 'react';
-import Icon from '@material-ui/core/Icon';
+import Icon from '@mui/material/Icon';
 import { useStyles } from './styles';
 import {
   IconButton,
   FeatureCardHorizontal,
 } from '../../../../../../components';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import clsx from 'clsx';
 import { timeDifferenceForDate } from '../../../../../../utils/dates';
 import { excerptReplace } from '../../../../../../utils/excerptReplace';

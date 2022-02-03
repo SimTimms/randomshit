@@ -1,6 +1,6 @@
 import React from 'react';
 import { ConversationById } from './viewConversation';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { GET_MESSAGES } from '../../data/queries';
 
 export default function ChatViewById({

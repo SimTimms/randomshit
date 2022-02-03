@@ -1,8 +1,9 @@
 import React from 'react';
 import { TaskButton } from '../';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { CREATE_CONTRACT } from '../../../data/mutations';
 import { toaster } from '../../../utils/toaster';
+import { REACT_APP_PATREON_LINK } from '../../../envVars';
 
 export function TaskQuoteAccepted({ history }) {
   return (
@@ -54,9 +55,7 @@ export function TaskPatreon() {
       color="grey"
       clickSound={true}
       zoom={true}
-      onClickEvent={() =>
-        (window.location = process.env.REACT_APP_PATREON_LINK)
-      }
+      onClickEvent={() => (window.location = REACT_APP_PATREON_LINK)}
     />
   );
 }

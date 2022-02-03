@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Icon } from '@material-ui/core';
-import { Mutation } from 'react-apollo';
+import { Button, Icon } from '@mui/material';
+import { Mutation } from '@apollo/client/react/components';
 import { REMOVE_NOTABLE_PROJECT_MUTATION } from '../../../../../../../data/mutations';
 
 export function DeleteButton({
@@ -16,7 +16,7 @@ export function DeleteButton({
         id: notableProjectId,
       }}
     >
-      {RemoveNotableProjectMutation => {
+      {(RemoveNotableProjectMutation) => {
         return (
           <Button
             onClick={() => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NoticeBoardSecondary } from '../../../../components';
 import { SUBMIT_BRIEF } from '../../../../data/mutations';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 
 export default function SubmitJob({ jobId, history }) {
   return (

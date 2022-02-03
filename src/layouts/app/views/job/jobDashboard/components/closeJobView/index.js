@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slide } from '@material-ui/core';
+import { Slide } from '@mui/material';
 import { useStyles } from './styles';
 import {
   CardComponent,
@@ -7,7 +7,7 @@ import {
   Column,
   IconButton,
 } from '../../../../../../../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { CLOSE_JOB } from '../../../../../../../data/mutations';
 
 export default function CloseJobView({ jobId, history }) {

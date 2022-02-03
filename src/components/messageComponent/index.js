@@ -1,7 +1,7 @@
 import React from 'react';
-import { Typography, Button, Icon } from '@material-ui/core';
+import { Typography, Button, Icon } from '@mui/material';
 import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
+import Card from '@mui/material/Card';
 import { useStyles } from './styles';
 import logo from '../../assets/branding/mp3d.png';
 export default function MessageComponent({

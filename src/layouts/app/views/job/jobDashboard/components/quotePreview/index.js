@@ -6,7 +6,7 @@ import {
   Signature,
 } from '../../../../../../../components';
 import { PREVIEW_CONTRACT } from '../../../../../../../data/queries';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import ActionSetOne from '../../../../../../../components/inviteComponentFull/ActionSetOne';
 
 export default function QuotePreview({ contract, setTabNbr, history }) {

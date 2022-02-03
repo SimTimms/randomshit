@@ -1,8 +1,8 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 import clsx from 'clsx';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import BgImg from './bgImg';
 import {
   Row,
@@ -23,7 +23,7 @@ import ImageThumbs from './imageThumbs';
 import Socials from './socials';
 import GallerySection from './gallerySection';
 import { HistoryContext } from '../../../context';
-
+import { REACT_APP_URL } from '../../../envVars';
 export default function FullProfileCard({ creativeId }) {
   const classes = useStyles();
 
@@ -134,7 +134,7 @@ export default function FullProfileCard({ creativeId }) {
                           <Typography
                             className={classes.shareLink}
                             style={{ cursor: 'pointer' }}
-                          >{`${process.env.REACT_APP_URL}/preview/${creative._id}`}</Typography>
+                          >{`${REACT_APP_URL}/preview/${creative._id}`}</Typography>
                         ) : (
                           <MenuButtonStandard
                             title="Share Link"

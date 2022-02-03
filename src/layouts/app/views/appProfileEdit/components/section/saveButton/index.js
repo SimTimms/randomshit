@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import { Mutation } from 'react-apollo';
-import Icon from '@material-ui/core/Icon';
+import Button from '@mui/material/Button';
+import { Mutation } from '@apollo/client/react/components';
+import Icon from '@mui/material/Icon';
 
 export function SaveButton({
   sectionId,
@@ -18,7 +18,7 @@ export function SaveButton({
         section: sectionValues,
       }}
     >
-      {mutation => {
+      {(mutation) => {
         return (
           <Button
             onClick={() => {

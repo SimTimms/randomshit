@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Slide } from '@material-ui/core';
+import { Slide } from '@mui/material';
 import { useStyles } from './styles';
 import {
   Divider,
@@ -19,7 +19,7 @@ import Menu from './menu';
 import QuoteDetails from './quoteDetails';
 import { calculatePercent } from '../../../../../../../../utils';
 import { toaster } from '../../../../../../../../utils/toaster';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { UPDATE_CONTRACT } from '../../../../../../../../data/mutations';
 
 export default function EditProposalForm({

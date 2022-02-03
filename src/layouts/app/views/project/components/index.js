@@ -1,6 +1,6 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@mui/material/Typography';
+import CardMedia from '@mui/material/CardMedia';
 import { useStyles } from './styles';
 
 export function ProjectHeader({ bgImage, profile }) {
@@ -61,7 +61,7 @@ export function ProfileHeader({ title, user, tags }) {
           {title} <span style={{ color: '#aaa' }}>by {user.name}</span>
         </Typography>
         <Typography gutterBottom component="p" color="textSecondary">
-          {tags.map(tag => `${tag} `)}
+          {tags.map((tag) => `${tag} `)}
         </Typography>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { JOB_BOARD_MINI_WIDGET } from './data';
 import { JobProfileMini } from './profileCard';
 import { Row } from '../../components';

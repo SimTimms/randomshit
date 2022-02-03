@@ -4,10 +4,10 @@ import {
   ListItemIcon,
   Typography,
   ListItemText,
-} from '@material-ui/core';
+} from '@mui/material';
 import { useStyles } from './styles';
 import clsx from 'clsx';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function MenuButton({ text, onClickEvent }) {
   const mobile = useMediaQuery('(max-width:800px)');

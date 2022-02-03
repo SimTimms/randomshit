@@ -9,7 +9,7 @@ import {
   ProfileContext,
 } from '../../../context';
 import clsx from 'clsx';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { randomKey } from '../../../utils';
 
 export default function PrimaryMenu({ mainMenu, publicPage }) {

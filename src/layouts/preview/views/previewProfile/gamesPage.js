@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { GAME_WIDGET_BY_USER } from './data';
 import { GameProfile } from '../../../../widgets/games/profileCard';
 import { Grid } from '../../../../components';

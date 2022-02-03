@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slide } from '@material-ui/core';
+import { Slide } from '@mui/material';
 import { useStyles } from './styles';
 import {
   ColumnWrapper,
@@ -11,7 +11,7 @@ import {
   HeaderThree,
 } from '../../../../../components';
 import { GET_CONTRACT_ID } from '../../../../../data/queries';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 
 export default function EditContract({ contractId, history }) {
   const classes = useStyles();

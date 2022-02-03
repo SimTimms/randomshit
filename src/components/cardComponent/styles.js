@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles((theme) => ({
   card: {
@@ -13,7 +13,6 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     padding: 10,
     boxSizing: 'border-box',
-    color: theme.palette.wrap.text,
     borderRadius: 10,
   },
   cardLocked: {

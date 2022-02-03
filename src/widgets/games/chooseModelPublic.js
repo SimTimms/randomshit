@@ -1,11 +1,13 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { useQuery } from '@apollo/client';
 import { GAME_WIDGET } from './data';
 import ModelProfilePublic from './modelProfilePublic';
 import { Row, Grid } from '../../components';
 import { MenuContext } from '../../context';
 
 export default function ChooseModelPublic({ setModelOne, history }) {
+  const { loading, error, data } = useQuery(GAME_WIDGET);
+  if (loading) return <p>Loading ...</p>;
   return (
     <MenuContext.Consumer>
       {(menu) => (
@@ -21,19 +23,14 @@ export default function ChooseModelPublic({ setModelOne, history }) {
           }}
         >
           <Grid cols={3}>
-            <Query query={GAME_WIDGET}>
-              {({ data }) => {
-                if (data)
-                  return data.gameWidget.map((game, index) => (
-                    <ModelProfilePublic
-                      game={game}
-                      setModelOne={setModelOne}
-                      history={history}
-                    />
-                  ));
-                return null;
-              }}
-            </Query>
+            {data &&
+              data.gameWidget.map((game, index) => (
+                <ModelProfilePublic
+                  game={game}
+                  setModelOne={setModelOne}
+                  history={history}
+                />
+              ))}
           </Grid>
         </div>
       )}

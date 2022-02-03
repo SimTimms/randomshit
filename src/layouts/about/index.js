@@ -2,7 +2,7 @@ import React from 'react';
 import { AboutPage } from './views/AboutPage';
 import { Content, StyledNavBar } from '../../components';
 import { PublicMenu } from '../menus';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@mui/styles';
 
 function AboutLayoutStyled(props) {
   const { classes } = props;

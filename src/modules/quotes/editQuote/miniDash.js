@@ -1,12 +1,12 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import {
   Column,
   MenuButtonStandard,
   DividerMini,
   Divider,
 } from '../../../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { UPDATE_CONTRACT } from '../../../data/mutations';
 import { MenuContext } from '../../../context';
 
