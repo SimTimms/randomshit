@@ -70,6 +70,7 @@ export default function ModelLoader({
     }
     return new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
   }
+
   return (
     <div
       style={{

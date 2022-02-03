@@ -51,7 +51,6 @@ function ModelRouterApp({
     setActiveColor(activeColorIn);
     setPaintMode(1);
   }
-
   useEffect(() => {
     !color && setColor(colorMap);
 

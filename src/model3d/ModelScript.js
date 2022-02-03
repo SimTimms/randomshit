@@ -34,7 +34,6 @@ export default function ModelScript({
 
   const mod = useGLTF(gltfIn);
   const nodes = mod.nodes;
-
   const rNbr = (number) => {
     return parseFloat(number.toFixed(Math.round(2)));
   };
