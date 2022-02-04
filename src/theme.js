@@ -1,11 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
 export default function themeDesigner() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: ['Quicksand'].join(','),
-    },
-  });
+  const theme = createTheme({});
   theme.palette.primary = {
     ...theme.palette.primary,
     main: '#e62b58',
@@ -18,6 +14,7 @@ export default function themeDesigner() {
     light: '#1a75cd',
     dark: '#1a75cd',
   };
+
   theme.palette.error = {
     ...theme.palette.error,
     main: '#ff5129',
@@ -25,6 +22,7 @@ export default function themeDesigner() {
     light: '#ffe154',
   };
   theme.typography.h1 = {
+    ...theme.typography.h1,
     fontSize: '3rem',
     margin: 0,
     fontFamily: 'Roboto',
@@ -35,6 +33,7 @@ export default function themeDesigner() {
     margin: 0,
     fontFamily: 'Roboto',
   };
+
   theme.typography.h3 = {
     fontSize: '2rem',
     margin: 0,
@@ -58,8 +57,6 @@ export default function themeDesigner() {
   theme.typography.body1 = {
     fontSize: '1rem',
     margin: 0,
-    fontFamily: `'Roboto'`,
-    fontWeight: 900,
   };
   theme.typography.button = {
     color: theme.palette.primary.main,

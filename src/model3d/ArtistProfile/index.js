@@ -29,12 +29,23 @@ export default function ArtistProfile({ modelArtist }) {
   return (
     <div className={classes.avatar}>
       <Column a="flex-end" j="flex-end">
-        <Typography align="center" style={{ fontSize: '14px', color: '#aaa' }}>
+        <Typography
+          align="center"
+          style={{
+            fontSize: '14px',
+            fontFamily: 'Arial',
+          }}
+          className={classes.modelBy}
+        >
           {`Model by ${modelArtist.name}`}
         </Typography>
         <Typography align="center">
           <a
-            style={{ fontSize: '14px', color: '#aaa' }}
+            style={{
+              fontSize: '12px',
+              color: '#aaa',
+              fontFamily: 'Arial',
+            }}
             href={modelArtist.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -44,7 +55,11 @@ export default function ArtistProfile({ modelArtist }) {
         </Typography>
         <Typography align="center">
           <a
-            style={{ fontSize: '14px', color: '#aaa' }}
+            style={{
+              fontSize: '12px',
+              color: '#aaa',
+              fontFamily: 'Arial',
+            }}
             href={modelArtist.buyLink}
             target="_blank"
             rel="noopener noreferrer"

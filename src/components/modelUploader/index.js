@@ -55,7 +55,6 @@ function ModelUploader({
         setStatusMessage('Sending...');
         if (response.data.data) {
           setStatusMessage('Uploading...');
-          console.log(response);
           const returnData = response.data.data.returnData;
           const signedRequest = returnData.signedRequest;
           const url = returnData.url;

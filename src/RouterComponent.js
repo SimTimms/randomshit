@@ -13,7 +13,6 @@ import { REACT_APP_API } from './envVars';
 function RouterComponent(props) {
   const authToken = Cookies.get('token');
   const theme = themeDesigner();
-  console.log('asd', REACT_APP_API);
   const client = new ApolloClient({
     uri: REACT_APP_API,
     cache: new InMemoryCache({ addTypename: false }),
@@ -21,8 +20,6 @@ function RouterComponent(props) {
       authorization: authToken ? `Bearer ${authToken}` : '',
     },
   });
-
-  console.log(client);
 
   const [pageValues, setPageValues] = React.useState({
     primaryPage: 'home',

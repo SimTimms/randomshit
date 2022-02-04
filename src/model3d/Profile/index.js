@@ -26,7 +26,16 @@ export default function Profile() {
   return (
     <div className={classes.wrapper}>
       <Column a="flex-start">
-        <Typography align="center" style={{ fontSize: '12px', color: '#aaa' }}>
+        <Typography
+          align="center"
+          variant="body1"
+          style={{
+            fontSize: '12px',
+            color: '#aaa',
+            fontFamily: 'Arial',
+            lineHeight: 0.9,
+          }}
+        >
           Pro Painters
         </Typography>
         {profiles && profiles.map((item) => <MiniProfile profile={item} />)}

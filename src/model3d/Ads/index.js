@@ -5,15 +5,20 @@ import { Column } from '../../components';
 import MiniProfile from './MiniProfile';
 import ArtistProfile from '../ArtistProfile';
 import ork from '../../assets/ork.png';
-import axios from 'axios';
+import squads from '../../assets/Squads.png';
 
 export default function Ads({ modelArtist }) {
   const classes = useStyles();
   const [profiles, setProfiles] = React.useState([
     {
-      name: 'New Model - Coming Soon!',
+      name: 'Sister Squad - Early Access',
+      profileImg: squads,
+      link: 'https://www.patreon.com/posts/squads-early-61295391?utm_medium=social&utm_source=mp3d&utm_campaign=squads ',
+    },
+    {
+      name: 'New Model - Early Access',
       profileImg: ork,
-      link: 'https://www.patreon.com/posts/big-guy-coming-61546311',
+      link: 'https://www.patreon.com/posts/so-many-spikey-62107624?utm_medium=social&utm_source=mp3d&utm_campaign=ork',
     },
   ]);
 
@@ -24,9 +29,14 @@ export default function Ads({ modelArtist }) {
         <Column a="center" j="space-between">
           <Typography
             align="center"
-            style={{ fontSize: '12px', color: '#aaa' }}
+            style={{
+              fontSize: '12px',
+              color: '#aaa',
+              fontFamily: 'Arial',
+              lineHeight: 0.9,
+            }}
           >
-            Updates
+            Patreon Updates
           </Typography>
           <Column a="flex-end" j="flex-end">
             {profiles && profiles.map((item) => <MiniProfile profile={item} />)}

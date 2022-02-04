@@ -38,7 +38,6 @@ export default function ModelApp(props) {
   const [modelOne, setModelOne] = React.useState(null);
   const [modelTwo, setModelTwo] = React.useState(null);
   const [page, setPage] = React.useState('model');
-  console.log('Da');
   const partnerId = props
     ? props.match
       ? props.match.params.partnerId

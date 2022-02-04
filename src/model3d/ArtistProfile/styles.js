@@ -12,6 +12,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     cursor: 'pointer',
   },
+  modelBy: { color: theme.palette.primary.main },
   avatarIcon: {
     width: 52,
     minWidth: 52,

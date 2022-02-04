@@ -80,7 +80,6 @@ export default function ModelScript({
           existsArray.push(item.name);
           if (item.geometry && item.visible) {
             //     const edges = new THREE.EdgesGeometry(item.geometry, 35);
-            console.log(item.name);
             nodeMap.push(
               <group dispose={null}>
                 <Mesh
