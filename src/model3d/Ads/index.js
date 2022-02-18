@@ -6,19 +6,28 @@ import MiniProfile from './MiniProfile';
 import ArtistProfile from '../ArtistProfile';
 import ork from '../../assets/ork.png';
 import squads from '../../assets/Squads.png';
+import tau from '../../assets/tau.png';
+import eldritch from '../../assets/eldritch.jpg';
+import red from '../../assets/red.jpg';
 
 export default function Ads({ modelArtist }) {
   const classes = useStyles();
   const [profiles, setProfiles] = React.useState([
     {
-      name: 'Sister Squad - Early Access',
-      profileImg: squads,
-      link: 'https://www.patreon.com/posts/squads-early-61295391?utm_medium=social&utm_source=mp3d&utm_campaign=squads ',
+      name: 'The Exodite - Episode One',
+      profileImg: tau,
+      link: 'https://youtu.be/Jz8iJN9L5qA',
     },
     {
-      name: 'New Model - Early Access',
-      profileImg: ork,
-      link: 'https://www.patreon.com/posts/so-many-spikey-62107624?utm_medium=social&utm_source=mp3d&utm_campaign=ork',
+      name: 'Eldritch Omens - Out Now',
+      profileImg: eldritch,
+      link: 'https://www.games-workshop.com/en-GB/warhammer-40000-eldritch-omens-2022-eng',
+    },
+
+    {
+      name: 'Red Harvest - Out Now',
+      profileImg: red,
+      link: 'https://www.games-workshop.com/en-GB/warcry-red-harvest-2021-eng',
     },
   ]);
 
@@ -36,7 +45,7 @@ export default function Ads({ modelArtist }) {
               lineHeight: 0.9,
             }}
           >
-            Patreon Updates
+            Updates
           </Typography>
           <Column a="flex-end" j="flex-end">
             {profiles && profiles.map((item) => <MiniProfile profile={item} />)}

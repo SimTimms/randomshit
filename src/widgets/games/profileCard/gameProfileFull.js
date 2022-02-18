@@ -3,7 +3,6 @@ import { useStyles } from './styles';
 import { MenuContext } from '../../../context';
 import { Query } from '@apollo/client/react/components';
 import { GAME_BY_ID } from '../data';
-import ModelRouter from '../../../model3d/ModelRouter';
 import ModelRouterApp from '../../../model3d/ModelRouterApp';
 
 export default function GameProfileFull({ back, profile, ...props }) {

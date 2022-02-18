@@ -211,7 +211,7 @@ export default function ModelLoader({
           <Profile />
           <Canvas
             pixelRatio={[1, 2]}
-            camera={{ position: [0, 70, 150], fov: 10, far: 700 }}
+            camera={{ position: [0, 200, 250], fov: 10, far: 700 }}
             ref={canvas}
             gl={{ preserveDrawingBuffer: true }}
             style={{

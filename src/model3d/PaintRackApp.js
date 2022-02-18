@@ -10,6 +10,7 @@ export default function PaintRackApp({
   setColorFunction,
   setColorGroup,
   colorGroup,
+  profilePriority,
 }) {
   const classes = useStyles();
   const [hoverColor, setHoverColor] = React.useState({
@@ -117,7 +118,7 @@ export default function PaintRackApp({
               onClick={() => setColorFunction(item)}
               className={clsx({
                 [classes.paintCircle]: true,
-                [classes.metallic]: item.metal,
+                [classes.metallic]: item.metal ? item.metal : false,
               })}
               style={{
                 backgroundColor: item.color,

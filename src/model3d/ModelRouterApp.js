@@ -166,6 +166,7 @@ function ModelRouterApp({
             setColorGroup={setColorGroup}
             recentColors={recentColors}
             setRecentColors={setRecentColors}
+            profilePriority={profilePriority}
           />
         </Column>
       </Column>

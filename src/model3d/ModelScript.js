@@ -94,6 +94,12 @@ export default function ModelScript({
                   decals={
                     markings && markings[item.name] ? markings[item.name] : null
                   }
+                  video={
+                    gltfIn ===
+                    'https://random-shit-store.s3.amazonaws.com/614b73c98a97c40c65957b89/Box2/scene.gltf'
+                      ? '/Exodite.mp4'
+                      : null
+                  }
                   name={item.name}
                   position={[
                     rNbr(item.position.x),

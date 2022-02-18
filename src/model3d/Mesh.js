@@ -14,6 +14,7 @@ export default function Mesh({
   texture,
   materialIn,
   armourColor,
+  video,
 }) {
   const [material, setMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#aaa');
@@ -37,6 +38,12 @@ export default function Mesh({
     '#98542c',
     '#b49b95',
     '#00708a',
+    '#b8c4cc',
+    '#b6aca5',
+    '#625f5c',
+    '#946347',
+    '#d0875b',
+    '#695844',
   ];
   useEffect(() => {
     let savedColors = localStorage.getItem('modelColorSave');
@@ -55,6 +62,7 @@ export default function Mesh({
 
     if (texture && !material) {
       var texLoader = new THREE.TextureLoader();
+
       const texLoaded = texLoader.load(texture);
       const materialNew = new THREE.MeshStandardMaterial({
         ...materialIn,
@@ -72,10 +80,10 @@ export default function Mesh({
       setMaterial(materialNew);
     }
 
-    if (!decalItem || (decalItem && decalItem !== decals)) {
+    if (!decalItem || video || (decalItem && decalItem !== decals)) {
       if (decals) {
         var texLoader = new THREE.TextureLoader();
-        const texLoaded = texLoader.load(decals);
+        const texLoaded = texLoader.load(texture);
         const materialNew = new THREE.MeshStandardMaterial({
           ...materialIn,
           transparent: true,
@@ -83,6 +91,56 @@ export default function Mesh({
         });
 
         setDecalItem(materialNew);
+      } else if (video) {
+        setMeshColor('#030C1B');
+        if (name === 'ScreenOne') {
+          const vid = document.createElement('video');
+          vid.src = '/Exodite.mp4';
+          vid.crossOrigin = 'Anonymous';
+          vid.loop = true;
+          vid.muted = true;
+          vid.play();
+          const texLoaded = new THREE.VideoTexture(vid);
+          //var texLoader = new THREE.TextureLoader();
+          //    const texLoaded = texLoader.load(texture);
+          const materialNew = new THREE.MeshStandardMaterial({
+            ...materialIn,
+            transparent: true,
+            map: texLoaded,
+          });
+
+          setMaterial(materialNew);
+        }
+        if (name === 'ScreenThree') {
+          var texLoader = new THREE.TextureLoader();
+
+          const texLoaded = texLoader.load('/gwtac.jpg');
+          const materialNew = new THREE.MeshBasicMaterial({
+            map: texLoaded,
+            color: '#555',
+          });
+          setMaterial(materialNew);
+        }
+        if (name === 'ScreenTwo') {
+          var texLoader = new THREE.TextureLoader();
+
+          const texLoaded = texLoader.load('/warcom.jpg');
+          const materialNew = new THREE.MeshBasicMaterial({
+            map: texLoaded,
+            color: '#555',
+          });
+          setMaterial(materialNew);
+        }
+        if (name === 'ScreenFour') {
+          var texLoader = new THREE.TextureLoader();
+
+          const texLoaded = texLoader.load('/whplus.png');
+          const materialNew = new THREE.MeshBasicMaterial({
+            map: texLoaded,
+            color: '#555',
+          });
+          setMaterial(materialNew);
+        }
       } else {
         setDecalItem(null);
       }
@@ -95,7 +153,18 @@ export default function Mesh({
       scale={scale && scale}
     >
       <mesh
-        onClick={(e) => {}}
+        onClick={(e) => {
+          /*
+          if (name === 'ScreenTwo') {
+            window.open(
+              'https://www.warhammer-community.com/2021/12/22/who-is-the-exodite-check-out-the-trailer-for-the-thrilling-new-warhammer-tv-series/',
+              '_blank'
+            );
+          }
+          if (name === 'ScreenOne') {
+            window.open('https://warhammerplus.com/', '_blank');
+          }*/
+        }}
         onPointerDown={(e) => paintMode !== 1 && setPaintMode(1)}
         onPointerUp={(e) => {
           if (paintMode === 1) {
@@ -125,8 +194,6 @@ export default function Mesh({
         geometry={geometry}
         material={material}
         material-color={armourColor ? armourColor : meshColor}
-        castShadow={true}
-        receiveShadow={true}
         material-metalness={metals.indexOf(meshColor) > -1 ? 0.7 : 0}
         material-roughness={metals.indexOf(meshColor) > -1 ? 0.5 : 1}
       />
