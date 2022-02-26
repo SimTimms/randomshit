@@ -10,6 +10,8 @@ import { Row, MenuButtonStandard } from '../../components';
 import mp3dmini from '../../assets/branding/mp3dmini.png';
 import youtube from '../../assets/social/youtube.png';
 import twitter from '../../assets/social/socialTwitter.svg';
+import Cookies from 'js-cookie';
+
 const GAME_BY_ID = gql`
   query gameById($_id: MongoID!) {
     gameById(_id: $_id) {
@@ -35,27 +37,42 @@ const GAME_BY_ID = gql`
 `;
 
 export default function ModelApp(props) {
+  const authToken = Cookies.get('token');
+  const modelID = Cookies.get('modelID');
+  const boxID = Cookies.get('boxId');
+
   const [modelOne, setModelOne] = React.useState(null);
   const [modelTwo, setModelTwo] = React.useState(null);
+  const [partnerId, setPartnerId] = React.useState(null);
+  const [boxId, setBoxId] = React.useState(null);
   const [page, setPage] = React.useState('model');
-  const partnerId = props
-    ? props.match
-      ? props.match.params.partnerId
-      : null
-    : null;
-
-  const boxArtId = props
-    ? props.match
-      ? props.match.params.boxArtId
-      : null
-    : null;
 
   function changeModel(newModel) {
     setModelOne(newModel);
     setPage('model');
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setPartnerId(
+      props
+        ? props.match
+          ? props.match.params.partnerId
+          : modelID
+          ? modelID
+          : '6160a02349be93983b68c69f'
+        : '6160a02349be93983b68c69f'
+    );
+    console.log(modelID);
+    setBoxId(
+      props
+        ? props.match
+          ? props.match.params.boxArtId
+          : modelID
+          ? modelID
+          : '6160a02349be93983b68c69f'
+        : '6160a02349be93983b68c69f'
+    );
+  }, [boxID, modelID, props]);
 
   return (
     <div style={{ height: '100%', background: '#e62b58' }}>
@@ -78,11 +95,25 @@ export default function ModelApp(props) {
             white={true}
             onClickEvent={() => setPage('gallery')}
           />
-          <MenuButtonStandard
-            title="Login"
-            onClickEvent={() => props.history.push('/')}
-            white={true}
-          />
+          {authToken ? (
+            <MenuButtonStandard
+              title="Logout"
+              onClickEvent={() => {
+                Cookies.remove('token');
+                Cookies.remove('userId');
+                localStorage.removeItem('featureArticle');
+                localStorage.removeItem('posts');
+                props.history.push(`/`);
+              }}
+              white={true}
+            />
+          ) : (
+            <MenuButtonStandard
+              title="Login"
+              onClickEvent={() => props.history.push('/')}
+              white={true}
+            />
+          )}
         </Row>
 
         <Row j="flex-end">
@@ -153,7 +184,7 @@ export default function ModelApp(props) {
       {!modelTwo && (
         <Query
           query={GAME_BY_ID}
-          variables={{ _id: boxArtId }}
+          variables={{ _id: boxId }}
           fetchPolicy="network-only"
           onCompleted={(data) => setModelTwo(data.gameById)}
         >

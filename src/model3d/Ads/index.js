@@ -9,6 +9,7 @@ import squads from '../../assets/Squads.png';
 import tau from '../../assets/tau.png';
 import eldritch from '../../assets/eldritch.jpg';
 import red from '../../assets/red.jpg';
+import etsyImg from '../../assets/etsy.jpg';
 
 export default function Ads({ modelArtist }) {
   const classes = useStyles();
@@ -31,6 +32,14 @@ export default function Ads({ modelArtist }) {
     },
   ]);
 
+  const [etsy, setEtsy] = React.useState([
+    {
+      name: 'Recruit Edition - Painted',
+      profileImg: etsyImg,
+      link: 'https://www.etsy.com/uk/listing/1172817772/warhammer-40k-recruit-edition-painted?click_key=5d48319a0f8fcf69592754a730a334a24cd801d9%3A1172817772&click_sum=0b7ed0dc&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=warhammer+recruit+edition+painted&ref=sr_gallery-1-38&organic_search_click=1&frs=1',
+    },
+  ]);
+
   return (
     <div className={classes.wrapper}>
       <Column a="center" j="space-between">
@@ -45,7 +54,23 @@ export default function Ads({ modelArtist }) {
               lineHeight: 0.9,
             }}
           >
-            Updates
+            Shop
+          </Typography>
+          <Column a="flex-end" j="flex-end">
+            {etsy && etsy.map((item) => <MiniProfile profile={item} />)}
+          </Column>
+        </Column>
+        <Column a="center" j="space-between">
+          <Typography
+            align="center"
+            style={{
+              fontSize: '12px',
+              color: '#aaa',
+              fontFamily: 'Arial',
+              lineHeight: 0.9,
+            }}
+          >
+            GW News
           </Typography>
           <Column a="flex-end" j="flex-end">
             {profiles && profiles.map((item) => <MiniProfile profile={item} />)}

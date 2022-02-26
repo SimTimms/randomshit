@@ -44,7 +44,7 @@ export const MutationLogin = ({ parameters }) => {
             expires: 7,
           });
 
-          history.replace('/app/home');
+          history.replace('/loggedIn');
         }
       }}
       onError={(error) => {

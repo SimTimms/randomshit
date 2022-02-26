@@ -10,6 +10,7 @@ import {
   JobDescriptionWidget,
   PublicJobWidget,
 } from '../widgets';
+import ModelApp from '../layouts/app/modelApp';
 
 export default function AuthRoutes({ theme, props: { ...props } }) {
   return (
@@ -18,7 +19,14 @@ export default function AuthRoutes({ theme, props: { ...props } }) {
         path="/app/:page/:pathParam?/:pathParam2?"
         render={(props) => <AppLayout {...props} theme={theme} />}
       />
-
+      <Route
+        path="/loggedIn"
+        render={(props) => <ModelApp {...props} theme={theme} />}
+      />
+      <Route
+        path="/partner/:partnerId/:boxArtId"
+        render={(props) => <ModelApp {...props} theme={theme} />}
+      />
       <Route path="/" exact render={() => <Redirect push to="/app/home" />} />
     </Switch>
   );
