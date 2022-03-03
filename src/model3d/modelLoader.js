@@ -23,13 +23,12 @@ function Loader() {
         whiteSpace: 'nowrap',
         padding: 15,
         borderRadius: 3,
-        boxShadow: '10px 10px 30px rgba(0,0,0,0.3)',
-        color: '#fff',
+        color: '#222',
         opacity: progress / 100,
         fontFamily: 'arial',
       }}
     >
-      Loading
+      {`Loading ${progress.toString().substring(0, 2)}%, it takes a while!`}
     </Html>
   );
 }
@@ -215,7 +214,7 @@ export default function ModelLoader({
             ref={canvas}
             gl={{ preserveDrawingBuffer: true }}
             style={{
-              background: '#222',
+              background: '#fff',
               height: '100%',
               width: '100%',
             }}

@@ -37,34 +37,34 @@ export default function ArtistProfile({ modelArtist }) {
           }}
           className={classes.modelBy}
         >
-          {`Model by ${modelArtist.name}`}
+          {`Model by ${modelArtist.name ? modelArtist.name : '-'}`}
         </Typography>
         <Typography align="center">
           <a
             style={{
               fontSize: '12px',
-              color: '#aaa',
+              color: '#222',
               fontFamily: 'Arial',
             }}
             href={modelArtist.link}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Website
+            {modelArtist.link ? 'Website' : ''}
           </a>
         </Typography>
         <Typography align="center">
           <a
             style={{
               fontSize: '12px',
-              color: '#aaa',
+              color: '#222',
               fontFamily: 'Arial',
             }}
             href={modelArtist.buyLink}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Get This Model
+            {modelArtist.buyLink ? 'Get This Model' : ''}
           </a>
         </Typography>
       </Column>

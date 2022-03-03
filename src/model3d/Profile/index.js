@@ -31,7 +31,7 @@ export default function Profile() {
           variant="body1"
           style={{
             fontSize: '12px',
-            color: '#aaa',
+            color: '#222',
             fontFamily: 'Arial',
             lineHeight: 0.9,
           }}
