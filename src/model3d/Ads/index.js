@@ -10,10 +10,17 @@ import tau from '../../assets/tau.png';
 import eldritch from '../../assets/eldritch.jpg';
 import red from '../../assets/red.jpg';
 import etsyImg from '../../assets/etsy.jpg';
+import ifPic from '../../assets/iftm.jpg';
+import doubleN from '../../assets/double.jpg';
 
 export default function Ads({ modelArtist }) {
   const classes = useStyles();
   const [profiles, setProfiles] = React.useState([
+    {
+      name: 'Double or Nothing - Coming Soon',
+      profileImg: doubleN,
+      link: 'https://youtu.be/HzXEjCMiZJo',
+    },
     {
       name: 'The Exodite - Episode One',
       profileImg: tau,
@@ -33,6 +40,11 @@ export default function Ads({ modelArtist }) {
   ]);
 
   const [etsy, setEtsy] = React.useState([
+    {
+      name: 'Primaris Techmarine - IF',
+      profileImg: ifPic,
+      link: 'https://www.etsy.com/uk/minipainter3d/listing/1189625341/primaris-techmarine-imperial-fist-9th?utm_source=Copy&utm_medium=ListingManager&utm_campaign=Share&utm_term=so.lmsm&share_time=1646306458979',
+    },
     {
       name: 'Recruit Edition - Painted',
       profileImg: etsyImg,

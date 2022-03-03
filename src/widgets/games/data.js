@@ -62,6 +62,7 @@ export const GAME_BY_ID = gql`
       js
       url
       price
+      patreon
       artistName
       artistLink
       licenseLink
@@ -102,6 +103,7 @@ export const GAME_WIDGET = gql`
       bin
       js
       url
+      patreon
       price
       artistName
       artistLink
