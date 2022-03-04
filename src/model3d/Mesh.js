@@ -15,10 +15,13 @@ export default function Mesh({
   materialIn,
   armourColor,
   video,
+  shadeMode,
 }) {
   const [material, setMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#aaa');
+  const [shadeColor, setShadeColor] = React.useState('#aaa');
   const [decalItem, setDecalItem] = React.useState(null);
+  const [shadeItem, setShadeItem] = React.useState(null);
   const [paintMode, setPaintMode] = React.useState(0);
   const metals = [
     '#9e573c',
@@ -78,6 +81,20 @@ export default function Mesh({
         transparent: true,
       });
       setMaterial(materialNew);
+    }
+
+    if (!shadeItem && name === 'stg_O`Primey006') {
+      var texLoader = new THREE.TextureLoader();
+      const texLoaded = texLoader.load(
+        'https://random-shit-store.s3.eu-west-2.amazonaws.com/614b73c98a97c40c65957b89/Primaris/Arm+2+Shade.png'
+      );
+      const materialNew = new THREE.MeshLambertMaterial({
+        transparent: true,
+        map: texLoaded,
+        flipY: true,
+      });
+
+      setShadeItem(materialNew);
     }
 
     if (!decalItem || video || (decalItem && decalItem !== decals)) {
@@ -146,6 +163,8 @@ export default function Mesh({
       }
     }
   }, [decalNormal, decals, meshColor]);
+
+  //https://random-shit-store.s3.eu-west-2.amazonaws.com/614b73c98a97c40c65957b89/Primaris/Arm+2+Shade.png
   return !material ? null : (
     <group
       position={position && position}
@@ -165,9 +184,9 @@ export default function Mesh({
             window.open('https://warhammerplus.com/', '_blank');
           }*/
         }}
-        onPointerDown={(e) => paintMode !== 1 && setPaintMode(1)}
+        onPointerDown={(e) => paintMode !== 1 && !shadeMode && setPaintMode(1)}
         onPointerUp={(e) => {
-          if (paintMode === 1) {
+          if (paintMode === 1 && !shadeMode) {
             e.stopPropagation();
             let savedColors = localStorage.getItem('modelColorSave');
             if (savedColors === 'null' || savedColors === null) {
@@ -190,14 +209,32 @@ export default function Mesh({
             }
           }
         }}
-        onPointerMove={(e) => paintMode !== 0 && setPaintMode(0)}
+        onPointerMove={(e) => paintMode !== 0 && !shadeMode && setPaintMode(0)}
         geometry={geometry}
         material={material}
-        material-color={armourColor ? armourColor : meshColor}
+        material-color={meshColor}
         material-metalness={metals.indexOf(meshColor) > -1 ? 0.7 : 0}
         material-roughness={metals.indexOf(meshColor) > -1 ? 0.5 : 1}
       />
       {decalItem && <mesh geometry={geometry} material={decalItem} />}
+      {shadeItem && (
+        <mesh
+          geometry={geometry}
+          material={shadeItem}
+          material-color={shadeColor}
+          onPointerDown={(e) => paintMode !== 1 && shadeMode && setPaintMode(1)}
+          onPointerUp={(e) => {
+            if (paintMode === 1 && shadeMode) {
+              e.stopPropagation();
+
+              if (activeColor) {
+                setShadeColor(activeColor.color);
+              }
+            }
+          }}
+          onPointerMove={(e) => paintMode !== 0 && shadeMode && setPaintMode(0)}
+        />
+      )}
     </group>
   );
 }

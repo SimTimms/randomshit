@@ -25,7 +25,7 @@ export default function Profile() {
   }
   return (
     <div className={classes.wrapper}>
-      <Column a="flex-start">
+      <Column a="flex-start" h={300}>
         <Typography
           align="center"
           variant="body1"
@@ -38,7 +38,8 @@ export default function Profile() {
         >
           Pro Painters
         </Typography>
-        {profiles && profiles.map((item) => <MiniProfile profile={item} />)}
+        {profiles &&
+          profiles.slice(0, 4).map((item) => <MiniProfile profile={item} />)}
       </Column>
     </div>
   );

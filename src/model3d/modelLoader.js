@@ -59,6 +59,7 @@ export default function ModelLoader({
   const [screenshot, setScreenshot] = React.useState(null);
   const [armourColor, setArmourColor] = React.useState(null);
   const [wait, setWait] = React.useState(false);
+  const [shadeMode, setShadeMode] = React.useState(false);
   const canvas = useRef(null);
   let count = useRef(0);
   function dataURItoBlob(dataURI) {
@@ -106,6 +107,12 @@ export default function ModelLoader({
                 title="Lighting"
                 icon="lightbulb"
                 onClickEvent={() => setPanels('lighting')}
+                white={true}
+              />
+              <MenuButtonStandard
+                title="Shade Mode"
+                icon="lightbulb"
+                onClickEvent={() => setShadeMode(shadeMode ? false : true)}
                 white={true}
               />
 
@@ -248,6 +255,7 @@ export default function ModelLoader({
                   gltfIn={gltfIn}
                   markings={markings}
                   armourColor={armourColor}
+                  shadeMode={shadeMode}
                 />
               </group>
 

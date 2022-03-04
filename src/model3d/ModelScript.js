@@ -29,6 +29,7 @@ export default function ModelScript({
   sprayMode,
   markings,
   armourColor,
+  shadeMode,
 }) {
   const group = useRef();
 
@@ -83,6 +84,7 @@ export default function ModelScript({
             nodeMap.push(
               <group dispose={null}>
                 <Mesh
+                  shadeMode={shadeMode}
                   armourColor={
                     mainParts.indexOf(item.name) > -1 ? armourColor : null
                   }
