@@ -42,7 +42,7 @@ export default function HomePage() {
                         ? null
                         : profile.email === 'tim-simms@hotmail.com'
                         ? gameMenu(menu)
-                        : null
+                        : gameMenu(menu)
                       : menu.homePage.primaryPage === 'community'
                       ? null
                       : menu.homePage.primaryPage === 'kickstarters'
