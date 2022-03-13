@@ -13,10 +13,16 @@ import etsyImg from '../../assets/etsy.jpg';
 import ifPic from '../../assets/iftm.jpg';
 import necronw from '../../assets/necronw.jpg';
 import doubleN from '../../assets/double.jpg';
+import armour from '../../assets/armour.jpg';
 
 export default function Ads({ modelArtist }) {
   const classes = useStyles();
   const [profiles, setProfiles] = React.useState([
+    {
+      name: 'Armouring a Space Marine',
+      profileImg: armour,
+      link: '   https://youtu.be/MVubdRyU3Mc',
+    },
     {
       name: 'Double or Nothing - Coming Soon',
       profileImg: doubleN,
@@ -26,11 +32,6 @@ export default function Ads({ modelArtist }) {
       name: 'The Exodite - Episode One',
       profileImg: tau,
       link: 'https://youtu.be/Jz8iJN9L5qA',
-    },
-    {
-      name: 'Eldritch Omens - Out Now',
-      profileImg: eldritch,
-      link: 'https://www.games-workshop.com/en-GB/warhammer-40000-eldritch-omens-2022-eng',
     },
   ]);
 
