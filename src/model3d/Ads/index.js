@@ -11,6 +11,7 @@ import eldritch from '../../assets/eldritch.jpg';
 import red from '../../assets/red.jpg';
 import etsyImg from '../../assets/etsy.jpg';
 import ifPic from '../../assets/iftm.jpg';
+import necronw from '../../assets/necronw.jpg';
 import doubleN from '../../assets/double.jpg';
 
 export default function Ads({ modelArtist }) {
@@ -31,24 +32,23 @@ export default function Ads({ modelArtist }) {
       profileImg: eldritch,
       link: 'https://www.games-workshop.com/en-GB/warhammer-40000-eldritch-omens-2022-eng',
     },
-
-    {
-      name: 'Red Harvest - Out Now',
-      profileImg: red,
-      link: 'https://www.games-workshop.com/en-GB/warcry-red-harvest-2021-eng',
-    },
   ]);
 
   const [etsy, setEtsy] = React.useState([
     {
-      name: 'Primaris Techmarine - IF',
-      profileImg: ifPic,
-      link: 'https://www.etsy.com/uk/minipainter3d/listing/1189625341/primaris-techmarine-imperial-fist-9th?utm_source=Copy&utm_medium=ListingManager&utm_campaign=Share&utm_term=so.lmsm&share_time=1646306458979',
+      name: 'Necron Warriors',
+      profileImg: necronw,
+      link: 'https://www.etsy.com/uk/listing/1176703260/5x-necron-warriors-with-gauss-rifles',
     },
     {
-      name: 'Recruit Edition - Painted',
+      name: 'Primaris Techmarine',
+      profileImg: ifPic,
+      link: 'https://www.etsy.com/uk/listing/1189625341/primaris-techmarine-imperial-fist-9th',
+    },
+    {
+      name: 'Recruit Edition',
       profileImg: etsyImg,
-      link: 'https://www.etsy.com/uk/listing/1172817772/warhammer-40k-recruit-edition-painted?click_key=5d48319a0f8fcf69592754a730a334a24cd801d9%3A1172817772&click_sum=0b7ed0dc&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=warhammer+recruit+edition+painted&ref=sr_gallery-1-38&organic_search_click=1&frs=1',
+      link: 'https://www.etsy.com/uk/listing/1172817772/warhammer-40k-recruit-edition-painted',
     },
   ]);
 

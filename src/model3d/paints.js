@@ -389,6 +389,7 @@ export const paints = {
     gwPaints['Altdorf Guard Blue'],
     gwPaints['Night Lords Blue'],
     gwPaints['Macragge Blue'],
+    gwPaints['Kantor Blue'],
     gwPaints['Caledor Sky'],
   ],
   turquoise: [
