@@ -9,7 +9,7 @@ import {
   Typography,
   Slide,
   useMediaQuery,
-} from '@material-ui/core';
+} from '@mui/material';
 import { sharedStyles } from '../styles';
 
 import clsx from 'clsx';

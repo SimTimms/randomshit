@@ -1,9 +1,9 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 import { useSpring, animated } from 'react-spring';
 import clsx from 'clsx';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export function MainHeader({ title }) {
   const classes = useStyles();

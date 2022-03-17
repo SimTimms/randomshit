@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { PROFILE } from '../../../../data/queries';
 import TabProfile from './tabProfile';
 import Isolates from './isolates';

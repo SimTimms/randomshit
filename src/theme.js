@@ -1,27 +1,12 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 
 export default function themeDesigner() {
-  const theme = createMuiTheme({
-    typography: {
-      fontFamily: ['Quicksand'].join(','),
-    },
-    palette: {
-      wrap: {
-        main: process.env.REACT_APP_PALETTE_WRAP_MAIN,
-        light: process.env.REACT_APP_PALETTE_WRAP_LIGHT,
-        dark: process.env.REACT_APP_PALETTE_WRAP_DARK,
-        text: process.env.REACT_APP_PALETTE_WRAP_TEXT,
-      },
-      input: {
-        background: process.env.REACT_APP_PALETTE_INPUT_BACKGROUND,
-      },
-    },
-  });
+  const theme = createTheme({});
   theme.palette.primary = {
     ...theme.palette.primary,
-    main: '#2090ff',
-    light: '#A8FF75',
-    dark: '#1a75cd',
+    main: '#e62b58',
+    light: '#e62b58',
+    dark: '#e62b58',
   };
   theme.palette.secondary = {
     ...theme.palette.secondary,
@@ -29,6 +14,7 @@ export default function themeDesigner() {
     light: '#1a75cd',
     dark: '#1a75cd',
   };
+
   theme.palette.error = {
     ...theme.palette.error,
     main: '#ff5129',
@@ -36,15 +22,18 @@ export default function themeDesigner() {
     light: '#ffe154',
   };
   theme.typography.h1 = {
+    ...theme.typography.h1,
     fontSize: '3rem',
     margin: 0,
     fontFamily: 'Roboto',
+    fontWeight: 'bold',
   };
   theme.typography.h2 = {
     fontSize: '2.4rem',
     margin: 0,
     fontFamily: 'Roboto',
   };
+
   theme.typography.h3 = {
     fontSize: '2rem',
     margin: 0,
@@ -68,7 +57,6 @@ export default function themeDesigner() {
   theme.typography.body1 = {
     fontSize: '1rem',
     margin: 0,
-    fontFamily: `'Roboto'`,
   };
   theme.typography.button = {
     color: theme.palette.primary.main,

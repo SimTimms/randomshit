@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  Divider,
-  Typography,
-  Slide,
-} from '@material-ui/core';
+import { Card, CardContent, Divider, Typography, Slide } from '@mui/material';
 import { useStyles } from './styles';
 import { ProfileHeader, ProjectHeader, CardHeader } from './components';
 import {

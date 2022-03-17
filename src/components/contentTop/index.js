@@ -1,6 +1,6 @@
 import React from 'react';
 import { styles } from './styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import clsx from 'clsx';
 
 function ContentTop(props) {

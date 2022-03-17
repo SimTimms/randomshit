@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { FEATURED_KICKSTARTER_WIDGET } from './data';
 import { KickstarterProfile } from './profileCard';
 import { Grid, Divider } from '../../components';

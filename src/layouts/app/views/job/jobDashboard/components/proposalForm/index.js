@@ -1,6 +1,6 @@
 import React from 'react';
 import { GET_CONTRACT } from '../../../../../../../data/queries';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import EditProposalForm from './views/editProposal';
 import {
   LoadIcon,

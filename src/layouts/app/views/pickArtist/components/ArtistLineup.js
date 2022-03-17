@@ -1,7 +1,7 @@
 import React from 'react';
-import { Icon, Typography } from '@material-ui/core';
+import { Icon, Typography } from '@mui/material';
 import { useStyles } from './styles';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { REMOVE_INVITE } from '../../../../../data/mutations';
 import { Column } from '../../../../../components';
 import SubmitBrief from './SubmitBrief';

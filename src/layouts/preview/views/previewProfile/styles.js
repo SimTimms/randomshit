@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +20,7 @@ export const useStyles = makeStyles((theme) => ({
     left: 0,
     top: 0,
     background: '#fff',
-    height: '100vh',
+    height: '100%',
     overflow: 'auto',
     justifyContent: 'flex-start',
     alignItems: 'center',

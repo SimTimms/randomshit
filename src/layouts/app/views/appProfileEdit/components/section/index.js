@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Divider, TextField } from '@material-ui/core';
+import { Divider, TextField } from '@mui/material';
 import { DeleteButton } from './deleteButton';
 import { useStyles } from './styles';
 

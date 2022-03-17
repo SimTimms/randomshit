@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
-export const styles = makeStyles(theme => ({
+export const styles = makeStyles((theme) => ({
   cardContainer: {
     width: '100%',
     display: 'flex',

@@ -7,7 +7,7 @@ export default function PaintPot({ item, setColorFunction, setHoverColor }) {
   return (
     <div
       onClick={() => setColorFunction(item)}
-      onMouseOver={() => setHoverColor(item)}
+      onMouseOver={() => (setHoverColor ? setHoverColor(item) : null)}
       className={item.metal ? classes.metallic : classes.standard}
       style={{
         minHeight: 30,

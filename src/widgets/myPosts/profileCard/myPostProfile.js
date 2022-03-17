@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 import clsx from 'clsx';
 import { BgImg } from './components';
@@ -13,7 +13,7 @@ import {
   StatusBadge,
 } from '../../../components';
 import { timeDifferenceForDate } from '../../../utils/dates';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { REMOVE_MY_POST } from '../data';
 import { toaster } from '../../../utils/toaster';
 import Cookies from 'js-cookie';

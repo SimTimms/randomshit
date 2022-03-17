@@ -1,7 +1,7 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { JOB_RESPONSES_WIDGET } from './data';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { Row, ResponseComponent } from '../../components';
 
 export default function ResponsesWidget({ jobId, history }) {

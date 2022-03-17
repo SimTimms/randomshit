@@ -1,13 +1,39 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import Mesh from './Mesh';
-import DecalMesh from './DecalMesh';
-import * as THREE from 'three';
 
-export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
+const mainParts = [
+  'SM_leftShoulder_shell_Shoulder_shell_0',
+  'Legs_legs_0',
+  'SM_leftThighPlate_mesh2_legs_0',
+  'SM_leftShoe01_mesh_shoes_0',
+  'SM_topHelmet_mesh2_helmet1_0',
+  'SM_leftShoulderShell_mesh23_Shoulder_shell_0',
+  'chest_mesh_chest1_0',
+  'SM_wrist_mesh1_arms_0',
+  'SM_pants_mesh_bodyparts_0',
+  'pCylinder36_hands_0',
+  'default1_bodyparts_0',
+  'pCube17_backpack1_0',
+  'Group7095_backpack1_0',
+  'pSphere4_backpack1_0',
+  'pCube95_flex_0001',
+  'SM_rightKnee01_mesh_knees_0',
+  'SM_beltBuckle_mesh_bodyparts_0',
+  'SM_frontHelmet01_mesh1_helmet1_0',
+];
+
+export default function ModelScript({
+  gltfIn,
+  activeColor,
+  sprayMode,
+  markings,
+  armourColor,
+}) {
   const group = useRef();
-  const { nodes, materials } = useGLTF(gltfIn);
 
+  const mod = useGLTF(gltfIn);
+  const nodes = mod.nodes;
   const rNbr = (number) => {
     return parseFloat(number.toFixed(Math.round(2)));
   };
@@ -19,6 +45,7 @@ export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
     }
     return rNbr(number);
   };
+
   const existsArray = [];
   function node(nodeArr) {
     let nodeMap = [];
@@ -53,15 +80,26 @@ export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
           existsArray.push(item.name);
           if (item.geometry && item.visible) {
             //     const edges = new THREE.EdgesGeometry(item.geometry, 35);
-
             nodeMap.push(
               <group dispose={null}>
                 <Mesh
+                  armourColor={
+                    mainParts.indexOf(item.name) > -1 ? armourColor : null
+                  }
                   sprayMode={sprayMode}
                   activeColor={activeColor}
                   geometry={item.geometry}
                   scale={item.scale}
                   materialIn={nodeArr[i].material}
+                  decals={
+                    markings && markings[item.name] ? markings[item.name] : null
+                  }
+                  video={
+                    gltfIn ===
+                    'https://random-shit-store.s3.amazonaws.com/614b73c98a97c40c65957b89/Box2/scene.gltf'
+                      ? '/Exodite.mp4'
+                      : null
+                  }
                   name={item.name}
                   position={[
                     rNbr(item.position.x),
@@ -73,7 +111,6 @@ export default function ModelScript({ gltfIn, activeColor, sprayMode }) {
                     rDeg(item.rotation.y),
                     rDeg(item.rotation.z),
                   ]}
-                  decals={'/textures/transfer.png'}
                 >
                   {node(nodeChildArr, nodes)}
                 </Mesh>

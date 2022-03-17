@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { MenuItem, Select } from '@material-ui/core';
+import { MenuItem, Select } from '@mui/material';
 import { useStyles } from './styles';
 
 export default function CurrencySelector({ selectedCurrency, onChangeEvent }) {

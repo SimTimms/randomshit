@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import {
   CardComponent,
   Column,
@@ -36,8 +36,11 @@ export default function LoginPage({ history, forwardTo }) {
               <MenuButtonStandard
                 onClickEvent={() => {
                   setLoginType(1);
+                  history.push(
+                    `/partner/6160a02349be93983b68c69f/61d5a0327d31f80016bfa2be`
+                  );
                 }}
-                title="Login as Guest"
+                title="Demo"
                 fullWidth={true}
               />
               <DividerMini />

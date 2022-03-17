@@ -1,11 +1,11 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 
 export function AboutPage(props) {
   return (
     <div>
       <Typography variant="h4" color="textPrimary">
-        {`About ${process.env.REACT_APP_COMPANY_PUBLIC_NAME}`}
+        {`About ${REACT_APP_COMPANY_PUBLIC_NAME}`}
       </Typography>
       <Typography color="textPrimary" gutterBottom>
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem

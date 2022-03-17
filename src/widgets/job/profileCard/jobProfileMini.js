@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-import Icon from '@material-ui/core/Icon';
+import { Typography } from '@mui/material';
+import Icon from '@mui/material/Icon';
 import { useStyles } from './styles';
 import clsx from 'clsx';
 import { BgImg } from './components';

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Icon } from '@material-ui/core';
+import { Icon } from '@mui/material';
 import { Row, Column } from './components';
 import { useStyles } from './styles';
 import clsx from 'clsx';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { SAVE_GAME_IMAGE } from './data';
 import uploaderScreenshot from '../components/uploaderScreenshot';
 import { toaster } from '../utils/toaster';

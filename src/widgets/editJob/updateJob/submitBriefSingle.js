@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-import { Mutation } from 'react-apollo';
+import { Typography } from '@mui/material';
+import { Mutation } from '@apollo/client/react/components';
 import { SUBMIT_BRIEF_SINGLE } from './data';
 import { MenuButtonStandard, Column, DividerMini } from '../../../components';
 import { MenuContext } from '../../../context';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { KICKSTARTERS_BY_ID } from './data';
 import { Grid } from '../../../../components';
 import { randomKey } from '../../../../utils';

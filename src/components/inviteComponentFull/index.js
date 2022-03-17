@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 import {
   Column,
@@ -14,7 +14,7 @@ import {
 import clsx from 'clsx';
 import { PREVIEW_CONTRACT, JOB_CONTACT_DETAILS } from '../../data/queries';
 import ActionSetOne from './ActionSetOne';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import * as social from '../../assets/social';
 
 export default function InviteComponentFull({

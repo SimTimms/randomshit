@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { MY_POSTS_WIDGET } from './data';
 import { MyPostProfile } from './profileCard';
 import { Grid } from '../../components';

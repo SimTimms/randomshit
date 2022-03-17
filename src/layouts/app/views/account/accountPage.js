@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, TextField } from '@material-ui/core';
+import { Typography, TextField } from '@mui/material';
 import { useStyles } from './styles';
 import {
   ErrorBox,
@@ -11,7 +11,7 @@ import {
   Divider,
   MenuButtonStandard,
 } from '../../../../components';
-import { Query, Mutation } from 'react-apollo';
+import { Query, Mutation } from '@apollo/client/react/components';
 import { PROFILE } from '../../../../data/queries';
 import { DELETE_ACCOUNT } from '../../../../data/mutations';
 import Cookies from 'js-cookie';

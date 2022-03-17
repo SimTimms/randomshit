@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { useStyles } from './styles';
-import { Typography, Button, Icon } from '@material-ui/core';
+import { Typography, Button, Icon } from '@mui/material';
 import Cookies from 'js-cookie';
-
+import { REACT_APP_API_S3 } from '../../envVars';
 function ModelUploader({
   cbImage,
   styleOverride,
@@ -34,7 +34,7 @@ function ModelUploader({
       'Content-Type': 'image/jpeg',
     };
 
-    const uploadURL = `${process.env.REACT_APP_API_S3}/sign_s3`;
+    const uploadURL = `${REACT_APP_API_S3}/sign_s3`;
     const token = Cookies.get('token');
     let config = {
       headers: {
@@ -55,7 +55,6 @@ function ModelUploader({
         setStatusMessage('Sending...');
         if (response.data.data) {
           setStatusMessage('Uploading...');
-          console.log(response);
           const returnData = response.data.data.returnData;
           const signedRequest = returnData.signedRequest;
           const url = returnData.url;

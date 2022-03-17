@@ -1,12 +1,12 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { KICKSTARTER_WIDGET, MY_KICKSTARTERS } from './data';
 import { KickstarterProfile } from './profileCard';
 import { KickstarterForm } from './';
 import { Row, Grid, Column, CardComponent } from '../../components';
 import KickstarterComponent from './component';
 import { MenuContext } from '../../context';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export default function Kickstarters() {
   return (

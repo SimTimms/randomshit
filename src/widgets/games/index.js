@@ -1,5 +1,5 @@
 import FeaturedGames from './featuredGames';
-import Games from './games';
+import ChooseModel from './chooseModel';
 import GameForm from './gameForm';
 
-export { FeaturedGames, Games, GameForm };
+export { FeaturedGames, ChooseModel, GameForm };

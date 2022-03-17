@@ -9,7 +9,7 @@ import {
   Grid,
   GridCard,
 } from '../../../../components';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { TYPE_HELPER, randomKey } from '../../../../utils';
 
 function GallerySection({ section }) {

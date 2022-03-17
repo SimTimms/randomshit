@@ -1,9 +1,9 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 import { MenuButtonShortcut, Column, Row } from '../';
 import clsx from 'clsx';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { UPDATE_INVITE } from '../../data/mutations';
 import { nameShortener } from '../../utils';
 

@@ -5,45 +5,44 @@ import {
   gameMenu,
   kickstarterMenu,
   photoMenu,
-  communityMenu,
   myPostsMenu,
-  gameProfileMenu,
 } from '../../../menuArray';
-import CommunityPage from '../communityPage';
 import MiniGalleryPage from '../miniGalleryPage';
-import MyModelsPage from '../myModelsPage';
-import {
-  Games,
-  CreativeRosterWidget,
-  Kickstarters,
-  MyPosts,
-} from '../../../../widgets';
+import MyGalleryPage from '../myGalleryPage';
+import { ChooseModel } from '../../../../widgets';
 import GameProfileFull from '../../../../widgets/games/profileCard/gameProfileFull';
 import { PreviewProfile } from '../../../../layouts/preview/views/previewProfile';
-import GamesPage from '../../../../layouts/preview/views/previewProfile/gamesPage';
 import { MenuContext, ProfileContext } from '../../../../context';
+import { PAGES } from '../../../../const';
 
 export default function HomePage() {
   return (
     <ProfileContext.Consumer>
       {(profile) => {
         if (!profile) {
-          return null;
+          return 'No Profile';
         }
         return (
           <MenuContext.Consumer>
             {(menu) => {
+              if (menu.homePage.secondaryPage === 'game_profile') {
+                return <GameProfileFull />;
+              }
               return (
                 <TabPage
                   title={null}
-                  primaryMenu={homeMenu(menu)}
+                  primaryMenu={
+                    menu.homePage.secondaryPage !== 'game_profile'
+                      ? homeMenu(menu)
+                      : null
+                  }
                   secondaryMenu={
-                    menu.homePage.primaryPage === 'games'
+                    menu.homePage.primaryPage === PAGES.pickModelsPrimary
                       ? menu.homePage.secondaryPage === 'game_profile'
                         ? null
                         : profile.email === 'tim-simms@hotmail.com'
                         ? gameMenu(menu)
-                        : null
+                        : gameMenu(menu)
                       : menu.homePage.primaryPage === 'community'
                       ? null
                       : menu.homePage.primaryPage === 'kickstarters'
@@ -57,38 +56,29 @@ export default function HomePage() {
                   activePrimary={menu.homePage.primaryPage}
                   activeSecondary={menu.homePage.secondaryPage}
                 >
-                  {menu.homePage.primaryPage === 'community' &&
-                  menu.homePage.secondaryPage === 'dashboard' ? (
-                    <CommunityPage />
-                  ) : menu.homePage.primaryPage === 'gallery' &&
-                    menu.homePage.secondaryPage === 'browse_gallery' ? (
-                    <MiniGalleryPage />
-                  ) : menu.homePage.primaryPage === 'gallery' &&
-                    menu.homePage.secondaryPage === 'my_models' ? (
-                    <MyModelsPage />
-                  ) : (
-                    menu.homePage.secondaryPage === 'profiles' && (
-                      <CreativeRosterWidget />
-                    )
-                  )}
-                  {(menu.homePage.primaryPage === 'games' &&
-                    menu.homePage.secondaryPage === 'games') ||
-                  menu.homePage.secondaryPage === 'my_games' ||
-                  menu.homePage.secondaryPage === 'create_game' ? (
-                    <Games />
+                  {menu.homePage.primaryPage === PAGES.pickModelsPrimary &&
+                  menu.homePage.secondaryPage === PAGES.pickModelsSecondary ? (
+                    <ChooseModel />
+                  ) : menu.homePage.secondaryPage === PAGES.createModel ? (
+                    <ChooseModel />
                   ) : menu.homePage.secondaryPage === 'game_profile' ? (
                     <GameProfileFull />
                   ) : menu.homePage.secondaryPage === 'user_profile' ? (
                     <PreviewProfile profileId={menu.homePage.userId} />
                   ) : (
-                    menu.homePage.secondaryPage === 'user_games' && (
-                      <GamesPage userId={menu.homePage.userId} />
+                    menu.homePage.secondaryPage === PAGES.myModels && (
+                      <ChooseModel userId={menu.homePage.userId} />
                     )
                   )}
-                  {menu.homePage.primaryPage === 'kickstarters' && (
-                    <Kickstarters />
+                  {menu.homePage.primaryPage === 'gallery' &&
+                  menu.homePage.secondaryPage === 'browse_gallery' ? (
+                    <MiniGalleryPage />
+                  ) : (
+                    menu.homePage.primaryPage === 'gallery' &&
+                    menu.homePage.secondaryPage === PAGES.myModelGallery && (
+                      <MyGalleryPage />
+                    )
                   )}
-                  {menu.homePage.primaryPage === 'my_posts' && <MyPosts />}
                 </TabPage>
               );
             }}

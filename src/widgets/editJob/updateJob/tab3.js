@@ -1,12 +1,12 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import {
   Column,
   NoticeBoardSecondary,
   IconButton,
   Divider,
 } from '../../../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { UPDATE_JOB } from '../data';
 import { toaster } from '../../../utils/toaster';
 import { unlock } from '../unlock';

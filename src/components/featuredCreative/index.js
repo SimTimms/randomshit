@@ -1,8 +1,8 @@
 import React from 'react';
-import { Typography, Fade } from '@material-ui/core';
+import { Typography, Fade } from '@mui/material';
 import { useStyles } from './styles';
 import { Column, LoadIcon, Row } from '../';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { PROFILE_FEATURED } from '../../data/queries';
 import { excerptReplace } from '../../utils/excerptReplace';
 

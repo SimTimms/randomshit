@@ -1,8 +1,8 @@
 import React from 'react';
-import { Slide } from '@material-ui/core';
+import { Slide } from '@mui/material';
 import { useStyles } from '../styles';
 import { Column } from '../../../components';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { JOB } from '../data';
 import { checkLength } from '../unlock';
 import { HistoryContext, ParamsContext } from '../../../context';

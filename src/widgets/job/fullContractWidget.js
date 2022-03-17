@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { PREVIEW_CONTRACT } from '../../data/queries';
 import { Column, Signature, FullContractComponent } from '../../components';
 

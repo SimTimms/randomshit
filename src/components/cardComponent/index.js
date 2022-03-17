@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Icon, useMediaQuery } from '@material-ui/core';
+import { Typography, Icon, useMediaQuery } from '@mui/material';
 import { useStyles } from './styles';
 import { Row, Column, DividerWithBorder } from '../';
 import clsx from 'clsx';

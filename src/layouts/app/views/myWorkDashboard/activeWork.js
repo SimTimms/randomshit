@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { Column } from '../../../../components';
 import { useStyles } from './styles';
 import NoWork from './noWork';

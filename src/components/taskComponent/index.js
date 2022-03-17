@@ -1,9 +1,9 @@
 import React from 'react';
 import { Row, Column, LoadIcon } from '../';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { COUNTS } from '../../data/queries';
 import TaskGenerator from './taskGenerator';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export default function TaskComponent({
   history,

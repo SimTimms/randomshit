@@ -1,10 +1,9 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-import { Query } from 'react-apollo';
+import { Typography } from '@mui/material';
+import { Query } from '@apollo/client/react/components';
 import { PROFILE } from '../../../../data/queries';
 import {
   Paper,
-  Availability,
   Speculative,
   Royalties,
   Funded,
@@ -29,7 +28,6 @@ export default function TabPreferences() {
               preferences.
             </Typography>
             <Divider />
-            <Availability available={data.profile.available} />
             <Speculative acceptsSpeculative={data.profile.acceptsSpeculative} />
             <Royalties royalties={data.profile.acceptsRoyalties} />
             <Funded funded={data.profile.acceptsUnfunded} />

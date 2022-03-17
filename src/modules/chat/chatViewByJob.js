@@ -1,6 +1,6 @@
 import React from 'react';
 import { ConversationByJob } from './viewConversation';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { GET_MESSAGES } from '../../data/queries';
 import { Column } from '../../components';
 

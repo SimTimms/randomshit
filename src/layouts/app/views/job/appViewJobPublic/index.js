@@ -1,10 +1,10 @@
 import React from 'react';
 import { JobWidget } from '../../../../../widgets/job';
 import { IconButton, Column } from '../../../../../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { CREATE_CONTRACT } from '../../../../../data/mutations';
 import Cookies from 'js-cookie';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { JOB_WIDGET } from '../../../../../widgets/job/data';
 import { MenuContext } from '../../../../../context';
 

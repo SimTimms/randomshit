@@ -1,63 +1,21 @@
+import { PAGES } from '../../const';
+
 export default function mainMenu(history, counts, mainMenuContext, profile) {
   return [
     {
       name: 'Home',
       icon: 'home',
-      machineName: 'home',
+      machineName: PAGES.home,
       link: () =>
         mainMenuContext.updateMenuContext({
-          primaryPage: 'home',
-          jobPage: { ...mainMenuContext.jobPage },
-          workPage: { ...mainMenuContext.workPage },
-          homePage: { primaryPage: 'games', secondaryPage: 'games' },
+          primaryPage: PAGES.home,
+          homePage: {
+            primaryPage: PAGES.pickModelsPrimary,
+            secondaryPage: PAGES.pickModelsSecondary,
+          },
         }),
       count: null,
     },
-    /* {
-      name: 'Job Ads',
-      icon: 'post_add',
-      machineName: 'jobs',
-      link: () =>
-        mainMenuContext.updateMenuContext({
-          primaryPage: 'jobs',
-          jobPage: {
-            ...mainMenuContext.jobPage,
-            jobId: null,
-            contractId: null,
-            primaryPage: 'job_board',
-          },
-          workPage: { ...mainMenuContext.workPage },
-          homePage: { ...mainMenuContext.homePage },
-        }),
-      count: { icon: 'star', count: counts.jobAds },
-    },
-    {
-      name: 'Work',
-      icon: 'work',
-      machineName: 'work',
-      link: () =>
-        mainMenuContext.updateMenuContext({
-          primaryPage: 'work',
-          jobPage: { ...mainMenuContext.jobPage },
-          workPage: { ...mainMenuContext.workPage },
-          homePage: { ...mainMenuContext.homePage },
-        }),
-      count: { icon: 'star', count: counts.work },
-    },
-    {
-      name: 'Messages',
-      icon: 'chat',
-      machineName: 'messages',
-      link: () =>
-        mainMenuContext.updateMenuContext({
-          primaryPage: 'messages',
-          jobPage: { ...mainMenuContext.jobPage },
-          workPage: { ...mainMenuContext.workPage },
-          homePage: { ...mainMenuContext.homePage },
-        }),
-      color: '',
-      count: { icon: 'local_post_office', count: counts.messages },
-    },*/
     {
       name: 'Account',
       icon: 'account_circle',

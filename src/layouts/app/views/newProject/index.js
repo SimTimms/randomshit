@@ -1,10 +1,10 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Divider from '@material-ui/core/Divider';
-import Icon from '@material-ui/core/Icon';
-import Typography from '@material-ui/core/Typography';
-import Slide from '@material-ui/core/Slide';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Divider from '@mui/material/Divider';
+import Icon from '@mui/material/Icon';
+import Typography from '@mui/material/Typography';
+import Slide from '@mui/material/Slide';
 import { useStyles } from './styles';
 import { ProjectComponent, ProjectHeader } from './components';
 import { Link } from 'react-router-dom';

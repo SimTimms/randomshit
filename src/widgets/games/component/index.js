@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 import {
   MenuButtonStandard,
@@ -8,6 +8,7 @@ import {
   CardComponent,
 } from '../../../components';
 import { MenuContext } from '../../../context';
+import { PAGES } from '../../../const';
 
 export default function GameComponent({ game }) {
   const classes = useStyles();
@@ -45,7 +46,7 @@ export default function GameComponent({ game }) {
                       homePage: {
                         ...menu.homePage,
                         gameId: game._id,
-                        secondaryPage: 'create_game',
+                        secondaryPage: PAGES.createModel,
                       },
                     })
                   }

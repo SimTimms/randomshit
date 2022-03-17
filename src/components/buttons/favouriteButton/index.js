@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Icon, Typography } from '@material-ui/core';
+import { Icon, Typography } from '@mui/material';
 import { useStyles } from './styles';
 import clsx from 'clsx';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { ADD_FAVOURITE } from '../../../data/mutations';
 
 export default function FavouriteButton({ favourite, creative }) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Slide } from '@material-ui/core';
+import { Typography, Slide } from '@mui/material';
 import {
   Column,
   Divider,

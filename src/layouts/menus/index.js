@@ -1,13 +1,12 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+import Button from '@mui/material/Button';
+import { withStyles } from '@mui/styles';
 import { Link } from 'react-router-dom';
-import MenuIcon from '@material-ui/icons/Menu';
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from '@mui/material/IconButton';
 import { useStyles } from './styles';
 import clsx from 'clsx';
 import Cookies from 'js-cookie';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const StyledButton = withStyles({
   root: {
@@ -44,9 +43,7 @@ export function AppMenu({ handleDrawerOpen, open, history }) {
       }}
       edge="start"
       className={clsx(classes.menuButton, open && classes.hide)}
-    >
-      <MenuIcon color="primary" />
-    </IconButton>
+    ></IconButton>
   );
 }
 
@@ -62,12 +59,6 @@ export function PublicMenu({ history }) {
         [classes.menuWrapperMobile]: mobile,
       })}`}
     >
-      <a
-        href={`${process.env.REACT_APP_INFO_EMAIL}`}
-        style={{ textDecoration: 'none' }}
-      >
-        <StyledButton>Home</StyledButton>
-      </a>
       {authToken && (
         <StyledButton
           onClick={() => {

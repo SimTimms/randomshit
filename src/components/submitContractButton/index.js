@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconButton } from '../';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { toaster } from '../../utils/toaster';
 import { SUBMIT_CONTRACT } from '../../data/mutations';
 

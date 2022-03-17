@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
-export const toastStyles = makeStyles(theme => {
+export const toastStyles = makeStyles((theme) => {
   return {
     toastIcon: { color: theme.palette.primary.main },
     toastBody: { width: '100%', textAlign: 'center' },

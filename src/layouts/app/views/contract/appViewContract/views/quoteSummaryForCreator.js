@@ -18,7 +18,7 @@ import {
 import { toaster } from '../../../../../../utils/toaster';
 import { DECLINE_CONTRACT } from '../../../../../../data/mutations';
 import { FAVOURITES } from '../../../../../../data/queries';
-import { Mutation, Query } from 'react-apollo';
+import { Mutation, Query } from '@apollo/client/react/components';
 import { useStyles } from './styles';
 import clsx from 'clsx';
 import Cookies from 'js-cookie';

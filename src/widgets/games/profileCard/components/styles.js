@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 export const useStyles = makeStyles((theme) => ({
   background: {
     backgroundSize: 'cover',
@@ -8,6 +8,15 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
     position: 'relative',
     cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   noBG: { minHeight: 0, maxHeight: 0, height: 0 },
+  locked: { opacity: 1 },
+  register: {
+    background: theme.palette.primary.main,
+    color: '#fff',
+    padding: 5,
+  },
 }));

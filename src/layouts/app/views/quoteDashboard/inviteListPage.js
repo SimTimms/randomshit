@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { INVITES } from '../../../../data/queries';
 import { Column, InviteComponent } from '../../../../components';
 import { useStyles } from './styles';

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Icon, Typography } from '@material-ui/core';
+import { Icon, Typography } from '@mui/material';
 import clsx from 'clsx';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function Button({ menuItem, isActive }) {
   const { name, icon, link, image, count } = menuItem;

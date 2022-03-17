@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Typography, Icon } from '@material-ui/core';
+import { Typography, Icon } from '@mui/material';
 import { Column, Row, IconButton } from '../../../../../components';
 
 export default function SkillTree({ profile, setProfile }) {

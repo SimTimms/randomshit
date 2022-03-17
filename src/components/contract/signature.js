@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconButton, ActionWrapper, BorderBox, Meta } from '../';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { SIGN_CONTRACT, DECLINE_CONTRACT } from '../../data/mutations';
 import moment from 'moment';
 

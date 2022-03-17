@@ -7,7 +7,7 @@ import { MenuContext, HistoryContext } from '../../context';
 import GamesPage from './views/previewProfile/gamesPage';
 import JobAdsPage from './views/previewProfile/jobAdsPage';
 import KickstarterPage from './views/previewProfile/kickstarterPage';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { PROFILE } from './data';
 
 function PreviewLayout(props) {
@@ -54,7 +54,7 @@ function PreviewLayout(props) {
                             history={props.history}
                           />
                         )}
-                        {menu.publicPage === 'games' && (
+                        {menu.publicPage === 'pick_models' && (
                           <GamesPage userId={pathParam} />
                         )}
                         {menu.publicPage === 'jobs' && (

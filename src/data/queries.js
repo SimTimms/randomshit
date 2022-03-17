@@ -506,6 +506,7 @@ export const PROFILE = gql`
       facebook
       twitter
       website
+      priority
       instagram
       linkedIn
       publicEmail

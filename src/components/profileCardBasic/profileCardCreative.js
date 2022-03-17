@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Card, Icon } from '@material-ui/core';
+import { Card, Icon } from '@mui/material';
 import { useStyles } from './styles';
 import { IconButton, Column } from '../';
 import clsx from 'clsx';

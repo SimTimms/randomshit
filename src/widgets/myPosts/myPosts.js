@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-import { Query } from 'react-apollo';
+import { Typography } from '@mui/material';
+import { Query } from '@apollo/client/react/components';
 import { MY_POSTS, MY_POSTS_WIDGET } from './data';
 import { MyPostForm } from './';
 import { Row, Column, CardComponent, Grid } from '../../components';

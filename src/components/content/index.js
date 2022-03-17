@@ -1,5 +1,5 @@
 import React from 'react';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useStyles } from './styles';
 import clsx from 'clsx';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slide } from '@material-ui/core';
+import { Slide } from '@mui/material';
 import { useStyles } from './styles';
 import { MenuContext } from '../../../../context';
 import InviteListPage from './inviteListPage';

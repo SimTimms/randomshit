@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Slide } from '@material-ui/core';
+import { Slide } from '@mui/material';
 import { useStyles } from '../styles';
 import {
   Column,
@@ -17,7 +17,7 @@ import CloseJobButton from './closeJobButton';
 import PublishJobButton from './publishJobButton';
 import ProjectDash from '../../../../../../modules/dashboards';
 import { OPEN_JOB } from './data';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 
 export default function SummaryViewCreator({ job, history, page, menu }) {
   const classes = useStyles();

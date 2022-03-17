@@ -1,16 +1,16 @@
 import React from 'react';
-import { useTheme } from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
+import { useTheme } from '@mui/styles';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import HistoryIcon from '@material-ui/icons/History';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
 import { Link } from 'react-router-dom';
 import { useStyles } from '../styles';
 

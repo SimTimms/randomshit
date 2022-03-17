@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMediaQuery } from '@material-ui/core';
+import { useMediaQuery } from '@mui/material';
 import { useStyles } from './styles';
 import {
   Uploader,
@@ -12,7 +12,7 @@ import {
   UPDATE_PROJECT,
   CREATE_PROJECT,
 } from '../../../../../../data/mutations';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import clsx from 'clsx';
 import autosave from '../../../../../../utils/autosave';
 import { toaster } from '../../../../../../utils/toaster';

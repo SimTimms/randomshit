@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Column, DividerMini } from './components';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { paints } from './paints';
 import { useStyles } from './styles';
 import RecentColors from './recentColors';

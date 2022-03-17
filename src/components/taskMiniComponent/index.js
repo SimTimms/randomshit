@@ -1,9 +1,9 @@
 import React from 'react';
 import { Row, Column, LoadIcon } from '../';
-import Icon from '@material-ui/core/Icon';
-import { Query } from 'react-apollo';
+import Icon from '@mui/material/Icon';
+import { Query } from '@apollo/client/react/components';
 import { COUNTS } from '../../data/queries';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 import clsx from 'clsx';
 

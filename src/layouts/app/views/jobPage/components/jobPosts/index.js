@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { JOBS } from '../../../../../../data/queries';
 import {
   Column,
@@ -7,7 +7,7 @@ import {
   JobComponent,
   Grid,
 } from '../../../../../../components';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export default function JobPosts() {
   return (

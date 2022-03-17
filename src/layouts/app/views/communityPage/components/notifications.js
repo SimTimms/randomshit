@@ -1,7 +1,7 @@
 import React from 'react';
-import { Card, Icon, Typography, useMediaQuery } from '@material-ui/core';
+import { Card, Icon, Typography, useMediaQuery } from '@mui/material';
 import { useStyles } from './styles';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { NOTIFICATIONS } from '../../../../../data/queries';
 import clsx from 'clsx';
 import { NotificationComponent } from '../../../../../components';

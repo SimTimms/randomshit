@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListItem, Icon, Typography } from '@material-ui/core';
+import { ListItem, Icon, Typography } from '@mui/material';
 import { useStyles } from './styles';
 import clsx from 'clsx';
 import { Row } from '../../';

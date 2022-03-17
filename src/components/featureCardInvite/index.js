@@ -1,7 +1,7 @@
 import React from 'react';
-import { Card } from '@material-ui/core';
+import { Card } from '@mui/material';
 import { useStyles } from './styles';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import { HeaderTwo, TextArray } from '../';
 
 export default function FeatureCardInvite({

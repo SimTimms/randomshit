@@ -8,11 +8,11 @@ import {
   Button,
   Slide,
   useMediaQuery,
-} from '@material-ui/core';
+} from '@mui/material';
 import { Form, FormInput, ErrorBox } from '../../../../../components';
 import { styles } from './styles';
 import { sharedStyles } from '../../styles';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { PASSWORD_RESET_MUTATION } from '../../../../../data/authorisation';
 import clsx from 'clsx';
 

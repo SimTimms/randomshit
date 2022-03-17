@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 import clsx from 'clsx';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { BgImg, ProfileImg, Badges } from '../components';
 import { Row, Column, HrefLink } from '../../../components';
 import { PROFILE_IMAGES } from '../data';

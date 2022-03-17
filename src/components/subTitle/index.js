@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from './styles';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { Row, Column, DividerMini, Divider, MenuButtonCircle } from '../';
 import clsx from 'clsx';
 

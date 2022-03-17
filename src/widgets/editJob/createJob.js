@@ -1,8 +1,8 @@
 import React from 'react';
-import { Slide } from '@material-ui/core';
+import { Slide } from '@mui/material';
 import { useStyles } from './styles';
 import { Column, NoticeBoardSecondary } from '../../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { CREATE_JOB } from './data';
 import { toaster } from '../../utils/toaster';
 import NewJobName from './components/newJobName';

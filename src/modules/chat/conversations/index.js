@@ -1,6 +1,6 @@
 import React from 'react';
-import { Query } from 'react-apollo';
-import { Typography } from '@material-ui/core';
+import { Query } from '@apollo/client/react/components';
+import { Typography } from '@mui/material';
 import { CONVERSATIONS } from '../../../data/queries';
 import {
   MessageComponent,

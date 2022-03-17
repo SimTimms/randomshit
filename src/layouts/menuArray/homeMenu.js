@@ -1,15 +1,17 @@
+import { PAGES } from '../../const';
+
 export default function homeMenu(menu) {
   return [
     {
       name: 'Paint',
       icon: 'brush',
-      machineName: 'games',
+      machineName: PAGES.pickModelsPrimary,
       link: () =>
         menu.updateMenuContext({
           ...menu,
           homePage: {
-            primaryPage: 'games',
-            secondaryPage: 'games',
+            primaryPage: PAGES.pickModelsPrimary,
+            secondaryPage: PAGES.pickModelsSecondary,
           },
         }),
       count: null,

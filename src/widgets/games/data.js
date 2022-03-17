@@ -10,6 +10,11 @@ export const FEATURED_GAME_WIDGET = gql`
       bin
       js
       url
+      artistName
+      artistLink
+      licenseLink
+      copyrightDescription
+      whereToBuyLink
     }
   }
 `;
@@ -57,6 +62,12 @@ export const GAME_BY_ID = gql`
       js
       url
       price
+      patreon
+      artistName
+      artistLink
+      licenseLink
+      copyrightDescription
+      whereToBuyLink
       user {
         _id
         name
@@ -92,7 +103,13 @@ export const GAME_WIDGET = gql`
       bin
       js
       url
+      patreon
       price
+      artistName
+      artistLink
+      licenseLink
+      copyrightDescription
+      whereToBuyLink
       user {
         _id
         name
@@ -128,6 +145,11 @@ export const MY_GAMES = gql`
       bin
       url
       showreel
+      artistName
+      artistLink
+      licenseLink
+      copyrightDescription
+      whereToBuyLink
     }
   }
 `;
@@ -140,6 +162,11 @@ export const CREATE_GAME = gql`
     $gltf: String
     $bin: String
     $js: String
+    $artistName: String
+    $artistLink: String
+    $licenseLink: String
+    $copyrightDescription: String
+    $whereToBuyLink: String
     $featureImage: String
     $showreel: String
     $gamePart: [GameGamePartInput]
@@ -157,6 +184,11 @@ export const CREATE_GAME = gql`
         gamePart: $gamePart
         gamePost: $gamePost
         featureImage: $featureImage
+        artistName: $artistName
+        artistLink: $artistLink
+        licenseLink: $licenseLink
+        copyrightDescription: $copyrightDescription
+        whereToBuyLink: $whereToBuyLink
       }
     ) {
       recordId
@@ -176,6 +208,11 @@ export const UPDATE_GAME = gql`
     $showreel: String
     $price: String
     $featureImage: String
+    $artistName: String
+    $artistLink: String
+    $licenseLink: String
+    $copyrightDescription: String
+    $whereToBuyLink: String
     $gamePart: [GameGamePartInput]
     $gamePost: [GameGamePostInput]
   ) {
@@ -193,6 +230,11 @@ export const UPDATE_GAME = gql`
         gamePart: $gamePart
         gamePost: $gamePost
         featureImage: $featureImage
+        artistName: $artistName
+        artistLink: $artistLink
+        licenseLink: $licenseLink
+        copyrightDescription: $copyrightDescription
+        whereToBuyLink: $whereToBuyLink
       }
     ) {
       recordId

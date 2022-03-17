@@ -6,13 +6,14 @@ import {
   DividerMini,
   Divider,
 } from '../../components';
-import { Mutation, Query } from 'react-apollo';
+import { Mutation, Query } from '@apollo/client/react/components';
 import { CREATE_GAME, UPDATE_GAME, REMOVE_GAME, GAME_BY_ID } from './data';
 import { toaster } from '../../utils/toaster';
 import { MenuContext } from '../../context';
 import GamePartParent from './gamePartParent';
 import GameFields from './gameFields';
 import GamePostParent from './gamePostParent';
+import { PAGES } from '../../const';
 
 export default function GameForm() {
   const classes = useStyles();
@@ -27,6 +28,11 @@ export default function GameForm() {
     js: '',
     gltf: '',
     bin: '',
+    artistName: '',
+    artistLink: '',
+    licenseLink: '',
+    copyrightDescription: '',
+    whereToBuyLink: '',
   });
 
   return (
@@ -62,8 +68,8 @@ export default function GameForm() {
                       ...menu,
                       homePage: {
                         ...menu.homePage,
-                        primaryPage: 'games',
-                        secondaryPage: 'my_games',
+                        primaryPage: PAGES.pickModelsPrimary,
+                        secondaryPage: PAGES.myModels,
                         gameId: null,
                       },
                     });
@@ -119,8 +125,8 @@ export default function GameForm() {
                         ...menu,
                         homePage: {
                           ...menu.homePage,
-                          primaryPage: 'games',
-                          secondaryPage: 'my_games',
+                          primaryPage: PAGES.pickModelsPrimary,
+                          secondaryPage: PAGES.myModels,
                           gameId: null,
                         },
                       });

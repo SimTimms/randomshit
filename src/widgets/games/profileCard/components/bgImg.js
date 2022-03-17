@@ -1,8 +1,9 @@
 import React from 'react';
 import { useStyles } from './styles';
 import clsx from 'clsx';
+import { Typography } from '@mui/material';
 
-export default function BgImg({ previewImage, onClick }) {
+export default function BgImg({ previewImage, onClick, locked, history }) {
   const classes = useStyles();
 
   return (
@@ -14,8 +15,18 @@ export default function BgImg({ previewImage, onClick }) {
       className={clsx({
         [classes.background]: true,
         [classes.noBG]: !previewImage,
+        [classes.locked]: locked,
       })}
-      onClick={() => onClick()}
-    ></div>
+      onClick={() => (onClick ? onClick() : null)}
+    >
+      {locked && (
+        <Typography
+          onClick={() => history.push('/')}
+          className={classes.register}
+        >
+          Register to Unlock
+        </Typography>
+      )}
+    </div>
   );
 }

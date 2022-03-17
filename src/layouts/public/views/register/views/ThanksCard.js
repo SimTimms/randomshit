@@ -1,12 +1,13 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import Divider from '@material-ui/core/Divider';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import Divider from '@mui/material/Divider';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 import { styles } from './styles';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-import Slide from '@material-ui/core/Slide';
+import Slide from '@mui/material/Slide';
+import { REACT_APP_COMPANY_PUBLIC_NAME } from '../../../../../envVars';
 
 export default function RegisterCard({ setPage }) {
   const classes = styles();
@@ -36,7 +37,7 @@ export default function RegisterCard({ setPage }) {
               component="p"
               style={{ textAlign: 'center' }}
             >
-              {`You can now login to ${process.env.REACT_APP_COMPANY_PUBLIC_NAME}`}
+              {`You can now login to ${REACT_APP_COMPANY_PUBLIC_NAME}`}
             </Typography>
           </CardContent>
           <Divider />

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Column, Grid } from '../../components';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { STATS } from './data';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { timeDifferenceForDate } from '../../utils/dates';
 export default function Stats() {
   return (

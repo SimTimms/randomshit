@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from './styles';
 import { Row, Divider, PaymentSchedule, FieldTitleDashboard } from '../';
 import moment from 'moment';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export default function ContractSummaryForCreative({ contractData }) {
   const classes = useStyles();

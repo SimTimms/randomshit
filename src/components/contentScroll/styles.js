@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles((theme) => ({
   content: {
@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     width: 'calc(100vw - 200px)',
-    height: '100vh',
+    height: '100%',
   },
   row: { width: '100%' },
 }));

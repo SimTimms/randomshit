@@ -119,7 +119,7 @@ export default function GameFields({ game, setGame }) {
       />
       <FieldBox
         value={game.js}
-        title="JS File Nam"
+        title="JS File Name"
         maxLength={186}
         minLength={1}
         onChangeEvent={(e) => {
@@ -150,6 +150,105 @@ export default function GameFields({ game, setGame }) {
         replaceMode="loose"
         placeholder="Examples: Firstborn | Dreadnought | Fighter Jet"
         info="What's this model called?"
+        warning=""
+        size="s"
+        multiline={false}
+      />
+      <FieldBox
+        value={game.bin}
+        title="BIN File Name"
+        maxLength={186}
+        minLength={1}
+        onChangeEvent={(e) => {
+          setGame({
+            ...game,
+            bin: e,
+          });
+        }}
+        replaceMode=""
+        placeholder="Examples: Firstborn | Dreadnought | Fighter Jet"
+        info="What's this model called?"
+        warning=""
+        size="s"
+        multiline={false}
+      />
+      <FieldBox
+        value={game.artistName}
+        title="Artist Name"
+        maxLength={186}
+        minLength={1}
+        onChangeEvent={(e) => {
+          setGame({
+            ...game,
+            artistName: e,
+          });
+        }}
+        replaceMode="loose"
+        placeholder="Artist Name"
+        warning=""
+        size="s"
+        multiline={false}
+      />
+      <FieldBox
+        value={game.artistLink}
+        title="Artist Link"
+        maxLength={186}
+        minLength={1}
+        onChangeEvent={(e) => {
+          setGame({
+            ...game,
+            artistLink: e,
+          });
+        }}
+        placeholder="Artist Link"
+        warning=""
+        size="s"
+        multiline={false}
+      />
+      <FieldBox
+        value={game.licenseLink}
+        title="License Link"
+        maxLength={186}
+        minLength={1}
+        onChangeEvent={(e) => {
+          setGame({
+            ...game,
+            licenseLink: e,
+          });
+        }}
+        placeholder="License Link"
+        warning=""
+        size="s"
+        multiline={false}
+      />
+      <FieldBox
+        value={game.copyrightDescription}
+        title="Copyright"
+        maxLength={186}
+        minLength={1}
+        onChangeEvent={(e) => {
+          setGame({
+            ...game,
+            copyrightDescription: e,
+          });
+        }}
+        placeholder="Copyright"
+        warning=""
+        size="s"
+        multiline={false}
+      />
+      <FieldBox
+        value={game.whereToBuyLink}
+        title="Where To Buy"
+        maxLength={186}
+        minLength={1}
+        onChangeEvent={(e) => {
+          setGame({
+            ...game,
+            whereToBuyLink: e,
+          });
+        }}
+        placeholder="Where To Buy"
         warning=""
         size="s"
         multiline={false}

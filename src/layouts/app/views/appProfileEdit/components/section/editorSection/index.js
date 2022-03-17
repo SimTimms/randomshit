@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { TextField } from '@material-ui/core';
-import { Mutation } from 'react-apollo';
+import { TextField } from '@mui/material';
+import { Mutation } from '@apollo/client/react/components';
 import ReactPlayer from 'react-player';
 import autosave from '../../../../../../../utils/autosave';
 import { toaster } from '../../../../../../../utils/toaster';

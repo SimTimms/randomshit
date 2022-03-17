@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,7 +11,8 @@ export const useStyles = makeStyles((theme) => ({
   noticeArea: {
     width: '100%',
     display: 'flex',
-    minHeight: 'calc(100vh - 104px)',
+    height: '100%',
+
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

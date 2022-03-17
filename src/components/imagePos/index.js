@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
 import { useStyles } from './styles';
 
 function ImagePos({ imagePosition, setImagePosition, setStyle, setCB }) {
@@ -11,26 +11,26 @@ function ImagePos({ imagePosition, setImagePosition, setStyle, setCB }) {
   return (
     <Button
       className={classes.root}
-      onMouseDown={e => {
+      onMouseDown={(e) => {
         setMouseDown(true);
         setOrigin({
           x: imagePosition.x + e.screenX,
           y: imagePosition.y + e.screenY,
         });
       }}
-      onMouseUp={e => {
+      onMouseUp={(e) => {
         setCB();
         setStyle([imagePosition.x, imagePosition.y]);
         setMouseDown(false);
       }}
-      onMouseLeave={e => {
+      onMouseLeave={(e) => {
         if (mouseDown) {
           setCB();
           setStyle([imagePosition.x, imagePosition.y]);
           setMouseDown(false);
         }
       }}
-      onMouseMove={e => {
+      onMouseMove={(e) => {
         if (mouseDown) {
           setImagePosition({
             x: origin.x - e.screenX,

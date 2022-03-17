@@ -3,7 +3,7 @@ import { useStyles } from './styles';
 import { MenuContext } from '../../../../context';
 import QuoteListPage from './quoteListPage';
 import { EditQuote } from '../../../../modules/quotes';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { PREVIEW_CONTRACT } from '../../../../data/queries';
 
 export default function QuoteDashboard() {

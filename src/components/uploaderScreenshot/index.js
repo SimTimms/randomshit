@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import moment from 'moment';
-
+import { REACT_APP_API_S3 } from '../../envVars';
 export default async function uploaderScreenshot(
   imageData,
   cbFunction,
@@ -11,7 +11,7 @@ export default async function uploaderScreenshot(
     'Content-Type': 'image/jpeg',
   };
 
-  const uploadURL = `${process.env.REACT_APP_API_S3}/sign_s3`;
+  const uploadURL = `${REACT_APP_API_S3}/sign_s3`;
   const token = Cookies.get('token');
   let config = {
     headers: {

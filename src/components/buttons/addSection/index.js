@@ -1,6 +1,6 @@
 import React from 'react';
-import CardContent from '@material-ui/core/CardContent';
-import Icon from '@material-ui/core/Icon';
+import CardContent from '@mui/material/CardContent';
+import Icon from '@mui/material/Icon';
 import { useStyles } from './styles';
 import clsx from 'clsx';
 import SectionList from './sectionList';

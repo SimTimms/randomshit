@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from '../styles';
 import { IconButton, Row } from '../../../../../../components';
 import ViewConversation from '../../../../../messages/views/messaging/viewConversation';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { GET_MESSAGES } from '../../../../../../data/queries';
 
 export default function ChatView({

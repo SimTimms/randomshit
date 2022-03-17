@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { useStyles } from './styles';
-import Typography from '@material-ui/core/Typography';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import clsx from 'clsx';
 import animalsFG from '../../../../../../assets/animals_fg.png';
 import animalsBG from '../../../../../../assets/animals_bg.png';

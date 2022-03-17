@@ -1,11 +1,11 @@
 import React from 'react';
 import { useStyles } from './styles';
 import { MenuContext } from '../../../context';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { GAME_BY_ID } from '../data';
-import ModelRouter from '../../../model3d/ModelRouter';
+import ModelRouterApp from '../../../model3d/ModelRouterApp';
 
-export default function GameProfileFull() {
+export default function GameProfileFull({ back, profile, ...props }) {
   const classes = useStyles();
 
   return (
@@ -22,11 +22,20 @@ export default function GameProfileFull() {
               const game = data.gameById;
 
               return (
-                <ModelRouter
+                <ModelRouterApp
                   gltf={game.gltf}
                   js={game.js}
                   parts={game.gamePart}
                   gameId={game._id}
+                  game={game}
+                  back={back}
+                  history={props.history}
+                  profilePriority={profile.priority}
+                  modelArtist={{
+                    name: game.artistName,
+                    link: game.artistLink,
+                    buyLink: game.whereToBuyLink,
+                  }}
                 />
               );
             }

@@ -2,7 +2,7 @@ import React from 'react';
 import { FieldTitle, Divider, Column, FieldBox, UnlockInfo, Row } from '../';
 import AddPaymentTerm from './addPaymentTerms';
 import PaymentTerm from './paymentTerm';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import autosave from '../../utils/autosave';
 
 export default function PaymentTerms({

@@ -1,7 +1,7 @@
 import React from 'react';
-import Slide from '@material-ui/core/Slide';
+import Slide from '@mui/material/Slide';
 import { useStyles } from './styles';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { GAMES } from '../../../../../data/queries';
 import {
   ContentHeader,

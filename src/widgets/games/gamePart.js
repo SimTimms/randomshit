@@ -7,7 +7,7 @@ import {
   Row,
   DividerMini,
 } from '../../components';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 export default function GamePart({
   webshopIn,

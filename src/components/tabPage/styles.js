@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles((theme) => ({
   tabTitle: {
@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   tabPageContent: {
     overflow: 'auto',
-    height: 'calc(100vh - 66px)',
+    height: '100%',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
@@ -39,8 +39,9 @@ export const useStyles = makeStyles((theme) => ({
     padding: 5,
     boxSizing: 'border-box',
     background: '#fafafa',
+    paddingBottom: 50,
   },
   tabPageContentSingle: {
-    height: 'calc(100vh - 68px)',
+    height: '100%',
   },
 }));

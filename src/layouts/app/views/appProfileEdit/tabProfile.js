@@ -11,9 +11,8 @@ import {
   InputLabel,
   Row,
   Divider,
-  RoleObject,
 } from '../../../../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import GallerySection from './components/section/gallerySection';
 import { UPDATE_USER_MUTATION } from '../../../../data/mutations';
 import { readableErrors } from '../../../../utils/readableErrors';
@@ -99,13 +98,6 @@ export default function TabProfile({
 
             {loading ? (
               <LoadIcon />
-            ) : showRole ? (
-              <RoleObject
-                profile={profile}
-                setProfile={setProfile}
-                SignupMutation={SignupMutation}
-                onClickEvent={() => setShowRole(false)}
-              />
             ) : (
               <div className={classes.root}>
                 <DMCard>

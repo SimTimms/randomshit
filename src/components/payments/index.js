@@ -6,7 +6,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from '@material-ui/core';
+} from '@mui/material';
 import moment from 'moment';
 import { useStyles } from './styles';
 import clsx from 'clsx';

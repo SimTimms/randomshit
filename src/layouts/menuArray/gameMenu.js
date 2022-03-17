@@ -1,43 +1,41 @@
+import { PAGES } from '../../const';
+
 export default function gameMenu(menu) {
   return [
     {
       name: 'Choose a Model',
       icon: 'travel_explore',
-      machineName: 'games',
+      machineName: PAGES.pickModelsSecondary,
       link: () =>
         menu.updateMenuContext({
-          primaryPage: 'home',
-          jobPage: { ...menu.jobPage },
-          workPage: { ...menu.workPage },
+          primaryPage: PAGES.home,
           homePage: {
             ...menu.homePage,
-            secondaryPage: 'games',
+            secondaryPage: PAGES.pickModelsSecondary,
             gameId: null,
           },
         }),
       count: null,
     },
     {
-      name: 'My Games',
+      name: 'My Models',
       icon: 'dynamic_feed',
-      machineName: 'my_games',
+      machineName: PAGES.myModels,
       link: () =>
         menu.updateMenuContext({
-          primaryPage: 'home',
-          jobPage: { ...menu.jobPage },
-          workPage: { ...menu.workPage },
+          primaryPage: PAGES.home,
           homePage: {
             ...menu.homePage,
-            secondaryPage: 'my_games',
+            secondaryPage: PAGES.myModels,
             gameId: null,
           },
         }),
       count: null,
     },
     {
-      name: 'Create',
+      name: 'Upload Model',
       icon: 'add_circle',
-      machineName: 'create_game',
+      machineName: PAGES.createModel,
       link: () =>
         menu.updateMenuContext({
           primaryPage: 'home',
@@ -45,7 +43,7 @@ export default function gameMenu(menu) {
           workPage: { ...menu.workPage },
           homePage: {
             ...menu.homePage,
-            secondaryPage: 'create_game',
+            secondaryPage: PAGES.createModel,
             gameId: 'new',
           },
         }),

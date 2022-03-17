@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon } from '@material-ui/core';
+import { Button, Icon } from '@mui/material';
 import { useStyles } from './styles';
 
 export default function DeleteButton({ mutation, str }) {

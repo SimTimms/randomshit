@@ -1,7 +1,7 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { useStyles } from './styles';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { Row } from '../../../components';
 import { PROFILE_IMAGES } from '../data';
 import imageOptimiser from '../../../utils/imageOptimiser';

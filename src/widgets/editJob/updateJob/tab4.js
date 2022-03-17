@@ -6,7 +6,7 @@ import {
   CardComponent,
   NoticeBoardSecondary,
 } from '../../../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { UPDATE_JOB, REMOVE_JOB } from '../data';
 import { toaster } from '../../../utils/toaster';
 import { Section3, Section6, Section7, Section8 } from '../components/pageOne';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/client/react/components';
 import { FEATURED_CREATIVES_WIDGET } from './data';
 import { ProfileCard } from '../profileCard/';
 import BigImage from '../bigImage';

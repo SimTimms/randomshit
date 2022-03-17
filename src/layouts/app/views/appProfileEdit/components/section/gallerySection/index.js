@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { MediaGalleryObjectProfile } from '../../mediaGalleryOject';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import ReactPlayer from 'react-player';
 import autosave from '../../../../../../../utils/autosave';
 import { toaster } from '../../../../../../../utils/toaster';

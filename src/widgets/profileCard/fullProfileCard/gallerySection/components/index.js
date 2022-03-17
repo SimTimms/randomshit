@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { Typography } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useStyles } from './styles';
 import clsx from 'clsx';
 import imageOptimiser from '../../../../../utils/imageOptimiser';

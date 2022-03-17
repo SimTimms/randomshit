@@ -1,6 +1,6 @@
 import React from 'react';
 import { MenuButtonStandard } from '../../components';
-import { Mutation } from 'react-apollo';
+import { Mutation } from '@apollo/client/react/components';
 import { UPDATE_MY_POST } from './data';
 import { toaster } from '../../utils/toaster';
 
