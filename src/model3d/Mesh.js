@@ -95,7 +95,7 @@ export default function Mesh({
         setMeshColor('#030C1B');
         if (name === 'ScreenOne') {
           const vid = document.createElement('video');
-          vid.src = '/Exodite.mp4';
+          vid.src = video;
           vid.crossOrigin = 'Anonymous';
           vid.loop = true;
           vid.muted = true;
@@ -114,7 +114,9 @@ export default function Mesh({
         if (name === 'ScreenThree') {
           var texLoader = new THREE.TextureLoader();
 
-          const texLoaded = texLoader.load('/gwtac.jpg');
+          const texLoaded = texLoader.load(
+            video === '/corvus.mp4' ? '/cortac.jpg' : '/gwtac.jpg'
+          );
           const materialNew = new THREE.MeshBasicMaterial({
             map: texLoaded,
             color: '#555',
@@ -124,7 +126,9 @@ export default function Mesh({
         if (name === 'ScreenTwo') {
           var texLoader = new THREE.TextureLoader();
 
-          const texLoaded = texLoader.load('/warcom.jpg');
+          const texLoaded = texLoader.load(
+            video === '/corvus.mp4' ? '/cortac2.jpg' : '/warcom.jpg'
+          );
           const materialNew = new THREE.MeshBasicMaterial({
             map: texLoaded,
             color: '#555',
@@ -134,7 +138,9 @@ export default function Mesh({
         if (name === 'ScreenFour') {
           var texLoader = new THREE.TextureLoader();
 
-          const texLoaded = texLoader.load('/whplus.png');
+          const texLoaded = texLoader.load(
+            video === '/corvus.mp4' ? '/corvus.jpg' : '/whplus.png'
+          );
           const materialNew = new THREE.MeshBasicMaterial({
             map: texLoaded,
             color: '#555',

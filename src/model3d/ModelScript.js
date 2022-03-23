@@ -98,6 +98,9 @@ export default function ModelScript({
                     gltfIn ===
                     'https://random-shit-store.s3.amazonaws.com/614b73c98a97c40c65957b89/Box2/scene.gltf'
                       ? '/Exodite.mp4'
+                      : gltfIn ===
+                        'https://random-shit-store.s3.eu-west-2.amazonaws.com/614b73c98a97c40c65957b89/Box3/scene.gltf'
+                      ? '/corvus.mp4'
                       : null
                   }
                   name={item.name}
