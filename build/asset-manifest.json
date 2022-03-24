@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.js": "/static/js/main.d3441d78.chunk.js",
+    "main.js.map": "/static/js/main.d3441d78.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d8be0fd0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d8be0fd0.js.map",
+    "static/css/2.9afd9385.chunk.css": "/static/css/2.9afd9385.chunk.css",
+    "static/js/2.f54447ba.chunk.js": "/static/js/2.f54447ba.chunk.js",
+    "static/js/2.f54447ba.chunk.js.map": "/static/js/2.f54447ba.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.a22cb320ec0bd4cb76cf79d58e5a1e78.js": "/precache-manifest.a22cb320ec0bd4cb76cf79d58e5a1e78.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.9afd9385.chunk.css.map": "/static/css/2.9afd9385.chunk.css.map",
+    "static/js/2.f54447ba.chunk.js.LICENSE.txt": "/static/js/2.f54447ba.chunk.js.LICENSE.txt",
+    "static/media/Squads.png": "/static/media/Squads.2cd7158b.png",
+    "static/media/armour.jpg": "/static/media/armour.11e492ad.jpg",
+    "static/media/dmDevice.png": "/static/media/dmDevice.aa66bfb6.png",
+    "static/media/double.jpg": "/static/media/double.903613da.jpg",
+    "static/media/earlyBird.png": "/static/media/earlyBird.4a400f0d.png",
+    "static/media/etsy.jpg": "/static/media/etsy.e1bc8015.jpg",
+    "static/media/extraordinary.png": "/static/media/extraordinary.036f8c2e.png",
+    "static/media/featured.png": "/static/media/featured.c13b736e.png",
+    "static/media/golden.png": "/static/media/golden.4a34e231.png",
+    "static/media/iconWebsite.png": "/static/media/iconWebsite.7bf93738.png",
+    "static/media/iftm.jpg": "/static/media/iftm.557e4250.jpg",
+    "static/media/kick.png": "/static/media/kick.8a56a46e.png",
+    "static/media/mp3d.png": "/static/media/mp3d.607cf6e4.png",
+    "static/media/necronw.jpg": "/static/media/necronw.8c2a5d1f.jpg",
+    "static/media/ork.png": "/static/media/ork.96d67e13.png",
+    "static/media/socialInstagram.png": "/static/media/socialInstagram.5dfed668.png",
+    "static/media/socialLinkedIn.png": "/static/media/socialLinkedIn.9b60bf1b.png",
+    "static/media/socialSkype.svg": "/static/media/socialSkype.cc3dee71.svg",
+    "static/media/socialTwitter.svg": "/static/media/socialTwitter.a7a925c7.svg",
+    "static/media/supporter.png": "/static/media/supporter.7ed2dd5f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d8be0fd0.js",
+    "static/css/2.9afd9385.chunk.css",
+    "static/js/2.f54447ba.chunk.js",
+    "static/js/main.d3441d78.chunk.js"
+  ]
+}
