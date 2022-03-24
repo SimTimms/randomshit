@@ -27,6 +27,10 @@ export default function PublicRoutes({ theme, props: { ...props } }) {
         render={(props) => <ModelApp {...props} theme={theme} />}
       />
       <Route
+        path="/demo/:partnerId/:boxArtId"
+        render={(props) => <ModelApp {...props} theme={theme} basic={true} />}
+      />
+      <Route
         path="/:page/:token"
         render={(props) => <PublicLayout {...props} theme={theme} />}
       />
@@ -36,7 +40,7 @@ export default function PublicRoutes({ theme, props: { ...props } }) {
       />
       <Route
         path="/"
-        render={(props) => <PublicLayout {...props} theme={theme} />}
+        render={(props) => <ModelApp {...props} theme={theme} basic={true} />}
       />
     </Switch>
   );

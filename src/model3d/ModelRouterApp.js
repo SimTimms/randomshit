@@ -23,6 +23,7 @@ function ModelRouterApp({
   history,
   profilePriority,
   modelArtist,
+  basic,
 }) {
   const modelColorsRef = useRef({});
   const [panels, setPanels] = React.useState(null);
@@ -97,6 +98,7 @@ function ModelRouterApp({
             gameId={gameId}
             modelName={game}
             paintMode={paintMode}
+            basic={basic}
             setPaintMode={setPaintMode}
             lightOne={lightOne}
             lightTwo={lightTwo}
@@ -150,25 +152,26 @@ function ModelRouterApp({
             />
           </div>
         )}
-
-        <Column bg="#111" h="88px">
-          <RecentColors
-            activeColor={activeColor}
-            setColorFunction={setColorFunction}
-            setHoverColor={null}
-            recentColors={recentColors}
-            setRecentColors={setRecentColors}
-          />
-          <PaintRackApp
-            setColorFunction={setColorFunction}
-            activeColor={activeColor}
-            colorGroup={colorGroup}
-            setColorGroup={setColorGroup}
-            recentColors={recentColors}
-            setRecentColors={setRecentColors}
-            profilePriority={profilePriority}
-          />
-        </Column>
+        {!basic && (
+          <Column bg="#111" h="88px">
+            <RecentColors
+              activeColor={activeColor}
+              setColorFunction={setColorFunction}
+              setHoverColor={null}
+              recentColors={recentColors}
+              setRecentColors={setRecentColors}
+            />
+            <PaintRackApp
+              setColorFunction={setColorFunction}
+              activeColor={activeColor}
+              colorGroup={colorGroup}
+              setColorGroup={setColorGroup}
+              recentColors={recentColors}
+              setRecentColors={setRecentColors}
+              profilePriority={profilePriority}
+            />
+          </Column>
+        )}
       </Column>
     </ColorContext.Provider>
   );

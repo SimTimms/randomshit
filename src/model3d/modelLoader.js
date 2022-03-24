@@ -28,7 +28,7 @@ function Loader() {
         fontFamily: 'arial',
       }}
     >
-      {`Loading ${progress.toString().substring(0, 2)}%, it takes a while!`}
+      {`Loading ${progress.toString().substring(0, 2)}%, please wait...`}
     </Html>
   );
 }
@@ -55,6 +55,7 @@ export default function ModelLoader({
   profilePriority,
   modelName,
   modelArtist,
+  basic,
 }) {
   const [screenshot, setScreenshot] = React.useState(null);
   const [armourColor, setArmourColor] = React.useState(null);
@@ -102,12 +103,14 @@ export default function ModelLoader({
             )}
 
             <Row j="flex-start">
-              <MenuButtonStandard
-                title="Lighting"
-                icon="lightbulb"
-                onClickEvent={() => setPanels('lighting')}
-                white={true}
-              />
+              {!basic && (
+                <MenuButtonStandard
+                  title="Lighting"
+                  icon="lightbulb"
+                  onClickEvent={() => setPanels('lighting')}
+                  white={true}
+                />
+              )}
 
               {/*   <MenuButtonStandard
                 title="Info"
@@ -156,34 +159,36 @@ export default function ModelLoader({
                 setPanels(panels === 'unitDetails' ? '' : 'unitDetails')
               }
             />*/}
-            <Mutation
-              mutation={SAVE_GAME_IMAGE}
-              onCompleted={(data) => {
-                setScreenshot(data.savedGameCreateOne.record.url);
-                toaster('Photo Saved');
-                setWait(false);
-              }}
-            >
-              {(mutation) => {
-                return (
-                  <MenuButtonStandard
-                    title="Screenshot"
-                    icon={wait ? 'hourglass_empty' : 'photo'}
-                    onClickEvent={() => {
-                      if (!wait) {
-                        uploaderScreenshot(
-                          dataURItoBlob(canvas.current.toDataURL()),
-                          mutation,
-                          gameId
-                        );
-                        setWait(true);
-                      }
-                    }}
-                    white={true}
-                  />
-                );
-              }}
-            </Mutation>
+            {!basic && (
+              <Mutation
+                mutation={SAVE_GAME_IMAGE}
+                onCompleted={(data) => {
+                  setScreenshot(data.savedGameCreateOne.record.url);
+                  toaster('Photo Saved');
+                  setWait(false);
+                }}
+              >
+                {(mutation) => {
+                  return (
+                    <MenuButtonStandard
+                      title="Screenshot"
+                      icon={wait ? 'hourglass_empty' : 'photo'}
+                      onClickEvent={() => {
+                        if (!wait) {
+                          uploaderScreenshot(
+                            dataURItoBlob(canvas.current.toDataURL()),
+                            mutation,
+                            gameId
+                          );
+                          setWait(true);
+                        }
+                      }}
+                      white={true}
+                    />
+                  );
+                }}
+              </Mutation>
+            )}
             <div style={{ marginTop: 3, marginLeft: 3 }}></div>
             {screenshot && (
               <div style={{ marginTop: 5, marginLeft: 3, marginRight: 5 }}>
@@ -207,7 +212,7 @@ export default function ModelLoader({
           </div>
         )}
         <Row w="100%" h="100%">
-          <Profile />
+          {!basic && <Profile />}
           <Canvas
             pixelRatio={[1, 2]}
             camera={{ position: [0, 200, 250], fov: 10, far: 700 }}
@@ -269,7 +274,7 @@ export default function ModelLoader({
               autoRotateSpeed={5}
             />
           </Canvas>
-          <Ads modelArtist={modelArtist} />
+          {!basic && <Ads modelArtist={modelArtist} />}
         </Row>
       </Column>
     </div>
