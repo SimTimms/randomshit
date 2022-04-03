@@ -13,7 +13,8 @@ import { TwitterShareButton, TwitterIcon } from 'react-share';
 import Profile from './Profile';
 import Ads from './Ads';
 import { paints } from './paints';
-
+import linkedIn from '../assets/linkedin.jpg';
+import linkedInTwo from '../assets/linkedintwo.jpg';
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -213,13 +214,46 @@ export default function ModelLoader({
         )}
         <Row w="100%" h="100%">
           {!basic && <Profile />}
+          <div
+            style={{
+              width: '100%',
+              marginRight: '-100%',
+              height: '100%',
+              background: '#fff',
+              boxSizing: 'border-box',
+              padding: 20,
+            }}
+          >
+            <div
+              style={{
+                borderRadius: 5,
+                border: '1px solid #ddd',
+                height: '100%',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'space-between',
+                flexDirection: 'column',
+              }}
+            >
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  flexDirection: 'column',
+                }}
+              >
+                <img src={linkedIn} style={{ width: 512 }} />
+              </div>
+              <img src={linkedInTwo} style={{ width: 512 }} />
+            </div>
+          </div>
           <Canvas
             pixelRatio={[1, 2]}
-            camera={{ position: [0, 200, 250], fov: 10, far: 700 }}
+            camera={{ position: [0, 110, 120], fov: 10, far: 700 }}
             ref={canvas}
             gl={{ preserveDrawingBuffer: true }}
             style={{
-              background: '#fff',
               height: '100%',
               width: '100%',
             }}
@@ -246,6 +280,7 @@ export default function ModelLoader({
               <group name="sun" position={[0, 0, -50]}>
                 <spotLight intensity={lightSeven / 50} />
               </group>
+
               <group position={[0, -8, 0]}>
                 <ModelScript
                   activeColor={activeColor}
@@ -268,9 +303,9 @@ export default function ModelLoader({
               )}
             </Suspense>
             <OrbitControls
-              target={[0, 0, 0]}
-              maxDistance={500}
-              autoRotate={false}
+              target={[0, 5, 0]}
+              maxDistance={300}
+              autoRotate={true}
               autoRotateSpeed={5}
             />
           </Canvas>

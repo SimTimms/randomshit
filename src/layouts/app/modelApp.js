@@ -55,8 +55,7 @@ export default function ModelApp(props) {
 
   useEffect(() => {
     setPartnerId('6210027ddaf8b40016130d93');
-    console.log(modelID);
-    setBoxId('6160a02349be93983b68c69f');
+    setBoxId('61d5a0327d31f80016bfa2be');
   }, [boxID, modelID, props]);
 
   return (
