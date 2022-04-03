@@ -29,6 +29,7 @@ export default function ModelScript({
   sprayMode,
   markings,
   armourColor,
+  shading,
 }) {
   const group = useRef();
 
@@ -94,6 +95,7 @@ export default function ModelScript({
                   decals={
                     markings && markings[item.name] ? markings[item.name] : null
                   }
+                  shading={shading}
                   video={
                     gltfIn ===
                     'https://random-shit-store.s3.amazonaws.com/614b73c98a97c40c65957b89/Box2/scene.gltf'

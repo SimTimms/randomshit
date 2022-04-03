@@ -58,6 +58,7 @@ export default function ModelLoader({
 }) {
   const [screenshot, setScreenshot] = React.useState(null);
   const [armourColor, setArmourColor] = React.useState(null);
+  const [shading, setShading] = React.useState(false);
   const [wait, setWait] = React.useState(false);
   const canvas = useRef(null);
   let count = useRef(0);
@@ -106,6 +107,12 @@ export default function ModelLoader({
                 title="Lighting"
                 icon="lightbulb"
                 onClickEvent={() => setPanels('lighting')}
+                white={true}
+              />
+              <MenuButtonStandard
+                title="Shading"
+                icon={shading ? 'lightbulb' : 'help'}
+                onClickEvent={() => setShading(shading ? false : true)}
                 white={true}
               />
 
@@ -248,6 +255,7 @@ export default function ModelLoader({
                   gltfIn={gltfIn}
                   markings={markings}
                   armourColor={armourColor}
+                  shading={shading}
                 />
               </group>
 

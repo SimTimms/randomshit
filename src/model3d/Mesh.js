@@ -15,6 +15,7 @@ export default function Mesh({
   materialIn,
   armourColor,
   video,
+  shading,
 }) {
   const [material, setMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#aaa');
