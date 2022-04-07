@@ -41,24 +41,5 @@ export default function jobMenu(counts, menu) {
 
       count: counts.jobAds,
     },
-    {
-      name: 'History',
-      icon: 'history',
-      machineName: 'job_history',
-      link: () =>
-        menu.updateMenuContext({
-          primaryPage: menu.primaryPage,
-          jobPage: {
-            ...menu.jobPage,
-            primaryPage: 'job_history',
-            secondaryPage: null,
-            jobId: null,
-          },
-          workPage: { ...menu.workPage },
-          homePage: {
-            ...menu.homePage,
-          },
-        }),
-    },
   ];
 }

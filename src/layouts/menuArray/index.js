@@ -20,6 +20,7 @@ import quoteViewMenu from './quoteViewMenu';
 import jobBoardMenu from './jobBoardMenu';
 import myPostsMenu from './myPostsMenu';
 import editingJobMenu from './editingJobMenu';
+import uploadMenu from './uploadMenu';
 
 export {
   photoMenu,
@@ -44,4 +45,5 @@ export {
   jobMenu,
   quoteViewMenu,
   homeMenu,
+  uploadMenu,
 };

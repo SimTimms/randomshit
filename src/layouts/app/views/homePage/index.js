@@ -36,28 +36,13 @@ export default function HomePage() {
                       ? homeMenu(menu)
                       : null
                   }
-                  secondaryMenu={
-                    menu.homePage.primaryPage === PAGES.pickModelsPrimary
-                      ? menu.homePage.secondaryPage === 'game_profile'
-                        ? null
-                        : profile.email === 'tim-simms@hotmail.com'
-                        ? gameMenu(menu)
-                        : gameMenu(menu)
-                      : menu.homePage.primaryPage === 'community'
-                      ? null
-                      : menu.homePage.primaryPage === 'kickstarters'
-                      ? kickstarterMenu(menu)
-                      : menu.homePage.primaryPage === 'gallery'
-                      ? photoMenu(menu)
-                      : menu.homePage.primaryPage === 'my_posts' &&
-                        myPostsMenu(menu)
-                  }
+                  secondaryMenu={null}
                   menu={null}
                   activePrimary={menu.homePage.primaryPage}
                   activeSecondary={menu.homePage.secondaryPage}
                 >
                   {menu.homePage.primaryPage === PAGES.pickModelsPrimary &&
-                  menu.homePage.secondaryPage === PAGES.pickModelsSecondary ? (
+                  menu.homePage.primaryPage === PAGES.pickModelsPrimary ? (
                     <ChooseModel />
                   ) : menu.homePage.secondaryPage === PAGES.createModel ? (
                     <ChooseModel />
@@ -74,8 +59,7 @@ export default function HomePage() {
                   menu.homePage.secondaryPage === 'browse_gallery' ? (
                     <MiniGalleryPage />
                   ) : (
-                    menu.homePage.primaryPage === 'gallery' &&
-                    menu.homePage.secondaryPage === PAGES.myModelGallery && (
+                    menu.homePage.primaryPage === PAGES.myModelGallery && (
                       <MyGalleryPage />
                     )
                   )}

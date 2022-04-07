@@ -5,6 +5,9 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow:
       'inset 2px 2px 3px rgba(255,255,255,0.8), inset -2px -2px 5px rgba(0,0,0,0.7)',
   },
+  shade: {
+    boxShadow: ' inset -5px -5px 15px rgba(0,0,0,0.9)',
+  },
   standard: { boxShadow: '2px 2px 3px rgba(0,0,0,0.2)' },
   circleIcon: {
     borderRadius: '50%',

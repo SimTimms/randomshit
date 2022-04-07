@@ -27,6 +27,7 @@ export default function PaintRackApp({
     { name: 'purple', color: '#8869ae' },
     { name: 'grey', color: '#ffffff' },
     { name: 'metallic', color: '#a2a5a7' },
+    { name: 'shade', color: '#444' },
   ];
   if (!colorGroup) {
     return (
@@ -47,6 +48,7 @@ export default function PaintRackApp({
             className={clsx({
               [classes.paintCircle]: true,
               [classes.metallic]: item.name === 'metallic',
+              [classes.shade]: item.name === 'shade',
             })}
             style={{
               backgroundColor: item.color,

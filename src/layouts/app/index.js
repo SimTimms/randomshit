@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import AppDashboard from './views/appDashboard';
 import HomePage from './views/homePage';
+import UploadPage from './views/uploadPage';
 import AppHelp from './views/appHelp';
 import AppProfileEdit from './views/appProfileEdit';
 import { Account } from './views/account';
@@ -25,6 +26,7 @@ import { MainWrapper, ContentScroll } from '../../components';
 import GameProfileFull from '../../widgets/games/profileCard/gameProfileFull';
 import { PAGES } from '../../const';
 import Stats from './stats';
+import MiniGalleryPage from './views/miniGalleryPage';
 
 export default function AppLayout(props) {
   const { history } = props;
@@ -70,7 +72,6 @@ export default function AppLayout(props) {
       jumpPage: pageJump ? pageJump : null,
     });
   }, [pageJump, pathParam, history]);
-
   return (
     <ParamsContext.Provider
       value={{
@@ -116,6 +117,10 @@ export default function AppLayout(props) {
                             profile={profile}
                             setProfile={setProfile}
                           />
+                        ) : menuContext.primaryPage === PAGES.gallery ? (
+                          <MiniGalleryPage />
+                        ) : menuContext.primaryPage === PAGES.upload ? (
+                          <UploadPage />
                         ) : menuContext.primaryPage === 'dashboard' &&
                           profile ? (
                           <AppDashboard
@@ -145,6 +150,8 @@ export default function AppLayout(props) {
                           />
                         ) : menuContext.primaryPage === PAGES.home ? (
                           <HomePage />
+                        ) : menuContext.primaryPage === PAGES.upload ? (
+                          <div>sadqw</div>
                         ) : menuContext.primaryPage === 'user-profile' ? (
                           <PreviewProfile
                             profileId={pathParam}

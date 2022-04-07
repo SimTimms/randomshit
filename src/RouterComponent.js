@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { ThemeProvider } from '@mui/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { withRouter } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
@@ -32,19 +32,7 @@ function RouterComponent(props) {
       gameId: null,
       userId: null,
     },
-    workPage: {
-      primaryPage: 'my_work',
-      secondaryPage: 'active_work',
-      jobId: null,
-      inviteId: null,
-      contractId: null,
-    },
-    jobPage: {
-      primaryPage: 'job_board',
-      secondaryPage: 'dashboard',
-      jobId: null,
-      contractId: null,
-    },
+    uploadPage: {},
   });
 
   return (
@@ -61,6 +49,7 @@ function RouterComponent(props) {
                 gameId: pageValues.homePage.gameId,
                 userId: pageValues.homePage.userId,
               },
+              uploadPage: {},
 
               updateMenuContext: setPageValues,
             }}

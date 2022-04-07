@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import Mesh from './Mesh';
+import MeshShade from './MeshShade';
 
 const mainParts = [
   'SM_leftShoulder_shell_Shoulder_shell_0',
@@ -95,7 +96,6 @@ export default function ModelScript({
                   decals={
                     markings && markings[item.name] ? markings[item.name] : null
                   }
-                  shading={shading}
                   video={
                     gltfIn ===
                     'https://random-shit-store.s3.amazonaws.com/614b73c98a97c40c65957b89/Box2/scene.gltf'
@@ -119,7 +119,45 @@ export default function ModelScript({
                 >
                   {node(nodeChildArr, nodes)}
                 </Mesh>
-
+                {shading && (
+                  <MeshShade
+                    armourColor={
+                      mainParts.indexOf(item.name) > -1 ? armourColor : null
+                    }
+                    sprayMode={sprayMode}
+                    activeColor={activeColor}
+                    geometry={item.geometry}
+                    scale={item.scale}
+                    materialIn={nodeArr[i].material}
+                    decals={
+                      markings && markings[item.name]
+                        ? markings[item.name]
+                        : null
+                    }
+                    video={
+                      gltfIn ===
+                      'https://random-shit-store.s3.amazonaws.com/614b73c98a97c40c65957b89/Box2/scene.gltf'
+                        ? '/Exodite.mp4'
+                        : gltfIn ===
+                          'https://random-shit-store.s3.eu-west-2.amazonaws.com/614b73c98a97c40c65957b89/Box3/scene.gltf'
+                        ? '/corvus.mp4'
+                        : null
+                    }
+                    name={item.name}
+                    position={[
+                      rNbr(item.position.x),
+                      rNbr(item.position.y),
+                      rNbr(item.position.z),
+                    ]}
+                    rotation={[
+                      rDeg(item.rotation.x),
+                      rDeg(item.rotation.y),
+                      rDeg(item.rotation.z),
+                    ]}
+                  >
+                    {node(nodeChildArr, nodes)}
+                  </MeshShade>
+                )}
                 {/*
                 <lineSegments
                   geometry={edges}

@@ -7,6 +7,7 @@ import {
   PrimaryMenuWrapper,
   MenuButtonShortcut,
   MenuButtonSecondary,
+  Button,
 } from '../';
 import clsx from 'clsx';
 import { randomKey } from '../../utils';
@@ -29,15 +30,15 @@ export default function TabPage({
         {primaryMenu &&
           primaryMenu.map((menuItem) => {
             return (
-              <MenuButtonShortcut
-                text={{
+              <Button
+                menuItem={{
                   name: menuItem.name,
                   color: 'light',
-                  icon: menuItem.icon,
                   count: menuItem.count,
                 }}
+                fw={false}
                 onClickEvent={menuItem.link}
-                active={activePrimary === menuItem.machineName ? true : false}
+                isActive={activePrimary === menuItem.machineName ? true : false}
                 column={true}
                 disabled={menuItem.disabled}
                 key={randomKey()}

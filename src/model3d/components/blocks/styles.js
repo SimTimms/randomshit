@@ -15,7 +15,7 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     background: theme.palette.primary.dark,
     borderBottom: `1px solid rgba(255,255,255,0.1)`,
     zIndex: 1,

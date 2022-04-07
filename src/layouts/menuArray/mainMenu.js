@@ -3,8 +3,8 @@ import { PAGES } from '../../const';
 export default function mainMenu(history, counts, mainMenuContext, profile) {
   return [
     {
-      name: 'Home',
-      icon: 'home',
+      name: 'Paint',
+      icon: 'brush',
       machineName: PAGES.home,
       link: () =>
         mainMenuContext.updateMenuContext({
@@ -14,6 +14,32 @@ export default function mainMenu(history, counts, mainMenuContext, profile) {
             secondaryPage: PAGES.pickModelsSecondary,
           },
         }),
+      count: null,
+    },
+    {
+      name: 'Upload',
+      icon: 'upload',
+      machineName: PAGES.upload,
+      link: () =>
+        mainMenuContext.updateMenuContext({
+          primaryPage: PAGES.upload,
+          homePage: {},
+          uploadPage: {
+            primaryPage: PAGES.upload,
+          },
+        }),
+      count: null,
+    },
+    {
+      name: 'Gallery',
+      icon: 'photos',
+      machineName: PAGES.gallery,
+      link: () =>
+        mainMenuContext.updateMenuContext({
+          primaryPage: PAGES.gallery,
+          homePage: {},
+        }),
+
       count: null,
     },
     {

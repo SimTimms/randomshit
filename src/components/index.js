@@ -2,6 +2,7 @@ import React from 'react';
 import LoadIcon from './loaderIcon';
 import Content from './content';
 import ContentTop from './contentTop';
+import Button from './button';
 import ImagePos from './imagePos';
 import ActionButton from './buttons';
 import Speculative from './buttons/speculative';
@@ -161,6 +162,7 @@ export {
   GalleryCard,
   Column,
   Row,
+  Button,
   MenuButtonSecondary,
   TaskMiniComponent,
   PaymentSchedule,

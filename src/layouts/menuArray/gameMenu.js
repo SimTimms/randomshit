@@ -17,37 +17,5 @@ export default function gameMenu(menu) {
         }),
       count: null,
     },
-    {
-      name: 'My Models',
-      icon: 'dynamic_feed',
-      machineName: PAGES.myModels,
-      link: () =>
-        menu.updateMenuContext({
-          primaryPage: PAGES.home,
-          homePage: {
-            ...menu.homePage,
-            secondaryPage: PAGES.myModels,
-            gameId: null,
-          },
-        }),
-      count: null,
-    },
-    {
-      name: 'Upload Model',
-      icon: 'add_circle',
-      machineName: PAGES.createModel,
-      link: () =>
-        menu.updateMenuContext({
-          primaryPage: 'home',
-          jobPage: { ...menu.jobPage },
-          workPage: { ...menu.workPage },
-          homePage: {
-            ...menu.homePage,
-            secondaryPage: PAGES.createModel,
-            gameId: 'new',
-          },
-        }),
-      count: null,
-    },
   ];
 }

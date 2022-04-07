@@ -8,32 +8,34 @@ import {
   InputLabel,
 } from '../../components';
 
+import Section from './Section';
 export default function GameFields({ game, setGame }) {
   return (
     <Column a="center" j="center">
-      <InputLabel
-        title="Feature Image"
-        icon={null}
-        value={null}
-        maxLength={null}
-        info={'Include an image with this post.....if you want.'}
-        warning={''}
-      />
-      <Uploader
-        cbImage={(url) => {
-          setGame({
-            ...game,
-            featureImage: url,
-          });
-        }}
-        styleOverride={null}
-        className={null}
-        cbDelete={null}
-        hasFile={false}
-        size="2MB PNG JPG GIF"
-        imageCategory="game"
-      />
-
+      <Section title="Image">
+        <InputLabel
+          title="Feature Image"
+          icon={null}
+          value={null}
+          maxLength={null}
+          info={'Include an image with this post.....if you want.'}
+          warning={''}
+        />
+        <Uploader
+          cbImage={(url) => {
+            setGame({
+              ...game,
+              featureImage: url,
+            });
+          }}
+          styleOverride={null}
+          className={null}
+          cbDelete={null}
+          hasFile={false}
+          size="2MB PNG JPG GIF"
+          imageCategory="game"
+        />
+      </Section>
       <InputLabel
         title=".gltf File"
         icon={null}

@@ -17,15 +17,15 @@ export default function homeMenu(menu) {
       count: null,
     },
     {
-      name: 'Gallery',
+      name: 'History',
       icon: 'save',
-      machineName: 'gallery',
+      machineName: PAGES.myModelGallery,
       link: () =>
         menu.updateMenuContext({
           ...menu,
           homePage: {
-            primaryPage: 'gallery',
-            secondaryPage: 'browse_gallery',
+            ...menu.homePage,
+            primaryPage: PAGES.myModelGallery,
           },
         }),
       count: null,

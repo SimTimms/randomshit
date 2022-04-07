@@ -51,23 +51,6 @@ export default function workMenu(counts, menu, onClickEvent) {
       count: counts.quotes,
     },
 
-    {
-      name: 'History',
-      icon: 'history',
-      machineName: 'history',
-
-      link: () =>
-        menu.updateMenuContext({
-          ...menu,
-          workPage: {
-            ...menu.workPage,
-            primaryPage: 'history',
-            secondaryPage: 'quote_list',
-            jobId: null,
-          },
-        }),
-      count: counts.history,
-    },
     menu.workPage.jobId
       ? {
           name: 'Dashboard',

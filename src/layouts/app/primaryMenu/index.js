@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from './button';
 import { useStyles } from './styles';
 import mp3d from '../../../assets/branding/mp3d.png';
 import {
@@ -11,6 +10,7 @@ import {
 import clsx from 'clsx';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { randomKey } from '../../../utils';
+import { Button } from '../../../components';
 
 export default function PrimaryMenu({ mainMenu, publicPage }) {
   const classes = useStyles();

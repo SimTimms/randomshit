@@ -4,7 +4,7 @@ import { Icon, Typography } from '@mui/material';
 import clsx from 'clsx';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-export default function Button({ menuItem, isActive }) {
+export default function Button({ menuItem, isActive, onClickEvent, fw }) {
   const { name, icon, link, image, count } = menuItem;
   const classes = useStyles();
   const mobile = useMediaQuery('(max-width:600px)');
@@ -13,10 +13,11 @@ export default function Button({ menuItem, isActive }) {
       className={clsx({
         [classes.row]: true,
         [classes.cursor]: true,
-
         [classes.column]: mobile,
+        [classes.fullWidth]: fw,
+        [classes.buttonActive]: isActive,
       })}
-      onClick={() => link()}
+      onClick={() => (onClickEvent ? onClickEvent() : link())}
     >
       {image ? (
         <img
@@ -24,7 +25,7 @@ export default function Button({ menuItem, isActive }) {
           src={image}
           alt=""
         />
-      ) : (
+      ) : icon ? (
         <Icon
           className={clsx({
             [classes.icon]: true,
@@ -33,8 +34,14 @@ export default function Button({ menuItem, isActive }) {
         >
           {icon}
         </Icon>
-      )}
-      <Typography className={classes.title} variant="h5">
+      ) : null}
+      <Typography
+        className={clsx({
+          [classes.title]: true,
+          [classes.titleActive]: isActive,
+        })}
+        variant="body1"
+      >
         {name}
       </Typography>
       {count && count.count > 0 && (

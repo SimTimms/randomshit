@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import * as THREE from 'three';
-import { ColorContext } from '../context';
-import { Html } from '@react-three/drei';
+
 export default function Mesh({
   geometry,
   name,
@@ -18,7 +17,9 @@ export default function Mesh({
   shading,
 }) {
   const [material, setMaterial] = React.useState(null);
+  const [shadeMaterial, setShadeMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#aaa');
+  const [shadeColor, setShadeColor] = React.useState(null);
   const [decalItem, setDecalItem] = React.useState(null);
   const [paintMode, setPaintMode] = React.useState(0);
   const metals = [
@@ -46,6 +47,7 @@ export default function Mesh({
     '#d0875b',
     '#695844',
   ];
+
   useEffect(() => {
     let savedColors = localStorage.getItem('modelColorSave');
     if (
@@ -79,6 +81,30 @@ export default function Mesh({
         transparent: true,
       });
       setMaterial(materialNew);
+    }
+    if (!shadeMaterial && shading) {
+      var texLoader = new THREE.TextureLoader();
+      try {
+        let nameReplace = materialIn.map.image.src.replace(
+          `https://random-shit-store.s3.amazonaws.com/614b73c98a97c40c65957b89/Primaris/`,
+          ''
+        );
+        nameReplace = nameReplace.replace('.png', '');
+
+        const texLoaded = texLoader.load(
+          `https://random-shit-store.s3.eu-west-2.amazonaws.com/614b73c98a97c40c65957b89/Primaris/${nameReplace}%20Shade.png`
+        );
+
+        const materialNew = new THREE.MeshStandardMaterial({
+          ...materialIn,
+          map: texLoaded ? texLoaded : null,
+          transparent: true,
+        });
+
+        setShadeMaterial(materialNew);
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     if (!decalItem || video || (decalItem && decalItem !== decals)) {
@@ -175,29 +201,30 @@ export default function Mesh({
         onPointerDown={(e) => paintMode !== 1 && setPaintMode(1)}
         onPointerUp={(e) => {
           if (paintMode === 1) {
-            e.stopPropagation();
-            let savedColors = localStorage.getItem('modelColorSave');
-            if (savedColors === 'null' || savedColors === null) {
-              savedColors = {};
-            } else {
-              savedColors = JSON.parse(savedColors);
-            }
+            if (activeColor.type !== 'Shade') {
+              e.stopPropagation();
+              let savedColors = localStorage.getItem('modelColorSave');
+              if (savedColors === 'null' || savedColors === null) {
+                savedColors = {};
+              } else {
+                savedColors = JSON.parse(savedColors);
+              }
 
-            if (activeColor) {
-              savedColors[name] = {
-                color: activeColor.color,
-                name: activeColor.name,
-              };
-              localStorage.setItem(
-                'modelColorSave',
-                JSON.stringify(savedColors)
-              );
-
-              setMeshColor(activeColor.color);
+              if (activeColor) {
+                savedColors[name] = {
+                  color: activeColor.color,
+                  name: activeColor.name,
+                };
+                localStorage.setItem(
+                  'modelColorSave',
+                  JSON.stringify(savedColors)
+                );
+                setMeshColor(activeColor.color);
+              }
             }
           }
         }}
-        onPointerMove={(e) => paintMode !== 0 && setPaintMode(0)}
+        onPointerMove={(e) => paintMode !== 0 && !shading && setPaintMode(0)}
         geometry={geometry}
         material={material}
         material-color={armourColor ? armourColor : meshColor}
