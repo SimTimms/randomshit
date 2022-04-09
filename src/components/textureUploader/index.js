@@ -1,87 +1,83 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import axios from 'axios';
 import { useStyles } from './styles';
 import { Typography, Button, Icon } from '@mui/material';
 import Cookies from 'js-cookie';
 import { REACT_APP_API_S3 } from '../../envVars';
-
-function Uploader({
+function TextureUploader({
   cbImage,
   styleOverride,
   className,
   cbDelete,
   hasFile,
   size,
+  modelFolder,
+  fileTypes,
   ...props
 }) {
   const classes = useStyles();
   const [statusMessage, setStatusMessage] = React.useState('');
-
+  const textureArr = useRef([]);
   let uploadInput = null;
-
   async function handleUpload(ev) {
     // Split the filename to get the name and type
+
     if (!uploadInput.files[0]) {
       return null;
     }
-    let file = uploadInput.files[0];
-    let fileParts = uploadInput.files[0].name.split('.');
-    let fileName = `${fileParts[0]}${Date.now()}`
-      .replace(/[^a-z0-9]/gi, '_')
-      .toLowerCase();
-    let fileType = fileParts[fileParts.length - 1];
-    let fileSize = uploadInput.files[0].size;
 
-    const headers = {
-      'Content-Type': 'image/jpeg',
-    };
+    const fileLength = uploadInput.files.length;
 
-    const uploadURL = `${REACT_APP_API_S3}/sign_s3`;
-    const token = Cookies.get('token');
-    let config = {
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-    };
-    setStatusMessage('Loading...');
+    for (let i = 0; i < fileLength; i++) {
+      const file = uploadInput.files[i];
+      let fileParts = file.name.split('.');
+      let fileName = fileParts[0];
+      let fileType = fileParts[fileParts.length - 1];
+      let fileSize = file.size;
 
-    await axios
-      .post(uploadURL, {
-        ...config,
-        fileName: fileName,
-        fileType: fileType,
-        fileSize,
-        category: 'profileBG',
-      })
-      .then((response) => {
-        setStatusMessage('Sending...');
-        if (response.data.data) {
-          setStatusMessage('Uploading...');
-          const returnData = response.data.data.returnData;
-          const signedRequest = returnData.signedRequest;
-          const url = returnData.url;
+      const headers = {
+        'Content-Type': 'image/jpeg',
+      };
 
-          const options = {
-            headers: headers,
-          };
+      const uploadURL = `${REACT_APP_API_S3}/sign_s3`;
+      const token = Cookies.get('token');
+      let config = {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      };
 
-          axios
-            .put(signedRequest, file, options)
-            .then((result) => {
-              setStatusMessage('');
-              cbImage(url);
-            })
-            .catch((error) => {
-              setStatusMessage(error);
-              console.log(error);
-            });
-        } else {
-          setStatusMessage(response.data.error);
-        }
-      })
-      .catch((error) => {
-        setStatusMessage('Error');
-      });
+      await axios
+        .post(uploadURL, {
+          ...config,
+          fileName: `${modelFolder}/${fileName}`,
+          fileType: fileType,
+          fileSize,
+          category: 'profileBG',
+        })
+        .then(async (response) => {
+          if (response.data.data) {
+            const returnData = response.data.data.returnData;
+            const signedRequest = returnData.signedRequest;
+            const url = returnData.url;
+
+            const options = {
+              headers: headers,
+            };
+
+            await axios
+              .put(signedRequest, file, options)
+              .then((result) => {
+                textureArr.current = [...textureArr.current, url];
+                console.log(result);
+              })
+              .catch((error) => {});
+          } else {
+          }
+        })
+        .catch((error) => {});
+    }
+    cbImage(textureArr.current);
   }
 
   return (
@@ -144,10 +140,11 @@ function Uploader({
         }}
         style={{ display: 'none' }}
         onChange={handleUpload}
-        accept="image/png, image/jpeg"
+        accept=".png, .jpg"
+        multiple
       />
     </label>
   );
 }
 
-export default Uploader;
+export default TextureUploader;

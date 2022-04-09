@@ -1,8 +1,9 @@
 import React from 'react';
 import { useStyles } from './styles';
 import { Typography } from '@mui/material';
+import clsx from 'clsx';
 
-export default function Section({ title, children }) {
+export default function Section({ title, children, locked }) {
   const classes = useStyles();
 
   return (
@@ -10,7 +11,13 @@ export default function Section({ title, children }) {
       <div className={classes.header}>
         <Typography variant="h5">{title}</Typography>
       </div>
-      {children}
+      {!locked ? (
+        children
+      ) : (
+        <div className={classes.locked}>
+          <Typography variant="body2">Locked</Typography>
+        </div>
+      )}
     </div>
   );
 }

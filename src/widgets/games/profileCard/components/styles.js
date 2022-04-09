@@ -9,14 +9,15 @@ export const useStyles = makeStyles((theme) => ({
     position: 'relative',
     cursor: 'pointer',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
-  noBG: { minHeight: 0, maxHeight: 0, height: 0 },
+  noBG: { minHeight: 80, maxHeight: 0, height: 0 },
   locked: { opacity: 1 },
   register: {
-    background: theme.palette.primary.main,
+    background: theme.palette.secondary.main,
     color: '#fff',
     padding: 5,
+    boxShadow: '5px 5px 10px rgba(0,0,0,0.2)',
   },
 }));

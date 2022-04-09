@@ -3,7 +3,13 @@ import { useStyles } from './styles';
 import clsx from 'clsx';
 import { Typography } from '@mui/material';
 
-export default function BgImg({ previewImage, onClick, locked, history }) {
+export default function BgImg({
+  previewImage,
+  onClick,
+  locked,
+  history,
+  approved,
+}) {
   const classes = useStyles();
 
   return (
@@ -25,6 +31,14 @@ export default function BgImg({ previewImage, onClick, locked, history }) {
           className={classes.register}
         >
           Register to Unlock
+        </Typography>
+      )}
+      {!approved && (
+        <Typography
+          onClick={() => history.push('/')}
+          className={classes.register}
+        >
+          Your Model
         </Typography>
       )}
     </div>

@@ -8,6 +8,7 @@ export default function mainMenu(history, counts, mainMenuContext, profile) {
       machineName: PAGES.home,
       link: () =>
         mainMenuContext.updateMenuContext({
+          ...mainMenuContext,
           primaryPage: PAGES.home,
           homePage: {
             primaryPage: PAGES.pickModelsPrimary,
@@ -22,6 +23,7 @@ export default function mainMenu(history, counts, mainMenuContext, profile) {
       machineName: PAGES.upload,
       link: () =>
         mainMenuContext.updateMenuContext({
+          ...mainMenuContext,
           primaryPage: PAGES.upload,
           homePage: {},
           uploadPage: {
@@ -38,6 +40,7 @@ export default function mainMenu(history, counts, mainMenuContext, profile) {
         mainMenuContext.updateMenuContext({
           primaryPage: PAGES.gallery,
           homePage: {},
+          uploadPage: {},
         }),
 
       count: null,

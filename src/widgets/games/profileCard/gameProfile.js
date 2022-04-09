@@ -1,17 +1,8 @@
 import React from 'react';
-import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 import clsx from 'clsx';
 import { BgImg } from './components';
-import {
-  Row,
-  Column,
-  MenuButtonStandard,
-  DividerMini,
-  DividerWithBorder,
-  HrefLink,
-} from '../../../components';
-import OnlineStores from './onlineStore';
+import { Column } from '../../../components';
 import { MenuContext } from '../../../context';
 
 export default function GameProfile({ game }) {
@@ -40,7 +31,10 @@ export default function GameProfile({ game }) {
           >
             <Column j="flex-start">
               <Column>
-                <BgImg previewImage={game.featureImage} />
+                <BgImg
+                  previewImage={game.featureImage}
+                  approved={game.approved}
+                />
               </Column>
             </Column>
           </Column>

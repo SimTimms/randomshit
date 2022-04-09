@@ -12,13 +12,13 @@ function ModelUploader({
   hasFile,
   size,
   modelFolder,
+  fileTypes,
   ...props
 }) {
   const classes = useStyles();
   const [statusMessage, setStatusMessage] = React.useState('');
 
   let uploadInput = null;
-
   async function handleUpload(ev) {
     // Split the filename to get the name and type
     if (!uploadInput.files[0]) {
@@ -143,6 +143,7 @@ function ModelUploader({
         }}
         style={{ display: 'none' }}
         onChange={handleUpload}
+        accept={fileTypes}
       />
     </label>
   );

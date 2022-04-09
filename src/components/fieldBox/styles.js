@@ -13,6 +13,8 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     width: '100%',
     borderRadius: 5,
+    marginTop: 5,
+    fontFamily: 'Arial',
     background: '#f1f1f1',
   },
   one: {
@@ -32,9 +34,9 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   inputLabel: {
-    fontSize: '0.8rem',
-    marginTop: 5,
-    fontWeight: 'bold',
+    fontSize: '0.8rem !important',
+    marginTop: '15px !important',
+    color: theme.palette.primary.main,
   },
   inputLabelRed: { color: theme.palette.error.main },
   small: {

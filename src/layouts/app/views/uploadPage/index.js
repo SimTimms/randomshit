@@ -3,8 +3,12 @@ import { TabPage } from '../../../../components';
 import { uploadMenu } from '../../../menuArray';
 import { MenuContext, ProfileContext } from '../../../../context';
 import { PAGES } from '../../../../const';
+import { GameForm } from '../../../../widgets/games';
+import MyModels from '../../../../widgets/games/myModels';
 
 export default function UploadPage() {
+  const [game, setGame] = React.useState(null);
+
   return (
     <ProfileContext.Consumer>
       {(profile) => {
@@ -14,6 +18,7 @@ export default function UploadPage() {
         return (
           <MenuContext.Consumer>
             {(menu) => {
+              console.log(menu);
               return (
                 <TabPage
                   title={null}
@@ -23,7 +28,12 @@ export default function UploadPage() {
                   activePrimary={menu.uploadPage.primaryPage}
                   activeSecondary={menu.uploadPage.secondaryPage}
                 >
-                  <div>as</div>
+                  {menu.uploadPage.primaryPage === PAGES.myUploadModels && (
+                    <MyModels />
+                  )}
+                  {menu.uploadPage.primaryPage === PAGES.upload && (
+                    <GameForm gameData={game} setGameData={setGame} />
+                  )}
                 </TabPage>
               );
             }}

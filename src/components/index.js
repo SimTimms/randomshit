@@ -32,6 +32,7 @@ import ErrorBox from './pageElements';
 import { SelectTagsWidget, TagsWidget } from './tags';
 import Uploader from './uploader';
 import ModelUploader from './modelUploader';
+import TextureUploader from './textureUploader';
 import CardActionArea from './wrappers';
 import NoticeBoard from './noticeBoard';
 import NoticeBoardSecondary from './noticeBoardSecondary';
@@ -253,6 +254,7 @@ export {
   SelectTagsWidget,
   TagsWidget,
   Uploader,
+  TextureUploader,
   CardActionArea,
   Footer,
   CreateQuoteButton,

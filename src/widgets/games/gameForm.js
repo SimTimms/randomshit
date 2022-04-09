@@ -5,14 +5,13 @@ import {
   Column,
   DividerMini,
   Divider,
+  Row,
 } from '../../components';
 import { Mutation, Query } from '@apollo/client/react/components';
 import { CREATE_GAME, UPDATE_GAME, REMOVE_GAME, GAME_BY_ID } from './data';
 import { toaster } from '../../utils/toaster';
 import { MenuContext } from '../../context';
-import GamePartParent from './gamePartParent';
 import GameFields from './gameFields';
-import GamePostParent from './gamePostParent';
 import { PAGES } from '../../const';
 
 export default function GameForm() {
@@ -25,7 +24,7 @@ export default function GameForm() {
     gamePart: [],
     url: '',
     showreel: '',
-    js: '',
+    js: Math.floor(Math.random() * 10000000000).toString(),
     gltf: '',
     bin: '',
     artistName: '',
@@ -33,6 +32,7 @@ export default function GameForm() {
     licenseLink: '',
     copyrightDescription: '',
     whereToBuyLink: '',
+    textures: [],
   });
 
   return (
@@ -43,84 +43,31 @@ export default function GameForm() {
             style={{
               padding: 10,
               paddingBottom: 100,
-              maxWidth: 400,
+              maxWidth: 800,
               margin: 'auto',
             }}
           >
-            <Column a="center" j="center">
-              <GameFields game={game} setGame={setGame} />
+            <Row>
+              <Column a="center" j="center">
+                <GameFields game={game} setGame={setGame} />
+                {/*
               <Divider />
               <GamePartParent game={game} setGame={setGame} />
               <Divider />
               <GamePostParent game={game} setGame={setGame} />
-              <Divider />
+            
+          */}
 
-              {game._id === 'new' ? (
-                <Mutation
-                  mutation={CREATE_GAME}
-                  variables={{
-                    ...game,
-                    _id: null,
-                  }}
-                  onCompleted={() => {
-                    toaster('Saved');
-                    menu.updateMenuContext({
-                      ...menu,
-                      homePage: {
-                        ...menu.homePage,
-                        primaryPage: PAGES.pickModelsPrimary,
-                        secondaryPage: PAGES.myModels,
-                        gameId: null,
-                      },
-                    });
-                  }}
-                >
-                  {(mutation) => {
-                    return (
-                      <MenuButtonStandard
-                        title="Create"
-                        icon="add"
-                        disabled={game.name.length < 1}
-                        onClickEvent={() => {
-                          mutation();
-                        }}
-                      />
-                    );
-                  }}
-                </Mutation>
-              ) : (
-                <Column w={180}>
+                <Divider />
+                {game._id === 'new' ? (
                   <Mutation
-                    mutation={UPDATE_GAME}
+                    mutation={CREATE_GAME}
                     variables={{
                       ...game,
-                    }}
-                    onCompleted={(data) => {
-                      toaster('Saved');
-                    }}
-                  >
-                    {(updateMutation) => {
-                      return (
-                        <MenuButtonStandard
-                          title="Update"
-                          icon="update"
-                          fullWidth={true}
-                          disabled={false}
-                          onClickEvent={() => {
-                            updateMutation();
-                          }}
-                        />
-                      );
-                    }}
-                  </Mutation>
-                  <DividerMini />
-                  <Mutation
-                    mutation={REMOVE_GAME}
-                    variables={{
-                      _id: game._id,
+                      _id: null,
                     }}
                     onCompleted={() => {
-                      toaster('Removed');
+                      toaster('Saved');
                       menu.updateMenuContext({
                         ...menu,
                         homePage: {
@@ -132,30 +79,97 @@ export default function GameForm() {
                       });
                     }}
                   >
-                    {(deleteMutation) => {
+                    {(mutation) => {
                       return (
                         <MenuButtonStandard
-                          title="Delete Game"
-                          type="delete"
-                          icon="delete"
-                          fullWidth={true}
+                          title="Create"
+                          icon="add"
+                          disabled={
+                            game.name.length < 5 ||
+                            game.gltf.length < 1 ||
+                            game.bin.length < 1
+                          }
                           onClickEvent={() => {
-                            deleteMutation();
+                            mutation();
                           }}
                         />
                       );
                     }}
                   </Mutation>
-                  <Divider />
-                </Column>
-              )}
-            </Column>
+                ) : (
+                  <Column w={180}>
+                    <Mutation
+                      mutation={UPDATE_GAME}
+                      variables={{
+                        ...game,
+                      }}
+                      onCompleted={(data) => {
+                        toaster('Saved');
+                      }}
+                    >
+                      {(updateMutation) => {
+                        return (
+                          <MenuButtonStandard
+                            title="Update"
+                            icon="update"
+                            fullWidth={true}
+                            disabled={
+                              game.name.length < 5 ||
+                              game.gltf.length < 1 ||
+                              game.bin.length < 1
+                            }
+                            onClickEvent={() => {
+                              updateMutation();
+                            }}
+                          />
+                        );
+                      }}
+                    </Mutation>
+                    <DividerMini />
+                    <Mutation
+                      mutation={REMOVE_GAME}
+                      variables={{
+                        _id: game._id,
+                      }}
+                      onCompleted={() => {
+                        toaster('Removed');
+                        menu.updateMenuContext({
+                          ...menu,
+                          homePage: {
+                            ...menu.homePage,
+                            primaryPage: PAGES.pickModelsPrimary,
+                            secondaryPage: PAGES.myModels,
+                            gameId: null,
+                          },
+                        });
+                      }}
+                    >
+                      {(deleteMutation) => {
+                        return (
+                          <MenuButtonStandard
+                            title="Delete Model"
+                            type="delete"
+                            icon="delete"
+                            fullWidth={true}
+                            onClickEvent={() => {
+                              deleteMutation();
+                            }}
+                          />
+                        );
+                      }}
+                    </Mutation>
+                    <Divider />
+                  </Column>
+                )}
+              </Column>
+            </Row>
           </div>
-          {menu.homePage.gameId !== 'new' && game._id === 'new' && (
+
+          {menu.uploadPage.gameId !== 'new' && (
             <Query
               query={GAME_BY_ID}
               fetchPolicy="network-only"
-              variables={{ _id: menu.homePage.gameId }}
+              variables={{ _id: menu.uploadPage.gameId }}
               onCompleted={(data) =>
                 data.gameById !== null && setGame({ ...data.gameById })
               }

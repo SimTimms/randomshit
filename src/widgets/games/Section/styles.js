@@ -4,5 +4,13 @@ export const useStyles = makeStyles((theme) => ({
   wrapper: {
     width: '100%',
   },
-  header: { backgroundColor: theme.palette.primary.main },
+  header: { color: theme.palette.primary.light },
+  locked: {
+    background: '#ddd',
+    width: '100%',
+    padding: 10,
+    boxSizing: 'border-box',
+    textAlign: 'center',
+    marginTop: 10,
+  },
 }));

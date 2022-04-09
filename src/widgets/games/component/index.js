@@ -9,10 +9,11 @@ import {
 } from '../../../components';
 import { MenuContext } from '../../../context';
 import { PAGES } from '../../../const';
+import clsx from 'clsx';
 
 export default function GameComponent({ game }) {
   const classes = useStyles();
-  const pending = game.name !== '' && game.summary && game.featuredImage;
+  const pending = game.approved;
 
   return (
     <MenuContext.Consumer>
@@ -24,7 +25,8 @@ export default function GameComponent({ game }) {
                 <Row a="center" j="flex-start">
                   <div
                     style={{
-                      backgroundImage: `url(${game.featuredImage})`,
+                      backgroundImage: `url(${game.featureImage})`,
+                      backgroundPosition: 'center center',
                     }}
                     className={classes.profileThumb}
                   ></div>
@@ -33,7 +35,12 @@ export default function GameComponent({ game }) {
                     <Typography style={{ fontSize: '0.7rem' }}>
                       {game._id}
                     </Typography>
-                    <Typography className={classes.dull}>
+                    <Typography
+                      className={clsx({
+                        [classes.dull]: true,
+                        [classes.live]: pending,
+                      })}
+                    >
                       {pending ? 'Live' : 'Draft'}
                     </Typography>
                   </Column>
@@ -43,10 +50,10 @@ export default function GameComponent({ game }) {
                   onClickEvent={() =>
                     menu.updateMenuContext({
                       ...menu,
-                      homePage: {
-                        ...menu.homePage,
+                      uploadPage: {
+                        ...menu.uploadPage,
                         gameId: game._id,
-                        secondaryPage: PAGES.createModel,
+                        primaryPage: PAGES.upload,
                       },
                     })
                   }

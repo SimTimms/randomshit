@@ -22,20 +22,6 @@ export const ParamsContext = React.createContext({
 export const MenuContext = React.createContext({
   primaryPage: null,
   publicPage: null,
-  jobPage: {
-    primaryPage: null,
-    secondaryPage: null,
-    jobId: null,
-    inviteId: null,
-    contractId: null,
-  },
-  workPage: {
-    primaryPage: null,
-    secondaryPage: null,
-    jobId: null,
-    inviteId: null,
-    contractId: null,
-  },
   homePage: {
     primaryPage: null,
     secondaryPage: null,
@@ -51,6 +37,7 @@ export const MenuContext = React.createContext({
     myPostId: null,
     gameId: null,
   },
+  uploadPage: { primaryPage: null, secondaryPage: null, gameId: null },
   updateMenuContext: { secondary: () => {}, primary: () => {} },
 });
 

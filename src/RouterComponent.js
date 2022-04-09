@@ -32,7 +32,11 @@ function RouterComponent(props) {
       gameId: null,
       userId: null,
     },
-    uploadPage: {},
+    uploadPage: {
+      primaryPage: null,
+      secondaryPage: null,
+      gameId: null,
+    },
   });
 
   return (
@@ -49,7 +53,11 @@ function RouterComponent(props) {
                 gameId: pageValues.homePage.gameId,
                 userId: pageValues.homePage.userId,
               },
-              uploadPage: {},
+              uploadPage: {
+                primaryPage: pageValues.uploadPage.primaryPage,
+                secondaryPage: pageValues.uploadPage.secondaryPage,
+                gameId: pageValues.uploadPage.gameId,
+              },
 
               updateMenuContext: setPageValues,
             }}

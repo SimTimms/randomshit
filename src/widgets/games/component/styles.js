@@ -32,7 +32,8 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: 10,
     zIndex: 2,
   },
-  dull: { color: theme.palette.primary.main },
+  dull: { color: '#ccc' },
+  live: { color: theme.palette.primary.main },
   red: { color: theme.palette.primary.main },
   green: { color: theme.palette.secondary.main },
   profileThumb: {

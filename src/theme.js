@@ -30,7 +30,12 @@ export default function themeDesigner() {
     fontSize: '1rem',
     margin: 0,
     fontFamily: 'Arial',
-    letterSpacing: '0.1rem',
+  };
+  theme.typography.body2 = {
+    fontSize: '0.8rem',
+    margin: 0,
+    fontFamily: 'Arial',
+    color: theme.palette.grey.light,
   };
   theme.typography.h1 = {
     ...theme.typography.h1,

@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexDirection: 'column',
   },
-  menuRoot: { width: '100%' },
+  menuRoot: { width: '100%', height: 'calc(100vh - 60px)' },
   image: {
     width: '100%',
     backgroundSize: 'cover',
