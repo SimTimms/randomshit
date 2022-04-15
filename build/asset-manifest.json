@@ -5,13 +5,13 @@
     "runtime-main.js": "/static/js/runtime-main.d8be0fd0.js",
     "runtime-main.js.map": "/static/js/runtime-main.d8be0fd0.js.map",
     "static/css/2.9afd9385.chunk.css": "/static/css/2.9afd9385.chunk.css",
-    "static/js/2.008059e1.chunk.js": "/static/js/2.008059e1.chunk.js",
-    "static/js/2.008059e1.chunk.js.map": "/static/js/2.008059e1.chunk.js.map",
+    "static/js/2.dad6a468.chunk.js": "/static/js/2.dad6a468.chunk.js",
+    "static/js/2.dad6a468.chunk.js.map": "/static/js/2.dad6a468.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.f66e805309360bf931ec40f035dc0002.js": "/precache-manifest.f66e805309360bf931ec40f035dc0002.js",
+    "precache-manifest.bf716e1ad2df30ab1176ab231392ff5b.js": "/precache-manifest.bf716e1ad2df30ab1176ab231392ff5b.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.9afd9385.chunk.css.map": "/static/css/2.9afd9385.chunk.css.map",
-    "static/js/2.008059e1.chunk.js.LICENSE.txt": "/static/js/2.008059e1.chunk.js.LICENSE.txt",
+    "static/js/2.dad6a468.chunk.js.LICENSE.txt": "/static/js/2.dad6a468.chunk.js.LICENSE.txt",
     "static/media/Squads.png": "/static/media/Squads.2cd7158b.png",
     "static/media/armour.jpg": "/static/media/armour.11e492ad.jpg",
     "static/media/dmDevice.png": "/static/media/dmDevice.aa66bfb6.png",
@@ -36,7 +36,7 @@
   "entrypoints": [
     "static/js/runtime-main.d8be0fd0.js",
     "static/css/2.9afd9385.chunk.css",
-    "static/js/2.008059e1.chunk.js",
+    "static/js/2.dad6a468.chunk.js",
     "static/js/main.9c121c6b.chunk.js"
   ]
 }
