@@ -64,7 +64,7 @@ function RouterComponent(props) {
             }}
           >
             {authToken && <AuthRoutes props={props} theme={theme} />}
-            {!authToken && <WidgetRoutes props={props} theme={theme} />}
+
             {!authToken && <PublicRoutes props={props} theme={theme} />}
           </MenuContext.Provider>
         </ApolloProvider>

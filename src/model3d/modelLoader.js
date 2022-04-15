@@ -123,13 +123,6 @@ export default function ModelLoader({
                 }}
                 onClickEvent={() => setPanels('lighting')}
               />
-              <Button
-                menuItem={{
-                  name: 'Export',
-                  color: 'light',
-                }}
-                onClickEvent={() => setPanels('lighting')}
-              />
               {/*   <MenuButtonStandard
                 title="Info"
                 icon="palette"
