@@ -1,4 +1,5 @@
-export const REACT_APP_API = 'http://localhost:4000/graphql';
+export const REACT_APP_API = 'https://minipainter3d-api.herokuapp.com/graphql';
+
 export const REACT_APP_DM_API = 'https://doodlemeeple-api.herokuapp.com';
 export const REACT_APP_API_S3 = 'https://minipainter3d-api.herokuapp.com';
 export const REACT_APP_COMPANY_PUBLIC_NAME = 'Mini Painter 3d';
