@@ -3,7 +3,8 @@
   "version": "0.1.1",
   "private": true,
   "engines": {
-    "node": "17.x"
+    "node": "17.x",
+    "npm": "6.x"
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",
@@ -54,7 +55,6 @@
   },
   "scripts": {
     "devstart": "react-scripts start",
-    "build": "react-scripts build",
     "start": "node server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
