@@ -27,7 +27,13 @@ const GAME_BY_ID = gql`
   }
 `;
 
-export default function ModelApp({ basic, modelId, ...props }) {
+export default function ModelApp({
+  basic,
+  modelId,
+  controls,
+  rotate,
+  ...props
+}) {
   const [modelOne, setModelOne] = React.useState(null);
   const [partnerId, setPartnerId] = React.useState(null);
 
@@ -48,6 +54,8 @@ export default function ModelApp({ basic, modelId, ...props }) {
             game={modelOne}
             login={true}
             history={props.history}
+            controls={controls}
+            rotate={rotate}
             modelArtist={{
               name: modelOne.artistName,
               link: modelOne.artistLink,

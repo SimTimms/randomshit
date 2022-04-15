@@ -36,6 +36,8 @@ export default function ModelLoader({
   lightSix,
   lightSeven,
   markings,
+  controls,
+  rotate,
 }) {
   const [shading, setShading] = React.useState(false);
   const canvas = useRef(null);
@@ -111,11 +113,13 @@ export default function ModelLoader({
                 />
               </group>
             </Suspense>
+
             <OrbitControls
               target={[0, 0, 0]}
               maxDistance={500}
-              autoRotate={false}
+              autoRotate={rotate === 'true'}
               autoRotateSpeed={5}
+              enabled={controls === 'true'}
             />
           </Canvas>
         </Row>

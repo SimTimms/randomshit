@@ -2,10 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Row, Column } from './components';
 import 'rc-slider/assets/index.css';
-import PaintRackApp from './PaintRackApp';
 import { ColorContext } from '../context';
 import ModelLoader from './modelLoader';
-import RecentColors from './recentColors';
 import { useStyles } from './styles';
 
 function ModelRouterApp({
@@ -19,6 +17,8 @@ function ModelRouterApp({
   history,
   profilePriority,
   modelArtist,
+  controls,
+  rotate,
 }) {
   const modelColorsRef = useRef({});
   const [panels, setPanels] = React.useState(null);
@@ -33,20 +33,13 @@ function ModelRouterApp({
   const [paintMode, setPaintMode] = React.useState(0);
   const [color, setColor] = React.useState(null);
   const [markings, setMarkings] = React.useState(null);
-  const [colorGroup, setColorGroup] = React.useState(null);
-  const [recentColors, setRecentColors] = React.useState([]);
-  const classes = useStyles();
 
   const [activeColor, setActiveColor] = React.useState({
     color: '#aaa',
     name: 'Plastic Grey',
   });
   const colorMap = {};
-  function setColorFunction(activeColorIn) {
-    setColorGroup(null);
-    setActiveColor(activeColorIn);
-    setPaintMode(1);
-  }
+
   useEffect(() => {
     !color && setColor(colorMap);
 
@@ -90,27 +83,10 @@ function ModelRouterApp({
             markings={markings}
             profilePriority={profilePriority}
             modelArtist={modelArtist ? modelArtist : null}
+            rotate={rotate}
+            controls={controls}
           />
         </Row>
-
-        <Column bg="#fff" h="88px">
-          <RecentColors
-            activeColor={activeColor}
-            setColorFunction={setColorFunction}
-            setHoverColor={null}
-            recentColors={recentColors}
-            setRecentColors={setRecentColors}
-          />
-          <PaintRackApp
-            setColorFunction={setColorFunction}
-            activeColor={activeColor}
-            colorGroup={colorGroup}
-            setColorGroup={setColorGroup}
-            recentColors={recentColors}
-            setRecentColors={setRecentColors}
-            profilePriority={profilePriority}
-          />
-        </Column>
       </Column>
     </ColorContext.Provider>
   );

@@ -16,13 +16,22 @@ function RouterComponent(props) {
     },
   });
   const [modelId, setModelId] = React.useState(null);
+  const [controls, setControls] = React.useState('blank');
+  const [rotate, setRotate] = React.useState('blank');
 
   useEffect(() => {
-    var modelIdTemp =
-      document.getElementById('modelId') &&
-      document.getElementById('modelId').getAttribute('modelId');
-    !modelId && setModelId(modelIdTemp);
-    console.log(modelIdTemp);
+    if (document.getElementById('modelId')) {
+      !modelId &&
+        setModelId(document.getElementById('modelId').getAttribute('modelId'));
+
+      controls === 'blank' &&
+        setControls(
+          document.getElementById('modelId').getAttribute('controls')
+        );
+
+      rotate === 'blank' &&
+        setRotate(document.getElementById('modelId').getAttribute('rotate'));
+    }
   }, [modelId]);
 
   return (
@@ -30,7 +39,13 @@ function RouterComponent(props) {
       <ThemeProvider theme={theme}>
         <ApolloProvider client={client}>
           {modelId ? (
-            <WidgetRoutes props={props} theme={theme} modelId={modelId} />
+            <WidgetRoutes
+              props={props}
+              theme={theme}
+              modelId={modelId}
+              controls={controls}
+              rotate={rotate}
+            />
           ) : (
             `Please add this to your site: <div id="modelId" modelId="6259ae1fb012e3b1d9746402"></div>`
           )}
