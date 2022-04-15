@@ -3,13 +3,9 @@ import { withRouter } from 'react-router-dom';
 import { Row, Column } from './components';
 import 'rc-slider/assets/index.css';
 import PaintRackApp from './PaintRackApp';
-import Lighting from './lighting';
-import Markings from './markings';
-import Details from './details';
 import { ColorContext } from '../context';
 import ModelLoader from './modelLoader';
 import RecentColors from './recentColors';
-import { Typography } from '@mui/material';
 import { useStyles } from './styles';
 
 function ModelRouterApp({
@@ -69,26 +65,6 @@ function ModelRouterApp({
       }}
     >
       <Column h="100%" bg="#222">
-        {(panels === 'lighting' ||
-          panels === 'details' ||
-          panels === 'markings') && (
-          <div
-            style={{
-              minHeight: 32,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              background: '#111',
-              width: '100%',
-              zIndex: 11,
-            }}
-            onClick={() => setPanels(null)}
-          >
-            <Typography style={{ color: '#fff' }}>Close</Typography>
-          </div>
-        )}
-
         <Row h="100%" w="100%" j="flex-start" a="flex-start">
           <ModelLoader
             activeColor={activeColor}
@@ -116,42 +92,8 @@ function ModelRouterApp({
             modelArtist={modelArtist ? modelArtist : null}
           />
         </Row>
-        {panels === 'details' && (
-          <div className={classes.panelWrapper}>
-            <Details game={game} />
-          </div>
-        )}
-        {panels === 'lighting' && (
-          <div className={classes.panelWrapper}>
-            <Lighting
-              setLightOne={setLightOne}
-              lightOne={lightOne}
-              setLightTwo={setLightTwo}
-              lightTwo={lightTwo}
-              setLightThree={setLightThree}
-              lightThree={lightThree}
-              setLightFour={setLightFour}
-              lightFour={lightFour}
-              setLightFive={setLightFive}
-              lightFive={lightFive}
-              setLightSix={setLightSix}
-              lightSix={lightSix}
-              setLightSeven={setLightSeven}
-              lightSeven={lightSeven}
-            />
-          </div>
-        )}
-        {panels === 'markings' && (
-          <div className={classes.panelWrapper}>
-            <Markings
-              setMarkings={setMarkings}
-              markings={markings}
-              setPanels={setPanels}
-            />
-          </div>
-        )}
 
-        <Column bg="#111" h="88px">
+        <Column bg="#fff" h="88px">
           <RecentColors
             activeColor={activeColor}
             setColorFunction={setColorFunction}
