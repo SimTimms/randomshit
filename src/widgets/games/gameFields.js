@@ -28,7 +28,7 @@ function Loader() {
         fontFamily: 'arial',
       }}
     >
-      {`Loading ${progress.toString().substring(0, 2)}%, it takes a while!`}
+      {`Loading ${progress.toString().substring(0, 2)}%, please wait!`}
     </Html>
   );
 }

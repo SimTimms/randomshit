@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles';
 export const useStyles = makeStyles((theme) => ({
   metallic: {
     boxShadow:
-      'inset 2px 2px 3px rgba(255,255,255,0.8), inset -2px -2px 5px rgba(0,0,0,0.7)',
+      'inset 2px 2px 5px rgba(255,255,255,0.8), inset 5px 5px 5px rgba(0,0,0,0.2), inset -3px -3px 7px rgba(0,0,0,0.3)',
   },
   shade: {
     boxShadow: ' inset -5px -5px 15px rgba(0,0,0,0.9)',
@@ -15,6 +15,12 @@ export const useStyles = makeStyles((theme) => ({
     opacity: 0.5,
     margin: 3,
     cursor: 'pointer',
+  },
+  patreon: {
+    width: 18,
+    borderRadius: '50%',
+    padding: 3,
+    backgroundColor: 'rgba(255,255,255,0.6)',
   },
   circleButton: {
     borderRadius: '50%',
@@ -57,7 +63,11 @@ export const useStyles = makeStyles((theme) => ({
     padding: 5,
     margin: 3,
     cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
+
   circleIconYellow: {
     background: theme.palette.error.main,
   },

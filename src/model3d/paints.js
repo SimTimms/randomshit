@@ -382,7 +382,8 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/en-GB/Shade-Nuln-Oil-2019',
     type: 'Shade',
-    patreon: true,
+    patreon: false,
+    shade: true,
   },
   'Casandora Yellow': {
     name: `Casandora Yellow`,
@@ -391,6 +392,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Shade-Casandora-Yellow-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Fuegan Orange': {
     name: `Fuegan Orange`,
@@ -399,6 +401,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Shade-Fuegan-Orange-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Carroburg Crimson': {
     name: `Carroburg Crimson`,
@@ -407,6 +410,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Shade-Carroburg-Crimson-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Druchii Violet': {
     name: `Druchii Violet`,
@@ -415,6 +419,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Shade-Druchii-Violet-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Drakenhof Nightshade': {
     name: `Drakenhof Nightshade`,
@@ -423,6 +428,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Shade-Drakenhof-Nightshade-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Coelia Greenshade': {
     name: `Coelia Greenshade`,
@@ -431,6 +437,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Shade-Coelia-Greenshade-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Biel-Tan Green': {
     name: `Biel-Tan Green`,
@@ -439,6 +446,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Shade-Biel-Tan-Green-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Athonian Camoshade': {
     name: `Athonian Camoshade`,
@@ -447,6 +455,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Shade-Athonian-Camoshade-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Seraphim Sepia': {
     name: `Seraphim Sepia`,
@@ -455,6 +464,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Shade-Seraphim-Sepia-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Agrax Earthshade': {
     name: `Agrax Earthshade`,
@@ -463,6 +473,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Shade-Agrax-Earthshade-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Reikland Fleshshade': {
     name: `Reikland Fleshshade`,
@@ -471,6 +482,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Shade-Reikland-Fleshshade-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Apothecary White': {
     name: `Apothecary White`,
@@ -479,6 +491,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Apothecary-White-2019',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   'Tesseract Glow': {
     name: `Tesseract Glow`,
@@ -487,6 +500,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Technical-Tesseract-Glow-2020',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
   None: {
     name: `None`,
@@ -495,6 +509,7 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/en-GB/Technical-Tesseract-Glow-2020',
     type: 'Shade',
     patreon: true,
+    shade: true,
   },
 };
 

@@ -43,7 +43,7 @@ export default function GameForm() {
             style={{
               padding: 10,
               paddingBottom: 100,
-              maxWidth: 800,
+              maxWidth: 500,
               margin: 'auto',
             }}
           >

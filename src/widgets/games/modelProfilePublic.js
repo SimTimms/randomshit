@@ -19,20 +19,15 @@ export default function ModelProfilePublic({ game, setModelOne, history }) {
             j="space-between"
             h="100%"
             onClickEvent={() => {
-              game._id !== '61dd7ed6fb8af500160127fa' &&
-                game._id !== '61edb0c9506ef60016b44faa' &&
-                setModelOne(game);
+              setModelOne(game);
             }}
           >
             <Column j="flex-start">
               <Column>
                 <BgImg
                   previewImage={game.featureImage}
-                  locked={
-                    game._id === '61dd7ed6fb8af500160127fa' ||
-                    game._id === '61edb0c9506ef60016b44faa'
-                  }
                   history={history}
+                  approved={game.approved}
                 />
               </Column>
             </Column>

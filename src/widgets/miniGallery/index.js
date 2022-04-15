@@ -4,7 +4,7 @@ import { Query } from '@apollo/client/react/components';
 import { LATEST_MINIS_WIDGET } from './data';
 import { ProfileCardMacro } from '../profileCard/';
 import BigImage from '../bigImage';
-import { Row, MenuButtonStandard } from '../../components';
+import { Row, Grid, MenuButtonStandard } from '../../components';
 import clsx from 'clsx';
 import LikeButton from './LikeButton';
 import { MenuContext } from '../../context';
@@ -45,7 +45,7 @@ export default function MiniGallery({ ...props }) {
         [classes.dashboard]: dashboard,
       })}
     >
-      <Row wrap="wrap">
+      <Grid cols={3}>
         <Query
           query={LATEST_MINIS_WIDGET}
           fetchPolicy="network-only"
@@ -57,16 +57,15 @@ export default function MiniGallery({ ...props }) {
             return creativeArray.map((creative, index) => {
               return (
                 <div className={classes.miniWrapper}>
-                  <div
-                    className={classes.bgWrapper}
-                    style={{ backgroundImage: `url(${creative.url})` }}
-                  ></div>
                   <MenuContext.Consumer>
                     {(menu) => (
-                      <MenuButtonStandard
-                        title="View in 3D"
-                        fullWidth={true}
-                        onClickEvent={() => {
+                      <div
+                        className={classes.bgWrapper}
+                        style={{
+                          backgroundImage: `url(${creative.url})`,
+                          cursor: 'pointer',
+                        }}
+                        onClick={() => {
                           localStorage.setItem(
                             'modelColorSave',
                             creative.saveDataColors
@@ -84,37 +83,42 @@ export default function MiniGallery({ ...props }) {
                             },
                           });
                         }}
-                      />
+                      ></div>
                     )}
                   </MenuContext.Consumer>
-                  <LikeButton
-                    url={creative.url
-                      .replace(
-                        'https://random-shit-store.s3.amazonaws.com/',
-                        ''
-                      )
-                      .replace('.jpg', '')}
-                    likes={creative.likes.length}
-                  />
-                  <TwitterShareButton
-                    url={creative.url
-                      .replace(
-                        'https://random-shit-store.s3.amazonaws.com/',
-                        'https://minipainter3d.herokuapp.com/photo?photo='
-                      )
-                      .replace('.jpg', '')
-                      .trim()}
-                    title={`Made with MiniPainter3d`}
-                    className="shareBtn col-md-1 col-sm-1 col-xs-1"
-                  >
-                    <TwitterIcon size={32} round={true} />
-                  </TwitterShareButton>
+                  <Row a="center" j="space-between">
+                    <LikeButton
+                      url={creative.url
+                        .replace(
+                          'https://random-shit-store.s3.amazonaws.com/',
+                          ''
+                        )
+                        .replace('.jpg', '')}
+                      likes={creative.likes.length}
+                    />
+                    <TwitterShareButton
+                      url={creative.url
+                        .replace(
+                          'https://random-shit-store.s3.amazonaws.com/',
+                          'https://minipainter3d.herokuapp.com/photo?photo='
+                        )
+                        .replace('.jpg', '')
+                        .trim()}
+                      title={`Check out this cool design made with MiniPainter 3d.`}
+                      hashtags={['miniaturepainting', 'warhammercommunity']}
+                      related={['@timsimmsdev']}
+                      className="shareBtn col-md-1 col-sm-1 col-xs-1"
+                      style={{ marginRight: 6 }}
+                    >
+                      <TwitterIcon size={32} round={true} />
+                    </TwitterShareButton>
+                  </Row>
                 </div>
               );
             });
           }}
         </Query>
-      </Row>
+      </Grid>
     </div>
   );
 }

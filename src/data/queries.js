@@ -488,9 +488,7 @@ export const PROFILE = gql`
       name
       summary
       lastOn
-      badges {
-        badgeType
-      }
+      priority
       profileBG
       profileImg
       autosave

@@ -5,7 +5,6 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     width: '100%',
     overflow: 'auto',
-    background: '#222',
     boxSizing: 'border-box',
   },
   dashboard: {
@@ -18,14 +17,12 @@ export const useStyles = makeStyles((theme) => ({
   },
   miniWrapper: {
     margin: 10,
-    boxShadow: '3px 3px 10px rgba(0,0,0,0.2)',
+    boxShadow: '10px 10px 15px rgba(0,0,0,0.1)',
     background: '#fff',
-    borderRadius: 5,
     overflow: 'hidden',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    width: 200,
   },
   bgWrapper: {
     width: '100%',

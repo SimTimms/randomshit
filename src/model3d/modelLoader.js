@@ -1,16 +1,17 @@
-import React, { Suspense, useRef } from 'react';
+import React, { Suspense, useRef, useEffect } from 'react';
 import { Canvas, useFrame } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
 import ModelScript from './ModelScript';
 import { Html, useProgress } from '@react-three/drei';
 import { Column, Row } from '../components';
 import uploaderScreenshot from '../components/uploaderScreenshot';
-import { MenuButtonStandard } from '../components';
+import { Button } from '../components';
 import { Mutation } from '@apollo/client/react/components';
 import { SAVE_GAME_IMAGE } from './data';
 import { toaster } from '../utils/toaster';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
 import Profile from './Profile';
+import Controls from './Controls';
 import Ads from './Ads';
 import { paints } from './paints';
 
@@ -28,7 +29,7 @@ function Loader() {
         fontFamily: 'arial',
       }}
     >
-      {`Loading ${progress.toString().substring(0, 2)}%, it takes a while!`}
+      {`Loading ${progress.toString().substring(0, 2)}%, please wait!`}
     </Html>
   );
 }
@@ -62,6 +63,7 @@ export default function ModelLoader({
   const [wait, setWait] = React.useState(false);
   const canvas = useRef(null);
   let count = useRef(0);
+
   function dataURItoBlob(dataURI) {
     var binary = atob(dataURI.split(',')[1]);
     var array = [];
@@ -70,6 +72,14 @@ export default function ModelLoader({
     }
     return new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
   }
+
+  useEffect(() => {
+    console.log(activeColor);
+    if (!shading && activeColor.type === 'Shade') {
+      setShading(true);
+    }
+  }, [activeColor, shading]);
+
   return (
     <div
       style={{
@@ -94,25 +104,24 @@ export default function ModelLoader({
             }}
           >
             {back && (
-              <MenuButtonStandard
-                title="Back"
+              <Button
+                menuItem={{
+                  name: 'Back',
+                  color: 'light',
+                }}
                 icon="chevron_left"
                 onClickEvent={() => back()}
+                white={true}
               />
             )}
 
             <Row j="flex-start">
-              <MenuButtonStandard
-                title="Lighting"
-                icon="lightbulb"
+              <Button
+                menuItem={{
+                  name: 'Lighting',
+                  color: 'light',
+                }}
                 onClickEvent={() => setPanels('lighting')}
-                white={true}
-              />
-              <MenuButtonStandard
-                title="Shading"
-                icon={shading ? 'lightbulb' : 'help'}
-                onClickEvent={() => setShading(shading ? false : true)}
-                white={true}
               />
 
               {/*   <MenuButtonStandard
@@ -123,15 +132,19 @@ export default function ModelLoader({
            />*/}
               {profilePriority === 0 && modelName.name === 'Firstborn' && (
                 <Row>
-                  <MenuButtonStandard
-                    title="Markings"
-                    icon="stars"
+                  <Button
+                    menuItem={{
+                      name: 'Markings',
+                      color: 'light',
+                    }}
                     onClickEvent={() => setPanels('markings')}
                     white={true}
                   />
-                  <MenuButtonStandard
-                    title="Armour"
-                    icon="palette"
+                  <Button
+                    menuItem={{
+                      name: 'Armour',
+                      color: 'light',
+                    }}
                     onClickEvent={() => {
                       const paintArr = [
                         paints.green[3].color,
@@ -172,9 +185,11 @@ export default function ModelLoader({
             >
               {(mutation) => {
                 return (
-                  <MenuButtonStandard
-                    title="Screenshot"
-                    icon={wait ? 'hourglass_empty' : 'photo'}
+                  <Button
+                    menuItem={{
+                      name: 'Screenshot',
+                      color: 'light',
+                    }}
                     onClickEvent={() => {
                       if (!wait) {
                         uploaderScreenshot(
@@ -213,7 +228,8 @@ export default function ModelLoader({
           </div>
         )}
         <Row w="100%" h="100%">
-          <Profile />
+          <Controls shading={shading} setShading={setShading} />
+          {/* <Profile />*/}
           <Canvas
             pixelRatio={[1, 2]}
             camera={{ position: [0, 200, 250], fov: 10, far: 700 }}
@@ -276,7 +292,7 @@ export default function ModelLoader({
               autoRotateSpeed={5}
             />
           </Canvas>
-          <Ads modelArtist={modelArtist} />
+          {/*  <Ads modelArtist={modelArtist} />*/}
         </Row>
       </Column>
     </div>

@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { Mutation } from '@apollo/client/react/components';
 import { UPDATE_LIKES } from './data';
-import { MenuButtonStandard } from '../../components';
+import { Row } from '../../components';
+import { Icon, Typography } from '@mui/material';
 
 export default function LikeButton({ url, likes }) {
   const [likeAmount, setLikeAmount] = React.useState(0);
@@ -19,12 +20,12 @@ export default function LikeButton({ url, likes }) {
     >
       {(mutation) => {
         return (
-          <div>
-            <MenuButtonStandard
-              title={`${likeAmount} like`}
-              onClickEvent={() => mutation()}
-            />
-          </div>
+          <Row onClickEvent={() => mutation()} w={50}>
+            <Icon style={{ color: '#ea5075', cursor: 'pointer' }}>
+              favorite
+            </Icon>
+            <Typography>x{likeAmount}</Typography>
+          </Row>
         );
       }}
     </Mutation>

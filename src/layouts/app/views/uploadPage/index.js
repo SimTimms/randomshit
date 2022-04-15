@@ -18,7 +18,6 @@ export default function UploadPage() {
         return (
           <MenuContext.Consumer>
             {(menu) => {
-              console.log(menu);
               return (
                 <TabPage
                   title={null}

@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     width: '100%',
     overflow: 'auto',
-    background: '#222',
+    background: '#fff',
     boxSizing: 'border-box',
     height: 'calc(100% - 132px)',
   },

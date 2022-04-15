@@ -19,48 +19,46 @@ export default function HeaderGallery({ history, setModelOne }) {
         [classes.root]: true,
       })}
     >
-      <Row j="space-around">
-        <Query
-          query={LATEST_MINIS_WIDGET}
-          fetchPolicy="network-only"
-          onCompleted={(data) => {
-            setCreativeArray([...data.savedGameMany]);
-          }}
-        >
-          {({ data }) => {
-            return (
-              <Grid cols={5}>
-                {creativeArray.map((creative, index) => {
-                  return (
-                    <MenuContext.Consumer>
-                      {(menu) => (
-                        <div
-                          className={classes.bgWrapper}
-                          style={{ backgroundImage: `url(${creative.url})` }}
-                          onClick={() => {
-                            localStorage.setItem(
-                              'modelColorSave',
-                              creative.saveDataColors
-                            );
-                            localStorage.setItem(
-                              'modelPartsSave',
-                              creative.saveDataParts
-                            );
-                            setModelOne(creative.model);
-                            history.push(
-                              `/partner/${creative.model._id}/61d5a0327d31f80016bfa2be`
-                            );
-                          }}
-                        ></div>
-                      )}
-                    </MenuContext.Consumer>
-                  );
-                })}
-              </Grid>
-            );
-          }}
-        </Query>
-      </Row>
+      <Query
+        query={LATEST_MINIS_WIDGET}
+        fetchPolicy="network-only"
+        onCompleted={(data) => {
+          setCreativeArray([...data.savedGameMany]);
+        }}
+      >
+        {({ data }) => {
+          return (
+            <Grid cols={5}>
+              {creativeArray.map((creative, index) => {
+                return (
+                  <MenuContext.Consumer>
+                    {(menu) => (
+                      <div
+                        className={classes.bgWrapper}
+                        style={{ backgroundImage: `url(${creative.url})` }}
+                        onClick={() => {
+                          localStorage.setItem(
+                            'modelColorSave',
+                            creative.saveDataColors
+                          );
+                          localStorage.setItem(
+                            'modelPartsSave',
+                            creative.saveDataParts
+                          );
+                          setModelOne(creative.model);
+                          history.push(
+                            `/partner/${creative.model._id}/61d5a0327d31f80016bfa2be`
+                          );
+                        }}
+                      ></div>
+                    )}
+                  </MenuContext.Consumer>
+                );
+              })}
+            </Grid>
+          );
+        }}
+      </Query>
     </div>
   );
 }

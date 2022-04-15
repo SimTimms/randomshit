@@ -5,7 +5,7 @@ import { paints } from './paints';
 import { useStyles } from './styles';
 import RecentColors from './recentColors';
 import clsx from 'clsx';
-
+import patreonDevice from '../assets/patreonDevice.png';
 export default function PaintRackApp({
   setColorFunction,
   setColorGroup,
@@ -26,8 +26,8 @@ export default function PaintRackApp({
     { name: 'blue', color: '#4c78af' },
     { name: 'purple', color: '#8869ae' },
     { name: 'grey', color: '#ffffff' },
-    { name: 'metallic', color: '#a2a5a7' },
-    { name: 'shade', color: '#444' },
+    { name: 'metallic', color: '#fff' },
+    profilePriority === 0 && { name: 'shade', color: '#f4874e' },
   ];
   if (!colorGroup) {
     return (
@@ -78,13 +78,20 @@ export default function PaintRackApp({
         <Column>
           <Typography
             align="center"
-            style={{ width: 180, height: 20, color: '#fff' }}
+            style={{ width: 400, height: 20, color: '#fff' }}
           >
-            {hoverColor.name}
+            {}
+            {hoverColor.patreonLock
+              ? `Visit Patreon to unlock ${hoverColor.name}`
+              : hoverColor.name}
           </Typography>
-          {hoverColor.link ? (
+          {hoverColor.link || hoverColor.patreonLock ? (
             <a
-              href={hoverColor.link}
+              href={
+                hoverColor.patreonLock
+                  ? 'https://www.patreon.com/3dminipainterhtml'
+                  : hoverColor.link
+              }
               style={{ color: 'rgba(255,255,255,0.6)' }}
               target="_blank"
               rel="noopener noreferrer"
@@ -99,7 +106,11 @@ export default function PaintRackApp({
                   cursor: 'pointer',
                 }}
               >
-                {hoverColor.company ? hoverColor.company : '-'}
+                {hoverColor.patreonLock
+                  ? 'Patreon'
+                  : hoverColor.company
+                  ? hoverColor.company
+                  : '-'}
               </Typography>
             </a>
           ) : (
@@ -113,21 +124,38 @@ export default function PaintRackApp({
         </Column>
         <Row a="center" j="center" wrap="wrap" w={300}>
           <DividerMini />
-          {paints[colorGroup].map((item, index) => (
-            <div
-              key={`paint_${index}`}
-              onMouseOver={() => setHoverColor(item)}
-              onClick={() => setColorFunction(item)}
-              className={clsx({
-                [classes.paintCircle]: true,
-                [classes.metallic]: item.metal ? item.metal : false,
-              })}
-              style={{
-                backgroundColor: item.color,
-              }}
-              title={item.name}
-            ></div>
-          ))}
+          {paints[colorGroup].map((item, index) => {
+            const isPatreonLocked =
+              profilePriority !== 0 && item.patreon === true;
+            return (
+              <div
+                key={`paint_${index}`}
+                onMouseOver={() =>
+                  setHoverColor({ ...item, patreonLock: isPatreonLocked })
+                }
+                onClick={() =>
+                  !isPatreonLocked ? setColorFunction(item) : null
+                }
+                className={clsx({
+                  [classes.paintCircle]: true,
+                  [classes.metallic]: item.metal ? item.metal : false,
+                  [classes.shade]: item.shade ? item.shade : false,
+                })}
+                style={{
+                  backgroundColor: item.color,
+                }}
+                title={
+                  isPatreonLocked
+                    ? `Patrons get the full range of shades including ${item.name}. Please visit https://www.patreon.com/3dminipainterhtml to support this project`
+                    : item.name
+                }
+              >
+                {isPatreonLocked && (
+                  <img src={patreonDevice} className={classes.patreon} />
+                )}
+              </div>
+            );
+          })}
         </Row>
       </Column>
     </div>

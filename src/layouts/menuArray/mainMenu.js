@@ -17,7 +17,7 @@ export default function mainMenu(history, counts, mainMenuContext, profile) {
         }),
       count: null,
     },
-    {
+    profile.priority === 0 && {
       name: 'Upload',
       icon: 'upload',
       machineName: PAGES.upload,
@@ -52,8 +52,7 @@ export default function mainMenu(history, counts, mainMenuContext, profile) {
       link: () =>
         mainMenuContext.updateMenuContext({
           primaryPage: 'account',
-          jobPage: { ...mainMenuContext.jobPage },
-          workPage: { ...mainMenuContext.workPage },
+          uploadPage: {},
           homePage: { ...mainMenuContext.homePage },
         }),
       count: null,
