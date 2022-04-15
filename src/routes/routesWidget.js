@@ -10,7 +10,7 @@ export default function WidgetRoutes({ theme, props: { ...props } }) {
     <Switch>
       <Route
         path="/"
-        render={(props) => <PublicLayout {...props} theme={theme} />}
+        render={(props) => <ModelApp {...props} theme={theme} basic={true} />}
       />
     </Switch>
   );

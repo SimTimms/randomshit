@@ -6,6 +6,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import themeDesigner from './theme';
 import AuthRoutes from './routes/routesAuth';
 import PublicRoutes from './routes/routesPublic';
+import WidgetRoutes from './routes/routesWidget';
 import { MenuContext } from './context';
 import { PAGES } from './const';
 import { REACT_APP_API } from './envVars';
@@ -63,6 +64,7 @@ function RouterComponent(props) {
             }}
           >
             {authToken && <AuthRoutes props={props} theme={theme} />}
+            {!authToken && <WidgetRoutes props={props} theme={theme} />}
             {!authToken && <PublicRoutes props={props} theme={theme} />}
           </MenuContext.Provider>
         </ApolloProvider>
