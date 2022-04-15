@@ -228,7 +228,9 @@ export default function ModelLoader({
           </div>
         )}
         <Row w="100%" h="100%">
-          <Controls shading={shading} setShading={setShading} />
+          {gameId === '621769789e0236001621c7bd' && (
+            <Controls shading={shading} setShading={setShading} />
+          )}
           {/* <Profile />*/}
           <Canvas
             pixelRatio={[1, 2]}

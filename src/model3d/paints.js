@@ -48,7 +48,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/en-GB/Base-Corax-White-2019',
     type: 'Base',
-    patreon: true,
   },
   'Grey Seer': {
     name: `Grey Seer`,
@@ -56,7 +55,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/en-GB/Base-Grey-Seer-2019',
     type: 'Base',
-    patreon: true,
   },
   'Gal Vorbak Red': {
     name: `Gal Vorbak Red`,
@@ -64,7 +62,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Barak-Nar Burgundy': {
     name: `Barak-Nar Burgundy`,
@@ -72,7 +69,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Screamer Pink': {
     name: `Screamer Pink`,
@@ -80,7 +76,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Daemonette Hide': {
     name: `Daemonette Hide`,
@@ -88,7 +83,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Phoenician Purple': {
     name: `Phoenician Purple`,
@@ -96,7 +90,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Naggaroth Night': {
     name: `Naggaroth Night`,
@@ -104,7 +97,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Caledor Sky': {
     name: `Caledor Sky`,
@@ -112,7 +104,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Macragge Blue': {
     name: `Macragge Blue`,
@@ -120,7 +111,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Kantor Blue': {
     name: `Kantor Blue`,
@@ -128,7 +118,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Night Lords Blue': {
     name: `Night Lords Blue`,
@@ -136,7 +125,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Stegadon Scale Green': {
     name: `Stegadon Scale Green`,
@@ -144,7 +132,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Lupercal Green': {
     name: `Lupercal Green`,
@@ -152,7 +139,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Incubi Darkness': {
     name: `Incubi Darkness`,
@@ -160,7 +146,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Death Guard Green': {
     name: `Death Guard Green`,
@@ -168,7 +153,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Deathworld Forest': {
     name: `Deathworld Forest`,
@@ -176,7 +160,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Castellan Green': {
     name: `Castellan Green`,
@@ -184,7 +167,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Death Korps Drab': {
     name: `Death Korps Drab`,
@@ -192,7 +174,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Waaagh Flesh': {
     name: `Waaagh Flesh`,
@@ -200,7 +181,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Nocturne Green': {
     name: `Nocturne Green`,
@@ -208,7 +188,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Morghast Bone': {
     name: `Morghast Bone`,
@@ -216,7 +195,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Zandri Dust': {
     name: `Zandri Dust`,
@@ -224,7 +202,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Steel Legion Drab': {
     name: `Steel Legion Drab`,
@@ -232,7 +209,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Mournfang Brown': {
     name: `Mournfang Brown`,
@@ -240,7 +216,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Dryad Bark': {
     name: `Dryad Bark`,
@@ -248,7 +223,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Rakarth Flesh': {
     name: `Rakarth Flesh`,
@@ -256,7 +230,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Ratskin Flesh': {
     name: `Ratskin Flesh`,
@@ -264,7 +237,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Bugmans Glow': {
     name: `Bugman's Glow`,
@@ -272,7 +244,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Catachan Flesh': {
     name: `Catachan Flesh`,
@@ -280,7 +251,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Abaddon Black': {
     name: `Abaddon Black`,
@@ -288,7 +258,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Abaddon Black': {
     name: `Abaddon Black`,
@@ -296,7 +265,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Grey Knights Steel': {
     name: `Grey Knights Steel`,
@@ -305,7 +273,6 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/',
     type: 'Base',
     metal: true,
-    patreon: true,
   },
   'Iron Hands Steel': {
     name: `Iron Hands Steel`,
@@ -314,7 +281,6 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/',
     type: 'Base',
     metal: true,
-    patreon: true,
   },
   'Iron Warriors': {
     name: `Iron Warriors`,
@@ -323,7 +289,6 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/',
     type: 'Base',
     metal: true,
-    patreon: true,
   },
   'Balthasar Gold': {
     name: `Balthasar Gold`,
@@ -332,7 +297,6 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/',
     type: 'Base',
     metal: true,
-    patreon: true,
   },
   'Screaming Bell': {
     name: `Screaming Bell`,
@@ -341,7 +305,6 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/',
     type: 'Base',
     metal: true,
-    patreon: true,
   },
   'Runelord Brass': {
     name: `Runelord Brass`,
@@ -350,7 +313,6 @@ export const gwPaints = {
     link: 'https://www.games-workshop.com/',
     type: 'Base',
     metal: true,
-    patreon: true,
   },
   'Orruk Flesh': {
     name: `Orruk Flesh`,
@@ -358,7 +320,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Hobgrot Hide': {
     name: `Hobgrot Hide`,
@@ -366,7 +327,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Thondia Brown': {
     name: `Thondia Brown`,
@@ -374,7 +334,6 @@ export const gwPaints = {
     company: 'Games Workshop',
     link: 'https://www.games-workshop.com/',
     type: 'Base',
-    patreon: true,
   },
   'Nuln Oil': {
     name: `Nuln Oil`,
