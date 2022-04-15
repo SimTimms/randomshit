@@ -27,7 +27,7 @@ export default function PaintRackApp({
     { name: 'purple', color: '#8869ae' },
     { name: 'grey', color: '#ffffff' },
     { name: 'metallic', color: '#fff' },
-    profilePriority === 0 && { name: 'shade', color: '#f4874e' },
+    { name: 'shade', color: '#f4874e' },
   ];
   if (!colorGroup) {
     return (
