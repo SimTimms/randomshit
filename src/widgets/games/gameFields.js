@@ -122,8 +122,8 @@ export default function GameFields({ game, setGame }) {
           fileTypes={`.gltf`}
           size={
             !game.gltf
-              ? '20MB Max | .gltf format | must be named scene.gltf'
-              : game.gltf.indexOf('scene.gltf') > -1
+              ? '20MB Max | .gltf format '
+              : game.gltf.indexOf('.gltf') > -1
               ? 'OK'
               : 'Must be named scene.gltf'
           }
@@ -152,8 +152,8 @@ export default function GameFields({ game, setGame }) {
           fileTypes={`.bin`}
           size={
             !game.bin
-              ? '20MB Max | .gltf format | must be named scene.bin'
-              : game.bin.indexOf('scene.bin') > -1
+              ? '20MB Max | .bin format '
+              : game.bin.indexOf('.bin') > -1
               ? 'OK'
               : 'Must be named scene.bin'
           }
