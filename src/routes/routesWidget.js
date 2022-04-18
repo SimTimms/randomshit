@@ -7,6 +7,11 @@ export default function WidgetRoutes({
   modelId,
   controls,
   rotate,
+  paint,
+  cameraPos,
+  targets,
+  url,
+  userId,
   props: { ...props },
 }) {
   return (
@@ -21,6 +26,11 @@ export default function WidgetRoutes({
             modelId={modelId}
             controls={controls}
             rotate={rotate}
+            paint={paint}
+            cameraPos={cameraPos}
+            targets={targets}
+            url={url}
+            userId={userId}
           />
         )}
       />

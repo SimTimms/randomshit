@@ -10,7 +10,6 @@ export default function PaintRackApp({
   setColorFunction,
   setColorGroup,
   colorGroup,
-  profilePriority,
 }) {
   const classes = useStyles();
   const [hoverColor, setHoverColor] = React.useState({
@@ -125,17 +124,11 @@ export default function PaintRackApp({
         <Row a="center" j="center" wrap="wrap" w={300}>
           <DividerMini />
           {paints[colorGroup].map((item, index) => {
-            const isPatreonLocked =
-              profilePriority !== 0 && item.patreon === true;
             return (
               <div
                 key={`paint_${index}`}
-                onMouseOver={() =>
-                  setHoverColor({ ...item, patreonLock: isPatreonLocked })
-                }
-                onClick={() =>
-                  !isPatreonLocked ? setColorFunction(item) : null
-                }
+                onMouseOver={() => setHoverColor({ ...item })}
+                onClick={() => setColorFunction(item)}
                 className={clsx({
                   [classes.paintCircle]: true,
                   [classes.metallic]: item.metal ? item.metal : false,
@@ -144,16 +137,8 @@ export default function PaintRackApp({
                 style={{
                   backgroundColor: item.color,
                 }}
-                title={
-                  isPatreonLocked
-                    ? `Patrons get the full range of shades including ${item.name}. Please visit https://www.patreon.com/3dminipainterhtml to support this project`
-                    : item.name
-                }
-              >
-                {isPatreonLocked && (
-                  <img src={patreonDevice} className={classes.patreon} />
-                )}
-              </div>
+                title={item.name}
+              ></div>
             );
           })}
         </Row>

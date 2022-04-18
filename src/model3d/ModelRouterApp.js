@@ -4,7 +4,7 @@ import { Row, Column } from './components';
 import 'rc-slider/assets/index.css';
 import { ColorContext } from '../context';
 import ModelLoader from './modelLoader';
-import { useStyles } from './styles';
+import PaintRackApp from './PaintRackApp';
 
 function ModelRouterApp({
   gltf,
@@ -19,6 +19,10 @@ function ModelRouterApp({
   modelArtist,
   controls,
   rotate,
+  paint,
+  cameraPos,
+  targets,
+  watermark,
 }) {
   const modelColorsRef = useRef({});
   const [panels, setPanels] = React.useState(null);
@@ -35,21 +39,13 @@ function ModelRouterApp({
   const [markings, setMarkings] = React.useState(null);
 
   const [activeColor, setActiveColor] = React.useState({
-    color: '#aaa',
+    color: '#fff',
     name: 'Plastic Grey',
   });
   const colorMap = {};
 
   useEffect(() => {
     !color && setColor(colorMap);
-
-    let savedParts = localStorage.getItem('modelPartsSave');
-    if (savedParts !== null && savedParts !== 'null') {
-      savedParts = JSON.parse(savedParts);
-      if (attachedPart.length === 0) {
-        setAttachedPart(savedParts);
-      }
-    }
   }, [colorMap, color, modelColorsRef, js]);
   return (
     <ColorContext.Provider
@@ -57,7 +53,7 @@ function ModelRouterApp({
         activeColor: { color: activeColor.color, name: activeColor.name },
       }}
     >
-      <Column h="100%" bg="#222">
+      <Column h="100%">
         <Row h="100%" w="100%" j="flex-start" a="flex-start">
           <ModelLoader
             activeColor={activeColor}
@@ -85,6 +81,10 @@ function ModelRouterApp({
             modelArtist={modelArtist ? modelArtist : null}
             rotate={rotate}
             controls={controls}
+            paint={paint}
+            cameraPos={cameraPos}
+            targets={targets}
+            watermark={watermark}
           />
         </Row>
       </Column>

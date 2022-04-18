@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import * as THREE from 'three';
+import gwtac from '../assets/gwtac.jpg';
+import reactive from '../assets/reactive.png';
+import reactiveem from '../assets/reactiveem.png';
 
 export default function Mesh({
   geometry,
@@ -15,72 +18,60 @@ export default function Mesh({
   armourColor,
   video,
   shading,
+  paint,
+  setTargetA,
+  targetA,
+  buttons,
 }) {
   const [material, setMaterial] = React.useState(null);
   const [shadeMaterial, setShadeMaterial] = React.useState(null);
-  const [meshColor, setMeshColor] = React.useState('#aaa');
+  const [meshColor, setMeshColor] = React.useState('#fff');
   const [shadeColor, setShadeColor] = React.useState(null);
   const [decalItem, setDecalItem] = React.useState(null);
   const [paintMode, setPaintMode] = React.useState(0);
-  const metals = [
-    '#9e573c',
-    '#f5b13d',
-    '#848484',
-    '#e6b351',
-    '#ced2d4',
-    '#a9afb4',
-    '#6a7071',
-    '#c89e5b',
-    '#b55513',
-    '#c17a3c',
-    '#a97753',
-    '#e9b860',
-    '#8b431e',
-    '#a28167',
-    '#98542c',
-    '#b49b95',
-    '#00708a',
-    '#b8c4cc',
-    '#b6aca5',
-    '#625f5c',
-    '#946347',
-    '#d0875b',
-    '#695844',
-  ];
 
   useEffect(() => {
-    let savedColors = localStorage.getItem('modelColorSave');
-    if (
-      armourColor === null &&
-      savedColors !== 'null' &&
-      savedColors !== null
-    ) {
-      savedColors = JSON.parse(savedColors);
-      if (savedColors[name] && savedColors[name].color !== meshColor) {
-        setMeshColor(savedColors[name].color);
-      }
-    } else if (armourColor !== null) {
-      setMeshColor(armourColor);
-    }
-
-    if (texture && !material) {
-      var texLoader = new THREE.TextureLoader();
-
-      const texLoaded = texLoader.load(texture);
-      const materialNew = new THREE.MeshStandardMaterial({
-        ...materialIn,
-        transparent: true,
-        map: texLoaded ? texLoaded : null,
-      });
-      setMaterial(materialNew);
+    if (paint !== null) {
+      const paintParsed = JSON.parse(paint);
+      paintParsed[name] && setMeshColor(paintParsed[name].color);
     }
 
     if (!material && !texture) {
-      const materialNew = new THREE.MeshStandardMaterial({
-        ...materialIn,
-        transparent: true,
-      });
-      setMaterial(materialNew);
+      if (
+        name === 'ScreenTwo' ||
+        name === 'ScreenTwo003' ||
+        name === 'ScreenThree001'
+      ) {
+        var texLoader = new THREE.TextureLoader();
+        const texLoaded = texLoader.load(gwtac);
+
+        const materialNew = new THREE.MeshStandardMaterial({
+          ...materialIn,
+          map: texLoaded ? texLoaded : null,
+          transparent: true,
+        });
+        setMaterial(materialNew);
+      } else if (name === 'ScreenThree003') {
+        var texLoader = new THREE.TextureLoader();
+        const texLoaded = texLoader.load(reactive);
+        const texLoadedem = texLoader.load(reactiveem);
+
+        const materialNew = new THREE.MeshStandardMaterial({
+          map: texLoaded ? texLoaded : null,
+          emissiveMap: texLoadedem,
+          emissive: '#ff0fd8',
+          color: '#fff',
+          flatShading: true,
+          transparent: true,
+        });
+        setMaterial(materialNew);
+      } else {
+        const materialNew = new THREE.MeshStandardMaterial({
+          ...materialIn,
+          transparent: true,
+        });
+        setMaterial(materialNew);
+      }
     }
     if (!shadeMaterial && shading) {
       var texLoader = new THREE.TextureLoader();
@@ -108,17 +99,7 @@ export default function Mesh({
     }
 
     if (!decalItem || video || (decalItem && decalItem !== decals)) {
-      if (decals) {
-        var texLoader = new THREE.TextureLoader();
-        const texLoaded = texLoader.load(texture);
-        const materialNew = new THREE.MeshStandardMaterial({
-          ...materialIn,
-          transparent: true,
-          map: texLoaded,
-        });
-
-        setDecalItem(materialNew);
-      } else if (video) {
+      if (video) {
         setMeshColor('#030C1B');
         if (name === 'ScreenOne') {
           const vid = document.createElement('video');
@@ -201,6 +182,17 @@ export default function Mesh({
         onPointerDown={(e) => paintMode !== 1 && setPaintMode(1)}
         onPointerUp={(e) => {
           if (paintMode === 1) {
+            if (buttons.indexOf(name) > -1) {
+              setTargetA({
+                position: [-30, 0, 100],
+                target: [position[0], position[1] - 7, position[2]],
+              });
+            } else {
+              setTargetA({
+                position: [0, 0, 400],
+                target: [0, 0, 0],
+              });
+            }
             if (activeColor.type !== 'Shade') {
               e.stopPropagation();
               let savedColors = localStorage.getItem('modelColorSave');
@@ -227,9 +219,9 @@ export default function Mesh({
         onPointerMove={(e) => paintMode !== 0 && !shading && setPaintMode(0)}
         geometry={geometry}
         material={material}
-        material-color={armourColor ? armourColor : meshColor}
-        material-metalness={metals.indexOf(meshColor) > -1 ? 0.7 : 0}
-        material-roughness={metals.indexOf(meshColor) > -1 ? 0.5 : 1}
+        material-color={meshColor}
+        material-metalness={0}
+        material-roughness={0}
       />
       {decalItem && <mesh geometry={geometry} material={decalItem} />}
     </group>

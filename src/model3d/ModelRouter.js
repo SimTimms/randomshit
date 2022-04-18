@@ -26,7 +26,7 @@ function ModelRouter({ gltf, js, parts, gameId }) {
   const [modelColors, setModelColors] = React.useState(null);
 
   const [activeColor, setActiveColor] = React.useState({
-    color: '#aaa',
+    color: '#fff',
     name: 'Plastic Grey',
   });
   const colorMap = {};

@@ -1,10 +1,11 @@
-import React, { Suspense, useRef, useEffect } from 'react';
+import React, { Suspense, useRef, useEffect, useCallback } from 'react';
 import { Canvas } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
 import ModelScript from './ModelScript';
 import { Html, useProgress } from '@react-three/drei';
 import { Column, Row } from '../components';
-
+import TWEEN from '@tweenjs/tween.js';
+import Camera from './Camera';
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -24,6 +25,21 @@ function Loader() {
   );
 }
 
+function Watermark() {
+  return (
+    <Html
+      center
+      style={{
+        color: 'rgba(0,0,0,0.2)',
+        fontFamily: 'arial',
+        fontSize: '1rem',
+      }}
+    >
+      https://minipainter3d.herokuapp.com
+    </Html>
+  );
+}
+
 export default function ModelLoader({
   activeColor,
   sprayMode,
@@ -38,32 +54,33 @@ export default function ModelLoader({
   markings,
   controls,
   rotate,
+  paint,
+  cameraPos,
+  targets,
+  watermark,
 }) {
   const [shading, setShading] = React.useState(false);
+  const [targetA, setTargetA] = React.useState({ target: [], position: [] });
   const canvas = useRef(null);
   let count = useRef(0);
-
-  function dataURItoBlob(dataURI) {
-    var binary = atob(dataURI.split(',')[1]);
-    var array = [];
-    for (var i = 0; i < binary.length; i++) {
-      array.push(binary.charCodeAt(i));
-    }
-    return new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
-  }
+  const buttons = ['ScreenTwo', 'ScreenThree003'];
+  const [switcha, setSwitcha] = React.useState(false);
 
   useEffect(() => {
-    console.log(activeColor);
-    if (!shading && activeColor.type === 'Shade') {
-      setShading(true);
-    }
-  }, [activeColor, shading]);
-
+    setTargetA({
+      target: [
+        targets.split(',')[0] * 1,
+        targets.split(',')[1] * 1,
+        targets.split(',')[2] * 1,
+      ],
+      position: cameraPos,
+    });
+  }, [targets, cameraPos]);
   return (
     <div
       style={{
         position: 'relative',
-        width: '100vw',
+        width: '100%',
         height: '100%',
       }}
     >
@@ -71,18 +88,17 @@ export default function ModelLoader({
         <Row w="100%" h="100%">
           <Canvas
             pixelRatio={[1, 2]}
-            camera={{ position: [0, 200, 250], fov: 10, far: 700 }}
+            camera={{ position: targetA.position, fov: 10, far: 700 }}
             ref={canvas}
             gl={{ preserveDrawingBuffer: true }}
             style={{
-              background: '#fff',
               height: '100%',
               width: '100%',
             }}
           >
             <Suspense fallback={<Loader />}>
               <group name="sun" position={[500, 900, 0]}>
-                <ambientLight intensity={lightOne / 50} />
+                <ambientLight intensity={10 / 50} />
               </group>
               <group name="sun" position={[50, 0, 0]}>
                 <spotLight intensity={lightTwo / 50} />
@@ -102,6 +118,8 @@ export default function ModelLoader({
               <group name="sun" position={[0, 0, -50]}>
                 <spotLight intensity={lightSeven / 50} />
               </group>
+              <group position={[0, -20, 0]}>{watermark && <Watermark />}</group>
+
               <group position={[0, -8, 0]}>
                 <ModelScript
                   activeColor={activeColor}
@@ -110,17 +128,26 @@ export default function ModelLoader({
                   markings={markings}
                   armourColor={null}
                   shading={shading}
+                  paint={paint}
+                  setTargetA={setTargetA}
+                  targetA={targetA}
+                  buttons={buttons}
                 />
               </group>
             </Suspense>
-
+            <Camera target={targetA} setTargetA={setTargetA} />
+            {/*
             <OrbitControls
-              target={[0, 0, 0]}
+              target={targetA}
               maxDistance={500}
               autoRotate={rotate === 'true'}
-              autoRotateSpeed={5}
+              autoRotateSpeed={-1}
               enabled={controls === 'true'}
-            />
+              enableDamping={true}
+              dampingFactor={0.1}
+              object={}
+             
+          />*/}
           </Canvas>
         </Row>
       </Column>

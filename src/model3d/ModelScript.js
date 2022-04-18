@@ -3,27 +3,6 @@ import { useGLTF } from '@react-three/drei';
 import Mesh from './Mesh';
 import MeshShade from './MeshShade';
 
-const mainParts = [
-  'SM_leftShoulder_shell_Shoulder_shell_0',
-  'Legs_legs_0',
-  'SM_leftThighPlate_mesh2_legs_0',
-  'SM_leftShoe01_mesh_shoes_0',
-  'SM_topHelmet_mesh2_helmet1_0',
-  'SM_leftShoulderShell_mesh23_Shoulder_shell_0',
-  'chest_mesh_chest1_0',
-  'SM_wrist_mesh1_arms_0',
-  'SM_pants_mesh_bodyparts_0',
-  'pCylinder36_hands_0',
-  'default1_bodyparts_0',
-  'pCube17_backpack1_0',
-  'Group7095_backpack1_0',
-  'pSphere4_backpack1_0',
-  'pCube95_flex_0001',
-  'SM_rightKnee01_mesh_knees_0',
-  'SM_beltBuckle_mesh_bodyparts_0',
-  'SM_frontHelmet01_mesh1_helmet1_0',
-];
-
 export default function ModelScript({
   gltfIn,
   activeColor,
@@ -31,6 +10,10 @@ export default function ModelScript({
   markings,
   armourColor,
   shading,
+  paint,
+  setTargetA,
+  buttons,
+  targetA,
 }) {
   const group = useRef();
 
@@ -85,14 +68,15 @@ export default function ModelScript({
             nodeMap.push(
               <group dispose={null}>
                 <Mesh
-                  armourColor={
-                    mainParts.indexOf(item.name) > -1 ? armourColor : null
-                  }
                   sprayMode={sprayMode}
                   activeColor={activeColor}
                   geometry={item.geometry}
                   scale={item.scale}
                   materialIn={nodeArr[i].material}
+                  setTargetA={setTargetA}
+                  targetA={targetA}
+                  buttons={buttons}
+                  paint={paint}
                   decals={
                     markings && markings[item.name] ? markings[item.name] : null
                   }
@@ -121,9 +105,6 @@ export default function ModelScript({
                 </Mesh>
                 {shading && (
                   <MeshShade
-                    armourColor={
-                      mainParts.indexOf(item.name) > -1 ? armourColor : null
-                    }
                     sprayMode={sprayMode}
                     activeColor={activeColor}
                     geometry={item.geometry}
