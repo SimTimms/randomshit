@@ -1,8 +1,7 @@
 import TWEEN from '@tweenjs/tween.js';
 
 const animateCamera = (camera, controls, cameraSettings, callBack) => {
-  const { position, target, duration, minDistance, maxDistance } =
-    cameraSettings;
+  const { position, target, duration, minDistance } = cameraSettings;
   controls.enabled = false;
   const from = {};
   const to = {};

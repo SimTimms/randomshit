@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
-import { ThemeProvider } from '@mui/material/styles';
 import { withRouter } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
-import themeDesigner from './theme';
 import WidgetRoutes from './routes/routesWidget';
 import { REACT_APP_API } from './envVars';
 
 function RouterComponent(props) {
-  const theme = themeDesigner();
   const client = new ApolloClient({
     uri: REACT_APP_API,
     cache: new InMemoryCache({ addTypename: false }),
@@ -26,9 +23,10 @@ function RouterComponent(props) {
 
   useEffect(() => {
     const idElement = document.getElementById(props.elementId);
-    const userIdParam = idElement.getAttribute('userId');
-    const camera = idElement.getAttribute('camera').split(',');
-    if (document.getElementById(props.elementId)) {
+
+    if (idElement) {
+      const userIdParam = idElement.getAttribute('userId');
+      const camera = idElement.getAttribute('camera').split(',');
       !modelId && setModelId(idElement.getAttribute('modelId'));
       controls === 'blank' && setControls(idElement.getAttribute('controls'));
       rotate === 'blank' && setRotate(idElement.getAttribute('rotate'));
@@ -38,30 +36,28 @@ function RouterComponent(props) {
       setTargets(idElement.getAttribute('targets'));
       cameraPos === 'blank' && setCameraPos([camera[0], camera[1], camera[2]]);
     }
-  }, [modelId]);
+  }, [modelId, cameraPos, controls, paint, props, rotate, url, userId]);
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <ThemeProvider theme={theme}>
-        <ApolloProvider client={client}>
-          {modelId ? (
-            <WidgetRoutes
-              props={props}
-              theme={theme}
-              modelId={modelId}
-              controls={controls}
-              rotate={rotate}
-              paint={paint}
-              cameraPos={cameraPos}
-              targets={targets}
-              url={url}
-              userId={userId}
-            />
-          ) : (
-            `Please add this to your site: <div id="modelId" modelId="6259ae1fb012e3b1d9746402"></div>`
-          )}
-        </ApolloProvider>
-      </ThemeProvider>
+      <ApolloProvider client={client}>
+        {modelId ? (
+          <WidgetRoutes
+            props={props}
+            theme={null}
+            modelId={modelId}
+            controls={controls}
+            rotate={rotate}
+            paint={paint}
+            cameraPos={cameraPos}
+            targets={targets}
+            url={url}
+            userId={userId}
+          />
+        ) : (
+          `Please add this to your site: <div id="modelId" modelId="6259ae1fb012e3b1d9746402"></div>`
+        )}
+      </ApolloProvider>
     </div>
   );
 }

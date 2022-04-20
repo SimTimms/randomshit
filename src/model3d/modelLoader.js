@@ -1,10 +1,8 @@
-import React, { Suspense, useRef, useEffect, useCallback } from 'react';
+import React, { Suspense, useRef, useEffect } from 'react';
 import { Canvas } from 'react-three-fiber';
-import { OrbitControls } from '@react-three/drei';
 import ModelScript from './ModelScript';
 import { Html, useProgress } from '@react-three/drei';
 import { Column, Row } from '../components';
-import TWEEN from '@tweenjs/tween.js';
 import Camera from './Camera';
 function Loader() {
   const { progress } = useProgress();
@@ -44,7 +42,6 @@ export default function ModelLoader({
   activeColor,
   sprayMode,
   gltfIn,
-  lightOne,
   lightTwo,
   lightThree,
   lightFour,
@@ -52,19 +49,16 @@ export default function ModelLoader({
   lightSix,
   lightSeven,
   markings,
-  controls,
   rotate,
   paint,
   cameraPos,
   targets,
   watermark,
 }) {
-  const [shading, setShading] = React.useState(false);
+  const shading = false;
   const [targetA, setTargetA] = React.useState({ target: [], position: [] });
   const canvas = useRef(null);
-  let count = useRef(0);
   const buttons = ['ScreenTwo', 'ScreenThree003'];
-  const [switcha, setSwitcha] = React.useState(false);
 
   useEffect(() => {
     setTargetA({
@@ -135,7 +129,7 @@ export default function ModelLoader({
                 />
               </group>
             </Suspense>
-            <Camera target={targetA} setTargetA={setTargetA} />
+            <Camera target={targetA} setTargetA={setTargetA} rotate={rotate} />
             {/*
             <OrbitControls
               target={targetA}

@@ -65,7 +65,7 @@ export default function ModelApp({
     setPartnerId(modelId);
   }, [modelId]);
   return (
-    <div style={{ height: '100%' }}>
+    <div style={{ height: '100%' }} onClick={() => (paint = null)}>
       <div
         style={{
           height: 'calc(100% )',

@@ -1,9 +1,6 @@
 import React from 'react';
-import { Row, Column, WidgetTitle } from '../components';
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
-import Title from './Title';
-import Icon from './Icon';
+import { Row, Column } from '../components';
+
 import CircleButton from '../CircleButton';
 
 export default function Lighting({

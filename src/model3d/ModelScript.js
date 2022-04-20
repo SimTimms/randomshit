@@ -1,15 +1,11 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import Mesh from './Mesh';
-import MeshShade from './MeshShade';
 
 export default function ModelScript({
   gltfIn,
   activeColor,
   sprayMode,
-  markings,
-  armourColor,
-  shading,
   paint,
   setTargetA,
   buttons,
@@ -38,7 +34,6 @@ export default function ModelScript({
     if (nodeArr) {
       for (let i = 0; i < nodeArr.length; i++) {
         const item = nodeArr[i];
-        let scale = null;
         if (
           item.scale &&
           item.scale.isVector3 &&
@@ -48,15 +43,6 @@ export default function ModelScript({
             rNbr(item.scale.z) === 1
           )
         ) {
-          if (item.scale.x === item.scale.y && item.scale.x === item.scale.z) {
-            scale = rNbr(item.scale.x);
-          } else {
-            scale = [
-              rNbr(item.scale.x),
-              rNbr(item.scale.y),
-              rNbr(item.scale.z),
-            ];
-          }
         }
 
         const nodeChildArr = Object.values(item.children);
@@ -64,7 +50,6 @@ export default function ModelScript({
         if (exists === -1) {
           existsArray.push(item.name);
           if (item.geometry && item.visible) {
-            //     const edges = new THREE.EdgesGeometry(item.geometry, 35);
             nodeMap.push(
               <group dispose={null}>
                 <Mesh
@@ -77,18 +62,8 @@ export default function ModelScript({
                   targetA={targetA}
                   buttons={buttons}
                   paint={paint}
-                  decals={
-                    markings && markings[item.name] ? markings[item.name] : null
-                  }
-                  video={
-                    gltfIn ===
-                    'https://random-shit-store.s3.amazonaws.com/614b73c98a97c40c65957b89/Box2/scene.gltf'
-                      ? '/Exodite.mp4'
-                      : gltfIn ===
-                        'https://random-shit-store.s3.eu-west-2.amazonaws.com/614b73c98a97c40c65957b89/Box3/scene.gltf'
-                      ? '/corvus.mp4'
-                      : null
-                  }
+                  decals={null}
+                  video={null}
                   name={item.name}
                   position={[
                     rNbr(item.position.x),
@@ -103,61 +78,6 @@ export default function ModelScript({
                 >
                   {node(nodeChildArr, nodes)}
                 </Mesh>
-                {shading && (
-                  <MeshShade
-                    sprayMode={sprayMode}
-                    activeColor={activeColor}
-                    geometry={item.geometry}
-                    scale={item.scale}
-                    materialIn={nodeArr[i].material}
-                    decals={
-                      markings && markings[item.name]
-                        ? markings[item.name]
-                        : null
-                    }
-                    video={
-                      gltfIn ===
-                      'https://random-shit-store.s3.amazonaws.com/614b73c98a97c40c65957b89/Box2/scene.gltf'
-                        ? '/Exodite.mp4'
-                        : gltfIn ===
-                          'https://random-shit-store.s3.eu-west-2.amazonaws.com/614b73c98a97c40c65957b89/Box3/scene.gltf'
-                        ? '/corvus.mp4'
-                        : null
-                    }
-                    name={item.name}
-                    position={[
-                      rNbr(item.position.x),
-                      rNbr(item.position.y),
-                      rNbr(item.position.z),
-                    ]}
-                    rotation={[
-                      rDeg(item.rotation.x),
-                      rDeg(item.rotation.y),
-                      rDeg(item.rotation.z),
-                    ]}
-                  >
-                    {node(nodeChildArr, nodes)}
-                  </MeshShade>
-                )}
-                {/*
-                <lineSegments
-                  geometry={edges}
-                  renderOrder={100}
-                  scale={item.scale}
-                  position={[
-                    rNbr(item.position.x),
-                    rNbr(item.position.y),
-                    rNbr(item.position.z),
-                  ]}
-                  rotation={[
-                    rDeg(item.rotation.x),
-                    rDeg(item.rotation.y),
-                    rDeg(item.rotation.z),
-                  ]}
-                >
-                  <lineBasicMaterial />
-                </lineSegments>
-                */}
               </group>
             );
           }

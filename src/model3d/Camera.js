@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCallback, useRef, useEffect, memo, useMemo } from 'react';
+import { useCallback, useRef, useEffect, memo } from 'react';
 import TWEEN from '@tweenjs/tween.js';
 import { useThree, extend, useFrame } from '@react-three/fiber';
 import { Vector3 } from 'three';
@@ -9,7 +9,7 @@ import animateCamera from './anim';
 
 extend({ OrbitControls });
 
-function CameraControlsTween({ target, setTargetA }) {
+function CameraControlsTween({ target, setTargetA, rotate }) {
   const controls = useRef();
   const {
     camera,
@@ -52,7 +52,7 @@ function CameraControlsTween({ target, setTargetA }) {
         );
       }
     },
-    [camera, target]
+    [camera]
   );
 
   useEffect(() => {
@@ -76,6 +76,8 @@ function CameraControlsTween({ target, setTargetA }) {
         enableZoom={true}
         enablePan={true}
         enableDamping={true}
+        autoRotate={rotate}
+        autoRotateSpeed={10}
         // maxDistance={8500}
         // minDistance={6000}
         // maxAzimuthAngle={1}

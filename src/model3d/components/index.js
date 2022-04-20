@@ -9,10 +9,8 @@ import {
   DividerMini,
   DividerWithLine,
 } from './blocks';
-import WidgetTitle from './WidgetTitle';
 
 export {
-  WidgetTitle,
   Grid,
   MainTitle,
   Title,

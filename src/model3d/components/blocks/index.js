@@ -1,13 +1,10 @@
 import React from 'react';
 import { useStyles } from './styles';
 import { Typography } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import clsx from 'clsx';
 
 export function Grid({ cols, ...props }) {
   const classes = useStyles();
-  const mobile = useMediaQuery('(max-width:900px)');
-  const desktop = useMediaQuery('(min-width:1600px)');
   return (
     <div
       className={clsx({
@@ -65,7 +62,6 @@ export function Column(props) {
   const margin = m ? m : 0;
   const overflow = of ? of : '';
   const classes = useStyles();
-  const mobile = useMediaQuery('(max-width:600px)');
 
   return (
     <div
@@ -123,7 +119,6 @@ export function Row(props) {
     bb,
     className,
     onClickEvent,
-    pointer,
   } = props;
   const align = a ? a : 'center';
   const justify = j ? j : 'center';
@@ -168,7 +163,6 @@ export function Row(props) {
         overflow,
         maxWidth,
         boxSizing: 'border-box',
-        cursor: pointer,
         borderBottom,
         cursor: onClickEvent ? 'pointer' : 'default',
       }}

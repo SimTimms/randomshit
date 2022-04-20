@@ -68,41 +68,6 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
 
-  circleIconYellow: {
-    background: theme.palette.error.main,
-  },
-  circleIconYellowOn: {
-    background: theme.palette.error.main,
-    opacity: 1,
-    boxShadow: 'inset 3px 3px 5px rgba(0,0,0,0.3)',
-  },
-  circleIconBlue: {
-    background: theme.palette.secondary.main,
-  },
-  circleIconBlueOn: {
-    background: theme.palette.secondary.main,
-    opacity: 1,
-    boxShadow: 'inset 3px 3px 5px rgba(0,0,0,0.3)',
-  },
-  circleIconGreen: {
-    background: theme.palette.primary.main,
-  },
-  circleIconGrey: {
-    opacity: 1,
-    background: '#aaa',
-  },
-  circleIconGreenOn: {
-    background: theme.palette.primary.main,
-    opacity: 1,
-    boxShadow: 'inset 3px 3px 5px rgba(0,0,0,0.3)',
-  },
-
-  circleIconGreyOn: {
-    background: '#aaa',
-    opacity: 1,
-    boxShadow: 'inset 3px 3px 5px rgba(0,0,0,0.3)',
-    animation: `$myEffect 1000ms ${theme.transitions.easing.easeInOut}`,
-  },
   '@keyframes myEffect': {
     '0%': {
       opacity: 0,
