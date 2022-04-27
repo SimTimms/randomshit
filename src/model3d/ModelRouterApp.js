@@ -37,7 +37,7 @@ function ModelRouterApp({
     !color && setColor(colorMap);
   }, [colorMap, color, modelColorsRef, js]);
   return (
-    <Column h="100%">
+    <Column h="100%" w="100%">
       <Row h="100%" w="100%" j="flex-start" a="flex-start">
         <ModelLoader
           activeColor={activeColor}

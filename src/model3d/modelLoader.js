@@ -78,7 +78,7 @@ export default function ModelLoader({
         height: '100%',
       }}
     >
-      <Column h="100%">
+      <Column h="100%" w="100%">
         <Row w="100%" h="100%">
           <Canvas
             pixelRatio={[1, 2]}

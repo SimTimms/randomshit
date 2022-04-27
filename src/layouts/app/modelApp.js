@@ -65,10 +65,14 @@ export default function ModelApp({
     setPartnerId(modelId);
   }, [modelId]);
   return (
-    <div style={{ height: '100%' }} onClick={() => (paint = null)}>
+    <div
+      style={{ height: '100%', width: '100%' }}
+      onClick={() => (paint = null)}
+    >
       <div
         style={{
-          height: 'calc(100% )',
+          height: '100%',
+          width: '100%',
         }}
       >
         {(modelOne || url) && (
