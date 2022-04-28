@@ -20,6 +20,7 @@ function ModelRouterApp({
   cameraPos,
   targets,
   watermark,
+  clickEvent,
 }) {
   const modelColorsRef = useRef({});
   const [panels, setPanels] = React.useState(null);
@@ -69,6 +70,7 @@ function ModelRouterApp({
           cameraPos={cameraPos}
           targets={targets}
           watermark={watermark}
+          clickEvent={clickEvent}
         />
       </Row>
     </Column>

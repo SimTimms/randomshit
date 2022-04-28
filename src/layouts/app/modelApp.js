@@ -54,6 +54,7 @@ export default function ModelApp({
   targets,
   url,
   userId,
+  clickEvent,
   ...props
 }) {
   const [modelOne, setModelOne] = React.useState(null);
@@ -90,6 +91,7 @@ export default function ModelApp({
             cameraPos={cameraPos}
             paint={paintScheme}
             targets={targets}
+            clickEvent={clickEvent}
             watermark={
               !profile || (profile && profile.priority !== 0) ? true : false
             }

@@ -54,6 +54,7 @@ export default function ModelLoader({
   cameraPos,
   targets,
   watermark,
+  clickEvent,
 }) {
   const shading = false;
   const [targetA, setTargetA] = React.useState({ target: [], position: [] });
@@ -61,6 +62,7 @@ export default function ModelLoader({
   const buttons = ['ScreenTwo', 'ScreenThree003'];
 
   useEffect(() => {
+    console.log(targetA);
     setTargetA({
       target: [
         targets.split(',')[0] * 1,
@@ -126,6 +128,7 @@ export default function ModelLoader({
                   setTargetA={setTargetA}
                   targetA={targetA}
                   buttons={buttons}
+                  clickEvent={clickEvent}
                 />
               </group>
             </Suspense>

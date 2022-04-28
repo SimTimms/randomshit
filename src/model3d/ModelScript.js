@@ -10,6 +10,7 @@ export default function ModelScript({
   setTargetA,
   buttons,
   targetA,
+  clickEvent,
 }) {
   const group = useRef();
 
@@ -53,6 +54,7 @@ export default function ModelScript({
             nodeMap.push(
               <group dispose={null}>
                 <Mesh
+                  clickEvent={clickEvent}
                   sprayMode={sprayMode}
                   activeColor={activeColor}
                   geometry={item.geometry}

@@ -20,6 +20,7 @@ function RouterComponent(props) {
   const [targets, setTargets] = React.useState('blank');
   const [url, setUrl] = React.useState(null);
   const [userId, setUserId] = React.useState(null);
+  const [clickEvent, setClickEvent] = React.useState(null);
 
   useEffect(() => {
     const idElement = document.getElementById(props.elementId);
@@ -35,6 +36,9 @@ function RouterComponent(props) {
       userIdParam && !userId && setUserId(userIdParam);
       setTargets(idElement.getAttribute('targets'));
       cameraPos === 'blank' && setCameraPos([camera[0], camera[1], camera[2]]);
+
+      idElement.getAttribute('onClickEvent') &&
+        setClickEvent(() => window[idElement.getAttribute('onClickEvent')]);
     }
   }, [modelId, cameraPos, controls, paint, props, rotate, url, userId]);
 
@@ -53,6 +57,7 @@ function RouterComponent(props) {
             targets={targets}
             url={url}
             userId={userId}
+            clickEvent={clickEvent}
           />
         ) : (
           `Please add this to your site: <div id="modelId" modelId="6259ae1fb012e3b1d9746402"></div>`

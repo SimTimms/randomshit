@@ -12,6 +12,7 @@ export default function WidgetRoutes({
   targets,
   url,
   userId,
+  clickEvent,
   props: { ...props },
 }) {
   return (
@@ -31,6 +32,7 @@ export default function WidgetRoutes({
             targets={targets}
             url={url}
             userId={userId}
+            clickEvent={clickEvent}
           />
         )}
       />

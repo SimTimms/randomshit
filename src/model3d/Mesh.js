@@ -16,6 +16,7 @@ export default function Mesh({
   paint,
   setTargetA,
   buttons,
+  clickEvent,
 }) {
   const [material, setMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#fff');
@@ -65,20 +66,13 @@ export default function Mesh({
         }}
         onPointerDown={(e) => paintMode !== 1 && setPaintMode(1)}
         onPointerUp={(e) => {
+          e.stopPropagation();
+          clickEvent(name, meshColor);
+          setTargetA({
+            target: `${position[0]},${position[1] - 7},${position[2]}`,
+          });
           if (paintMode === 1) {
-            if (buttons.indexOf(name) > -1) {
-              setTargetA({
-                position: [-30, 0, 100],
-                target: [position[0], position[1] - 7, position[2]],
-              });
-            } else {
-              setTargetA({
-                position: [0, 0, 400],
-                target: [0, 0, 0],
-              });
-            }
             if (activeColor.type !== 'Shade') {
-              e.stopPropagation();
               let savedColors = localStorage.getItem('modelColorSave');
               if (savedColors === 'null' || savedColors === null) {
                 savedColors = {};

@@ -35,14 +35,16 @@
 
     <title>MiniPainter3d</title>
     <script>
-    function myFunction(){ 
-   let attribute =  document.getElementById('modelId').getAttribute("targets");
-      document.getElementById('modelId').setAttribute ("targets","100,0,0") }</script>
+    function myFunction(name,color){ 
+      alert(name+" "+color)
+ /*  let attribute =  document.getElementById('modelId').getAttribute("targets");
+      document.getElementById('modelId').setAttribute ("targets","100,0,0") */
+    }</script>
   </head>
   <body style="margin: 0; height:100vh; background: #fff">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     
-    <div id="modelId" modelId="621769789e0236001621c7bd" controls="true"  camera="0,0,200"  targets="0,0,0"  userId="614b73c98a97c40c65957b89" paint="625c609f00958b0016d34b37" style="height:100%; background:blue"></div>
+    <div id="modelId" modelId="621769789e0236001621c7bd" controls="true"  camera="0,0,200"  targets="0,0,0"  userId="614b73c98a97c40c65957b89" paint="625c609f00958b0016d34b37" style="height:100%; background:blue" onClickEvent="myFunction"></div>
     <!--paint="625c609f00958b0016d34b37"-->
 <!-- userId="614b73c98a97c40c65957b89"-->
 <!--url="https://random-shit-store.s3.eu-west-2.amazonaws.com/614b73c98a97c40c65957b89/Primaris+Free/scene.gltf"-->
