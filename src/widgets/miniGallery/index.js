@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import LikeButton from './LikeButton';
 import { MenuContext } from '../../context';
 import { TwitterShareButton } from 'react-share';
+import { Typography } from '@mui/material';
 
 import {
   EmailIcon,
@@ -96,6 +97,10 @@ export default function MiniGallery({ ...props }) {
                         .replace('.jpg', '')}
                       likes={creative.likes.length}
                     />
+                    <Typography variant="body2">
+                      {creative.model._id}
+                    </Typography>
+                    <Typography variant="body2">{creative._id}</Typography>
                     <TwitterShareButton
                       url={creative.url
                         .replace(

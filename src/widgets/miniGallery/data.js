@@ -5,6 +5,7 @@ export const LATEST_MINIS_WIDGET = gql`
     savedGameMany(sort: CREATEDAT__UPDATEDAT_DESC, limit: 100) {
       url
       likes
+      _id
       saveDataColors
       saveDataParts
       model {
