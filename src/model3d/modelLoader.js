@@ -74,7 +74,6 @@ export default function ModelLoader({
   }
 
   useEffect(() => {
-    console.log(activeColor);
     if (!shading && activeColor.type === 'Shade') {
       setShading(true);
     }
