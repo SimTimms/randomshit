@@ -39,6 +39,7 @@ function ModelRouterApp({
   const [markings, setMarkings] = React.useState(null);
   const [colorGroup, setColorGroup] = React.useState(null);
   const [recentColors, setRecentColors] = React.useState([]);
+  const [rotate, setRotate] = React.useState(false);
   const classes = useStyles();
 
   const [activeColor, setActiveColor] = React.useState({

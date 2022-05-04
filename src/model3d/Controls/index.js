@@ -3,7 +3,7 @@ import { useStyles } from './styles';
 import { Typography } from '@mui/material';
 import { Column, Row } from '../../components';
 
-export default function Controls({ shading, setShading }) {
+export default function Controls({ shading, setShading, rotate, setRotate }) {
   const classes = useStyles();
 
   return (
@@ -18,6 +18,17 @@ export default function Controls({ shading, setShading }) {
             style={{ cursor: 'pointer', color: '#aaa' }}
           >
             {shading ? 'On' : 'Off'}
+          </Typography>
+        </Row>
+        <Row a="flex-start" j="flex-start" mt={10}>
+          <Typography style={{ marginLeft: 10, color: '#aaa' }}>
+            Rotate:{' '}
+          </Typography>
+          <Typography
+            onClick={() => setRotate(rotate ? false : true)}
+            style={{ cursor: 'pointer', color: '#aaa' }}
+          >
+            {rotate ? 'On' : 'Off'}
           </Typography>
         </Row>
       </Column>

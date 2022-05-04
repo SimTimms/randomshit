@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import * as THREE from 'three';
-
+import { Html, useProgress } from '@react-three/drei';
+import { useThree } from 'react-three-fiber';
+import { PartNameContext } from '../context';
+import { useStyles } from './htmlStyles';
+import { partNames } from './partNames';
 export default function Mesh({
   geometry,
   name,
@@ -19,9 +23,13 @@ export default function Mesh({
   const [material, setMaterial] = React.useState(null);
   const [shadeMaterial, setShadeMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#aaa');
+  const [previewColor, setPreviewColor] = React.useState(null);
   const [shadeColor, setShadeColor] = React.useState(null);
+  const [partName, setPartName] = React.useState(null);
   const [decalItem, setDecalItem] = React.useState(null);
+  const [mousePos, setMousePos] = React.useState(null);
   const [paintMode, setPaintMode] = React.useState(0);
+  const classes = useStyles();
   const metals = [
     '#9e573c',
     '#f5b13d',
@@ -106,7 +114,7 @@ export default function Mesh({
         console.log(error);
       }
     }
-
+    console.log('Render');
     if (!decalItem || video || (decalItem && decalItem !== decals)) {
       if (decals) {
         var texLoader = new THREE.TextureLoader();
@@ -179,6 +187,17 @@ export default function Mesh({
       }
     }
   }, [decalNormal, decals, meshColor]);
+
+  function getColor(partName) {
+    {
+      const jsonData = JSON.parse(
+        localStorage.getItem('modelColorSave').replaceAll(/\\"/gi, '"')
+      );
+
+      return jsonData[partName] ? jsonData[partName].name : '';
+    }
+  }
+
   return !material ? null : (
     <group
       position={position && position}
@@ -186,18 +205,6 @@ export default function Mesh({
       scale={scale && scale}
     >
       <mesh
-        onClick={(e) => {
-          /*
-          if (name === 'ScreenTwo') {
-            window.open(
-              'https://www.warhammer-community.com/2021/12/22/who-is-the-exodite-check-out-the-trailer-for-the-thrilling-new-warhammer-tv-series/',
-              '_blank'
-            );
-          }
-          if (name === 'ScreenOne') {
-            window.open('https://warhammerplus.com/', '_blank');
-          }*/
-        }}
         onPointerDown={(e) => paintMode !== 1 && setPaintMode(1)}
         onPointerUp={(e) => {
           if (paintMode === 1) {
@@ -224,14 +231,60 @@ export default function Mesh({
             }
           }
         }}
-        onPointerMove={(e) => paintMode !== 0 && !shading && setPaintMode(0)}
+        onPointerMove={(e) => {
+          e.stopPropagation();
+          // !previewColor && setPreviewColor(activeColor.color);
+          paintMode !== 0 && !shading && setPaintMode(0);
+        }}
+        onPointerOver={(e) => {
+          e.stopPropagation();
+          //  !previewColor && setPreviewColor(activeColor.color);
+          !partName && setPartName(name);
+        }}
+        onPointerOut={(e) => {
+          e.stopPropagation();
+          //  previewColor && setPreviewColor(null);
+          setPartName(null);
+        }}
         geometry={geometry}
         material={material}
-        material-color={armourColor ? armourColor : meshColor}
+        material-color={
+          armourColor ? armourColor : previewColor ? previewColor : meshColor
+        }
         material-metalness={metals.indexOf(meshColor) > -1 ? 0.7 : 0}
         material-roughness={metals.indexOf(meshColor) > -1 ? 0.5 : 1}
       />
       {decalItem && <mesh geometry={geometry} material={decalItem} />}
+      {partName && (
+        <group position={[0, -3, 0]}>
+          <Html center={true}>
+            <div
+              style={{
+                width: '100vw',
+                textAlign: 'center',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <div
+                style={{
+                  color: 'rgba(0,0,0,0.5)',
+                  textAlign: 'center',
+                  backgroundColor: 'rgba(0,0,0,0.2)',
+                  padding: 5,
+                  borderRadius: 2,
+                  width: 200,
+                  boxShadow: 'inset 3px 3px 5px rgba(0,0,0,0.3)',
+                  fontFamily: 'Roboto,sans-serif',
+                }}
+              >
+                {getColor(partName)}
+              </div>
+            </div>
+          </Html>
+        </group>
+      )}
     </group>
   );
 }

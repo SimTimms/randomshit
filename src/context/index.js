@@ -9,6 +9,11 @@ export const ColorContext = React.createContext({
   activeColor: { color: 'grey', name: null },
 });
 
+export const PartNameContext = React.createContext({
+  partName: 'test',
+  setPartName: () => {},
+});
+
 export const UserContext = React.createContext({
   userId: null,
 });

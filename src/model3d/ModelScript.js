@@ -145,9 +145,9 @@ export default function ModelScript({
                     }
                     name={item.name}
                     position={[
-                      rNbr(item.position.x),
-                      rNbr(item.position.y),
-                      rNbr(item.position.z),
+                      item.position.x,
+                      item.position.y,
+                      item.position.z,
                     ]}
                     rotation={[
                       rDeg(item.rotation.x),

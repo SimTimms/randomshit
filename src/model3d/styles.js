@@ -67,7 +67,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
+  htmlWrapper: { background: 'white' },
   circleIconYellow: {
     background: theme.palette.error.main,
   },

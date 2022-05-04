@@ -10,10 +10,14 @@ import { Mutation } from '@apollo/client/react/components';
 import { SAVE_GAME_IMAGE } from './data';
 import { toaster } from '../utils/toaster';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
+import { Typography } from '@mui/material';
+import { PartNameContext } from '../context';
 import Profile from './Profile';
 import Controls from './Controls';
 import Ads from './Ads';
 import { paints } from './paints';
+import mp3dLogo from '../assets/branding/mp3dlogoinsta.png';
+import { partNames } from './partNames';
 
 function Loader() {
   const { progress } = useProgress();
@@ -60,7 +64,11 @@ export default function ModelLoader({
   const [screenshot, setScreenshot] = React.useState(null);
   const [armourColor, setArmourColor] = React.useState(null);
   const [shading, setShading] = React.useState(false);
+  const [rotate, setRotate] = React.useState(false);
   const [wait, setWait] = React.useState(false);
+  const [instaFrame, setInstaFrame] = React.useState(false);
+  const [recipe, setRecipe] = React.useState(false);
+  const [partName, setPartName] = React.useState('Part');
   const canvas = useRef(null);
   let count = useRef(0);
 
@@ -79,6 +87,16 @@ export default function ModelLoader({
     }
   }, [activeColor, shading]);
 
+  function jsonConvert() {
+    {
+      const jsonData = JSON.parse(
+        localStorage.getItem('modelColorSave').replaceAll(/\\"/gi, '"')
+      );
+      return Object.keys(jsonData).map((item) => {
+        return `${partNames[item] || item}: ${jsonData[item].name}`;
+      });
+    }
+  }
   return (
     <div
       style={{
@@ -173,6 +191,26 @@ export default function ModelLoader({
                 setPanels(panels === 'unitDetails' ? '' : 'unitDetails')
               }
             />*/}
+            <Button
+              menuItem={{
+                name: 'Instagram',
+                color: 'light',
+              }}
+              onClickEvent={() => {
+                setInstaFrame(instaFrame ? false : true);
+              }}
+              white={true}
+            />
+            <Button
+              menuItem={{
+                name: 'Recipe',
+                color: 'light',
+              }}
+              onClickEvent={() => {
+                setRecipe(recipe ? false : true);
+              }}
+              white={true}
+            />
             <Mutation
               mutation={SAVE_GAME_IMAGE}
               onCompleted={(data) => {
@@ -205,95 +243,189 @@ export default function ModelLoader({
             </Mutation>
             <div style={{ marginTop: 3, marginLeft: 3 }}></div>
             {screenshot && (
-              <div style={{ marginTop: 5, marginLeft: 3, marginRight: 5 }}>
-                <TwitterShareButton
-                  url={screenshot
-                    .replace(
-                      'https://random-shit-store.s3.amazonaws.com/',
-                      'https://minipainter3d.herokuapp.com/photo?photo='
-                    )
-                    .replace('.jpg', '')
-                    .trim()}
-                  title={`Made with MiniPainter3d`}
-                  className="shareBtn col-md-1 col-sm-1 col-xs-1"
-                  hashtags={['miniaturepainting', 'warhammercommunity']}
-                  related={['@timsimmsdev']}
-                >
-                  <TwitterIcon size={24} round={true} />
-                </TwitterShareButton>
-              </div>
+              <Row>
+                <div style={{ marginTop: 5, marginLeft: 3, marginRight: 5 }}>
+                  <TwitterShareButton
+                    url={screenshot
+                      .replace(
+                        'https://random-shit-store.s3.amazonaws.com/',
+                        'https://minipainter3d.herokuapp.com/photo?photo='
+                      )
+                      .replace('.jpg', '')
+                      .trim()}
+                    title={`Made with MiniPainter3d`}
+                    className="shareBtn col-md-1 col-sm-1 col-xs-1"
+                    hashtags={['miniaturepainting', 'warhammercommunity']}
+                    related={['@timsimmsdev']}
+                  >
+                    <TwitterIcon size={24} round={true} />
+                  </TwitterShareButton>
+                </div>
+              </Row>
             )}
           </div>
         )}
-        <Row w="100%" h="100%">
-          {gameId === '621769789e0236001621c7bd' && (
-            <Controls shading={shading} setShading={setShading} />
-          )}
-          {/* <Profile />*/}
-          <Canvas
-            pixelRatio={[1, 2]}
-            camera={{ position: [0, 200, 250], fov: 10, far: 700 }}
-            ref={canvas}
-            gl={{ preserveDrawingBuffer: true }}
-            style={{
-              background: '#fff',
-              height: '100%',
-              width: '100%',
-            }}
-          >
-            <Suspense fallback={<Loader />}>
-              <group name="sun" position={[500, 900, 0]}>
-                <ambientLight intensity={lightOne / 50} />
-              </group>
-              <group name="sun" position={[50, 0, 0]}>
-                <spotLight intensity={lightTwo / 50} />
-              </group>
-              <group name="sun" position={[-50, 0, 0]}>
-                <spotLight intensity={lightThree / 50} />
-              </group>
-              <group name="sun" position={[0, 50, 0]}>
-                <spotLight intensity={lightFour / 50} />
-              </group>
-              <group name="sun" position={[0, -50, 0]}>
-                <spotLight intensity={lightFive / 50} />
-              </group>
-              <group name="sun" position={[0, 0, 50]}>
-                <spotLight intensity={lightSix / 50} />
-              </group>
-              <group name="sun" position={[0, 0, -50]}>
-                <spotLight intensity={lightSeven / 50} />
-              </group>
-              <group position={[0, -8, 0]}>
-                <ModelScript
-                  activeColor={activeColor}
-                  sprayMode={sprayMode}
-                  gltfIn={gltfIn}
-                  markings={markings}
-                  armourColor={armourColor}
-                  shading={shading}
-                />
-              </group>
+        <PartNameContext.Provider
+          value={{
+            partName: partName,
+            setPartName: setPartName,
+          }}
+        >
+          <Row w="100%" h="100%">
+            <PartNameContext.Consumer>
+              {({ partName }) => {
+                console.log('c', partName);
+              }}
+            </PartNameContext.Consumer>
+            <Controls
+              shading={shading}
+              setShading={setShading}
+              rotate={rotate}
+              setRotate={setRotate}
+            />
 
-              {box && (
+            {/* <Profile />*/}
+            {instaFrame && (
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: '#fff',
+                }}
+              >
+                <div
+                  style={{
+                    width: '540px',
+                    height: '540px',
+                    border: '1px solid #ddd',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    background:
+                      'linear-gradient(141deg, rgba(255,255,255,1) 0%, rgba(218,218,218,1) 100%)',
+                  }}
+                >
+                  <Row w="100%" j="space-between" a="flex-start">
+                    <img src={mp3dLogo} style={{ height: 80, padding: 5 }} />
+                    <Typography
+                      variant="h5"
+                      style={{ fontSize: 10, padding: 5, color: '#aaa' }}
+                    >
+                      MINIPAINTER3D.COM
+                    </Typography>
+                  </Row>
+                </div>
+              </div>
+            )}
+            {recipe && (
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: '#fff',
+                }}
+              >
+                <div
+                  style={{
+                    width: '540px',
+                    height: '540px',
+                    border: '1px solid #ddd',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    background:
+                      'linear-gradient(141deg, rgba(255,255,255,1) 0%, rgba(218,218,218,1) 100%)',
+                  }}
+                >
+                  <Row w="100%" j="space-between" a="flex-start">
+                    <img src={mp3dLogo} style={{ height: 80, padding: 5 }} />
+                    <Typography
+                      variant="h5"
+                      style={{ fontSize: 10, padding: 5, color: '#aaa' }}
+                    >
+                      {jsonConvert()}
+                    </Typography>
+                  </Row>
+                </div>
+              </div>
+            )}
+
+            <Canvas
+              pixelRatio={[1, 2]}
+              camera={{ position: [0, 200, 250], fov: 10, far: 700 }}
+              ref={canvas}
+              gl={{ preserveDrawingBuffer: true }}
+              style={{
+                height: '100%',
+                width: '100%',
+              }}
+            >
+              <Suspense fallback={<Loader />}>
+                <group name="sun" position={[500, 900, 0]}>
+                  <ambientLight intensity={lightOne / 50} />
+                </group>
+                <group name="sun" position={[50, 0, 0]}>
+                  <spotLight intensity={lightTwo / 50} />
+                </group>
+                <group name="sun" position={[-50, 0, 0]}>
+                  <spotLight intensity={lightThree / 50} />
+                </group>
+                <group name="sun" position={[0, 50, 0]}>
+                  <spotLight intensity={lightFour / 50} />
+                </group>
+                <group name="sun" position={[0, -50, 0]}>
+                  <spotLight intensity={lightFive / 50} />
+                </group>
+                <group name="sun" position={[0, 0, 50]}>
+                  <spotLight intensity={lightSix / 50} />
+                </group>
+                <group name="sun" position={[0, 0, -50]}>
+                  <spotLight intensity={lightSeven / 50} />
+                </group>
                 <group position={[0, -8, 0]}>
                   <ModelScript
-                    activeColor={null}
+                    activeColor={activeColor}
                     sprayMode={sprayMode}
-                    gltfIn={box.gltf}
-                    armourColor={null}
+                    gltfIn={gltfIn}
+                    markings={markings}
+                    armourColor={armourColor}
+                    shading={shading}
+                    partName={partName}
+                    setPartName={setPartName}
                   />
                 </group>
-              )}
-            </Suspense>
-            <OrbitControls
-              target={[0, 0, 0]}
-              maxDistance={500}
-              autoRotate={false}
-              autoRotateSpeed={5}
-            />
-          </Canvas>
-          {/*  <Ads modelArtist={modelArtist} />*/}
-        </Row>
+
+                {box && (
+                  <group position={[0, -8, 0]}>
+                    <ModelScript
+                      activeColor={null}
+                      sprayMode={sprayMode}
+                      gltfIn={box.gltf}
+                      armourColor={null}
+                    />
+                  </group>
+                )}
+              </Suspense>
+              <OrbitControls
+                target={[0, 0, 0]}
+                maxDistance={500}
+                autoRotate={rotate}
+                autoRotateSpeed={5}
+              />
+            </Canvas>
+            {/*  <Ads modelArtist={modelArtist} />*/}
+          </Row>
+        </PartNameContext.Provider>
       </Column>
     </div>
   );
