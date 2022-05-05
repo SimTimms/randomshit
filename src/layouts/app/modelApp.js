@@ -55,13 +55,18 @@ export default function ModelApp({
   url,
   userId,
   clickEvent,
+  enablePan,
+  enableZoom,
+  suspenseImage,
+  backgroundColor,
+  clickFor3d,
+  colors,
   ...props
 }) {
   const [modelOne, setModelOne] = React.useState(null);
   const [paintScheme, setPaintScheme] = React.useState(null);
   const [partnerId, setPartnerId] = React.useState(null);
   const [profile, setProfile] = React.useState(null);
-
   useEffect(() => {
     setPartnerId(modelId);
   }, [modelId]);
@@ -92,6 +97,12 @@ export default function ModelApp({
             paint={paintScheme}
             targets={targets}
             clickEvent={clickEvent}
+            enablePan={enablePan}
+            enableZoom={enableZoom}
+            suspenseImage={suspenseImage}
+            backgroundColor={backgroundColor}
+            clickFor3d={clickFor3d}
+            colors={colors}
             watermark={
               !profile || (profile && profile.priority !== 0) ? true : false
             }

@@ -12,59 +12,81 @@ function RouterComponent(props) {
       authorization: '',
     },
   });
-  const [modelId, setModelId] = React.useState(null);
-  const [controls, setControls] = React.useState('blank');
-  const [rotate, setRotate] = React.useState('blank');
-  const [paint, setPaint] = React.useState('blank');
-  const [cameraPos, setCameraPos] = React.useState('blank');
-  const [targets, setTargets] = React.useState('blank');
-  const [url, setUrl] = React.useState(null);
-  const [userId, setUserId] = React.useState(null);
-  const [clickEvent, setClickEvent] = React.useState(null);
+
+  const [elementId, setElementId] = React.useState(null);
+  const [clickFor3d, setClickFor3d] = React.useState(false);
 
   useEffect(() => {
-    const idElement = document.getElementById(props.elementId);
+    setElementId(props.elementId);
+    const clickfor3dTemp = document
+      .getElementById(props.elementId)
+      .getAttribute('clickfor3d');
 
-    if (idElement) {
-      const userIdParam = idElement.getAttribute('userId');
-      const camera = idElement.getAttribute('camera').split(',');
-      !modelId && setModelId(idElement.getAttribute('modelId'));
-      controls === 'blank' && setControls(idElement.getAttribute('controls'));
-      rotate === 'blank' && setRotate(idElement.getAttribute('rotate'));
-      paint === 'blank' && setPaint(idElement.getAttribute('paint'));
-      !url && setUrl(idElement.getAttribute('url'));
-      userIdParam && !userId && setUserId(userIdParam);
-      setTargets(idElement.getAttribute('targets'));
-      cameraPos === 'blank' && setCameraPos([camera[0], camera[1], camera[2]]);
+    clickfor3dTemp === 'true' && setClickFor3d(true);
+  }, [props]);
 
-      idElement.getAttribute('onClickEvent') &&
-        setClickEvent(() => window[idElement.getAttribute('onClickEvent')]);
-    }
-  }, [modelId, cameraPos, controls, paint, props, rotate, url, userId]);
+  const idElement = document.getElementById(elementId);
 
-  return (
-    <div style={{ width: '100%', height: '100%' }}>
-      <ApolloProvider client={client}>
-        {modelId ? (
-          <WidgetRoutes
-            props={props}
-            theme={null}
-            modelId={modelId}
-            controls={controls}
-            rotate={rotate}
-            paint={paint}
-            cameraPos={cameraPos}
-            targets={targets}
-            url={url}
-            userId={userId}
-            clickEvent={clickEvent}
-          />
-        ) : (
-          `Please add this to your site: <div id="modelId" modelId="6259ae1fb012e3b1d9746402"></div>`
-        )}
-      </ApolloProvider>
-    </div>
-  );
+  if (idElement) {
+    const userIdParam = idElement.getAttribute('userId');
+
+    const camera = idElement.getAttribute('camera').split(',');
+
+    const modelId = idElement.getAttribute('modelid');
+
+    const controls = idElement.getAttribute('controls');
+
+    const rotate = idElement.getAttribute('rotate');
+    const paint = idElement.getAttribute('paint');
+    const url = idElement.getAttribute('url');
+    const userId = userIdParam;
+    const targets = idElement.getAttribute('targets');
+
+    const cameraPos = [camera[0], camera[1], camera[2]];
+
+    const enablePan = idElement.getAttribute('enablepan');
+
+    const enableZoom = idElement.getAttribute('enablezoom');
+
+    const suspenseImage = idElement.getAttribute('suspenseimage');
+
+    const backgroundColor = idElement.getAttribute('backgroundcolor');
+
+    const clickEvent = window[idElement.getAttribute('onclickevent')];
+
+    const colors = idElement.getAttribute('colors');
+
+    return (
+      <div style={{ width: '100%', height: '100%' }}>
+        <ApolloProvider client={client}>
+          {modelId ? (
+            <WidgetRoutes
+              props={props}
+              theme={null}
+              modelId={modelId}
+              controls={controls}
+              rotate={rotate}
+              paint={paint}
+              cameraPos={cameraPos}
+              targets={targets}
+              url={url}
+              userId={userId}
+              clickEvent={clickEvent}
+              enablePan={enablePan}
+              enableZoom={enableZoom}
+              suspenseImage={suspenseImage}
+              backgroundColor={backgroundColor}
+              clickFor3d={clickFor3d}
+              colors={colors}
+            />
+          ) : (
+            `Please add this to your site: <div id="modelId" modelId="6259ae1fb012e3b1d9746402"></div>`
+          )}
+        </ApolloProvider>
+      </div>
+    );
+  }
+  return null;
 }
 
 export default withRouter(RouterComponent);

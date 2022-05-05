@@ -21,6 +21,12 @@ function ModelRouterApp({
   targets,
   watermark,
   clickEvent,
+  enableZoom,
+  enablePan,
+  suspenseImage,
+  backgroundColor,
+  clickFor3d,
+  colors,
 }) {
   const modelColorsRef = useRef({});
   const [panels, setPanels] = React.useState(null);
@@ -71,6 +77,12 @@ function ModelRouterApp({
           targets={targets}
           watermark={watermark}
           clickEvent={clickEvent}
+          enablePan={enablePan}
+          enableZoom={enableZoom}
+          suspenseImage={suspenseImage}
+          backgroundColor={backgroundColor}
+          clickFor3d={clickFor3d}
+          colors={colors}
         />
       </Row>
     </Column>

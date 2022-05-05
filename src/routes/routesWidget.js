@@ -13,6 +13,12 @@ export default function WidgetRoutes({
   url,
   userId,
   clickEvent,
+  enableZoom,
+  enablePan,
+  suspenseImage,
+  backgroundColor,
+  clickFor3d,
+  colors,
   props: { ...props },
 }) {
   return (
@@ -33,6 +39,12 @@ export default function WidgetRoutes({
             url={url}
             userId={userId}
             clickEvent={clickEvent}
+            enablePan={enablePan}
+            enableZoom={enableZoom}
+            suspenseImage={suspenseImage}
+            backgroundColor={backgroundColor}
+            clickFor3d={clickFor3d}
+            colors={colors}
           />
         )}
       />

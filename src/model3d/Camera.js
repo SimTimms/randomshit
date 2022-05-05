@@ -9,7 +9,13 @@ import animateCamera from './anim';
 
 extend({ OrbitControls });
 
-function CameraControlsTween({ target, setTargetA, rotate }) {
+function CameraControlsTween({
+  target,
+  setTargetA,
+  rotate,
+  enablePan,
+  enableZoom,
+}) {
   const controls = useRef();
   const {
     camera,
@@ -73,10 +79,10 @@ function CameraControlsTween({ target, setTargetA, rotate }) {
       <orbitControls
         minPan={new Vector3(0, 0, 0)}
         manPan={new Vector3(0, 0, 0)}
-        enableZoom={true}
-        enablePan={true}
+        enableZoom={enableZoom === 'false' ? false : true}
+        enablePan={enablePan === 'false' ? false : true}
         enableDamping={true}
-        autoRotate={rotate}
+        autoRotate={rotate === 'false' ? false : true}
         autoRotateSpeed={10}
         // maxDistance={8500}
         // minDistance={6000}

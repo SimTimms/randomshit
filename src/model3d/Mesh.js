@@ -17,6 +17,7 @@ export default function Mesh({
   setTargetA,
   buttons,
   clickEvent,
+  fullColor,
 }) {
   const [material, setMaterial] = React.useState(null);
   const [meshColor, setMeshColor] = React.useState('#fff');
@@ -35,6 +36,9 @@ export default function Mesh({
       });
       setMaterial(materialNew);
     }
+    if (fullColor.name !== '' && name.indexOf('noshade') === -1) {
+      setMeshColor(fullColor.color);
+    }
   }, [
     decalNormal,
     decals,
@@ -44,6 +48,7 @@ export default function Mesh({
     paint,
     name,
     texture,
+    fullColor,
   ]);
   return !material ? null : (
     <group
@@ -52,18 +57,6 @@ export default function Mesh({
       scale={scale && scale}
     >
       <mesh
-        onClick={(e) => {
-          /*
-          if (name === 'ScreenTwo') {
-            window.open(
-              'https://www.warhammer-community.com/2021/12/22/who-is-the-exodite-check-out-the-trailer-for-the-thrilling-new-warhammer-tv-series/',
-              '_blank'
-            );
-          }
-          if (name === 'ScreenOne') {
-            window.open('https://warhammerplus.com/', '_blank');
-          }*/
-        }}
         onPointerDown={(e) => paintMode !== 1 && setPaintMode(1)}
         onPointerUp={(e) => {
           e.stopPropagation();
@@ -99,7 +92,7 @@ export default function Mesh({
         material={material}
         material-color={meshColor}
         material-metalness={0}
-        material-roughness={0}
+        material-roughness={0.8}
       />
     </group>
   );

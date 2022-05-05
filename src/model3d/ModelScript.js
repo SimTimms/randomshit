@@ -11,6 +11,7 @@ export default function ModelScript({
   buttons,
   targetA,
   clickEvent,
+  fullColor,
 }) {
   const group = useRef();
 
@@ -57,6 +58,7 @@ export default function ModelScript({
                   clickEvent={clickEvent}
                   sprayMode={sprayMode}
                   activeColor={activeColor}
+                  fullColor={fullColor}
                   geometry={item.geometry}
                   scale={item.scale}
                   materialIn={nodeArr[i].material}

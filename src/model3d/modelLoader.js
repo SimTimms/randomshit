@@ -4,6 +4,9 @@ import ModelScript from './ModelScript';
 import { Html, useProgress } from '@react-three/drei';
 import { Column, Row } from '../components';
 import Camera from './Camera';
+import { Typography } from '@mui/material';
+import ColorButton from './ColorButton';
+
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -11,10 +14,7 @@ function Loader() {
       center
       style={{
         whiteSpace: 'nowrap',
-        padding: 15,
-        borderRadius: 3,
         color: '#222',
-        opacity: progress / 100,
         fontFamily: 'arial',
       }}
     >
@@ -39,7 +39,6 @@ function Watermark() {
 }
 
 export default function ModelLoader({
-  activeColor,
   sprayMode,
   gltfIn,
   lightTwo,
@@ -55,14 +54,25 @@ export default function ModelLoader({
   targets,
   watermark,
   clickEvent,
+  enablePan,
+  enableZoom,
+  suspenseImage,
+  backgroundColor,
+  clickFor3d,
+  colors,
 }) {
   const shading = false;
   const [targetA, setTargetA] = React.useState({ target: [], position: [] });
+  const [clicked, setClicked] = React.useState(false);
+  const [activeColor, setActiveColor] = React.useState({ name: '', color: '' });
+  const [fullColor, setFullColor] = React.useState({
+    name: '',
+    color: '',
+  });
   const canvas = useRef(null);
   const buttons = ['ScreenTwo', 'ScreenThree003'];
 
   useEffect(() => {
-    console.log(targetA);
     setTargetA({
       target: [
         targets.split(',')[0] * 1,
@@ -71,13 +81,52 @@ export default function ModelLoader({
       ],
       position: cameraPos,
     });
-  }, [targets, cameraPos]);
-  return (
+
+    setFullColor({ name: colors.split(',')[0], color: colors.split(',')[0] });
+  }, [targets, cameraPos, colors]);
+
+  const { progress } = useProgress();
+  console.log(clickFor3d, clicked);
+  return clickFor3d && !clicked ? (
     <div
       style={{
         position: 'relative',
         width: '100%',
         height: '100%',
+        backgroundImage: `url(${suspenseImage})`,
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      onClick={() => {
+        !clicked && setClicked(true);
+      }}
+    >
+      <Typography
+        style={{
+          color: backgroundColor || '#fff',
+          opacity: 1,
+          textShadow: '3px 3px 5px rgba(0,0,0,1)',
+          fontSize: '3rem',
+          fontWeight: 'bold',
+        }}
+      >
+        Click for 3D
+      </Typography>
+    </div>
+  ) : (
+    <div
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100%',
+        backgroundImage: `url(${suspenseImage})`,
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
       }}
     >
       <Column h="100%" w="100%">
@@ -90,6 +139,8 @@ export default function ModelLoader({
             style={{
               height: '100%',
               width: '100%',
+              backgroundColor: backgroundColor || 'none',
+              opacity: progress / 100,
             }}
           >
             <Suspense fallback={<Loader />}>
@@ -119,6 +170,7 @@ export default function ModelLoader({
               <group position={[0, -8, 0]}>
                 <ModelScript
                   activeColor={activeColor}
+                  fullColor={fullColor}
                   sprayMode={sprayMode}
                   gltfIn={gltfIn}
                   markings={markings}
@@ -132,20 +184,25 @@ export default function ModelLoader({
                 />
               </group>
             </Suspense>
-            <Camera target={targetA} setTargetA={setTargetA} rotate={rotate} />
-            {/*
-            <OrbitControls
+            <Camera
               target={targetA}
-              maxDistance={500}
-              autoRotate={rotate === 'true'}
-              autoRotateSpeed={-1}
-              enabled={controls === 'true'}
-              enableDamping={true}
-              dampingFactor={0.1}
-              object={}
-             
-          />*/}
+              setTargetA={setTargetA}
+              rotate={rotate}
+              enablePan={enablePan}
+              enableZoom={enableZoom}
+            />
           </Canvas>
+        </Row>
+        <Row>
+          {colors &&
+            colors
+              .split(',')
+              .map((color) => (
+                <ColorButton
+                  color={color}
+                  setActiveColor={setFullColor}
+                ></ColorButton>
+              ))}
         </Row>
       </Column>
     </div>
