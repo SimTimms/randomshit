@@ -35,6 +35,7 @@ function RouterComponent(props) {
     const modelId = idElement.getAttribute('modelid');
 
     const controls = idElement.getAttribute('controls');
+    const backforth = idElement.getAttribute('backforth');
 
     const rotate = idElement.getAttribute('rotate');
     const paint = idElement.getAttribute('paint');
@@ -78,6 +79,7 @@ function RouterComponent(props) {
               backgroundColor={backgroundColor}
               clickFor3d={clickFor3d}
               colors={colors}
+              backforth={backforth}
             />
           ) : (
             `Please add this to your site: <div id="modelId" modelId="6259ae1fb012e3b1d9746402"></div>`

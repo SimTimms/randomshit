@@ -19,6 +19,7 @@ export default function WidgetRoutes({
   backgroundColor,
   clickFor3d,
   colors,
+  backforth,
   props: { ...props },
 }) {
   return (
@@ -45,6 +46,7 @@ export default function WidgetRoutes({
             backgroundColor={backgroundColor}
             clickFor3d={clickFor3d}
             colors={colors}
+            backforth={backforth}
           />
         )}
       />

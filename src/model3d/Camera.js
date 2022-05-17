@@ -15,6 +15,7 @@ function CameraControlsTween({
   rotate,
   enablePan,
   enableZoom,
+  backforth,
 }) {
   const controls = useRef();
   const {
@@ -43,17 +44,21 @@ function CameraControlsTween({
               y: ty,
               z: tz,
             },
-            duration: 1000,
+            duration: 5000,
           },
           () => {
-            /* setTargetA({
-              target: target,
-              position: [
-                position[0] === 400 ? -400 : 400,
-                position[1],
-                position[2],
-              ],
-            });*/
+            backforth &&
+              setTargetA({
+                target: target,
+                position: [
+                  position[0] <= backforth.split(',')[0]
+                    ? backforth.split(',')[1]
+                    : position[0] >= backforth.split(',')[1] &&
+                      backforth.split(',')[0],
+                  position[1],
+                  position[2],
+                ],
+              });
           }
         );
       }
@@ -78,12 +83,12 @@ function CameraControlsTween({
     <>
       <orbitControls
         minPan={new Vector3(0, 0, 0)}
-        manPan={new Vector3(0, 0, 0)}
+        maxPan={new Vector3(0, 0, 0)}
         enableZoom={enableZoom === 'false' ? false : true}
         enablePan={enablePan === 'false' ? false : true}
         enableDamping={true}
         autoRotate={rotate === 'false' ? false : true}
-        autoRotateSpeed={10}
+        autoRotateSpeed={rotate !== 'false' ? rotate : 5}
         // maxDistance={8500}
         // minDistance={6000}
         // maxAzimuthAngle={1}

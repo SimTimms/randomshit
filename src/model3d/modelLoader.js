@@ -60,6 +60,7 @@ export default function ModelLoader({
   backgroundColor,
   clickFor3d,
   colors,
+  backforth,
 }) {
   const shading = false;
   const [targetA, setTargetA] = React.useState({ target: [], position: [] });
@@ -79,14 +80,18 @@ export default function ModelLoader({
         targets.split(',')[1] * 1,
         targets.split(',')[2] * 1,
       ],
-      position: cameraPos,
+
+      position: [
+        backforth ? backforth.split(',')[0] : cameraPos,
+        cameraPos[1],
+        cameraPos[2],
+      ],
     });
 
     setFullColor({ name: colors.split(',')[0], color: colors.split(',')[0] });
-  }, [targets, cameraPos, colors]);
+  }, [targets, cameraPos, colors, backforth]);
 
   const { progress } = useProgress();
-  console.log(clickFor3d, clicked);
   return clickFor3d && !clicked ? (
     <div
       style={{
@@ -190,6 +195,7 @@ export default function ModelLoader({
               rotate={rotate}
               enablePan={enablePan}
               enableZoom={enableZoom}
+              backforth={backforth}
             />
           </Canvas>
         </Row>

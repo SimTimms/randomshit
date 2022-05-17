@@ -61,6 +61,7 @@ export default function ModelApp({
   backgroundColor,
   clickFor3d,
   colors,
+  backforth,
   ...props
 }) {
   const [modelOne, setModelOne] = React.useState(null);
@@ -103,6 +104,7 @@ export default function ModelApp({
             backgroundColor={backgroundColor}
             clickFor3d={clickFor3d}
             colors={colors}
+            backforth={backforth}
             watermark={
               !profile || (profile && profile.priority !== 0) ? true : false
             }

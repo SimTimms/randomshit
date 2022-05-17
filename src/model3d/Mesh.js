@@ -60,7 +60,7 @@ export default function Mesh({
         onPointerDown={(e) => paintMode !== 1 && setPaintMode(1)}
         onPointerUp={(e) => {
           e.stopPropagation();
-          clickEvent(name, meshColor);
+          clickEvent && clickEvent(name, meshColor);
           setTargetA({
             target: `${position[0]},${position[1] - 7},${position[2]}`,
           });
@@ -91,7 +91,7 @@ export default function Mesh({
         geometry={geometry}
         material={material}
         material-color={meshColor}
-        material-metalness={0}
+        material-metalness={1}
         material-roughness={0.8}
       />
     </group>

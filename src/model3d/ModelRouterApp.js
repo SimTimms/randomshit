@@ -27,6 +27,7 @@ function ModelRouterApp({
   backgroundColor,
   clickFor3d,
   colors,
+  backforth,
 }) {
   const modelColorsRef = useRef({});
   const [panels, setPanels] = React.useState(null);
@@ -62,6 +63,7 @@ function ModelRouterApp({
           lightSix={0}
           lightSeven={0}
           box={box}
+          backforth={backforth}
           setPanels={setPanels}
           panels={panels}
           back={back}
