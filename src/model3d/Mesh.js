@@ -91,7 +91,7 @@ export default function Mesh({
         geometry={geometry}
         material={material}
         material-color={meshColor}
-        material-metalness={1}
+        material-metalness={0}
         material-roughness={0.8}
       />
     </group>
