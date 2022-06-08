@@ -12,6 +12,7 @@ import {
 import { sharedStyles } from '../styles';
 import { MutationLogin } from '../../../../data/mutationComponents';
 import RegisterCard from '../register/views/RegisterCard';
+import mp3dLogo from '../../../../assets/branding/mp3dlogoinsta.png';
 
 export default function LoginPage({ history, forwardTo }) {
   const classes = sharedStyles();
@@ -25,43 +26,33 @@ export default function LoginPage({ history, forwardTo }) {
   if (loginType === 0) {
     return (
       <div className={classes.pageWrapper}>
-        <CardComponent
-          styleOverride={{
-            width: 500,
-            marginTop: 30,
-          }}
-        >
-          <Column>
-            <Column w={200}>
-              <MenuButtonStandard
-                onClickEvent={() => {
-                  setLoginType(1);
-                  history.push(
-                    `/partner/6160a02349be93983b68c69f/61d5a0327d31f80016bfa2be`
-                  );
-                }}
-                title="Demo"
-                fullWidth={true}
-              />
-              <DividerMini />
-              <MenuButtonStandard
-                onClickEvent={() => {
-                  setLoginType(2);
-                }}
-                title="Login with Account"
-                fullWidth={true}
-              />
-              <DividerMini />
-              <MenuButtonStandard
-                onClickEvent={() => {
-                  setLoginType(3);
-                }}
-                title="Register"
-                fullWidth={true}
-              />
-            </Column>
-          </Column>
-        </CardComponent>
+        <Column w={'100vw'} h={'100vh'} bg={'#e1ebeb'}>
+          <img src={mp3dLogo} style={{ margin: 20, width: 100 }} />
+          <MenuButtonStandard
+            onClickEvent={() => {
+              setLoginType(1);
+              history.push(
+                `/partner/6160a02349be93983b68c69f/61d5a0327d31f80016bfa2be`
+              );
+            }}
+            title="Demo"
+            fullWidth={true}
+          />
+          <MenuButtonStandard
+            onClickEvent={() => {
+              setLoginType(2);
+            }}
+            title="Login with Account"
+            fullWidth={true}
+          />
+          <MenuButtonStandard
+            onClickEvent={() => {
+              setLoginType(3);
+            }}
+            title="Register"
+            fullWidth={true}
+          />
+        </Column>
       </div>
     );
   }
@@ -74,7 +65,6 @@ export default function LoginPage({ history, forwardTo }) {
         }}
       >
         <Column>
-          <Column w={200}></Column>
           {loginType === 2 && (
             <Column bg="primary">
               <Typography variant="h5" style={{ color: '#fff', marginTop: 5 }}>

@@ -66,6 +66,33 @@ export default function GameFields({ game, setGame }) {
           multiline={false}
         />
         <InputLabel
+          title="Model Type"
+          icon={null}
+          value={game.type}
+          maxLength={46}
+          minLength={5}
+          info={''}
+          warning={''}
+        />
+        <FieldBox
+          value={game.type}
+          title="Model Type"
+          maxLength={46}
+          minLength={5}
+          onChangeEvent={(e) => {
+            setGame({
+              ...game,
+              type: e,
+            });
+          }}
+          replaceMode="tight"
+          placeholder="Examples: Firstborn | Dreadnought | Fighter Jet"
+          info="What's this model called?"
+          warning=""
+          size="s"
+          multiline={false}
+        />
+        <InputLabel
           title="Image"
           icon={null}
           value={null}

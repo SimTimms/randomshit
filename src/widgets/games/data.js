@@ -69,6 +69,7 @@ export const GAME_BY_ID = gql`
       copyrightDescription
       whereToBuyLink
       textures
+      type
       user {
         _id
         name
@@ -171,6 +172,7 @@ export const CREATE_GAME = gql`
     $copyrightDescription: String
     $whereToBuyLink: String
     $featureImage: String
+    $type: String
     $showreel: String
     $textures: [String]
     $gamePart: [GameGamePartInput]
@@ -183,6 +185,7 @@ export const CREATE_GAME = gql`
         url: $url
         gltf: $gltf
         bin: $bin
+        type: $type
         js: $js
         showreel: $showreel
         textures: $textures
@@ -219,6 +222,7 @@ export const UPDATE_GAME = gql`
     $licenseLink: String
     $copyrightDescription: String
     $whereToBuyLink: String
+    $type: String
     $gamePart: [GameGamePartInput]
     $gamePost: [GameGamePostInput]
   ) {
@@ -231,6 +235,7 @@ export const UPDATE_GAME = gql`
         gltf: $gltf
         bin: $bin
         js: $js
+        type: $type
         textures: $textures
         showreel: $showreel
         price: $price

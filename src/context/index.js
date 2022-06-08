@@ -5,8 +5,8 @@ export const ProfileContext = React.createContext({
   updateProfileContext: () => {},
 });
 
-export const ColorContext = React.createContext({
-  activeColor: { color: 'grey', name: null },
+export const HeadContext = React.createContext({
+  head: '',
 });
 
 export const PartNameContext = React.createContext({

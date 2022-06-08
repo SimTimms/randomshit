@@ -21,6 +21,7 @@ export default function GameForm() {
     name: '',
     summary: '',
     featureImage: '',
+    type: '',
     gamePart: [],
     url: '',
     showreel: '',

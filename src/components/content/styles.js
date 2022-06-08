@@ -7,6 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     width: '100%',
     background: '#fff',
+    height: '100vh',
   },
   contentMobile: {
     marginTop: 0,

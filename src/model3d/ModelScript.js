@@ -35,6 +35,7 @@ export default function ModelScript({
   const group = useRef();
 
   const mod = useGLTF(gltfIn);
+
   const nodes = mod.nodes;
   const rNbr = (number) => {
     return parseFloat(number.toFixed(Math.round(2)));
@@ -48,9 +49,9 @@ export default function ModelScript({
     return rNbr(number);
   };
 
-  const existsArray = [];
   function node(nodeArr) {
     let nodeMap = [];
+    const existsArray = [];
 
     if (nodeArr) {
       for (let i = 0; i < nodeArr.length; i++) {
@@ -78,16 +79,18 @@ export default function ModelScript({
 
         const nodeChildArr = Object.values(item.children);
         const exists = existsArray.indexOf(item.name);
+
         if (exists === -1) {
           existsArray.push(item.name);
           if (item.geometry && item.visible) {
             //     const edges = new THREE.EdgesGeometry(item.geometry, 35);
             nodeMap.push(
-              <group dispose={null}>
+              <group dispose={null} key={`index_${i}_${Math.random(1000)}`}>
                 <Mesh
                   armourColor={
                     mainParts.indexOf(item.name) > -1 ? armourColor : null
                   }
+                  gltfIn={gltfIn}
                   sprayMode={sprayMode}
                   activeColor={activeColor}
                   geometry={item.geometry}

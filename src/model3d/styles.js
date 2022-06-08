@@ -16,6 +16,26 @@ export const useStyles = makeStyles((theme) => ({
     margin: 3,
     cursor: 'pointer',
   },
+  instaFrame: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: '#fff',
+  },
+  instaFrameBack: {
+    width: '540px',
+    height: '540px',
+    border: '1px solid #ddd',
+    display: 'flex',
+    alignItems: 'flex-start',
+    background:
+      'linear-gradient(141deg, rgba(255,255,255,1) 0%, rgba(218,218,218,1) 100%)',
+  },
   patreon: {
     width: 18,
     borderRadius: '50%',

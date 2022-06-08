@@ -26,20 +26,10 @@ export default function BgImg({
       onClick={() => (onClick ? onClick() : null)}
     >
       {locked && (
-        <Typography
-          onClick={() => history.push('/')}
-          className={classes.register}
-        >
-          Register to Unlock
-        </Typography>
+        <Typography className={classes.register}>Register to Unlock</Typography>
       )}
       {!approved && (
-        <Typography
-          onClick={() => history.push('/')}
-          className={classes.register}
-        >
-          Your Model
-        </Typography>
+        <Typography className={classes.register}>Your Model</Typography>
       )}
     </div>
   );

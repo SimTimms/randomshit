@@ -90,6 +90,12 @@ export default function Mesh({
       });
       setMaterial(materialNew);
     }
+
+    const materialNew = new THREE.MeshStandardMaterial({
+      ...materialIn,
+      transparent: true,
+    });
+    setMaterial(materialNew);
     if (!shadeMaterial && shading) {
       var texLoader = new THREE.TextureLoader();
       try {
@@ -114,7 +120,6 @@ export default function Mesh({
         console.log(error);
       }
     }
-    console.log('Render');
     if (!decalItem || video || (decalItem && decalItem !== decals)) {
       if (decals) {
         var texLoader = new THREE.TextureLoader();
@@ -186,7 +191,7 @@ export default function Mesh({
         setDecalItem(null);
       }
     }
-  }, [decalNormal, decals, meshColor]);
+  }, [activeColor]);
 
   function getColor(partName) {
     {
@@ -197,7 +202,6 @@ export default function Mesh({
       return jsonData[partName] ? jsonData[partName].name : '';
     }
   }
-
   return !material ? null : (
     <group
       position={position && position}
@@ -205,11 +209,15 @@ export default function Mesh({
       scale={scale && scale}
     >
       <mesh
-        onPointerDown={(e) => paintMode !== 1 && setPaintMode(1)}
+        onPointerDown={(e) => {
+          e.stopPropagation();
+          paintMode !== 1 && setPaintMode(1);
+        }}
         onPointerUp={(e) => {
           if (paintMode === 1) {
+            console.log(activeColor.current);
+            e.stopPropagation();
             if (activeColor.type !== 'Shade') {
-              e.stopPropagation();
               let savedColors = localStorage.getItem('modelColorSave');
               if (savedColors === 'null' || savedColors === null) {
                 savedColors = {};
@@ -219,14 +227,14 @@ export default function Mesh({
 
               if (activeColor) {
                 savedColors[name] = {
-                  color: activeColor.color,
-                  name: activeColor.name,
+                  color: activeColor.current.color,
+                  name: activeColor.currentname,
                 };
                 localStorage.setItem(
                   'modelColorSave',
                   JSON.stringify(savedColors)
                 );
-                setMeshColor(activeColor.color);
+                setMeshColor(activeColor.current.color);
               }
             }
           }
@@ -248,9 +256,7 @@ export default function Mesh({
         }}
         geometry={geometry}
         material={material}
-        material-color={
-          armourColor ? armourColor : previewColor ? previewColor : meshColor
-        }
+        material-color={meshColor}
         material-metalness={metals.indexOf(meshColor) > -1 ? 0.7 : 0}
         material-roughness={metals.indexOf(meshColor) > -1 ? 0.5 : 1}
       />

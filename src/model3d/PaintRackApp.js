@@ -8,10 +8,11 @@ import clsx from 'clsx';
 import patreonDevice from '../assets/patreonDevice.png';
 export default function PaintRackApp({
   setColorFunction,
-  setColorGroup,
-  colorGroup,
+
   profilePriority,
 }) {
+  const [colorGroup, setColorGroup] = React.useState(null);
+
   const classes = useStyles();
   const [hoverColor, setHoverColor] = React.useState({
     color: '#aaa',

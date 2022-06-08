@@ -14,6 +14,8 @@ import { Typography } from '@mui/material';
 import { PartNameContext } from '../context';
 import Profile from './Profile';
 import Controls from './Controls';
+import { useGLTF } from '@react-three/drei';
+
 import Ads from './Ads';
 import { paints } from './paints';
 import mp3dLogo from '../assets/branding/mp3dlogoinsta.png';
@@ -37,6 +39,13 @@ function Loader() {
     </Html>
   );
 }
+
+const FancyButton = React.forwardRef((props, ref) => (
+  <button ref={ref} className="FancyButton">
+    {' '}
+    {props.children}
+  </button>
+));
 
 export default function ModelLoader({
   activeColor,
@@ -66,12 +75,13 @@ export default function ModelLoader({
   const [shading, setShading] = React.useState(false);
   const [rotate, setRotate] = React.useState(false);
   const [wait, setWait] = React.useState(false);
+  const [torso, setTorso] = React.useState(null);
+  const [head, setHead] = React.useState(null);
   const [instaFrame, setInstaFrame] = React.useState(false);
   const [recipe, setRecipe] = React.useState(false);
   const [partName, setPartName] = React.useState('Part');
   const canvas = useRef(null);
   let count = useRef(0);
-
   function dataURItoBlob(dataURI) {
     var binary = atob(dataURI.split(',')[1]);
     var array = [];
@@ -80,7 +90,6 @@ export default function ModelLoader({
     }
     return new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
   }
-
   useEffect(() => {
     if (!shading && activeColor.type === 'Shade') {
       setShading(true);
@@ -97,6 +106,7 @@ export default function ModelLoader({
       });
     }
   }
+
   return (
     <div
       style={{
@@ -282,6 +292,8 @@ export default function ModelLoader({
               setShading={setShading}
               rotate={rotate}
               setRotate={setRotate}
+              setHead={setHead}
+              setTorso={setTorso}
             />
 
             {/* <Profile />*/}
@@ -393,16 +405,30 @@ export default function ModelLoader({
                   <spotLight intensity={lightSeven / 50} />
                 </group>
                 <group position={[0, -8, 0]}>
-                  <ModelScript
-                    activeColor={activeColor}
-                    sprayMode={sprayMode}
-                    gltfIn={gltfIn}
-                    markings={markings}
-                    armourColor={armourColor}
-                    shading={shading}
-                    partName={partName}
-                    setPartName={setPartName}
-                  />
+                  {head && (
+                    <ModelScript
+                      activeColor={activeColor}
+                      sprayMode={sprayMode}
+                      gltfIn={head}
+                      markings={markings}
+                      armourColor={armourColor}
+                      shading={shading}
+                      partName={partName}
+                      setPartName={setPartName}
+                    />
+                  )}
+                  {torso && (
+                    <ModelScript
+                      activeColor={activeColor}
+                      sprayMode={sprayMode}
+                      gltfIn={torso}
+                      markings={markings}
+                      armourColor={armourColor}
+                      shading={shading}
+                      partName={partName}
+                      setPartName={setPartName}
+                    />
+                  )}
                 </group>
 
                 {box && (

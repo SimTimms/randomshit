@@ -97,8 +97,6 @@ export default function Mesh({
       <mesh
         onPointerDown={(e) => paintMode !== 1 && setPaintMode(1)}
         onPointerUp={(e) => {
-          console.log(activeColor);
-
           if (paintMode === 1 && activeColor.type === 'Shade') {
             e.stopPropagation();
             let savedColors = localStorage.getItem('modelColorShadeSave');

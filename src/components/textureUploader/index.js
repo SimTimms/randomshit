@@ -69,7 +69,6 @@ function TextureUploader({
               .put(signedRequest, file, options)
               .then((result) => {
                 textureArr.current = [...textureArr.current, url];
-                console.log(result);
               })
               .catch((error) => {});
           } else {
