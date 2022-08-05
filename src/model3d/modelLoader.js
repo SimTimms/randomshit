@@ -12,7 +12,7 @@ import { toaster } from '../utils/toaster';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
 import { Typography } from '@mui/material';
 import { PartNameContext } from '../context';
-import Profile from './Profile';
+import Camera from './Camera';
 import Controls from './Controls';
 import { useGLTF } from '@react-three/drei';
 import Tilt from 'react-parallax-tilt';
@@ -433,6 +433,7 @@ export default function ModelLoader({
                 console.log('c', partName);
               }}
             </PartNameContext.Consumer>
+
             <Controls
               shading={shading}
               setShading={setShading}
@@ -649,12 +650,21 @@ export default function ModelLoader({
                   </group>
                 )}
               </Suspense>
+              <Camera
+                target="0,-4,0"
+                setTargetA="0,0,0"
+                rotate={0}
+                enablePan={false}
+                enableZoom={false}
+                backforth="-20,0"
+              />
+              {/*
               <OrbitControls
                 target={[0, 0, 0]}
                 maxDistance={500}
                 autoRotate={rotate}
                 autoRotateSpeed={5}
-              />
+                />*/}
             </Canvas>
             {/*  <Ads modelArtist={modelArtist} />*/}
           </Row>
