@@ -55,7 +55,8 @@
     "react-vanilla-tilt": "^1.0.0",
     "styled-components": "^5.0.0",
     "three": "^0.137.1",
-    "three-gltf-loader": "^1.111.0"
+    "three-gltf-loader": "^1.111.0",
+    "tsparticles": "^2.1.4"
   },
   "scripts": {
     "devstart": "react-scripts start",

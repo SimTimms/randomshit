@@ -12,7 +12,7 @@ extend({ OrbitControls });
 function CameraControlsTween({ rotate, enablePan, enableZoom, backforth }) {
   const [targetA, setTargetA] = React.useState({
     target: [0, 0, 0],
-    position: [20, 0, 300],
+    position: [20, -20, 260],
   });
 
   const controls = useRef();

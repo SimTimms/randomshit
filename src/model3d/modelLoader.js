@@ -22,7 +22,12 @@ import mp3dLogo from '../assets/branding/mp3dlogoinsta.png';
 import { partNames } from './partNames';
 import ultra from '../assets/ultra.png';
 import baal from '../assets/baal.jpg';
+import snow from '../assets/snow.jpg';
+import jungle from '../assets/jungle.jpg';
 import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+import ParticlesA from './Particles';
+
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -72,6 +77,14 @@ export default function ModelLoader({
   modelName,
   modelArtist,
 }) {
+  const particlesInit = async (main) => {
+    await loadFull(main);
+  };
+
+  const particlesLoaded = (container) => {
+    console.log('done');
+  };
+
   const [screenshot, setScreenshot] = React.useState(null);
   const [armourColor, setArmourColor] = React.useState(null);
   const [shading, setShading] = React.useState(false);
@@ -119,6 +132,8 @@ export default function ModelLoader({
         position: 'relative',
         width: '100vw',
         height: '100%',
+        background: `url(${jungle})`,
+        backgroundSize: 'cover',
       }}
     >
       <Column h="100%">
@@ -435,7 +450,6 @@ export default function ModelLoader({
                 console.log('c', partName);
               }}
             </PartNameContext.Consumer>
-
             <Controls
               shading={shading}
               setShading={setShading}
@@ -446,7 +460,6 @@ export default function ModelLoader({
               setShoulder={setShoulder}
               setHandr={setHandr}
             />
-
             {/* <Profile />*/}
             {NFTFrame && (
               <div
@@ -459,7 +472,6 @@ export default function ModelLoader({
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  background: `url(${baal})`,
                 }}
               >
                 <div
@@ -521,7 +533,6 @@ export default function ModelLoader({
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  background: '#fff',
                 }}
               >
                 <div
@@ -531,8 +542,6 @@ export default function ModelLoader({
                     border: '1px solid #ddd',
                     display: 'flex',
                     alignItems: 'flex-start',
-                    background:
-                      'linear-gradient(141deg, rgba(255,255,255,1) 0%, rgba(218,218,218,1) 100%)',
                   }}
                 >
                   <Row w="100%" j="space-between" a="flex-start">
@@ -547,7 +556,7 @@ export default function ModelLoader({
                 </div>
               </div>
             )}
-
+            <ParticlesA zIndex={0} speed={2} />
             <Canvas
               pixelRatio={[1, 2]}
               camera={{ position: [0, 0, 0], fov: 10, far: 700 }}
@@ -666,80 +675,6 @@ export default function ModelLoader({
                 autoRotateSpeed={5}
                 />*/}
             </Canvas>
-            <Particles
-              options={{
-                background: {
-                  color: {
-                    value: '#0d47a1',
-                  },
-                },
-                fpsLimit: 120,
-                interactivity: {
-                  events: {
-                    onClick: {
-                      enable: true,
-                      mode: 'push',
-                    },
-                    onHover: {
-                      enable: true,
-                      mode: 'repulse',
-                    },
-                    resize: true,
-                  },
-                  modes: {
-                    push: {
-                      quantity: 4,
-                    },
-                    repulse: {
-                      distance: 200,
-                      duration: 0.4,
-                    },
-                  },
-                },
-                particles: {
-                  color: {
-                    value: '#ffffff',
-                  },
-                  links: {
-                    color: '#ffffff',
-                    distance: 150,
-                    enable: true,
-                    opacity: 0.5,
-                    width: 1,
-                  },
-                  collisions: {
-                    enable: true,
-                  },
-                  move: {
-                    direction: 'none',
-                    enable: true,
-                    outModes: {
-                      default: 'bounce',
-                    },
-                    random: false,
-                    speed: 6,
-                    straight: false,
-                  },
-                  number: {
-                    density: {
-                      enable: true,
-                      area: 800,
-                    },
-                    value: 80,
-                  },
-                  opacity: {
-                    value: 0.5,
-                  },
-                  shape: {
-                    type: 'circle',
-                  },
-                  size: {
-                    value: { min: 1, max: 5 },
-                  },
-                },
-                detectRetina: true,
-              }}
-            />
           </Row>
         </PartNameContext.Provider>
       </Column>
