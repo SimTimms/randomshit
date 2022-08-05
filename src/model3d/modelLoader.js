@@ -15,12 +15,13 @@ import { PartNameContext } from '../context';
 import Profile from './Profile';
 import Controls from './Controls';
 import { useGLTF } from '@react-three/drei';
-
+import Tilt from 'react-parallax-tilt';
 import Ads from './Ads';
 import { paints } from './paints';
 import mp3dLogo from '../assets/branding/mp3dlogoinsta.png';
 import { partNames } from './partNames';
-
+import ultra from '../assets/ultra.png';
+import baal from '../assets/baal.jpg';
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -76,8 +77,11 @@ export default function ModelLoader({
   const [rotate, setRotate] = React.useState(false);
   const [wait, setWait] = React.useState(false);
   const [torso, setTorso] = React.useState(null);
+  const [shoulder, setShoulder] = React.useState(null);
   const [head, setHead] = React.useState(null);
+  const [handr, setHandr] = React.useState(null);
   const [instaFrame, setInstaFrame] = React.useState(false);
+  const [NFTFrame, setNFTFrame] = React.useState(false);
   const [recipe, setRecipe] = React.useState(false);
   const [partName, setPartName] = React.useState('Part');
   const canvas = useRef(null);
@@ -141,7 +145,6 @@ export default function ModelLoader({
                 white={true}
               />
             )}
-
             <Row j="flex-start">
               <Button
                 menuItem={{
@@ -213,6 +216,16 @@ export default function ModelLoader({
             />
             <Button
               menuItem={{
+                name: 'NFT',
+                color: 'light',
+              }}
+              onClickEvent={() => {
+                setNFTFrame(NFTFrame ? false : true);
+              }}
+              white={true}
+            />
+            <Button
+              menuItem={{
                 name: 'Recipe',
                 color: 'light',
               }}
@@ -251,7 +264,6 @@ export default function ModelLoader({
                 );
               }}
             </Mutation>
-            <div style={{ marginTop: 3, marginLeft: 3 }}></div>
             {screenshot && (
               <Row>
                 <div style={{ marginTop: 5, marginLeft: 3, marginRight: 5 }}>
@@ -275,6 +287,140 @@ export default function ModelLoader({
             )}
           </div>
         )}
+        {screenshot && (
+          <div
+            style={{
+              display: 'flex',
+              zIndex: 10,
+              alignItems: 'center',
+              justifyContent: 'center',
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              position: 'fixed',
+            }}
+            onClick={() => setScreenshot(null)}
+          >
+            <Tilt
+              className="tilt"
+              tiltMaxAngleX={40}
+              tiltMaxAngleY={40}
+              perspective={1000}
+              transitionSpeed={1000}
+              scale={1}
+              gyroscope={true}
+              glareEnable={true}
+              glareOpacity={0.4}
+              glareBorderRadius={10}
+              tiltReverse={true}
+            >
+              <div
+                style={{
+                  width: 280,
+                  height: 400,
+                  border: '5px solid #fff',
+                  zIndex: 10,
+                  borderRadius: 10,
+                  boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
+                  background: '#111',
+                }}
+              >
+                <div
+                  style={{
+                    width: '100%',
+                    height: 200,
+                    backgroundColor: '#222',
+                    backgroundImage: `url(${screenshot})`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '100%',
+                      height: 40,
+
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <div
+                      style={{
+                        backgroundImage: `url(${ultra})`,
+                        backgroundSize: 'contain',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        minWidth: 30,
+                        minHeight: 30,
+                        maxWidth: 30,
+                        maxHeight: 30,
+                        border: '2px solid #aaa',
+                        margin: 5,
+                        borderRadius: '50%',
+                      }}
+                    ></div>
+                    <Typography
+                      variant="h5"
+                      style={{
+                        background: '#fff',
+                        width: '100%',
+                        textAlign: 'center',
+                      }}
+                    >
+                      Primaris Marine
+                    </Typography>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    width: '100%',
+                    height: 200,
+                    background: '#fff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    flexDirection: 'column',
+                  }}
+                >
+                  <div style={{ marginTop: 5 }}></div>
+                  <Typography variant="h5">Sgt Demetrius</Typography>
+                  <div style={{ marginTop: 5 }}></div>
+                  <Typography>
+                    Bolt Rifle | Plasma Pistol | Frag Grenades
+                  </Typography>
+                  <div
+                    style={{
+                      marginTop: 10,
+                      borderTop: '1px solid #ddd',
+                      paddingBottom: 10,
+                      width: 100,
+                    }}
+                  ></div>
+                  <Typography align="center" style={{ fontSize: '0.8rem' }}>
+                    Born on Calth, has a might fine ponytale though never
+                    removes his helmet.
+                  </Typography>
+                  <div
+                    style={{
+                      marginTop: 10,
+                      borderTop: '1px solid #ddd',
+                      paddingBottom: 10,
+                      width: 100,
+                    }}
+                  ></div>
+                  <Typography align="center" style={{ fontSize: '0.8rem' }}>
+                    Best buddies with Marneus
+                  </Typography>
+                </div>
+              </div>
+            </Tilt>
+          </div>
+        )}
         <PartNameContext.Provider
           value={{
             partName: partName,
@@ -294,9 +440,36 @@ export default function ModelLoader({
               setRotate={setRotate}
               setHead={setHead}
               setTorso={setTorso}
+              setShoulder={setShoulder}
+              setHandr={setHandr}
             />
 
             {/* <Profile />*/}
+            {NFTFrame && (
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: `url(${baal})`,
+                }}
+              >
+                <div
+                  style={{
+                    width: '540px',
+                    height: '540px',
+                    border: '1px solid #ddd',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                  }}
+                ></div>
+              </div>
+            )}
             {instaFrame && (
               <div
                 style={{
@@ -405,7 +578,17 @@ export default function ModelLoader({
                   <spotLight intensity={lightSeven / 50} />
                 </group>
                 <group position={[0, -8, 0]}>
-                  {head && (
+                  <ModelScript
+                    activeColor={activeColor}
+                    sprayMode={sprayMode}
+                    gltfIn={gltfIn}
+                    markings={markings}
+                    armourColor={armourColor}
+                    shading={shading}
+                    partName={partName}
+                    setPartName={setPartName}
+                  />
+                  {head && !screenshot && (
                     <ModelScript
                       activeColor={activeColor}
                       sprayMode={sprayMode}
@@ -417,11 +600,35 @@ export default function ModelLoader({
                       setPartName={setPartName}
                     />
                   )}
-                  {torso && (
+                  {handr && !screenshot && (
+                    <ModelScript
+                      activeColor={activeColor}
+                      sprayMode={sprayMode}
+                      gltfIn={handr}
+                      markings={markings}
+                      armourColor={armourColor}
+                      shading={shading}
+                      partName={partName}
+                      setPartName={setPartName}
+                    />
+                  )}
+                  {torso && !screenshot && (
                     <ModelScript
                       activeColor={activeColor}
                       sprayMode={sprayMode}
                       gltfIn={torso}
+                      markings={markings}
+                      armourColor={armourColor}
+                      shading={shading}
+                      partName={partName}
+                      setPartName={setPartName}
+                    />
+                  )}
+                  {shoulder && !screenshot && (
+                    <ModelScript
+                      activeColor={activeColor}
+                      sprayMode={sprayMode}
+                      gltfIn={shoulder}
                       markings={markings}
                       armourColor={armourColor}
                       shading={shading}

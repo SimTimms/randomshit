@@ -13,6 +13,8 @@ export default function Controls({
   details,
   setHead,
   setTorso,
+  setHandr,
+  setShoulder,
 }) {
   const classes = useStyles();
 
@@ -59,6 +61,22 @@ export default function Controls({
         </Query>
         <Query
           query={PART_BY_TYPE}
+          variables={{ type: 'Shoulder' }}
+          fetchPolicy="network-only"
+        >
+          {({ data, loading }) => {
+            return loading
+              ? null
+              : data &&
+                  data.gameMany.map((item) => (
+                    <button onClick={() => setShoulder(item.gltf)}>
+                      {item.name}
+                    </button>
+                  ));
+          }}
+        </Query>
+        <Query
+          query={PART_BY_TYPE}
           variables={{ type: 'Torso' }}
           fetchPolicy="network-only"
         >
@@ -68,6 +86,22 @@ export default function Controls({
               : data &&
                   data.gameMany.map((item) => (
                     <button onClick={() => setTorso(item.gltf)}>
+                      {item.name}
+                    </button>
+                  ));
+          }}
+        </Query>
+        <Query
+          query={PART_BY_TYPE}
+          variables={{ type: 'HandR' }}
+          fetchPolicy="network-only"
+        >
+          {({ data, loading }) => {
+            return loading
+              ? null
+              : data &&
+                  data.gameMany.map((item) => (
+                    <button onClick={() => setHandr(item.gltf)}>
                       {item.name}
                     </button>
                   ));
