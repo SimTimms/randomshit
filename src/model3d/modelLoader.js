@@ -22,6 +22,7 @@ import mp3dLogo from '../assets/branding/mp3dlogoinsta.png';
 import { partNames } from './partNames';
 import ultra from '../assets/ultra.png';
 import baal from '../assets/baal.jpg';
+import Particles from 'react-tsparticles';
 function Loader() {
   const { progress } = useProgress();
   return (
@@ -71,10 +72,6 @@ export default function ModelLoader({
   modelName,
   modelArtist,
 }) {
-  const [targetA, setTargetA] = React.useState({
-    target: [0, 0, 0],
-    position: [],
-  });
   const [screenshot, setScreenshot] = React.useState(null);
   const [armourColor, setArmourColor] = React.useState(null);
   const [shading, setShading] = React.useState(false);
@@ -90,6 +87,7 @@ export default function ModelLoader({
   const [partName, setPartName] = React.useState('Part');
   const canvas = useRef(null);
   let count = useRef(0);
+
   function dataURItoBlob(dataURI) {
     var binary = atob(dataURI.split(',')[1]);
     var array = [];
@@ -552,7 +550,7 @@ export default function ModelLoader({
 
             <Canvas
               pixelRatio={[1, 2]}
-              camera={{ position: targetA.position, fov: 10, far: 700 }}
+              camera={{ position: [0, 0, 0], fov: 10, far: 700 }}
               ref={canvas}
               gl={{ preserveDrawingBuffer: true }}
               style={{
@@ -655,12 +653,10 @@ export default function ModelLoader({
                 )}
               </Suspense>
               <Camera
-                target={{ target: targetA.target, position: [4, -40, 300] }}
-                setTargetA={setTargetA}
                 rotate={0}
                 enablePan={false}
                 enableZoom={false}
-                backforth="0,20"
+                backforth="0,80"
               />
               {/*
               <OrbitControls
@@ -670,7 +666,80 @@ export default function ModelLoader({
                 autoRotateSpeed={5}
                 />*/}
             </Canvas>
-            {/*  <Ads modelArtist={modelArtist} />*/}
+            <Particles
+              options={{
+                background: {
+                  color: {
+                    value: '#0d47a1',
+                  },
+                },
+                fpsLimit: 120,
+                interactivity: {
+                  events: {
+                    onClick: {
+                      enable: true,
+                      mode: 'push',
+                    },
+                    onHover: {
+                      enable: true,
+                      mode: 'repulse',
+                    },
+                    resize: true,
+                  },
+                  modes: {
+                    push: {
+                      quantity: 4,
+                    },
+                    repulse: {
+                      distance: 200,
+                      duration: 0.4,
+                    },
+                  },
+                },
+                particles: {
+                  color: {
+                    value: '#ffffff',
+                  },
+                  links: {
+                    color: '#ffffff',
+                    distance: 150,
+                    enable: true,
+                    opacity: 0.5,
+                    width: 1,
+                  },
+                  collisions: {
+                    enable: true,
+                  },
+                  move: {
+                    direction: 'none',
+                    enable: true,
+                    outModes: {
+                      default: 'bounce',
+                    },
+                    random: false,
+                    speed: 6,
+                    straight: false,
+                  },
+                  number: {
+                    density: {
+                      enable: true,
+                      area: 800,
+                    },
+                    value: 80,
+                  },
+                  opacity: {
+                    value: 0.5,
+                  },
+                  shape: {
+                    type: 'circle',
+                  },
+                  size: {
+                    value: { min: 1, max: 5 },
+                  },
+                },
+                detectRetina: true,
+              }}
+            />
           </Row>
         </PartNameContext.Provider>
       </Column>
