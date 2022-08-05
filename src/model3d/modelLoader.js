@@ -71,7 +71,10 @@ export default function ModelLoader({
   modelName,
   modelArtist,
 }) {
-  const [targetA, setTargetA] = React.useState({ target: [], position: [] });
+  const [targetA, setTargetA] = React.useState({
+    target: [0, 0, 0],
+    position: [],
+  });
   const [screenshot, setScreenshot] = React.useState(null);
   const [armourColor, setArmourColor] = React.useState(null);
   const [shading, setShading] = React.useState(false);
@@ -549,7 +552,7 @@ export default function ModelLoader({
 
             <Canvas
               pixelRatio={[1, 2]}
-              camera={{ position: [0, 200, 250], fov: 10, far: 700 }}
+              camera={{ position: targetA.position, fov: 10, far: 700 }}
               ref={canvas}
               gl={{ preserveDrawingBuffer: true }}
               style={{
@@ -652,12 +655,12 @@ export default function ModelLoader({
                 )}
               </Suspense>
               <Camera
-                target={{ target: [10, 14, 10], position: [4, 4, 4] }}
+                target={{ target: targetA.target, position: [4, -40, 300] }}
                 setTargetA={setTargetA}
                 rotate={0}
                 enablePan={false}
                 enableZoom={false}
-                backforth="-20,0"
+                backforth="0,20"
               />
               {/*
               <OrbitControls

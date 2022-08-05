@@ -14,7 +14,6 @@ const animateCamera = (camera, controls, cameraSettings, callBack) => {
     to.py = position.y;
     to.pz = position.z;
   }
-  console.log('from::', from);
 
   if (target) {
     from.tx = controls.target.x;
@@ -24,7 +23,6 @@ const animateCamera = (camera, controls, cameraSettings, callBack) => {
     to.ty = target.y;
     to.tz = target.z;
   }
-
   return new TWEEN.Tween(from)
     .to(to, duration ?? 5000)
     .easing(TWEEN.Easing.Sinusoidal.InOut)
@@ -40,7 +38,7 @@ const animateCamera = (camera, controls, cameraSettings, callBack) => {
         // console.log(controls.target);
         controls.minDistance = 100;
       }
-      // controls.update();
+      //controls.update();
     })
     .onComplete(() => {
       controls.enabled = true;
