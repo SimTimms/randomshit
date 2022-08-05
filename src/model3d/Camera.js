@@ -23,6 +23,7 @@ function CameraControlsTween({
   } = useThree();
   const animateToLookAt = useCallback(
     (destination, factor = 1.0) => {
+      console.log(destination);
       const { camera: position, target, fov } = destination;
 
       if (position && target && controls && fov) {
@@ -66,6 +67,7 @@ function CameraControlsTween({
   );
 
   useEffect(() => {
+    console.log(target);
     animateToLookAt({
       target: target.target,
       camera: target.position,

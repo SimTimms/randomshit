@@ -651,8 +651,8 @@ export default function ModelLoader({
                 )}
               </Suspense>
               <Camera
-                target="0,-4,0"
-                setTargetA="0,0,0"
+                target={{ target: [10, 14, 10], position: [4, 4, 4] }}
+                setTargetA="10,10,0"
                 rotate={0}
                 enablePan={false}
                 enableZoom={false}
