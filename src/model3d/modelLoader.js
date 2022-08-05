@@ -71,6 +71,7 @@ export default function ModelLoader({
   modelName,
   modelArtist,
 }) {
+  const [targetA, setTargetA] = React.useState({ target: [], position: [] });
   const [screenshot, setScreenshot] = React.useState(null);
   const [armourColor, setArmourColor] = React.useState(null);
   const [shading, setShading] = React.useState(false);
@@ -652,7 +653,7 @@ export default function ModelLoader({
               </Suspense>
               <Camera
                 target={{ target: [10, 14, 10], position: [4, 4, 4] }}
-                setTargetA="10,10,0"
+                setTargetA={setTargetA}
                 rotate={0}
                 enablePan={false}
                 enableZoom={false}
