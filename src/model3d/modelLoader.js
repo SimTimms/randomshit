@@ -14,19 +14,12 @@ import { Typography } from '@mui/material';
 import { PartNameContext } from '../context';
 import Camera from './Camera';
 import Controls from './Controls';
-import { useGLTF } from '@react-three/drei';
 import Tilt from 'react-parallax-tilt';
-import Ads from './Ads';
 import { paints } from './paints';
 import mp3dLogo from '../assets/branding/mp3dlogoinsta.png';
 import { partNames } from './partNames';
 import ultra from '../assets/ultra.png';
-import baal from '../assets/baal.jpg';
-import snow from '../assets/snow.jpg';
 import jungle from '../assets/jungle.jpg';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
-import ParticlesA from './Particles';
 
 function Loader() {
   const { progress } = useProgress();
@@ -70,21 +63,10 @@ export default function ModelLoader({
   panels,
   setPanels,
   back,
-  login,
-  history,
   markings,
   profilePriority,
   modelName,
-  modelArtist,
 }) {
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
-
-  const particlesLoaded = (container) => {
-    console.log('done');
-  };
-
   const [screenshot, setScreenshot] = React.useState(null);
   const [armourColor, setArmourColor] = React.useState(null);
   const [shading, setShading] = React.useState(false);
@@ -213,14 +195,7 @@ export default function ModelLoader({
                 </Row>
               )}
             </Row>
-            {/*
-            <CircleButton
-              title="Details"
-              icon="details"
-              onClickEvent={() =>
-                setPanels(panels === 'unitDetails' ? '' : 'unitDetails')
-              }
-            />*/}
+
             <Button
               menuItem={{
                 name: 'Instagram',
@@ -556,7 +531,6 @@ export default function ModelLoader({
                 </div>
               </div>
             )}
-            <ParticlesA zIndex={0} speed={2} />
             <Canvas
               pixelRatio={[1, 2]}
               camera={{ position: [0, 0, 0], fov: 10, far: 700 }}
@@ -667,13 +641,12 @@ export default function ModelLoader({
                 enableZoom={false}
                 backforth="0,80"
               />
-              {/*
               <OrbitControls
                 target={[0, 0, 0]}
                 maxDistance={500}
                 autoRotate={rotate}
                 autoRotateSpeed={5}
-                />*/}
+              />
             </Canvas>
           </Row>
         </PartNameContext.Provider>

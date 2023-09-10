@@ -261,36 +261,6 @@ export default function Mesh({
         material-roughness={metals.indexOf(meshColor) > -1 ? 0.5 : 1}
       />
       {decalItem && <mesh geometry={geometry} material={decalItem} />}
-      {partName && (
-        <group position={[0, -3, 0]}>
-          <Html center={true}>
-            <div
-              style={{
-                width: '100vw',
-                textAlign: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <div
-                style={{
-                  color: 'rgba(0,0,0,0.5)',
-                  textAlign: 'center',
-                  backgroundColor: 'rgba(0,0,0,0.2)',
-                  padding: 5,
-                  borderRadius: 2,
-                  width: 200,
-                  boxShadow: 'inset 3px 3px 5px rgba(0,0,0,0.3)',
-                  fontFamily: 'Roboto,sans-serif',
-                }}
-              >
-                {getColor(partName)}
-              </div>
-            </div>
-          </Html>
-        </group>
-      )}
     </group>
   );
 }

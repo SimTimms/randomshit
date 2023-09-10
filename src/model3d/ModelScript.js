@@ -161,25 +161,6 @@ export default function ModelScript({
                     {node(nodeChildArr, nodes)}
                   </MeshShade>
                 )}
-                {/*
-                <lineSegments
-                  geometry={edges}
-                  renderOrder={100}
-                  scale={item.scale}
-                  position={[
-                    rNbr(item.position.x),
-                    rNbr(item.position.y),
-                    rNbr(item.position.z),
-                  ]}
-                  rotation={[
-                    rDeg(item.rotation.x),
-                    rDeg(item.rotation.y),
-                    rDeg(item.rotation.z),
-                  ]}
-                >
-                  <lineBasicMaterial />
-                </lineSegments>
-                */}
               </group>
             );
           }

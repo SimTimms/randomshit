@@ -1,15 +1,7 @@
 import React from 'react';
 import AppLayout from '../layouts/app';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import PreviewLayout from '../layouts/preview';
-import {
-  FeaturedCreativeWidget,
-  CreativeRosterWidget,
-  FeaturedKickstarters,
-  FeaturedCreativeMiniWidget,
-  JobDescriptionWidget,
-  PublicJobWidget,
-} from '../widgets';
+
 import ModelApp from '../layouts/app/modelApp';
 
 export default function AuthRoutes({ theme, props: { ...props } }) {

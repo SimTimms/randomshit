@@ -4,8 +4,6 @@ import ModelRouterApp from '../../model3d/ModelRouterApp';
 import gql from 'graphql-tag';
 import HeaderGallery from '../../widgets/headerGallery';
 import ChooseModelPublic from '../../widgets/games/chooseModelPublic';
-import { Typography } from '@mui/material';
-import patreon from '../../assets/patreon.png';
 import { Row, MenuButtonStandard } from '../../components';
 import mp3dmini from '../../assets/branding/mp3dmini.png';
 import youtube from '../../assets/social/youtube.png';
@@ -74,7 +72,7 @@ export default function ModelApp({ basic, ...props }) {
     );
 
     setPartnerId('6210027ddaf8b40016130d93');
-    setBoxId('61d5a0327d31f80016bfa2be');
+    //setBoxId('61d5a0327d31f80016bfa2be');
   }, [boxID, modelID, props]);
 
   return (
